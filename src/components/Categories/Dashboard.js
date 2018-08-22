@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import CategoryForm from './CategoryForm';
 import styles from './Categories.css';
 
 class Dashboard extends Component {
@@ -7,6 +8,8 @@ class Dashboard extends Component {
     return ( 
       <div className={styles.categories}>
         <h2>Dashboard Component</h2>
+
+        <CategoryForm />
       </div>
     );
   }
