@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import Category from './Category';
 
 class Categories extends Component {
   
@@ -7,6 +8,8 @@ class Categories extends Component {
     return (
       <div>
         <h3>Categories Component</h3>
+
+        <Category />
       </div>
     );
   }
