@@ -1,7 +1,11 @@
-:local(.app) {
+:local(.header) {
 
-  h1 {
-    color: #2c3e50;
+  display: flex;
+  font-family: 'Roboto', sans-serif;
+  padding: 5px;
+  justify-content: center;
+  
+  ul {
+    list-style: none;
   }
-
 }
