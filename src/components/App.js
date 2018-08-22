@@ -1,4 +1,6 @@
 import React, { Component } from 'react';
+import Dashboard from './Dashboard';
+import styles from './App.css';
 
 class App extends Component {
 
@@ -6,8 +8,9 @@ class App extends Component {
   render() {
 
     return (
-      <div>
-        <h3>HELLO WORLD!</h3>
+      <div className={styles.app}>
+        <h1>HELLO WORLD!</h1>
+        <Dashboard/>
       </div>
     );
   }
