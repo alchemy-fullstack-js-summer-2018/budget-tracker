@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { remove } from './actions';
 
-class CategoryItem extends Component {
+export class CategoryItem extends Component {
   static propTypes = {
     category: PropTypes.object.isRequired,
     onEdit: PropTypes.func.isRequired,
