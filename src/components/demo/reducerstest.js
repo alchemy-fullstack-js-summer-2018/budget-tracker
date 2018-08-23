@@ -1,6 +1,6 @@
 import { count, INCREMENT, DECREMENT, CHANGE } from './reducers';
 
-describe.only('Demo reducers', () => {
+describe('Demo reducers', () => {
 
   it('Initializes count to 0', () => {
     const state = count(undefined, {});
