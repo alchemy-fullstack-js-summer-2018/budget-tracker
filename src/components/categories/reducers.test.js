@@ -29,9 +29,9 @@ describe('Categories Reducers', () => {
   });
   
   it('Adds a category', () => {
-    const category1 = { name: 'Automobile' };
-    const category2 = { name: 'Food & Dining' };
-    const category3 = { name: 'Utilities' };
+    const category1 = { name: 'Automobile', budget: 800 };
+    const category2 = { name: 'Groceries', budget: 500 };
+    const category3 = { name: 'Entertainment', budget: 500 };
 
     const state = categories([category1, category2], {
       type: CATEGORY_ADD,
@@ -39,6 +39,21 @@ describe('Categories Reducers', () => {
     });
 
     expect(state).toEqual([category1, category2, category3]);
+  });
+
+  it('Updates a category', () => {
+    const category1 = { name: 'Automobile', budget: 800 };
+    const category2 = { name: 'Groceries', budget: 500 };
+    const category3 = { name: 'Entertainment', budget: 500 };
+
+    const updated = { name: 'Entertainment', budget: 10000 };
+
+    const state = categories([category1, category2, category3], {
+      type: CATEGORY_UPDATE,
+      payload: updated
+    });
+
+    expect(state).toEqual([category1, category2, updated]);
   });
 
 });
