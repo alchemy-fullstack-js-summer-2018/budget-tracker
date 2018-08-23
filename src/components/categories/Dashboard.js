@@ -21,7 +21,7 @@ class Dashboard extends Component {
       <div>
         <section>
           <h3>Add a new category</h3>
-          {/* <CategoryForm/> */}
+          <CategoryForm/>
         </section>
       </div>
     );
