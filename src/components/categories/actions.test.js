@@ -1,11 +1,6 @@
+import { load, add, update, remove } from './actions';
 import { CATEGORY_LOAD, CATEGORY_ADD } from './reducers';
 import data from '../../services/category-data';
-import { 
-  load,
-  add,
-  update,
-  remove
-} from './actions';
 
 describe('Categories actions', () => {
   it('loads the animals, two by two', () => {
@@ -32,8 +27,9 @@ describe('Categories actions', () => {
   });
 
   it('removes a category', () => {
-    remove('abc');
-    const action = load();
-    expect(action.length).toBe(2);
+    const newCategory = { timestamp: new Date(), name: 'dining', budget: 150 };
+    const key = add(newCategory).payload.key;
+    const action = remove(key);
+    expect(action.payload).toBe(key);
   });
 });
