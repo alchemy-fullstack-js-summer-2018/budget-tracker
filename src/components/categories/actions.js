@@ -9,6 +9,7 @@ export const load = () => ({
 
 export const add = category => {
   category.key = shortid.generate();
+  category.timestamp = (new Date()).toString();
   return {
     type: CATEGORY_ADD,
     payload: category

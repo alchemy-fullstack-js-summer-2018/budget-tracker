@@ -1,9 +1,9 @@
 import { load, add, update, remove } from './actions';
-import { CATEGORY_LOAD, CATEGORY_ADD } from './reducers';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './reducers';
 import data from '../../services/category-data';
 
 describe('Categories actions', () => {
-  it('loads the animals, two by two', () => {
+  it('loads the categories', () => {
     const action = load();
     expect(action).toEqual({
       type: CATEGORY_LOAD,
@@ -11,25 +11,30 @@ describe('Categories actions', () => {
     });
   });
 
-  it('adds a category with a generated short id', () => {
+  it('adds a category', () => {
     const newCategory = { timestamp: new Date(), name: 'dining', budget: 150 };
     const action = add(newCategory);
-    expect(action.payload.key).toBeDefined();
-    expect(action.type).toBe(CATEGORY_ADD);
+    expect(action).toEqual({
+      type: CATEGORY_ADD,
+      payload: newCategory
+    });
   });
 
   it('updates a category', () => {
     const newCategory = { timestamp: new Date(), name: 'dining', budget: 150 };
-    add(newCategory);
-    newCategory.name = 'bars';
-    const updateAction = update(newCategory);
-    expect(updateAction.payload.name).toBe('bars');
+    const action = update(newCategory);
+    expect(action).toEqual({
+      type: CATEGORY_UPDATE,
+      payload: newCategory
+    });
   });
 
   it('removes a category', () => {
-    const newCategory = { timestamp: new Date(), name: 'dining', budget: 150 };
-    const key = add(newCategory).payload.key;
+    const key = 'a123kjl';
     const action = remove(key);
-    expect(action.payload).toBe(key);
+    expect(action).toEqual({
+      type: CATEGORY_REMOVE,
+      payload: key
+    });
   });
 });
