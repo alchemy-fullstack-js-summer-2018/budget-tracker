@@ -1,4 +1,4 @@
-import { CATEGORY_LOAD } from './reducers';
+import { CATEGORY_LOAD, CATEGORY_ADD } from './reducers';
 import data from '../../services/category-data';
 import { 
   load,
@@ -19,6 +19,7 @@ describe('Categories actions', () => {
   it('adds an animal with a generated short id', () => {
     const newCategory = { timestamp: new Date(), name: 'dining', budget: 150 };
     const action = add(newCategory);
-    expect(action.key).toBeDefined();
+    expect(action.payload.key).toBeDefined();
+    expect(action.type).toBe(CATEGORY_ADD);
   });
 });
