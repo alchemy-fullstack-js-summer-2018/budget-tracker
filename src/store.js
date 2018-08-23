@@ -1,8 +1,8 @@
 import { createStore } from 'redux';
-import { animals } from './components/animals/reducers';
+import { categories } from './components/reducers';
 
 const store = createStore(
-  animals,
+  categories,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
