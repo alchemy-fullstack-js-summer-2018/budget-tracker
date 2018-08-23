@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Categories from './Categories';
+import CategoryForm from './CategoryForm';
 import { load, add } from './actions';
 
 
@@ -25,7 +26,7 @@ class Dashboard extends Component {
       <div>
         <section>
           <h2>Dashboard</h2>
-          <categoryForm onComplete={add}/>
+          <CategoryForm onComplete={add}/>
         </section>
 
         {categories && 
