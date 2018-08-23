@@ -4,6 +4,7 @@ import Header from './Header';
 import Home from './Home';
 import Demo from './demo/Demo';
 import styles from './App.css';
+import Dashboard from './categories/Dashboard';
 
 class App extends Component {
 
@@ -21,6 +22,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route exact path="/demo" component={Demo}/>
+              <Route exact path="/categories" component={Dashboard}/>
               <Redirect to="/demo"/>
             </Switch>
           </main>

@@ -20,7 +20,7 @@ class Header extends Component {
 
         <section className="header-container">
           <div className="logo">
-            <h1>Animals</h1>
+            <h1>Budget</h1>
           </div>
           <nav>
             <ul>
@@ -31,7 +31,7 @@ class Header extends Component {
                 <NavLink exact activeClassName="active" to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName="active" to="/animals">Animals</NavLink>
+                <NavLink exact activeClassName="active" to="/animals">Categories</NavLink>
               </li>
               
             </ul>
