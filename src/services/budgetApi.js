@@ -1,7 +1,7 @@
 
 import { put, post, get, del } from './request';
 
-const URL = 'https://todo-9ea8e.firebaseio.com';
+const URL = 'https://notes-5f0ae.firebaseio.com/';
 const CATEGORY_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
