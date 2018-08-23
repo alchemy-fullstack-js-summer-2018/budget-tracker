@@ -20,7 +20,7 @@ export const update = category => ({
   payload: category
 });
 
-export const remove = id => ({
+export const remove = key => ({
   type: CATEGORY_REMOVE,
-  payload: id
+  payload: key
 });

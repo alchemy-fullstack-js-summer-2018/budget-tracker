@@ -14,29 +14,46 @@ describe('Actions', () => {
   });
 
   it('should create an action that adds a category', () => {
+    const category = {
+      timestamp: '2018-8-23',
+      name: 'travel',
+      budget: 1000
+    };
     const expectedAction = {
       type: reducers.CATEGORY_ADD,
-      payload: data
+      payload: category
     };
 
-    expect(actions.add(data)).toEqual(expectedAction);
+    expect(actions.add(category).payload.key).toBeDefined();
+    expect(actions.add(category)).toEqual(expectedAction);
   });
 
   it('should create an action that upates a category', () => {
+    const category = {
+      timestamp: '2018-8-24',
+      name: 'travel',
+      budget: 2000
+    };
     const expectedAction = {
       type: reducers.CATEGORY_UPDATE,
-      payload: data
+      payload: category
     };
 
-    expect(actions.update(data)).toEqual(expectedAction);
+    expect(actions.update(category)).toEqual(expectedAction);
   });
 
   it('should create an action that removes a category', () => {
+    const category = {
+      timestamp: '2018-8-24',
+      name: 'travel',
+      budget: 2000
+    };
+    const key = actions.add(category).payload.key;
     const expectedAction = {
       type: reducers.CATEGORY_REMOVE,
-      payload: data
+      payload: key
     };
 
-    expect(actions.remove(data)).toEqual(expectedAction);
+    expect(actions.remove(key)).toEqual(expectedAction);
   });
 });
