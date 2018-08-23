@@ -21,7 +21,7 @@ class Header extends Component {
         <section className="header-container">
           <div>
           
-            <h1>Categories</h1>
+            <h1>Budget Tracker</h1>
           </div>
           <nav>
             <ul>
