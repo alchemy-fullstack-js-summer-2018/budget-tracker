@@ -1,6 +1,11 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 
 class CategoryItem extends Component {
+
+  static propTypes = {
+    category: PropTypes.object.isRequired
+  };
 
   render() {
     return (

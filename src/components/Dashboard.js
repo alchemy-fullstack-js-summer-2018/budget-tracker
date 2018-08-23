@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Categories from './categories/Categories';
 import CategoryForm from './categories/CategoryForm';
-import { load, add } from './actions';
+import { load, add } from './categories/actions';
 
 class Dashboard extends Component {
 
