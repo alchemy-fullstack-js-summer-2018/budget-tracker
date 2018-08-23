@@ -3,7 +3,7 @@ import data from '../../services/category-data';
 import { 
   load,
   add,
-  // update,
+  update,
   // remove
 } from './actions';
 
@@ -16,10 +16,18 @@ describe('Categories actions', () => {
     });
   });
 
-  it('adds an animal with a generated short id', () => {
+  it('adds a category with a generated short id', () => {
     const newCategory = { timestamp: new Date(), name: 'dining', budget: 150 };
     const action = add(newCategory);
     expect(action.payload.key).toBeDefined();
     expect(action.type).toBe(CATEGORY_ADD);
+  });
+
+  it('updates a category', () => {
+    const newCategory = { timestamp: new Date(), name: 'dining', budget: 150 };
+    add(newCategory);
+    newCategory.name = 'bars';
+    const updateAction = update(newCategory);
+    expect(updateAction.payload.name).toBe('bars');
   });
 });
