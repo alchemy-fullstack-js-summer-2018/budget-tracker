@@ -32,11 +32,8 @@ class CategoryForm extends Component {
     const category = { name, budget };
     if(key) category.key = key;
 
-    this.props.onComplete(category)
-      .then(() => {
-        if(!key) return;
-        this.setState({ name: '', budget: 0 });
-      });
+    this.props.onComplete(category);
+    this.setState({ name: '', budget: 0 });
   };
   
   render() { 
@@ -48,7 +45,7 @@ class CategoryForm extends Component {
         <label>Category name:<input type="text" name="name" value={name} onChange={this.handleChange}></input></label>
         <label>Budget:<input type="number" name="budget" value={budget} onChange={this.handleChange}></input></label>
         <p>
-          <button type="submit">{key ? 'Update' : 'Add'}</button>
+          <button type="submit">{ key ? 'Update' : 'Add' }</button>
           {key && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
