@@ -43,12 +43,12 @@ class CategoryForm extends Component {
     const { onCancel } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit}>
+      <form className="category-form" onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
         <InputControl name="budget" value={budget} onChange={this.handleChange}/>
         <p>
-          <button type="submit">{ key ? 'Update' : 'Add' }</button>
-          {key && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button className="add-update-button" type="submit">{ key ? 'Update' : 'Add' }</button>
+          {key && <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );
@@ -56,8 +56,8 @@ class CategoryForm extends Component {
 }
 
 const InputControl = (props) => (
-  <p>
-    <label>
+  <p className="category-p">
+    <label className="category-l">
       {props.name}:
       <input {...props} required/>
     </label>

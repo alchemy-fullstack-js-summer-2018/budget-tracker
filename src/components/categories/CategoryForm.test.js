@@ -5,7 +5,7 @@ import toJSON from 'enzyme-to-json';
 
 describe('Category form', () => {
 
-  it('Renders add if no category prop', () => {
+  it.skip('Renders add if no category prop', () => {
     const handleComplete = jest.fn();
     const promise = Promise.resolve();
     handleComplete.mockReturnValueOnce(promise);

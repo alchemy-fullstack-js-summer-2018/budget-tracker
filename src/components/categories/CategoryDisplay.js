@@ -15,7 +15,7 @@ class CategoryDisplay extends Component {
     const { category, onEdit, remove } = this.props;
 
     return (
-      <p>
+      <p className="cf-list">
         {category.name} has a budget of ${category.budget}
         <button name="Edit" onClick={onEdit}>✎</button> 
         <button name="Delete" onClick={() => remove(category.key)}>🗑</button>

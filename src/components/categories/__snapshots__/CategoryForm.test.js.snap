@@ -209,6 +209,7 @@ exports[`Category form Renders edit if there is category prop 1`] = `
   onComplete={[MockFunction]}
 >
   <form
+    className="category-form"
     onSubmit={[Function]}
   >
     <InputControl
@@ -216,8 +217,12 @@ exports[`Category form Renders edit if there is category prop 1`] = `
       onChange={[Function]}
       value="car"
     >
-      <p>
-        <label>
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
           name
           :
           <input
@@ -234,8 +239,12 @@ exports[`Category form Renders edit if there is category prop 1`] = `
       onChange={[Function]}
       value={5000}
     >
-      <p>
-        <label>
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
           budget
           :
           <input
@@ -249,11 +258,13 @@ exports[`Category form Renders edit if there is category prop 1`] = `
     </InputControl>
     <p>
       <button
+        className="add-update-button"
         type="submit"
       >
         Update
       </button>
       <button
+        className="cancel-button"
         onClick={[MockFunction]}
         type="button"
       >
