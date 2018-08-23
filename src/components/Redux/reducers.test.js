@@ -1,10 +1,10 @@
 import { 
   reducer,
-  category,
   CATEGORY_LOAD,
   /* CATEGORY_ADD,
   CATEGORY_UPDATE,
   CATEGORY_REMOVE */  } from './reducers';
+import { categories } from '../Categories/Categories';
 
 describe('Reducers', () => {
 
@@ -16,7 +16,7 @@ describe('Reducers', () => {
   it('loads a category', () => {
     const payload = [{}, {}];
 
-    const state = category([], {
+    const state = categories([], {
       type: CATEGORY_LOAD,
       payload
     });
