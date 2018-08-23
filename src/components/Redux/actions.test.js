@@ -12,4 +12,13 @@ describe('Actions', () => {
 
     expect(actions.load(data)).toEqual(expectedAction);
   });
+
+  it('should create an action that adds a category', () => {
+    const expectedAction = {
+      type: reducers.CATEGORY_ADD,
+      payload: data
+    };
+
+    expect(actions.add(data)).toEqual(expectedAction);
+  });
 });
