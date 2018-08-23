@@ -9,10 +9,7 @@ describe('Category form', () => {
     const wrapper = mount(<CategoryForm onComplete={handleComplete}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
 
-    const category = {
-      name: 'clothes',
-      budget: 500
-    };
+    const category = { name: 'clothes', budget: 500 };
 
     wrapper.find('input[name="name"]').simulate('change', {
       target: {
@@ -33,5 +30,36 @@ describe('Category form', () => {
     const calls = handleComplete.mock.calls;
     expect(calls.length).toBe(1);
     expect(calls[0][0]).toEqual(category);
+  });
+
+  it('renders edit if there is category prop', () => {
+    const handleComplete = jest.fn();
+    const handleCancel = jest.fn();
+
+    const category = { name: 'clothes', budget: 500 };
+
+    const wrapper = mount(<CategoryForm
+      onComplete={handleComplete}
+      onCancel={handleCancel}
+      category={category}
+    />);
+
+    expect(toJSON(wrapper)).toMatchSnapshot();
+
+    wrapper.find('input[name="budget"]').simulate('change', {
+      target: {
+        name: 'budget',
+        value: 200
+      }
+    });
+
+    wrapper.find('button[type="submit"]').simulate('submit');
+
+    const calls = handleComplete.mock.calls;
+    expect(calls.length).toBe(1);
+    expect(calls[0][0]).toEqual({
+      ...category,
+      budget: 200
+    });
   });
 });
