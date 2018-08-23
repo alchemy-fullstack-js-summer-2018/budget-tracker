@@ -25,10 +25,10 @@ class Header extends Component {
           <nav>
             <ul>
               <li>
-                <NavLink exact activeClassName="active" to="/">Landing</NavLink>
+                <NavLink exact activeClassName="active" to="/Landing">Landing</NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName="active" to="/dashboard">Dashboard</NavLink> 
+                <NavLink exact activeClassName="active" to="/Dashboard">Dashboard</NavLink> 
               </li>
           
             </ul>
