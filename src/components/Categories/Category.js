@@ -15,28 +15,24 @@ class Category extends Component {
     category: PropTypes.object.isRequired,
     update: PropTypes.func.isRequired
   };
+
+  handleEdit = () => {
+    this.setState({ editing: true });
+  };
+  
+  handleComplete = category => {
+    const { update } = this.props;
+    update(category);
+    this.handleEndEdit();
+  };
   
   handleEndEdit = () => {
     this.setState({ editing: false });
   };
 
-  handleComplete = category => {
-    const { update } = this.props;
-    update(category);
-    this.handleEndEdit;
-  };
-
-  handleEdit = () => {
-    this.setState({ editing: true });
-  };
-
-  // handleDelete = key => {
-  //   this.setState({ });
-  // };
-
   render() { 
-    const { category } = this.props;
     const { editing } = this.state;
+    const { category } = this.props;
     
     return (
       <li style={{ color: 'green' }}>
@@ -50,7 +46,6 @@ class Category extends Component {
           : <CategoryItem 
             category={category}
             onEdit={this.handleEdit}
-            onDelete={this.handleDelete}
           />
         }
       </li>
