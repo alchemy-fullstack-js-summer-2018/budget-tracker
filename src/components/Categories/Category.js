@@ -4,28 +4,38 @@ import { connect } from 'react-redux';
 import CategoryForm from './CategoryForm';
 import CategoryItem from './CategoryItem';
 //TODO: update -- don't forget to connect
-//TODO: edit
 
 class Category extends Component {
+
+  state = {
+    editing: false
+  };
 
   static propTypes = {
     category: PropTypes.object.isRequired
   };
   
+  handleEndEdit = () => {
+    this.setState({ editing: false });
+  };
+
   render() { 
     const { category } = this.props;
+    const { editing } = this.state;
     
     return (
       <li style={{ color: 'green' }}>
         <h4>Category Component</h4>
 
-        <CategoryForm
-          category={category}
-        />
-
-        <CategoryItem 
-          category={category}
-        />
+        {editing
+          ? <CategoryForm
+            category={category}
+            onCancel={this.handleEndEdit}
+          />
+          : <CategoryItem 
+            category={category}
+          />
+        }
       </li>
     );
   }
