@@ -1,3 +1,5 @@
+import { CATEGORY_LOAD } from './reducers';
+import data from '../../services/category-data';
 import { 
   load,
   // add,
@@ -9,8 +11,8 @@ describe('Categories actions', () => {
   it('loads the animals, two by two', () => {
     const action = load();
     expect(action).toEqual({
-      type: 'CATEGORY_LOAD',
-      payload: 'data'
+      type: CATEGORY_LOAD,
+      payload: data
     });
   });
 });

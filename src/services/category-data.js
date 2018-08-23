@@ -1,4 +1,4 @@
-[
+export default [
   {
     timestamp: new Date(),
     name: 'entertainment',
