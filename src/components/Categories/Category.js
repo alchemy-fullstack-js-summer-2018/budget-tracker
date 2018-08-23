@@ -7,13 +7,13 @@ class Category extends Component {
   render() { 
     
     return (
-      <div style={{ color: 'green' }}>
+      <li style={{ color: 'green' }}>
         <h4>Category Component</h4>
 
         <CategoryForm/>
 
         <CategoryItem />
-      </div>
+      </li>
     );
   }
 }
