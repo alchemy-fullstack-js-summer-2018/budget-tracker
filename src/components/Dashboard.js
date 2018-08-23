@@ -5,11 +5,11 @@ import Categories from './Categories';
 import CategoryForm from './CategoryForm';
 import { load, add } from './actions';
 
-class CategoriesContainer extends Component {
+class Dashboard extends Component {
 
     static propTypes = {
       categories: PropTypes.array,
-      load: PropTypes.func.inRequired,
+      load: PropTypes.func.isRequired,
       add: PropTypes.func.isRequired
     };
 
@@ -45,4 +45,4 @@ export default connect(
     categories: state
   }),
   { load, add }
-)(CategoriesContainer);
+)(Dashboard);

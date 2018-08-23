@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CategoryDisplay from './CategoryDisplay';
-import CategoryFrom from './CategoryForm';
+import CategoryForm from './CategoryForm';
 import { update } from './actions';
 
 class Category extends Component {
@@ -44,7 +44,7 @@ class Category extends Component {
           />
           : <CategoryDisplay
             category={category}
-            oneEdit={this.handleEdit}
+            onEdit={this.handleEdit}
             onDelete={this.handleDelete}
           />
         }
