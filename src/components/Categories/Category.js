@@ -30,13 +30,16 @@ class Category extends Component {
     this.setState({ editing: true });
   };
 
+  // handleDelete = key => {
+  //   this.setState({ });
+  // };
+
   render() { 
     const { category } = this.props;
     const { editing } = this.state;
     
     return (
       <li style={{ color: 'green' }}>
-        <h4>Category Component</h4>
 
         {editing
           ? <CategoryForm
@@ -47,6 +50,7 @@ class Category extends Component {
           : <CategoryItem 
             category={category}
             onEdit={this.handleEdit}
+            onDelete={this.handleDelete}
           />
         }
       </li>
