@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { load, add, update } from '../Redux/actions';
+import { load, add } from '../Redux/actions';
 import CategoryForm from './CategoryForm';
 import Categories from './Categories';
 import styles from './Categories.css';
