@@ -20,4 +20,40 @@ class Category extends Component {
     this.setState({ editing: true });
   };
 
+  handleComplete =  category => {
+    const { update } = this.props;
+    update(category);
+    this.handleEndEdit();
+  };
+
+  handleEndEdit = () => {
+    this.setState({ editing: false });
+  };
+
+  render() {
+    const { editing } = this.state;
+    const { category } = this.props;
+
+    return (
+      <li>
+        {editing
+          ? <CategoryForm
+            category={category}
+            onComplete={this.handleComplete}
+            onCancel={this.handleEndEdit}
+          />
+          : <CategoryDisplay
+            category={category}
+            oneEdit={this.handleEdit}
+            onDelete={this.handleDelete}
+          />
+        }
+      </li>
+    );
+  }
 }
+
+export default connect(
+  null,
+  { update }
+)(Category);
