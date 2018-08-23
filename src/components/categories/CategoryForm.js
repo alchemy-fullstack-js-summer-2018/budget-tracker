@@ -12,7 +12,8 @@ class CategoryForm extends Component {
 
   static propTypes = {
     category: PropTypes.object,
-    onComplete: PropTypes.func.isRequired
+    onComplete: PropTypes.func.isRequired,
+    onCancel: PropTypes.func
   };
 
   componentDidMount() {
@@ -38,6 +39,7 @@ class CategoryForm extends Component {
 
   render() { 
     const { key, name, budget } = this.state;
+    const { onCancel } = this.props;
 
     return ( 
       <form onSubmit={this.handleSubmit}>
@@ -45,6 +47,7 @@ class CategoryForm extends Component {
         <InputControl name="budget" value={budget} onChange={this.handleChange}/>
         <p>
           <button type="submit">{key ? 'Update' : 'Add' }</button>
+          {key && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );
