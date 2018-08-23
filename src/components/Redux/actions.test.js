@@ -30,4 +30,13 @@ describe('Actions', () => {
 
     expect(actions.update(data)).toEqual(expectedAction);
   });
+
+  it('should create an action that removes a category', () => {
+    const expectedAction = {
+      type: reducers.CATEGORY_REMOVE,
+      payload: data
+    };
+
+    expect(actions.remove(data)).toEqual(expectedAction);
+  });
 });
