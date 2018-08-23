@@ -54,7 +54,7 @@ class CategoryForm extends Component {
           <p>
             <label>
             Budgeted Amount:&nbsp;
-              <input name="budget" value={budget} onChange={this.handleChange}></input>
+              <input name="budget" value={budget} type="number" onChange={this.handleChange}></input>
             </label>
           </p>
           <p>
