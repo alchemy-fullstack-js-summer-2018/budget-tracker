@@ -1,10 +1,9 @@
-
 import React, { Component } from 'react';
 import Counter from './Counter';
 import CountReporter from './CountReporter';
 
 class Demo extends Component {
-  render() { 
+  render() {
     return (
       <section>
         <h2>Redux Demos</h2>
@@ -14,5 +13,5 @@ class Demo extends Component {
     );
   }
 }
- 
+
 export default Demo;
