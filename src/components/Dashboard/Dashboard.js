@@ -25,7 +25,7 @@ class Dashboard extends Component {
     return (
       <div>
         <section>
-          <h2>Dashboard</h2>
+          <h2>Dashboard View</h2>
           <CategoryForm onComplete={add}/>
         </section>
 
