@@ -28,7 +28,7 @@ exports[`Category form Renders add if no category prop 1`] = `
     <InputControl
       name="budget"
       onChange={[Function]}
-      value={null}
+      value=""
     >
       <p>
         <label>
@@ -38,7 +38,7 @@ exports[`Category form Renders add if no category prop 1`] = `
             name="budget"
             onChange={[Function]}
             required={true}
-            value={null}
+            value=""
           />
         </label>
       </p>

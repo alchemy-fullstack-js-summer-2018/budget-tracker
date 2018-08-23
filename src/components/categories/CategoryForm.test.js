@@ -15,7 +15,8 @@ describe('Category form', () => {
 
     const category = {
       name: 'Car',
-      budget: 5000
+      budget: 5000,
+      timestamp: null
     };
 
     wrapper.find('input[name="name"]').simulate('change', {
