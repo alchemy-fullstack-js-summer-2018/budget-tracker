@@ -10,7 +10,7 @@ describe('Actions', () => {
       payload: data
     };
 
-    expect(actions.load(data)).toEqual(expectedAction);
+    expect(actions.load()).toEqual(expectedAction);
   });
 
   it('should create an action that adds a category', () => {
@@ -24,7 +24,6 @@ describe('Actions', () => {
       payload: category
     };
 
-    expect(actions.add(category).payload.key).toBeDefined();
     expect(actions.add(category)).toEqual(expectedAction);
   });
 
