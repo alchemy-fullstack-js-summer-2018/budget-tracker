@@ -1,5 +1,7 @@
-Budget Tracker - Lab 2 "Expenses" (Combine Reducers and Selectors)
+Budget Tracker - Lab 2 "Expenses"
 ===
+
+**Combine Reducers and Selectors**
 
 Today you'll add expenses that belong to categories.
 
@@ -11,7 +13,15 @@ Today you'll add expenses that belong to categories.
 
 ## Data 
 
-`expense` - in this app a expense should contain at least the following properties:
+### `category`
+
+Update each categroy to have an expenses property that is an array of expense object. Keep in mind that when 
+categories get loaded, the data will be split out into the `categories` reducers and an `expensesByCategory` reducer.
+
+### `expense`
+
+In this app an expense should contain at least the following properties:
+
 * `id` a uuid
 * `categoryId` an id that corresponds to an existing category
 * `timestamp` a date from when the category was created
@@ -124,3 +134,14 @@ need to use state and own props)
 
 ####  Documentation  
 Write a description of the project in your README.md
+
+## Rubric
+
+* Overall app functionality is correct **4pts**
+* Update Category (components, reducers, actions) **2pts**
+* Tested Category selectors **1pts**
+* Expense Components (Expenses, Expense, ExpenseItem, ExpenseForm) **4pts**
+* Tested Expense reducers and actions **4pts**
+* Tested Expense selectors **3pts**
+* Project and code consistency, cleanliness, and orgaganization **2pts**
+
