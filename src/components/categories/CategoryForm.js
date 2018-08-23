@@ -39,13 +39,13 @@ class CategoryForm extends Component {
   };
 
   render() { 
-    const { key, name, type } = this.state;
+    const { key, name, budget } = this.state;
     const { onCancel } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="type" value={type} onChange={this.handleChange}/>
+        <InputControl name="Name" value={name} onChange={this.handleChange}/>
+        <InputControl name="Budget" value={budget} onChange={this.handleChange}/>
         <p>
           <button type="submit">{ key ? 'Update' : 'Add' }</button>
           {key && <button type="button" onClick={onCancel}>Cancel</button>}
