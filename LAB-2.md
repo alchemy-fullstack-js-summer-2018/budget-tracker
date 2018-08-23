@@ -14,8 +14,8 @@ Today you'll add expenses that belong to categories.
 ## Data 
 
 ### `category`
-
-Update each categroy to have an expenses property that is an array of expense object. Keep in mind that when 
+s
+Update each category to have an expenses property that is an array of expense objects. Keep in mind that when 
 categories get loaded, the data will be split out into the `categories` reducers and an `expensesByCategory` reducer.
 
 ### `expense`
