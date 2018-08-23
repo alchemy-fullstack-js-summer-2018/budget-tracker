@@ -1,7 +1,7 @@
 import {
   categories,
   CATEGORY_LOAD,
-  // CATEGORIES_ADD,
+  CATEGORY_ADD,
   // CATEGORIES_UPDATE,
   // CATEGORIES_REMOVE,
 } from './reducers';
@@ -21,5 +21,18 @@ describe('categories reducers', () => {
     });
 
     expect(state).toBe(payload);
+  });
+
+  it('adds a category', () => {
+    const category1 = { name: '1' };
+    const category2 = { name: '2' };
+    const category3 = { name: '3' };
+
+    const state = categories([category1, category2], {
+      type: CATEGORY_ADD,
+      payload: category3
+    });
+
+    expect(state).toEqual([category1, category2, category3]);
   });
 });
