@@ -4,7 +4,7 @@ import {
   load,
   add,
   update,
-  // remove
+  remove
 } from './actions';
 
 describe('Categories actions', () => {
@@ -29,5 +29,11 @@ describe('Categories actions', () => {
     newCategory.name = 'bars';
     const updateAction = update(newCategory);
     expect(updateAction.payload.name).toBe('bars');
+  });
+
+  it('removes a category', () => {
+    remove('abc');
+    const action = load();
+    expect(action.length).toBe(2);
   });
 });
