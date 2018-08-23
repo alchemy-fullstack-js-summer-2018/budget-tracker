@@ -5,7 +5,6 @@ import Home from './Home';
 import Dashboard from './categories/Dashboard';
 
 class App extends Component {
-  state = {  }
   render() { 
 
     return ( 

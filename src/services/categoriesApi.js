@@ -3,7 +3,7 @@ import { put, post, get, del } from './request';
 const URL = 'https://rbt-budget.firebaseio.com/';
 const CATEGORIES_URL = `${URL}/categories`;
 
-const getCategoryUrl = key = `${CATEGORIES_URL}/${key}.json`;
+const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
 
 export const getCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
@@ -15,7 +15,7 @@ export const getCategories = () => {
           return each;
         })
         : [];
-    })
+    });
 };
 
 export const addCategory = (category) => {
@@ -23,7 +23,7 @@ export const addCategory = (category) => {
   return post(url, category)
     .then(res => {
       category.key = res.name;
-      return category
+      return category;
     });
 };
 
