@@ -1,9 +1,26 @@
-import { reducer } from './reducers';
+import { 
+  reducer,
+  category,
+  CATEGORY_LOAD,
+  /* CATEGORY_ADD,
+  CATEGORY_UPDATE,
+  CATEGORY_REMOVE */  } from './reducers';
 
 describe('Reducers', () => {
 
-  it('initializes state', () => {
+  it('initializes to empty array', () => {
     const state = reducer(undefined, {});
-    expect(state).toBe(0);
+    expect(state).toEqual([]);
+  });
+
+  it('loads a category', () => {
+    const payload = [{}, {}];
+
+    const state = category([], {
+      type: CATEGORY_LOAD,
+      payload
+    });
+
+    expect(state).toBe(payload);
   });
 });
