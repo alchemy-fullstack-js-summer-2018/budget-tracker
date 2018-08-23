@@ -1,7 +1,7 @@
 # Budget Tracker
 
 ## Project Description
-Stay tuned!
+A simple budget tracking app with budget categories (and soon expenses). Built with React and Redux. Tested with Jest and Enzyme.
 
 ## Developer
 Requires Node v10 or later.
@@ -13,6 +13,9 @@ Requires Node v10 or later.
 
 ### How to use API
 * Connect to server with `npm start`.
+* On the `Dashboard` page, create your budget by filling out the form with a new category and set budget. Click `Add`.
+* To go back and edit your categories, click on the `✏️`. 
+* Click `🗑️` to remove a category. 
 
 More to come...
 
