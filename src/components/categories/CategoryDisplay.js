@@ -13,7 +13,7 @@ class CategoryDisplay extends Component {
           Category: {category.name}
         </p>
         <p>Budget: {category.budget}</p>
-        <p>Created: {category.timeEntered}</p>
+        <p>Created: {category.timeStamp}</p>
 
       </div>
     );

@@ -11,7 +11,8 @@ class CategoryForm extends Component {
   };
 
   static propTypes = {
-    category: PropTypes.object
+    category: PropTypes.object,
+    onComplete: PropTypes.func.isRequired
   };
 
   componentDidMount() {
@@ -25,11 +26,21 @@ class CategoryForm extends Component {
     this.setState({ [target.name]: target.value });
   };
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { name, budget, key } = this.state;
+    const category = { name, budget };
+    if(key) category.key = key;
+
+    this.props.onComplete(category);
+    this.setState({ name: '', budget: '' });
+  };
+
   render() { 
     const { key, name, budget } = this.state;
 
     return ( 
-      <form>
+      <form onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
         <InputControl name="budget" value={budget} onChange={this.handleChange}/>
         <p>
