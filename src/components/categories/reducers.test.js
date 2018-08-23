@@ -1,6 +1,9 @@
 import {
   categories,
-  CATEGORY_ADD
+  CATEGORY_LOAD,
+  CATEGORY_ADD,
+  CATEGORY_UPDATE,
+  CATEGORY_REMOVE
 } from './reducers';
 
 describe('Categories Reducers', () => {
@@ -20,7 +23,7 @@ describe('Categories Reducers', () => {
       payload: category3
     });
 
-    expect(state).toBe([category1, category2, category3]);
+    expect(state).toEqual([category1, category2, category3]);
   });
 
 });
