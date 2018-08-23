@@ -19,7 +19,7 @@ export const getCategories = () => {
 };
 
 export const addCategory = (category) => {
-  const url = `${CATEGORIES_URL}.json`
+  const url = `${CATEGORIES_URL}.json`;
   return post(url, category)
     .then(res => {
       category.key = res.name;
