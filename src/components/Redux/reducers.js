@@ -1,9 +1,5 @@
 
-export function reducer(state, action) {
+export function reducer(state = 0/* , action */) {
 
-  switch(action.type) {
-
-  }
-  
-  return state;
+  return state; 
 }
