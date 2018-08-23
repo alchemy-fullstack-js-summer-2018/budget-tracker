@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
-import Home from './Home'
+import Home from './Home';
+import Dashboard from './categories/Dashboard';
 
 class App extends Component {
   state = {  }
