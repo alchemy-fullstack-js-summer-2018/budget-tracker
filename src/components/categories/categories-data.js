@@ -5,5 +5,5 @@ export default [
   // eslint-disable-next-line
   { key: "-LKTi4U-7iQyGe9m1Zy5", "name": "Groceries", "budget": 500 },
   // eslint-disable-next-line
-  { key: "-LKTi4U-7iQyGe9m1Zy5", "name": "Entertainment", "budget": 500 }
+  { key: "-LKTz5U-7iQyGe9m1Zy9", "name": "Entertainment", "budget": 500 }
 ];
