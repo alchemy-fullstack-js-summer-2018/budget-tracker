@@ -1,15 +1,25 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+//TODO: remove --> connnect
 
 class CategoryItem extends Component {
   
+  static propTypes = {
+    category: PropTypes.object.isRequired
+  };
+  
   render() { 
+    const { category } = this.props;
   
     return (
-      <div>
-        <h5>Category Item Component</h5>
-      </div>
+      <p>
+        Category: {category.name}, Budget: {category.budget}
+      </p>
     );
   }
 }
  
-export default CategoryItem;
+export default connect(
+  null
+)(CategoryItem);
