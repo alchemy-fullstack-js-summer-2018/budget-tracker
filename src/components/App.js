@@ -9,7 +9,6 @@ class App extends Component {
 
     return (
       <div className={styles.app}>
-        <h1>HELLO WORLD!</h1>
         <Dashboard/>
       </div>
     );

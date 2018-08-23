@@ -18,14 +18,13 @@ class Dashboard extends Component {
   }
 
   render() {
-
     const { categories, add } = this.props;
 
     return (
       <div>
-        <h2>Hello Dashboard!</h2>
+        <h2>Budget Dashboard</h2>
         <section>
-          <h3>Add a budget category:</h3>
+          <h3>Add a category:</h3>
           <CategoryForm onComplete={add}/>
         </section>
         {categories &&
