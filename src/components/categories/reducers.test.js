@@ -56,4 +56,17 @@ describe('Categories Reducers', () => {
     expect(state).toEqual([category1, category2, updated]);
   });
 
+  it('Removes a category', () => {
+    const category1 = { name: 'Automobile', budget: 800 };
+    const category2 = { name: 'Groceries', budget: 500 };
+    const category3 = { name: 'Entertainment', budget: 500 };
+
+    const state = categories([category1, category2, category3], {
+      type: CATEGORY_REMOVE,
+      payload: 'Groceries'
+    });
+
+    expect(state).toEqual([category1, category3]);
+  });
+
 });
