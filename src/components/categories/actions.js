@@ -19,7 +19,7 @@ export const add = category => {
 export const update = category => ({
   type: CATEGORY_UPDATE,
   payload: category
-})
+});
 
 export const remove = id => ({
   type: CATEGORY_REMOVE,

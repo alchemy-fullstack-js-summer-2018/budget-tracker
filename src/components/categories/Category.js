@@ -9,7 +9,7 @@ class Category extends Component {
 
   state = {
     editing: false
-  }
+  };
 
   static propTypes = {
     category: PropTypes.object.isRequired,
