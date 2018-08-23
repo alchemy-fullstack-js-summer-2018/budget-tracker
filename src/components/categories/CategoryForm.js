@@ -1,12 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-
 class CategoryForm extends Component {
 
   state = {
     key: null,
     name: '',
-    budget: 0,
+    budget: '',
     editing: false
   };
 
@@ -25,12 +24,12 @@ class CategoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, key } = this.state;
-    const category = { name };
+    const { key, name, budget } = this.state;
+    const category = { name, budget };
     if(key) category.key = key;
 
     this.props.onComplete(category);
-    this.setState({ name: '' });
+    this.setState({ name: '', budget: '' });
   };
 
   handleChange = ({ target }) => {

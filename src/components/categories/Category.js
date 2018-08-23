@@ -33,6 +33,7 @@ class Category extends Component {
   render() {
     const { editing } = this.state;
     const { category } = this.props;
+
     return (
       <li>
         {editing
@@ -47,9 +48,7 @@ class Category extends Component {
             onDelete={this.handleDelete}
           />
         }
-
       </li>
-
     );
   }
 }

@@ -13,9 +13,9 @@ export function categories(state = [], { type, payload }) {
         payload
       ];
     case CATEGORY_UPDATE:
-      return state.map(category => category.name === payload.name ? payload : category);
+      return state.map(category => category.key === payload.key ? payload : category);
     case CATEGORY_REMOVE:
-      return state.filter(category => category.name !== payload);
+      return state.filter(category => category.key !== payload);
     default:
       return state;
   }
