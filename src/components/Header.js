@@ -25,13 +25,10 @@ class Header extends Component {
           <nav>
             <ul>
               <li>
-                <NavLink exact activeClassName="active" to="/demo">Redux Demo</NavLink>
-              </li>
-              <li>
                 <NavLink exact activeClassName="active" to="/">Home</NavLink>
               </li>
               <li>
-                <NavLink exact activeClassName="active" to="/animals">Categories</NavLink>
+                <NavLink exact activeClassName="active" to="/categories">Categories</NavLink>
               </li>
               
             </ul>

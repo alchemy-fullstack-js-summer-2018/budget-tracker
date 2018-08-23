@@ -27,10 +27,10 @@ class CategoriesContainer extends Component {
           <CategoryForm onComplete={add}/>
         </section>
 
-        {categories &&
+        {categories && 
           <section>
             <h3>Categories</h3>
-            <Categories
+            <Categories 
               categories={categories}
               onUpdate={update}
             />
@@ -40,6 +40,7 @@ class CategoriesContainer extends Component {
     );
   }
 }
+ 
 
 export default connect(
   state => ({

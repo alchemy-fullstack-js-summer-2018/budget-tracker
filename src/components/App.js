@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
-import Demo from './demo/Demo';
 import styles from './App.css';
 import Dashboard from './categories/Dashboard';
 
@@ -21,11 +20,11 @@ class App extends Component {
           <main>
             <Switch>
               <Route exact path="/" component={Home}/>
-              <Route exact path="/demo" component={Demo}/>
               <Route exact path="/categories" component={Dashboard}/>
-              <Redirect to="/demo"/>
+              <Redirect to="/"/>
             </Switch>
           </main>
+          
         </div>
       </Router>
     );

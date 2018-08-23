@@ -30,7 +30,7 @@ class Category extends Component {
     this.setState({ editing: false });
   };
 
-  return() {
+  render() {
     const { editing } = this.state;
     const { category } = this.props;
 
