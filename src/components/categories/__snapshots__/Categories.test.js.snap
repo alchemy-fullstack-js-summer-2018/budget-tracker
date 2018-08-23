@@ -1,0 +1,39 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Categories renders add if no category prop 1`] = `
+<ul>
+  <[object Object]
+    category={
+      Object {
+        "budget": 400,
+        "key": "123",
+        "name": "transportation",
+        "timestamp": "new Date()",
+      }
+    }
+    key="123"
+  />
+  <[object Object]
+    category={
+      Object {
+        "budget": 200,
+        "key": "456",
+        "name": "other",
+        "timestamp": "new Date()",
+      }
+    }
+    key="456"
+  />
+  <[object Object]
+    category={
+      Object {
+        "budget": 500,
+        "key": "789",
+        "name": "more food",
+        "timestamp": "new Date()",
+      }
+    }
+    key="789"
+  />
+</ul>
+`;
