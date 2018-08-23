@@ -5,7 +5,7 @@ import CategoryItem from './CategoryItem';
 import CategoryForm from './CategoryForm';
 import { update } from './actions';
 
-class Category extends Component {
+export class Category extends Component {
   state = {
     editing: false
   };
