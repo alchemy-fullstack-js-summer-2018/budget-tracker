@@ -10,8 +10,8 @@ describe('Category actions test', () => {
   });
 
   it('Adds', () => {
-    const action = add(category);
-    expect(action).toEqual({ type: CATEGORY_ADD,  payload: category });
+    const action = add();
+    expect(action).toEqual({ type: CATEGORY_ADD });
   });
 
   it('Updates', () => {
