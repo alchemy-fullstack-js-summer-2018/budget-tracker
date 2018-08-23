@@ -6,7 +6,7 @@ import {
   CATEGORY_REMOVE,
 } from './reducers';
 
-describe('categories reducers', () => {
+describe('Categories reducers', () => {
   it('initializes to an empty array', () => {
     const state = categories(undefined, {});
     expect(state).toEqual([]);
