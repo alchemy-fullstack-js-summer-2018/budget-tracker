@@ -16,7 +16,7 @@ class CategoryItem extends Component {
     return (
       <p>
         Category: {category.name}, Budget: {category.budget}
-        <button name="edit" onClick={onEdit}>✏️</button>
+        &nbsp;<button name="edit" onClick={onEdit}>✏️</button>
       </p>
     );
   }
