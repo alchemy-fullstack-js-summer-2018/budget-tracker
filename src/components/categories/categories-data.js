@@ -1,4 +1,4 @@
-export default [{ 
+export const categories = [{ 
   key: '123acb', 
   timestamp: '01 august 2018', 
   categoryId: '1', 

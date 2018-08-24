@@ -4,7 +4,7 @@ import {
   CATEGORY_UPDATE,
   CATEGORY_REMOVE 
 } from './category-reducers.js';
-import data from './categories/categories-data.js';
+import * as data from './categories/categories-data.js';
 import shortid from 'shortid';
 
 export const load = () => ({
