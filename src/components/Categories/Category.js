@@ -15,28 +15,27 @@ class Category extends Component {
     category: PropTypes.object.isRequired,
     update: PropTypes.func.isRequired
   };
+
+  handleEdit = () => {
+    this.setState({ editing: true });
+  };
+  
+  handleComplete = category => {
+    const { update } = this.props;
+    update(category);
+    this.handleEndEdit();
+  };
   
   handleEndEdit = () => {
     this.setState({ editing: false });
   };
 
-  handleComplete = category => {
-    const { update } = this.props;
-    update(category);
-    this.handleEndEdit;
-  };
-
-  handleEdit = () => {
-    this.setState({ editing: true });
-  };
-
   render() { 
-    const { category } = this.props;
     const { editing } = this.state;
+    const { category } = this.props;
     
     return (
       <li style={{ color: 'green' }}>
-        <h4>Category Component</h4>
 
         {editing
           ? <CategoryForm

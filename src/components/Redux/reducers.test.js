@@ -58,7 +58,7 @@ describe('Reducers', () => {
 
     const state = categories([category1, category2, category3], {
       type: CATEGORY_REMOVE,
-      payload: category2
+      payload: 'def456'
     });
 
     expect(state).toEqual([category1, category3]);

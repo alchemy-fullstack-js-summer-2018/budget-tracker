@@ -1,27 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-//TODO: remove --> connnect
+import { remove } from '../Redux/actions';
 
 class CategoryItem extends Component {
   
   static propTypes = {
     category: PropTypes.object.isRequired,
-    onEdit: PropTypes.func.isRequired
+    onEdit: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
   };
   
   render() { 
-    const { category, onEdit } = this.props;
+    const { category, onEdit, remove } = this.props;
   
     return (
       <p>
         Category: {category.name}, Budget: {category.budget}
-        <button name="edit" onClick={onEdit}>✏️</button>
+        &nbsp;<button name="edit" onClick={onEdit}>✏️</button>
+        &nbsp;<button name="delete" onClick={() => remove(category.key)}>🗑️</button>
       </p>
     );
   }
 }
  
 export default connect(
-  null
+  null,
+  { remove }
 )(CategoryItem);
