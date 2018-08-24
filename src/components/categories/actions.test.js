@@ -1,6 +1,6 @@
-import { load, add, update } from './actions';
+import { load, add, update, remove } from './actions';
 import  data from './categories-data';
-import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE } from './reducers';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './reducers';
 
 describe('Category actions tests', () => {
   
@@ -20,5 +20,11 @@ describe('Category actions tests', () => {
     const action = update(9);
     expect(action).toEqual({ type: CATEGORY_UPDATE,   payload: 9
     });
+  });  
+
+  it('Removes a category', () => {
+    const action = remove('-LKTi4U-7iQyGe9m1Zy5');      
+    expect(action).toEqual({ type: CATEGORY_REMOVE, payload: '-LKTi4U-7iQyGe9m1Zy5' });
   });
+
 });  
