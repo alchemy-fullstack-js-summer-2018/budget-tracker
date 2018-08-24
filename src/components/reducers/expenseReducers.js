@@ -9,15 +9,27 @@ export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 // Category add
 // Category delete
 
-export function expensesByCategory(state = [], { type, payload }) {
+// REF:
+// [0, 1, 2, 3, 4].reduce((accumulator, currentValue, currentIndex, array) => {
+//   return accumulator + currentValue;
+// }, 10);
+
+export const getExpenses = state => state.expenses;
+export const getExpensesByCategories = state => state.expensesByCategory;
+
+export function expenses(state = [], { type, payload }) {
+  let expense = {};
+
   switch(type) {
-    case CATEGORY_LOAD:
-      return payload;
+    case CATEGORY_LOAD:// on category load, categories should load total expenses...reduce??
+      return state.reduce((acc, val) => {
+        return acc + val;
+      }, {});
     case EXPENSE_ADD: //needs to ref cat id
-      return [
+      return {
         ...state,
-        payload
-      ];
+        payload: payload  
+      };
     case EXPENSE_UPDATE:
       return state.map(expense => expense.id === payload.id ? payload : expense);
     case EXPENSE_REMOVE:
