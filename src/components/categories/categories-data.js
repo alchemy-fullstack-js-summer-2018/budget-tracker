@@ -7,6 +7,7 @@ export default [{
   expenses: [
     {
       id: 'GGmdn56',
+      categoryId: '1',
       timestamp: '2018-11-10T03:24:00',
       name: 'Rent Payment',
       amount: '$500',
