@@ -8,6 +8,10 @@ main {
   padding: 8px;
 }
 
+.label {
+  text-transform: capitalize;
+}
 * {
   box-sizing: border-box;
+
 }
