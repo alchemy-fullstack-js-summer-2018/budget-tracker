@@ -1,15 +1,19 @@
 import React, { Component } from 'react';
 import ExpensesForm from './ExpensesForm';
+import Expense from './Expense';
 
 class Expenses extends Component {
   
   render() { 
 
     return (
-      <section>
+      <ul>
         <h4>Expenses Component</h4>
+        
         <ExpensesForm />
-      </section>
+
+        <Expense />
+      </ul>
     );
   }
 }
