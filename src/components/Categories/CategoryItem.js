@@ -20,9 +20,9 @@ class CategoryItem extends Component {
         Category: {category.name}, Budget: {category.budget}
         &nbsp;<button name="edit" onClick={onEdit}>✏️</button>
         &nbsp;<button name="delete" onClick={() => remove(category.key)}>🗑️</button>
-        <p>
+        <div>
           <Expenses />
-        </p>
+        </div>
       </div>
     );
   }
