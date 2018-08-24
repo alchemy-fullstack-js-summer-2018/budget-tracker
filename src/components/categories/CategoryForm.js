@@ -6,7 +6,8 @@ class CategoryForm extends Component {
     key: null,
     name: '',
     budget: '',
-    timestamp: new Date().toLocaleString(),
+    expenses: [],
+    timestamp: null,
   };
 
   static propTypes = {
@@ -24,8 +25,8 @@ class CategoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { key, name, budget, timestamp } = this.state;
-    const category = { name, budget, timestamp };
+    const { key, name, budget, expenses, timestamp } = this.state;
+    const category = { name, budget, expenses, timestamp };
     if(key) category.key = key;
 
     this.props.onComplete(category);
