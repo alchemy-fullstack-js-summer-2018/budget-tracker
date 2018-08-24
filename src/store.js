@@ -1,11 +1,11 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore/* , combineReducers */ } from 'redux';
 import { categories } from './components/reducers/reducers';
-import { expensesByCategory } from './components/reducers/expenseReducers';
+// import { expensesByCategory } from './components/reducers/expenseReducers';
 
-const combined = combineReducers({
-  categories,
-  expensesByCategory
-});
+// const combined = combineReducers({
+//   categories,
+//   expensesByCategory
+// });
 
 const store = createStore(
   categories,
