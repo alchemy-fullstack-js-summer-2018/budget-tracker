@@ -3,7 +3,7 @@ import {
   CATEGORY_ADD,
 } from './reducers.js';
 import shortid from 'shortid';
-import data from './categories-data';
+import data from '../Dashboard/categories-data.js';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
