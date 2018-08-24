@@ -7,7 +7,6 @@ class CategoryForm extends Component {
     name: '',
     budget: '',
     timestamp: new Date().toLocaleString(),
-    editing: false
   };
 
   static propTypes = {

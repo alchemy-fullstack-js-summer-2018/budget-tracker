@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { remove } from './actions';
+import Expenses from '../expenses/Expenses';
+// import styles from './CategoryItem.css';
 
 class CategoryItem extends Component {
 
@@ -16,10 +18,14 @@ class CategoryItem extends Component {
 
     return (
       <div>
-        <h5>Category: {category.name}</h5>
-        <h5>Budget: {category.budget}</h5>
+        <p><strong>Category:</strong>{category.name}</p>
+        <p><strong>Budget:</strong> ${category.budget}</p>
         <button name="edit" onClick={onEdit}>✎</button>
         <button name="delete" onClick={() => remove(category.key)}>🗑</button>
+
+        <section>
+          <Expenses/>
+        </section>
       </div>
     );
   }
