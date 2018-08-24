@@ -3,7 +3,7 @@ import {
   CATEGORY_ADD, 
   CATEGORY_UPDATE,
   CATEGORY_REMOVE 
-} from './reducers.js';
+} from './category-reducers.js';
 import data from './categories/categories-data.js';
 import shortid from 'shortid';
 
