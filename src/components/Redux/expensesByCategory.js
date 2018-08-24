@@ -1,10 +1,19 @@
+import { CATEGORY_LOAD } from './reducers';
+
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 
-export function expenses(state = [], { type, payload }) {
+// TODO: 
+// Category load
+// Category add
+// Category delete
+
+export function expensesByCategory(state = [], { type, payload }) {
   switch(type) {
-    case EXPENSE_ADD:
+    case CATEGORY_LOAD:
+      return payload;
+    case EXPENSE_ADD: //needs to ref cat id
       return [
         ...state,
         payload

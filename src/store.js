@@ -1,5 +1,11 @@
-import { createStore } from 'redux';
+import { createStore, combineReducers } from 'redux';
 import { categories } from './components/Redux/reducers';
+import { expensesByCategory } from './components/Redux/expensesByCategory';
+
+const combined = combineReducers({
+  categories,
+  expensesByCategory
+});
 
 const store = createStore(
   categories,

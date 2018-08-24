@@ -2,6 +2,7 @@ import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from '.
 import data from '../Categories/categories-data';
 import shortid from 'shortid';
 
+// TODO: update to load expense data
 export const load = () => ({
   type: CATEGORY_LOAD,
   payload: data

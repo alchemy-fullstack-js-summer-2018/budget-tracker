@@ -4,10 +4,11 @@ import {
   EXPENSE_UPDATE,
   EXPENSE_REMOVE } from './expensesByCategory';
 import { 
-/* categories, */
-/* CATEGORY_LOAD, */
+categories,
+CATEGORY_LOAD,
 /*  CATEGORY_ADD, */
 /* CATEGORY_REMOVE */  } from './reducers';
+
 
 describe('Expense Reducers', () => {
 
@@ -55,5 +56,22 @@ describe('Expense Reducers', () => {
     });
 
     expect(state).toEqual([expense1, expense2]);
+  });
+
+  it('loads expenses when categories load', () => {
+    const category1 = { name: 'coffee'};
+    const category2 = { name: 'shopping' };
+    const category3 = { name: 'gas' };
+
+    const expense1 = { name: '1' };
+    const expense2 = { name: '2' };
+    const expense3 = { name: '3' };
+
+    const state = categories([], {
+      // type: <>,
+      // payload: <>
+    });
+
+    // expect(state).toEqual([expense1, expense2, expense3]);
   });
 });
