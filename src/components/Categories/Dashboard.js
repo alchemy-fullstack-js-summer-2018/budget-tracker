@@ -23,7 +23,6 @@ class Dashboard extends Component {
 
     return ( 
       <div className={styles.categories}>
-        <h2>Dashboard Component</h2>
 
         <section>
           <h3>Add a Category:</h3>
@@ -32,7 +31,7 @@ class Dashboard extends Component {
 
         {categories &&
           <section>
-            <h3>Categories:</h3>
+            <h3>Your Budget:</h3>
             <Categories 
               categories={categories}
               onUpdate={update}

@@ -35,7 +35,7 @@ class Category extends Component {
     const { category } = this.props;
     
     return (
-      <li style={{ color: 'green' }}>
+      <li style={{  border: '2px solid red' }}>
 
         {editing
           ? <CategoryForm

@@ -13,8 +13,7 @@ class Categories extends Component {
     if(!categories) return null;
     
     return (
-      <ul>
-        <h3>Categories Component</h3>
+      <ul className="categories">
         {categories.map(category => (
           <Category 
             key={category.key}

@@ -17,12 +17,15 @@ class CategoryItem extends Component {
   
     return (
       <div>
-        Category: {category.name}, Budget: {category.budget}
-        &nbsp;<button name="edit" onClick={onEdit}>✏️</button>
-        &nbsp;<button name="delete" onClick={() => remove(category.key)}>🗑️</button>
-        <div>
+        <section className="category-item">
+          <button name="edit" onClick={onEdit}>✏️</button>&nbsp;
+          <button name="delete" onClick={() => remove(category.key)}>🗑️</button>&nbsp;
+          <strong>{category.name}</strong><span className="budget">Budget: {category.budget}</span>
+        </section>
+
+        <section>
           <Expenses />
-        </div>
+        </section>
       </div>
     );
   }
