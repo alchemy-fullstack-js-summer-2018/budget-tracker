@@ -24,7 +24,7 @@ class Category extends Component {
     const { update } = this.props;
     update(category);
     this.handleEdit();
-  }
+  };
 
   handleEndEdit = () => {
     this.setState({ editing: false });

@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Category from './Category';
-
 class Categories extends Component {
 
   static propTypes = {

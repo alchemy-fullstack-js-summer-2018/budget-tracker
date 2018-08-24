@@ -5,6 +5,7 @@ class Landing extends Component {
     return (
       <div>
         <h2>Landing</h2>
+        <p>Check out the dashboard to start your budget!</p>
       </div>
     );
   }

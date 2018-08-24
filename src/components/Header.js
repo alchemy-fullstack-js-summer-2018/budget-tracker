@@ -11,7 +11,6 @@ class Header extends Component {
   handleSpecial = event => {
     event.preventDefault();
     alert('that link is cute!');
-
   };
 
   render()  {
@@ -19,9 +18,7 @@ class Header extends Component {
     return (
       <div className={styles.header}>
       
-        <section className="header-container">
-          <h1>List</h1>
-      
+        <section className="header-container">      
           <nav>
             <ul>
               <li>
@@ -30,10 +27,10 @@ class Header extends Component {
               <li>
                 <NavLink exact activeClassName="active" to="/Dashboard">Dashboard</NavLink> 
               </li>
-          
             </ul>
           </nav>
         </section>
+        
       </div>
     );
   }
