@@ -24,7 +24,7 @@ In this app an expense should contain at least the following properties:
 
 * `id` a uuid
 * `categoryId` an id that corresponds to an existing category
-* `timestamp` a date from when the category was created
+* `timestamp` a date from when the expense was created
 * `name` a string that is the name of the expense
 * `price` a number that is the amount of the expense
 * feel free to add more to your expense if you want
