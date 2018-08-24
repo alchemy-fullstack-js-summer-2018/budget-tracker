@@ -2,7 +2,7 @@ import {
   expenses,
   EXPENSE_ADD,
   EXPENSE_UPDATE,
-  EXPENSE_REMOVE } from './expensesByCategory';
+  EXPENSE_REMOVE } from './expenseReducers';
 import { 
 categories,
 CATEGORY_LOAD,
