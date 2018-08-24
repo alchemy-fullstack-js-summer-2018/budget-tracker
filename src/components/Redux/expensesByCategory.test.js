@@ -1,6 +1,8 @@
 import { 
   expenses,
-  EXPENSE_ADD } from './expensesByCategory';
+  EXPENSE_ADD,
+  EXPENSE_UPDATE,
+  EXPENSE_REMOVE } from './expensesByCategory';
 import { 
 /* categories, */
 /* CATEGORY_LOAD, */
@@ -25,5 +27,33 @@ describe('Expense Reducers', () => {
     });
 
     expect(state).toEqual([expense1, expense2, expense3]);
+  });
+
+  it('updates an expense', () => {
+    const expense1 = { id: 'yum123', name: '1' };
+    const expense2 = { id: 'yum456', name: '2' };
+    const expense3 = { id: 'yum789', name: '3' };
+
+    const updated = { id: 'yum789', name: 'updated' };
+
+    const state = expenses([expense1, expense2, expense3], {
+      type: EXPENSE_UPDATE,
+      payload: updated
+    });
+
+    expect(state).toEqual([expense1, expense2, updated]);
+  });
+
+  it('removes an expense', () => {
+    const expense1 = { id: 'yum123', name: '1' };
+    const expense2 = { id: 'yum456', name: '2' };
+    const expense3 = { id: 'yum789', name: '3' };
+
+    const state = expenses([expense1, expense2, expense3], {
+      type: EXPENSE_REMOVE,
+      payload: 'yum789'
+    });
+
+    expect(state).toEqual([expense1, expense2]);
   });
 });
