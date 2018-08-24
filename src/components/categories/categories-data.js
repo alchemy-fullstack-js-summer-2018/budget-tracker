@@ -17,7 +17,7 @@ export default [{
   timestamp: '12 august 2018', 
   categoryId: '2', 
   name: 'car', 
-  budget: 390,
+  budget: 400,
   expenses: [
     {
       id: 'GGmdn51',
