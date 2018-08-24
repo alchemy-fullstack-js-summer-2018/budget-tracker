@@ -23,7 +23,7 @@ class Category extends Component {
   handleComplete = category => {
     const { update } = this.props;
     update(category);
-    this.handleEdit();
+    this.handleEndEdit();
   };
 
   handleEndEdit = () => {
@@ -40,7 +40,7 @@ class Category extends Component {
           ? < CategoryForm
             category={category}
             onComplete={this.handleComplete}
-            onCancel={this.handelEndEdit}
+            onCancel={this.handleEndEdit}
           />
           : <CategoryDisplay
             category={category}
