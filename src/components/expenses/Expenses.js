@@ -1,22 +1,22 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Category from './Expense';
+import Expense from './Expense';
 
-class Categories extends Component {
+class Expenses extends Component {
 
   static propTypes = {
-    categories: PropTypes.array
+    expenses: PropTypes.array
   };
 
   render() {
-    const { categories } = this.props;
+    const { expenses } = this.props;
 
     return (
       <ul>
-        {categories.map(category => (
-          <Category
-            key={category.key}
-            category={category}
+        {expenses.map(expense => (
+          <Expense
+            key={expense.key}
+            expense={expense}
           />
         ))}
       </ul>
@@ -24,4 +24,4 @@ class Categories extends Component {
   }
 }
 
-export default Categories;
+export default Expenses;
