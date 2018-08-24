@@ -1,3 +1,21 @@
 body {
-  color: pink;
+  color: rgb(206, 8, 41);
+
+
+}
+button {
+  width: 50px;
+  border-radius: 4px;
+  font-size: 18px;
+  margin-left: 8px;
+}
+
+input {
+  padding: 2px 6px 2px 6px;
+  font-size: 16px;
+  margin-left: 8px;
+}
+
+label, p {
+  font-size: 18px;
 }
