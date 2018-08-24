@@ -1,0 +1,12 @@
+:local(.categoryForm) {
+  label {
+    display: block;
+  }
+
+  
+
+  input {
+    border: 1px solid grey;
+  }
+
+}
