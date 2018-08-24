@@ -1,8 +1,8 @@
 export const EXPENSE_ADD = 'EXPENSE_LOAD';
 
-export const getExpensesById = state => state.expenses;
+export const getExpensesById = state => state.map(cat => cat.expenses);
 
-export function expensesByCategory(state, { type, payload }) {
+export function expenses(state = [], { type, payload }) {
   switch(type) {
     case EXPENSE_ADD:
       return [
@@ -10,6 +10,6 @@ export function expensesByCategory(state, { type, payload }) {
         payload
       ];
     default:
-      return state;
+      return state.expenses;
   }
 }

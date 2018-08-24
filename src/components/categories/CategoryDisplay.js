@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { remove } from './actions';
+import Expenses from './expenses/Expenses';
 
 export class CategoryDisplay extends Component {
   static propTypes = {
@@ -20,6 +21,7 @@ export class CategoryDisplay extends Component {
         <p>Created: {category.timeStamp}</p>
         <button name="edit" onClick={onEdit}>✎</button>
         <button name="delete" onClick={() => remove(category.key)}>❌</button>
+        <Expenses/>
       </div>
     );
   }
