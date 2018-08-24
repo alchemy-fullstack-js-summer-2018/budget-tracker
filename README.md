@@ -1,0 +1,1 @@
+A simple application to add budget categories and amounts using React/Redux.
