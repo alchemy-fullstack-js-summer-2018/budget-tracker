@@ -4,7 +4,7 @@ import {
   CATEGORY_ADD,
   CATEGORY_UPDATE,
   CATEGORY_REMOVE,
-} from './reducers';
+} from './categoryReducers';
 
 describe('Categories reducers', () => {
   it('initializes to an empty array', () => {
