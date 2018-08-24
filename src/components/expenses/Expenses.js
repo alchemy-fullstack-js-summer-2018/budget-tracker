@@ -1,8 +1,15 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import ExpenseForm from './ExpenseForm';
 import Expense from './Expense';
+import { connect } from 'react-redux';
+import { getExpenses } from './reducersExpenses';
 
-export default class Expenses extends Component {
+class Expenses extends Component {
+
+  static propTypes = {
+    expenses: PropTypes.arrayOf(PropTypes.object)
+  };
 
   render() {
     return (
@@ -14,3 +21,9 @@ export default class Expenses extends Component {
     );
   }
 }
+
+export default connect(
+  state => ({
+    expenses: getExpenses(state)
+  })
+)(Expenses);
