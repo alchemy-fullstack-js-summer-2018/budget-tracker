@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
+import Dashboard from './Dashboard/Dashboard';
 import styles from './App.css';
 
 class App extends Component {
@@ -17,6 +18,7 @@ class App extends Component {
             <h2>I Am App</h2>
             <Switch>
               <Route exact path="/" component={Home}/>
+              <Route exact path="/dashboard" component={Dashboard}/>
               <Redirect to="/"/>
             </Switch>
           </main>

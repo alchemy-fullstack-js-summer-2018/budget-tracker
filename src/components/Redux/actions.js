@@ -1,7 +1,7 @@
 import {
   CATEGORY_LOAD,
   CATEGORY_ADD,
-} from './Redux/reducers.js';
+} from './reducers.js';
 import shortid from 'shortid';
 import data from '../Dashboard/categories-data.js';
 
