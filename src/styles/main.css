@@ -21,6 +21,14 @@ body {
   margin: 20px;
 }
 
+.expense-form {
+  border-radius: 10px;
+  border: 2px solid red;
+  width: 80%;
+  margin-left: 10%;
+  margin-right: 10%
+  }
+
 button{
   background-color: white;
   border-radius: 5px;
