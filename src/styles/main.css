@@ -16,7 +16,8 @@ body {
 }
 
 .category-p {
-  text-align: center;
+  text-align: center; 
+  text-transform: capitalize;
   margin: 20px;
 }
 

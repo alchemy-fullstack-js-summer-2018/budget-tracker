@@ -1,37 +1,37 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class CategoryForm extends Component {
+class ExpenseForm extends Component {
 
   state = {
-    editing: false,
-    key: null,
+    ediiting: false,
+    categoryId: null,
+    timestamp: new Date(),
     name: '',
-    budget: '',
-    timestamp: new Date()
+    price:'',
   };
 
   static propTypes = {
-    category: PropTypes.object,
+    expense: PropTypes.object,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func
   };
 
   componentDidMount() {
-    const { category } = this.props;
-    if(!category) return;
+    const { expense } = this.props;
+    if(!expense) return;
 
-    this.setState(category);
+    this.setState(expense);
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, budget, timestamp, key } = this.state;
-    const category = { name, budget, timestamp };
-    if(key) category.key = key;
+    const { name, price, timestamp, key } = this.state;
+    const expense = { name, price, timestamp };
+    if(key) expense.key = key;
 
-    this.props.onComplete(category);
-    this.setState({ name: '', budget: '' });
+    this.props.onComplete(expense);
+    this.setState({ name: '', price: '' });
   };
 
   handleChange = ({ target }) => {
@@ -39,13 +39,13 @@ class CategoryForm extends Component {
   };
 
   render() {
-    const { key, name, budget } = this.state;
+    const { key, name, price } = this.state;
     const { onCancel } = this.props;
 
     return (
-      <form className="category-form" onSubmit={this.handleSubmit}>
+      <form className="expense-form" onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="budget" value={budget} onChange={this.handleChange}/>
+        <InputControl name="budget" value={price} onChange={this.handleChange}/>
         <p>
           <button className="add-update-button" type="submit">{ key ? 'Update' : 'Add' }</button>
           {key && <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>}
@@ -64,4 +64,4 @@ const InputControl = (props) => (
   </p>
 );
 
-export default CategoryForm;
+export default ExpenseForm;

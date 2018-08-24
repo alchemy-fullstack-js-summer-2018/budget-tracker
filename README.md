@@ -8,7 +8,7 @@ For example, I created a Category named Car with a budget of $5000.
 
 Each created Category is displayed in a list and each category can have its name and budget upted or deleted completely:
 
-Categories
+Categories:
 
 car has a budget of $5000✎🗑
 
