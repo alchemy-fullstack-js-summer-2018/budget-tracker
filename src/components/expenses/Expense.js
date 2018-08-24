@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import CategoryDisplay from './ExpensesDisplay';
-import CategoryForm from './ExpenseForm';
+import ExpensesDisplay from './ExpensesDisplay';
+import ExpenseForm from './ExpenseForm';
 import { update } from '../expenses-actions';
 
-class Category extends Component {
+class Expense extends Component {
 
   state = {
     editing: false
   };
 
   static propTypes = {
-    category: PropTypes.object.isRequired,
+    expense: PropTypes.object.isRequired,
     update: PropTypes.func.isRequired
   };
 
@@ -20,9 +20,9 @@ class Category extends Component {
     this.setState({ editing: true });
   };
 
-  handleComplete =  category => {
+  handleComplete =  expense => {
     const { update } = this.props;
-    update(category);
+    update(expense);
     this.handleEndEdit();
   };
 
@@ -32,18 +32,18 @@ class Category extends Component {
 
   render() {
     const { editing } = this.state;
-    const { category } = this.props;
+    const { expense } = this.props;
 
     return (
       <li>
         {editing
-          ? <CategoryForm
-            category={category}
+          ? <ExpenseForm
+            expense={expense}
             onComplete={this.handleComplete}
             onCancel={this.handleEndEdit}
           />
-          : <CategoryDisplay
-            category={category}
+          : <ExpensesDisplay
+            expense={expense}
             onEdit={this.handleEdit}
             onDelete={this.handleDelete}
           />
@@ -56,4 +56,4 @@ class Category extends Component {
 export default connect(
   null,
   { update }
-)(Category);
+)(Expense);

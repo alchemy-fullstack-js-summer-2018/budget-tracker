@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { remove } from '../category-actions';
+import { remove } from '../expenses-actions';
 
-class CategoryDisplay extends Component {
+class ExpensesDisplay extends Component {
   static propTypes = {
-    category: PropTypes.object.isRequired,
+    expense: PropTypes.object.isRequired,
     onEdit: PropTypes.func.isRequired,
     remove: PropTypes.func.isRequired
   };
 
   render() {
-    const { category, onEdit, remove } = this.props;
+    const { expense, onEdit, remove } = this.props;
 
     return (
       <p>
-        {category.name}: ${category.budget}
+        {expense.name}: ${expense.budget}
         <button name="edit" onClick={onEdit}>Edit</button>
-        <button name="delete" onClick={() => remove(category.key)}>Delete</button>
+        <button name="delete" onClick={() => remove(expense.id)}>Delete</button>
       </p>
     );
   }
@@ -26,4 +26,4 @@ class CategoryDisplay extends Component {
 export default connect(
   null,
   { remove }
-)(CategoryDisplay);
+)(ExpensesDisplay);
