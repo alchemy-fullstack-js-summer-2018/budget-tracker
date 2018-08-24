@@ -11,3 +11,7 @@ main {
 * {
   box-sizing: border-box;
 }
+
+button {
+  border: none;
+}

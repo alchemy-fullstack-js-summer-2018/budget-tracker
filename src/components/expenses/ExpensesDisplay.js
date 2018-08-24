@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { remove } from '../actions';
+import { remove } from '../category-actions';
 
 class CategoryDisplay extends Component {
   static propTypes = {
