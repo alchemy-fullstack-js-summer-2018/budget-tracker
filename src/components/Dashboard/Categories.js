@@ -1,4 +1,4 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Category from './Category';
 
@@ -8,7 +8,7 @@ class Categories extends Component {
     categories: PropTypes.array
   };
 
-  render () {
+  render() {
     const { categories } = this.props;
     if(!categories) return null;
 
@@ -17,10 +17,9 @@ class Categories extends Component {
         <h3>I am Categories</h3>
         {categories.map(category => {
           <Category
-          key={category.key}
-          category={category}
-          />
-
+            key={category.key}
+            category={category}
+          />;
         })}
       </ul>
     );

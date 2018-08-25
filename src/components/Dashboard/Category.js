@@ -1,7 +1,7 @@
-import React { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { update } from './Redux/actions';
+import { update } from '../Redux/actions';
 import CategoryForm from './CategoryForm';
 
 export class Category extends Component {
@@ -23,13 +23,13 @@ export class Category extends Component {
       const { update } = this.props;
       update(category);
       this.handleEndEdit();
-    }
+    };
 
     handleEndEdit = () => {
       this.setState({ editing: false });
     };
 
-    render () {
+    render() {
       const { editing } = this.state;
       const { category } = this.props;
 
@@ -40,11 +40,11 @@ export class Category extends Component {
               category={category}
               onComplete={this.handleComplete}
               onCancel={this.handleEndEdit}
-              />
-              : <CategoryItem
-                category={category}
-                onEdit={this.handleEdit}
-                />
+            />
+            : <CategoryItem
+              category={category}
+              onEdit={this.handleEdit}
+            />
           }
         </li>
       );
