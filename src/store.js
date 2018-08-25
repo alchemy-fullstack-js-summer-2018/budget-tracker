@@ -4,7 +4,7 @@ import { expenses, expensesByCategory } from './components/reducers/expenseReduc
 
 const combined = combineReducers({
   categories,
-  expenses
+  expensesByCategory
 });
 
 const store = createStore(
