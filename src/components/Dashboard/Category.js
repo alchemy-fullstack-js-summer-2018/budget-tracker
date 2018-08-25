@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { update } from '../Redux/actions';
 import CategoryForm from './CategoryForm';
+import CategoryItem from './CategoryItem';
+import { update } from '../Redux/actions';
 
 export class Category extends Component {
 
@@ -10,7 +11,7 @@ export class Category extends Component {
       editing: false
     };
 
-    static PropTypes = {
+    static propTypes = {
       category: PropTypes.object.isRequired,
       update: PropTypes.func.isRequired
     };

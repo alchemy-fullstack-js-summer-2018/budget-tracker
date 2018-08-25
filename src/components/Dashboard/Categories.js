@@ -14,17 +14,17 @@ class Categories extends Component {
 
     return (
       <ul>
-        <h3>I am Categories</h3>
-        {categories.map(category => {
-          <Category
+        <h3>Categories Component</h3>
+        {categories.map(category => (
+          <Category 
             key={category.key}
             category={category}
-          />;
-        })}
+          />
+        ))}
       </ul>
     );
   }
 }
-
+ 
 export default Categories;
 
