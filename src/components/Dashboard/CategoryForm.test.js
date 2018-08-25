@@ -3,7 +3,7 @@ import CategoryForm from './CategoryForm';
 import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
 
-describe('Category Form', () => {
+describe.skip('Category Form', () => {
 
   it('renders add if no category prop', () => {
     const handleComplete = jest.fn();

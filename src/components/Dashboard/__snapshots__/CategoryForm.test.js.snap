@@ -8,16 +8,16 @@ exports[`Category Form renders add if no category prop 1`] = `
     onSubmit={[Function]}
   >
     <InputControl
-      name="name"
+      name="Category Name"
       onChange={[Function]}
       value=""
     >
       <p>
         <label>
-          name
+          Category Name
           :
           <input
-            name="name"
+            name="Category Name"
             onChange={[Function]}
             required={true}
             value=""
@@ -26,16 +26,16 @@ exports[`Category Form renders add if no category prop 1`] = `
       </p>
     </InputControl>
     <InputControl
-      name="budget"
+      name="Category Amount"
       onChange={[Function]}
       value={0}
     >
       <p>
         <label>
-          budget
+          Category Amount
           :
           <input
-            name="budget"
+            name="Category Amount"
             onChange={[Function]}
             required={true}
             value={0}
@@ -43,23 +43,11 @@ exports[`Category Form renders add if no category prop 1`] = `
         </label>
       </p>
     </InputControl>
-    <label>
-      Category:
-      <input
-        type="text"
-      />
-    </label>
-    <label>
-      Amount:
-      <input
-        type="number"
-      />
-    </label>
     <section>
       <button
         type="submit"
       >
-        Add
+        Add To Budget
       </button>
     </section>
   </form>

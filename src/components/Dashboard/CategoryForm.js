@@ -44,12 +44,10 @@ class CategoryForm extends Component {
     return (
       
       <form onSubmit={this.handleSubmit}>
-        <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="budget" value={budget} onChange={this.handleChange}/>
-        <label>Category:<input type="text"></input></label>
-        <label>Amount:<input type="number"></input></label>
+        <InputControl name="Category" value={name} onChange={this.handleChange}/>
+        <InputControl name="Amount" value={budget} onChange={this.handleChange}/>
         <section>
-          <button type="submit">{ key ? 'Update' : 'Add' }</button>
+          <button type="submit">{ key ? 'Update' : 'Add To Budget' }</button>
           {key && <button type="button" onClick={onCancel}>Cancel</button>}
         </section>
       </form>

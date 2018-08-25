@@ -24,13 +24,12 @@ class Dashboard extends Component {
     return (
       <div className={styles.categories}>
         <section>
-          <h2> I am Dashboard</h2>
+          <h2> Add Budget Items: </h2>
           <CategoryForm onComplete={add}/>
         </section>
 
         {categories &&
           <section>
-            <h3>Category Form PLEASE</h3>
             {/* <Categories
               categories={categories}
               onUpdate={update}
