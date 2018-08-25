@@ -24,7 +24,7 @@ class CategoryItem extends Component {
         <button name="delete" onClick={() => remove(category.key)}>🗑</button>
 
         <section>
-          <Expenses/>
+          <Expenses categoryKey={category.key}/>
         </section>
       </div>
     );

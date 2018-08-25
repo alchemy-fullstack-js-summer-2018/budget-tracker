@@ -3,27 +3,37 @@ import PropTypes from 'prop-types';
 import ExpenseForm from './ExpenseForm';
 import Expense from './Expense';
 import { connect } from 'react-redux';
-import { getExpenses } from './reducersExpenses';
+import { getExpensesById } from './reducersExpenses';
 
 class Expenses extends Component {
 
   static propTypes = {
-    // expenses: PropTypes.arrayOf(PropTypes.object)
+    expenses: PropTypes.array,
+    categoryKey: PropTypes.string.isRequired
   };
 
   render() {
+    const { expenses, categoryKey } = this.props;
+
     return (
       <div>
         <h6>Hello Expenses!</h6>
         <ExpenseForm/>
-        <Expense/>
+        <ul>
+          {expenses.map(expense => (
+            <Expense
+              key={expense.key}
+              expense={expense[categoryKey]}
+            />
+          ))}
+        </ul>
       </div>
     );
   }
 }
 
 export default connect(
-  state => ({
-    expenses: getExpenses(state)
+  (state, { categoryKey }) => ({
+    expenses: getExpensesById(categoryKey, state)
   })
 )(Expenses);
