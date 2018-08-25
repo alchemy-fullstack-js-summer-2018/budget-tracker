@@ -8,7 +8,7 @@ import { getExpenses } from './reducersExpenses';
 class Expenses extends Component {
 
   static propTypes = {
-    expenses: PropTypes.arrayOf(PropTypes.object)
+    // expenses: PropTypes.arrayOf(PropTypes.object)
   };
 
   render() {
