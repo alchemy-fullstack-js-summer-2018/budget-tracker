@@ -1,15 +1,23 @@
-export const EXPENSE_ADD = 'EXPENSE_LOAD';
+import { CATEGORY_LOAD } from '../reducers';
+// export const EXPENSE_ADD = 'EXPENSE_LOAD';
 
-export const getExpensesById = state => state.map(cat => cat.expenses);
+export const getExpenses = state => {
+  console.log('**GET EXPENSES**', state);
+  state.expenses;
+};
+export const getExpensesById = (state, id) => {
+  console.log(state);
+  getExpenses(state)[id];
+};
 
-export function expenses(state = [], { type, payload }) {
+export function expensesByCategory(state = [], { type, payload }) {
   switch(type) {
-    case EXPENSE_ADD:
-      return [
-        ...state,
-        payload
-      ];
+    case CATEGORY_LOAD:
+      return payload.reduce((map, category) => {
+        map[category.key] = category.expenses;
+        return map;
+      }, {});
     default:
-      return state.expenses;
+      return state;
   }
 }

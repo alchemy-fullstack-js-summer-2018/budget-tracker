@@ -6,7 +6,8 @@ import { getExpensesById } from './reducers';
 class Expenses extends Component {
 
   static propTypes = {
-    expenses: PropTypes.array.isRequired
+    expenses: PropTypes.array.isRequired,
+    categoryId: PropTypes.string.isRequired
   };
 
   render() { 
@@ -26,8 +27,8 @@ class Expenses extends Component {
 }
  
 export default connect(
-  state => ({
-    expenses: getExpensesById(state)
+  (state, { categoryId }) => ({
+    expenses: getExpensesById(state, categoryId)
   }),
   null
 )(Expenses);
