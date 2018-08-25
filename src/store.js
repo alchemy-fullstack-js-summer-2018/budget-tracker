@@ -1,8 +1,14 @@
-import { createStore } from 'redux';
-import { categories } from './components/categories/reducers';
+import { categories, CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './components/categories/reducers';
+import { createStore, combineReducers } from 'redux';
+//import { categories } from './components/categories/reducers';
+
+const combined = combineReducers({ 
+  categories, 
+  expensesByCategory
+});
 
 const store = createStore(
-  categories,
+  combined,
   window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()
 );
 
