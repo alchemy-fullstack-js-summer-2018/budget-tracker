@@ -13,7 +13,7 @@ class Expense extends Component {
 
   static propTypes = {
     expense: PropTypes.object.isRequired,
-    update: PropTypes.func.isRequired
+    update: PropTypes.func.isRequired,
   };
 
   handleEdit = () => {
@@ -33,6 +33,7 @@ class Expense extends Component {
   render() {
     const { editing } = this.state;
     const { expense } = this.props;
+    const { categoryId } = expense;
 
     return (
       <li>
@@ -41,6 +42,7 @@ class Expense extends Component {
             expense={expense}
             onComplete={this.handleComplete}
             onCancel={this.handleEndEdit}
+            categoryId={categoryId}
           />
           : <ExpenseDisplay
             expense={expense}

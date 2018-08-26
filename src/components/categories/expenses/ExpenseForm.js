@@ -13,6 +13,7 @@ class ExpenseForm extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
+    categoryId: PropTypes.string.isRequired,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func
   };
@@ -26,8 +27,8 @@ class ExpenseForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, price, timestamp, key } = this.state;
-    const expense = { name, price, timestamp };
+    const { name, price, key } = this.state;
+    const expense = { name, price };
     if(key) expense.key = key;
 
     this.props.onComplete(expense);
