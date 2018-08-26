@@ -10,7 +10,15 @@ class Expenses extends Component {
 
   static propTypes = {
     expenses: PropTypes.array,
-    categoryId: PropTypes.string
+    categoryId: PropTypes.string,
+    addExpense: PropTypes.func.isRequired
+  };
+
+  handleAddExpense = expense => {
+    const { addExpense } = this.props;
+
+    expense.categoryId = this.props.categoryId;
+    addExpense(expense);
   };
   
   render() { 
@@ -21,7 +29,7 @@ class Expenses extends Component {
       <ul>
         <section className="expenses-form">
           <h3>Add an Expense:</h3>
-          <ExpensesForm onComplete={addExpense}/>
+          <ExpensesForm onComplete={this.handleAddExpense}/>
         </section>
 
         <section>

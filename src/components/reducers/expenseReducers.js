@@ -1,4 +1,4 @@
-import { CATEGORY_LOAD, CATEGORY_ADD } from './reducers';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from './reducers';
 
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
@@ -8,6 +8,9 @@ export const getExpensesByCategories = state => state.expensesByCategory;
 export const getExpensesByCategoryId = (state, id) => getExpensesByCategories(state)[id];
 
 export function expensesByCategory(state = [], { type, payload }) {
+  console.log('***PAYLOAD***', payload);
+  console.log('***STATE***', state);
+
   switch(type) {
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
@@ -16,6 +19,13 @@ export function expensesByCategory(state = [], { type, payload }) {
       }, {});
     case CATEGORY_ADD:
       return payload;
+    case CATEGORY_REMOVE:
+      return payload;
+    case EXPENSE_ADD:
+      return {
+        ...state,
+        payload
+      };
     default:
       return state;
   }
