@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getExpensesById } from './reducers';
+import Expense from './Expense';
 
 class Expenses extends Component {
 
@@ -11,16 +12,17 @@ class Expenses extends Component {
   };
 
   render() { 
-    // const { expenses } = this.props;
+    const { expenses } = this.props;
+
     return (
       <ul>
         <li></li>
-        {/* {expenses.map(expense => (
+        {expenses.map(expense => (
           <Expense
             key={expense.id}
             expense={expense}
           />
-        ))} */}
+        ))}
       </ul>
     );
   }
