@@ -26,5 +26,8 @@ exports[`Category display renders display, then edit 1`] = `
   >
     ❌
   </button>
+  <Connect(Expenses)
+    categoryId="PPBqWA9"
+  />
 </div>
 `;

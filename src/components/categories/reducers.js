@@ -3,6 +3,8 @@ export const CATEGORY_ADD = 'CATEGORY_ADD';
 export const CATEGORY_REMOVE = 'CATEGORY_REMOVE';
 export const CATEGORY_UPDATE = 'CATEGORY_UPDATE';
 
+import { EXPENSE_ADD } from './expenses/expenseReducers';
+
 export const getCategories = state => state.categories;
 
 export function categories(state = [], { type, payload }) {
@@ -18,6 +20,10 @@ export function categories(state = [], { type, payload }) {
       return state.map(category => category.key === payload.key ? payload : category);
     case CATEGORY_REMOVE:
       return state.filter(category => category.key !== payload);
+    case EXPENSE_ADD:
+      const copy = [...state];
+      copy.find(x => x.key === payload.categoryId).expenses.push(payload);
+      return copy;
     default: 
       return state;
   }
