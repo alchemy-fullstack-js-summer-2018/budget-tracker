@@ -6,10 +6,10 @@ export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 export function expenses(state = [], { type, payload }) {
   switch(type){
     case EXPENSE_ADD:
-      return {
+      return [
         ...state,
-        payload: payload
-      };
+        payload
+      ];
     case EXPENSE_UPDATE:
       return state.map(expense => expense.id === payload.id ? payload : expense);
     case EXPENSE_REMOVE:
