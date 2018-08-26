@@ -3,10 +3,7 @@ export const CATEGORY_ADD = 'CATEGORY_ADD';
 export const CATEGORY_REMOVE = 'CATEGORY_REMOVE';
 export const CATEGORY_UPDATE = 'CATEGORY_UPDATE';
 
-export const getCategories = state => {
-  console.log('**CATEGORIES REDUCER**', state);
-  state.categories;
-};
+export const getCategories = state => state.categories;
 
 export function categories(state = [], { type, payload }) {
   switch(type) {

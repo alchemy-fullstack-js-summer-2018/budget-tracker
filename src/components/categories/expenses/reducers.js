@@ -1,14 +1,8 @@
 import { CATEGORY_LOAD } from '../reducers';
 // export const EXPENSE_ADD = 'EXPENSE_LOAD';
 
-export const getExpenses = state => {
-  console.log('**GET EXPENSES**', state);
-  state.expenses;
-};
-export const getExpensesById = (state, id) => {
-  console.log(state);
-  getExpenses(state)[id];
-};
+export const getExpenses = state => state.expensesByCategory;
+export const getExpensesById = (state, id) => getExpenses(state)[id];
 
 export function expensesByCategory(state = [], { type, payload }) {
   switch(type) {
