@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CategoryDisplay from './CategoryDisplay';
 import CategoryForm from './CategoryForm';
-import Expenses from './expenses/Expenses';
 import { update } from './actions';
 
 class Category extends Component {
@@ -49,7 +48,6 @@ class Category extends Component {
             onDelete={this.handleDelete}
           />  
         }
-        <Expenses categoryId={category.id} expenses={category.expenses}/>
       </li>
     );
   }

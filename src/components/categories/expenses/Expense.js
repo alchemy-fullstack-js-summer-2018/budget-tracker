@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpenseDisplay from './ExpenseDisplay';
 import ExpenseForm from './ExpenseForm';
-import { update } from '../actions';
+import { update } from './ExpenseActions';
 
 class Expense extends Component {
 
@@ -33,7 +33,6 @@ class Expense extends Component {
   render() {
     const { editing } = this.state;
     const { expense } = this.props;
-    const { categoryId } = expense;
 
     return (
       <li>
@@ -42,7 +41,6 @@ class Expense extends Component {
             expense={expense}
             onComplete={this.handleComplete}
             onCancel={this.handleEndEdit}
-            categoryId={categoryId}
           />
           : <ExpenseDisplay
             expense={expense}
