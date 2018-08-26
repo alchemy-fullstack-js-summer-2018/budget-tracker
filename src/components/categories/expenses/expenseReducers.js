@@ -1,4 +1,4 @@
-import { CATEGORY_LOAD } from '../reducers';
+import { CATEGORY_LOAD, CATEGORY_ADD } from '../reducers';
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 
 export const getExpenses = state => state.expensesByCategory;
@@ -11,6 +11,11 @@ export function expensesByCategory(state = [], { type, payload }) {
         map[category.key] = category.expenses;
         return map;
       }, {});
+    case CATEGORY_ADD:
+      return {
+        ...state,
+        [payload.key]: []
+      };
     case EXPENSE_ADD:{
       return {
         ...state,
