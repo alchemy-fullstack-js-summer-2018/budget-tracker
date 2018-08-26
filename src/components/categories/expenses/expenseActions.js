@@ -1,12 +1,14 @@
-import { EXPENSE_ADD } from './reducers';
-import data from '../categories-data';
+import { EXPENSE_ADD } from './expenseReducers';
 import shortid from 'shortid';
 
-export const addExpense = expense => {
+export const addExpense = (categoryId, expense) => {
   expense.id = shortid.generate();
   expense.timestamp = (new Date()).toLocaleString();
   return {
     type: EXPENSE_ADD,
-    payload: expense
+    payload: {
+      categoryId,
+      expense
+    }
   };
 };
