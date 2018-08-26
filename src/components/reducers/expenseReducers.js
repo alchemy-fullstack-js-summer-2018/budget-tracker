@@ -4,11 +4,6 @@ export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 
-// TODO: 
-// Category load
-// Category add
-// Category delete
-
 export const getExpensesByCategories = state => state.expensesByCategory;
 export const getExpenses = state => state.expenses;
 

@@ -1,30 +1,30 @@
-// import shortid from 'shortid';
+import shortid from 'shortid';
 
 export default [
   { key: '-LKZT8AlXZOMAM40VKPD', 
     budget: 100, 
-    id: 'category1', 
+    id: shortid.generate(), 
     name: 'food', 
-    timestamp: '2018-08-22', 
+    timestamp: new Date(), 
     expense: [
       {
-        id: 'yum123',
+        id: shortid.generate(),
         categoryId: 'category1',
-        timestamp: '2018-08-20',
+        timestamp: new Date(),
         name: 'yumm',
         price: 5 
       },
       {
-        id: 'yum456',
+        id: shortid.generate(),
         categoryId: 'category1',
-        timestamp: '2018-08-22',
+        timestamp: new Date(),
         name: 'stumptown coffee',
         price: 3 
       },
       {
-        id: 'yum789',
+        id: shortid.generate(),
         categoryId: 'category1',
-        timestamp: '2018-08-22',
+        timestamp: new Date(),
         name: 'ramen',
         price: 9 
       }
@@ -32,21 +32,21 @@ export default [
   },
   { key: '-LKZTGF4mchHm10LGZFP', 
     budget: 500, 
-    id: 'category2', 
+    id: shortid.generate(), 
     name: 'gas', 
-    timestamp: '2018-08-21', 
+    timestamp: new Date(), 
     expense: [
       {
-        id: 'boo123',
+        id: shortid.generate(),
         categoryId: 'category2',
-        timestamp: '2018-08-22',
+        timestamp: new Date(),
         name: 'regular fill',
         price: 50
       },
       {
-        id: 'boo456',
+        id: shortid.generate(),
         categoryId: 'category2',
-        timestamp: '2018-08-24',
+        timestamp: new Date(),
         name: 'regular fill',
         price: 37
       }
