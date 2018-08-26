@@ -5,6 +5,7 @@ import ExpensesForm from './ExpensesForm';
 import Expense from './Expense';
 import { getExpensesByCategoryId } from '../reducers/expenseReducers';
 import { addExpense } from '../reducers/expenseActions';
+// import shortid from 'shortid';
 
 class Expenses extends Component {
 
@@ -15,10 +16,11 @@ class Expenses extends Component {
   };
 
   handleAddExpense = expense => {
-    const { addExpense } = this.props;
+    const { addExpense, categoryId } = this.props;
 
-    expense.categoryId = this.props.categoryId;
-    addExpense(expense);
+    //shortid??
+    // expense.categoryId = this.props.categoryId; 
+    addExpense(categoryId, expense);
   };
   
   render() { 
