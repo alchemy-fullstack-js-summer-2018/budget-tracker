@@ -6,7 +6,6 @@ class CategoryForm extends Component {
   state = { 
     editing: false,
     key: null,
-    timestamp: new Date(), 
     name: '',
     budget: 0
   };
