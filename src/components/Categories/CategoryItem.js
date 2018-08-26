@@ -24,7 +24,7 @@ class CategoryItem extends Component {
         </section>
 
         <section>
-          <Expenses />
+          <Expenses categoryId={category.id}/>
         </section>
       </div>
     );

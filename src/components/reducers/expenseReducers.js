@@ -5,7 +5,8 @@ export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 
 export const getExpensesByCategories = state => state.expensesByCategory;
-export const getExpenses = state => state.expenses;
+export const getExpensesByCategoryId = (state, id) => getExpensesByCategories(state)[id];
+// export const getExpenses = state => state.expenses;
 
 export function expensesByCategory(state = [], { type, payload }) {
   switch(type) {
