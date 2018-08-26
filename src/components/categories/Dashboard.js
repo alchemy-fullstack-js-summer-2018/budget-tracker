@@ -6,7 +6,7 @@ import CategoryForm from './CategoryForm';
 import { load, add, update } from './actions';
 import getCategories from './reducers';
 
-class CategoriesContainer extends Component {
+class Dashboard extends Component {
 
   static propTypes = {
     categories: PropTypes.array,
@@ -48,4 +48,4 @@ export default connect(
     categories: getCategories(state)
   }),
   { load, add }
-)(CategoriesContainer);
+)(Dashboard);

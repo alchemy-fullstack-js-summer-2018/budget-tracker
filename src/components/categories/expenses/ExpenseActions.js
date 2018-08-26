@@ -1,8 +1,9 @@
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './ExpenseReducers';
+import shortid from 'shortid';
 
-//Load to a Category through categoryId...
 
 export const add = expense => {
+  expense.id = shortid.generate();
   expense.timestamp = new Date();
   return {
     type: EXPENSE_ADD,
