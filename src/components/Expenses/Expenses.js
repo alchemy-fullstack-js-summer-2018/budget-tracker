@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-// import ExpensesForm from './ExpensesForm';
+import ExpensesForm from './ExpensesForm';
 import Expense from './Expense';
 import { getExpensesByCategoryId } from '../reducers/expenseReducers';
 
@@ -18,17 +18,19 @@ class Expenses extends Component {
 
     return (
       <ul>
-        <h4>Expenses Component</h4>
-        
-        {/* <ExpensesForm /> */}
+        <section className="expenses-form">
+          <ExpensesForm />
+        </section>
 
-        {expenses.map(expense => {
-          return <Expense 
-            key={expense.id}
-            expense={expense}
-          />;
-        })
-        }
+        <section>
+          {expenses.map(expense => {
+            return <Expense 
+              key={expense.id}
+              expense={expense}
+            />;
+          })
+          }
+        </section>
       </ul>
     );
   }
