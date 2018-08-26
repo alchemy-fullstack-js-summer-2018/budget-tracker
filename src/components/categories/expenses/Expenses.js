@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getExpenses } from './expensesReducer';
+import { getExpensesByCategoryId } from './expensesReducer';
 
 class Expenses extends Component {
   static propTypes = {
-    expenses: PropTypes.array.isRequired
+    expenses: PropTypes.array.isRequired,
+    categoryId: PropTypes.string.isRequired
   };
 
   render() {
@@ -18,8 +19,8 @@ class Expenses extends Component {
 }
  
 export default connect(
-  state => ({
-    expenses: getExpenses(state)
+  (state, { categoryId }) => ({
+    expenses: getExpensesByCategoryId(state, categoryId)
   }),
   null
 )(Expenses);
