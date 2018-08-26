@@ -1,6 +1,6 @@
 import CATEGORY_LOAD from '../categoryReducers';
 
-export const getExpenses = state => state;
+export const getExpenses = state => state.expenses;
  
 export function expenses(state = [], { type, payload }) {
   switch(type) {
