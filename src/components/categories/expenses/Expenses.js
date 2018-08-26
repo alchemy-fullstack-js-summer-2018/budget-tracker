@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getExpensesById } from './expenseReducers';
 import Expense from './Expense';
 import ExpenseForm from './ExpenseForm';
-import addExpense from './expenseActions';
+import { addExpense } from './expenseActions';
 
 class Expenses extends Component {
 
