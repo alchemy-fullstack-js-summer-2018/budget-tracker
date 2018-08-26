@@ -10,10 +10,7 @@ export function categories(state = [], { type, payload }) {
     case CATEGORY_LOAD:
       return payload;
     case CATEGORY_ADD:
-      return [
-        ...state,
-        payload
-      ];
+      return [...state, payload];
     case CATEGORY_UPDATE:
       return state.map(category => category.key === payload.key ? payload : category);
     case CATEGORY_REMOVE:
