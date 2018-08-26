@@ -2,7 +2,8 @@ import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './expenseReducers';
 // import shortid from 'shortid';
 
 export const addExpense = expense => {
-  //category id
+  console.log('***addExpense***', expense);
+  
   return {
     type: EXPENSE_ADD,
     payload: expense

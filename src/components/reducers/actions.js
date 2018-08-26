@@ -2,7 +2,6 @@ import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from '.
 import data from '../Categories/categories-data';
 import shortid from 'shortid';
 
-// TODO: update to load expense data
 export const load = () => ({
   type: CATEGORY_LOAD,
   payload: data
@@ -11,6 +10,7 @@ export const load = () => ({
 export const add = category => {
   category.key = shortid.generate();
   category.timestamp = new Date();
+  category.expense = [];
   return {
     type: CATEGORY_ADD,
     payload: category

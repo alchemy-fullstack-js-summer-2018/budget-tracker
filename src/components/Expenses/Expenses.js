@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ExpensesForm from './ExpensesForm';
 import Expense from './Expense';
 import { getExpensesByCategoryId } from '../reducers/expenseReducers';
+import { addExpense } from '../reducers/expenseActions';
 
 class Expenses extends Component {
 
@@ -19,7 +20,8 @@ class Expenses extends Component {
     return (
       <ul>
         <section className="expenses-form">
-          <ExpensesForm />
+          <h3>Add an Expense:</h3>
+          <ExpensesForm onComplete={addExpense}/>
         </section>
 
         <section>
@@ -40,5 +42,5 @@ export default connect(
   (state, { categoryId }) => ({
     expenses: getExpensesByCategoryId(state, categoryId)
   }),
-  null
+  { addExpense }
 )(Expenses);

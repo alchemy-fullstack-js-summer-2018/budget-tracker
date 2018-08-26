@@ -3,8 +3,9 @@ import PropTypes from 'prop-types';
 
 class ExpensesForm extends Component {
 
+  //TODO: flesh out state 
   state = {
-    key: null,
+    id: null,
     name: '',
     price: 0
   };
@@ -28,16 +29,16 @@ class ExpensesForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { key, name, price } = this.state;
+    const { id, name, price } = this.state;
     const expense = { name, price };
-    if(key) expense.key = key;
+    if(id) expense.id = id;
 
     this.props.onComplete(expense);
     this.setState({ name: '', price: 0 });
   };
   
   render() { 
-    const { key, name, price } = this.state;
+    const { id, name, price } = this.state;
     const { onCancel } = this.props;
 
     return (
@@ -45,8 +46,8 @@ class ExpensesForm extends Component {
         <label>Expense name:<input type="text" name="name" value={name} onChange={this.handleChange}></input></label>
         <label>Price:<input type="number" name="price" value={price} onChange={this.handleChange}></input></label>
         <p>
-          <button type="submit">{ key ? 'Update' : 'Add' }</button>
-          {key && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button type="submit">{ id ? 'Update' : 'Add' }</button>
+          {id && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );
