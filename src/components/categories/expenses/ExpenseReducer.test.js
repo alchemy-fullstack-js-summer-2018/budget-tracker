@@ -1,4 +1,4 @@
-import { expenses, EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './Expense-reducers';
+import { expenses, EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './ExpenseReducers';
 
 describe('Expense reducers test', () => {
   it('Initializes an empty array', () => {
