@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CategoryItem from './CategoryItem';
 import CategoryForm from './CategoryForm';
-import { update } from './actions';
+import { update } from './categoryActions';
 
 export class Category extends Component {
   state = {

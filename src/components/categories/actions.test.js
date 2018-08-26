@@ -1,4 +1,4 @@
-import { load, add, update, remove } from './actions';
+import { load, add, update, remove } from './categoryActions';
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './categoryReducers';
 import data from '../../services/category-data';
 
