@@ -5,8 +5,7 @@ class ExpenseForm extends Component {
 
   state = {
     ediiting: false,
-    categoryId: null,
-    timestamp: new Date(),
+    id: null,
     name: '',
     price:'',
   };
@@ -26,9 +25,9 @@ class ExpenseForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, price, key } = this.state;
+    const { name, price, id } = this.state;
     const expense = { name, price };
-    if(key) expense.key = key;
+    if(id) expense.id = id;
 
     this.props.onComplete(expense);
     this.setState({ name: '', price: '' });
@@ -39,7 +38,7 @@ class ExpenseForm extends Component {
   };
 
   render() {
-    const { key, name, price } = this.state;
+    const { id, name, price } = this.state;
     const { onCancel } = this.props;
 
     return (
@@ -47,8 +46,8 @@ class ExpenseForm extends Component {
         <InputControl name="name" value={name} onChange={this.handleChange}/>
         <InputControl name="price" value={price} onChange={this.handleChange}/>
         <p>
-          <button className="add-update-button" type="submit">{ key ? 'Update' : 'Add' }</button>
-          {key && <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>}
+          <button className="add-update-button" type="submit">{ id ? 'Update' : 'Add' }</button>
+          {id && <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );

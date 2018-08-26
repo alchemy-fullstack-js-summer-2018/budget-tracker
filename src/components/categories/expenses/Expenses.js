@@ -5,23 +5,23 @@ import Expense from './Expense';
 class Expenses extends Component {
 
   static propTypes = {
-    expenses: PropTypes.array
+    expenses: PropTypes.array,
+    add: PropTypes.func.isRequired
   };
 
   render() {
     const { expenses } = this.props;
 
     return (
-      <div>
-        <ul>
-          {expenses.map(expense => (
-            <Expense
-              key={expense.key}
-              expense={expense}
-            />
-          ))}
-        </ul>
-      </div>
+      <ul>
+        {expenses.map(expense => {
+          return <Expense
+            key={expense.id}
+            expense={expense}
+          />;
+        })
+        }
+      </ul>
     );
   }
 }
