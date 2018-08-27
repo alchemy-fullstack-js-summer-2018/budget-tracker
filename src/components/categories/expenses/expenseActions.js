@@ -1,7 +1,7 @@
 import { EXPENSE_ADD, EXPENSE_REMOVE } from './expenseReducers';
 import shortid from 'shortid';
 
-export const addExpense = (categoryId, expense) => {
+export const add = (categoryId, expense) => {
   expense.id = shortid.generate();
   expense.timestamp = (new Date()).toLocaleString();
   expense.categoryId = categoryId;
