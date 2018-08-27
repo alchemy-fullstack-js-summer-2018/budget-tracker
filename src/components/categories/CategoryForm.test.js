@@ -1,7 +1,7 @@
-import CategoryForm from './CategoryForm';
 import React from 'react';
 import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
+import CategoryForm from './CategoryForm';
 
 describe('Category form', () => {
   it('renders add if no category prop', () => {

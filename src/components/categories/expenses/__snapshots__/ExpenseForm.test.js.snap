@@ -1,0 +1,55 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Expense Form component renders add if no expense prop 1`] = `
+<ExpenseForm
+  onComplete={[MockFunction]}
+>
+  <form
+    onSubmit={[Function]}
+  >
+    <InputControl
+      name="name"
+      onChange={[Function]}
+      value=""
+    >
+      <p>
+        <label>
+          name
+          :
+          <input
+            name="name"
+            onChange={[Function]}
+            required={true}
+            value=""
+          />
+        </label>
+      </p>
+    </InputControl>
+    <InputControl
+      name="price"
+      onChange={[Function]}
+      value=""
+    >
+      <p>
+        <label>
+          price
+          :
+          <input
+            name="price"
+            onChange={[Function]}
+            required={true}
+            value=""
+          />
+        </label>
+      </p>
+    </InputControl>
+    <p>
+      <button
+        type="submit"
+      >
+        Add
+      </button>
+    </p>
+  </form>
+</ExpenseForm>
+`;
