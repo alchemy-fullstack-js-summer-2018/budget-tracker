@@ -1,4 +1,4 @@
-import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from '../Categories/reducers/reducers';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from '../../Categories/reducers/reducers';
 
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
