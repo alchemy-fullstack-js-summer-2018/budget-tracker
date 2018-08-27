@@ -26,11 +26,7 @@ export function expensesByCategory(state = [], { type, payload }) {
       state[payload];
       return state;
     } 
-    // update?
-    //bug: 
     case EXPENSE_ADD:
-      // console.log('***EXP ADD STATE***', state);
-      // console.log('***EXP ADD PAYLOAD***', payload);
       return {
         ...state,
         [payload.categoryId]: [
@@ -38,6 +34,10 @@ export function expensesByCategory(state = [], { type, payload }) {
           payload.expense
         ]
       };
+    case EXPENSE_REMOVE:
+      // console.log('***EXP REMOVE STATE***', state);
+      // console.log('***EXP REMOVE PAYLOAD***', payload);
+      return payload;
     default:
       return state;
   }

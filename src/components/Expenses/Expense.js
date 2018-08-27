@@ -12,6 +12,21 @@ class Expense extends Component {
   static propTypes = {
     expense: PropTypes.object
   };
+
+  handleEdit = () => {
+    this.setState({ editing: true });
+  };
+  
+  handleComplete = expense => {
+    const { update } = this.props;
+    update(expense);
+    this.handleEndEdit();
+  };
+  
+  handleEndEdit = () => {
+    this.setState({ editing: false });
+  };
+
   
   render() { 
     const { editing } = this.state;
@@ -20,8 +35,15 @@ class Expense extends Component {
     return (
       <li>
         {editing  
-          ? <ExpensesForm />
-          : <ExpenseItem expense={expense}/>
+          ? <ExpensesForm 
+            expense={expense}
+            onComplete={this.handleComplete}
+            onCancel={this.handleEndEdit}
+          />
+          : <ExpenseItem 
+            expense={expense}
+            onEdit={this.handleEdit}
+          />
         }
       </li>
     );

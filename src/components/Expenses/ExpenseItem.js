@@ -1,19 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+import { removeExpense } from '../reducers/expenseActions';
 
 class ExpenseItem extends Component {
 
   static propTypes = {
-    expense: PropTypes.object
+    expense: PropTypes.object,
+    onEdit: PropTypes.func,
+    removeExpense: PropTypes.func
   };
   
   render() { 
-    const { expense } = this.props;
+    const { expense, onEdit, removeExpense } = this.props;
 
     return (
-      <p>{expense.name} {expense.price}</p>
+      <section className="expense-item">
+        <button name="edit" onClick={onEdit}>✏️</button>&nbsp;
+        <button name="delete" onClick={() => removeExpense(expense.id)}>🗑️</button>&nbsp;
+        <strong>{expense.name}</strong><span className="price">Price: {expense.price}</span>
+      </section>
     );
   }
 }
  
-export default ExpenseItem;
+export default connect(
+  null,
+  { removeExpense }
+)(ExpenseItem);
