@@ -25,7 +25,6 @@ export function categories(state = [], { type, payload }) {
     // case EXPENSE_ADD:
     //   copy.find(x => x.key === payload.categoryId).expenses.push(payload);
     //   return copy;
-
     default: 
       return state;
   }
