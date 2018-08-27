@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { removeExpense } from '../reducers/expenseActions';
+import { removeExpense } from './reducers/expenseActions';
 
 class ExpenseItem extends Component {
 
