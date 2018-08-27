@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { remove } from '../expenses-actions';
+import { remove } from '../expensesByCategory-actions';
 
 class ExpensesDisplay extends Component {
   static propTypes = {
