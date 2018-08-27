@@ -21,7 +21,11 @@ class CategoryDisplay extends Component {
           {category.name} has a budget of ${category.budget}
           <button name="Edit" onClick={onEdit}>✎</button> 
           <button name="Delete" onClick={() => remove(category.key)}>🗑</button>
-          <Expenses categoryId={category.id}/>
+          
+        </section>
+        <Expenses categoryId={category.id}/>
+        <section>
+          
         </section>
       </div>
     );

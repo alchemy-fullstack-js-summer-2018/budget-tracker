@@ -35,15 +35,7 @@ class ExpenseForm extends Component {
   };
 
   handleChange = ({ target }) => {
-    this.setState(({ ediiting }) => {
-      return {
-        ediiting: {
-          ...ediiting,
-          [target.name]: target.value,
-          categoryId: this.props.categoryId
-        }
-      };
-    });
+    this.setState({ [target.name]: target.value });
   };
 
   render() {
@@ -53,7 +45,7 @@ class ExpenseForm extends Component {
     return (
       <form className="expense-form" onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="price" value={price} onChange={this.handleChange}/>
+        <InputControl name="price" value={price} type="number" onChange={this.handleChange}/>
         <p>
           <button className="add-update-button" type="submit">{ id ? 'Update' : 'Add' }</button>
           {id && <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>}
