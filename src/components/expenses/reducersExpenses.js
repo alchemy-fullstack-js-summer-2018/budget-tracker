@@ -1,4 +1,4 @@
-import { CATEGORY_LOAD } from '../categories/reducers';
+import { CATEGORY_LOAD, CATEGORY_ADD } from '../categories/reducers';
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
@@ -8,28 +8,36 @@ export const getExpensesById = (categoryKey, state) => getExpenses(state)[catego
 
 export function expenses(state = [], { type, payload }) {
   switch(type) {
-    case EXPENSE_ADD:
-      return [
-        ...state,
-        payload
-      ];
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
         map[category.key] = category.expenses;
         return map;
       }, {});
+    case CATEGORY_ADD: {
+      return {
+        ...state,
+        [payload.key]: []
+      };
+    }
+    case EXPENSE_ADD:
+      return {
+        ...state,
+        [payload.categoryId]: [
+          ...state[payload.categoryId],
+          payload
+        ]
+      };
     case EXPENSE_UPDATE:
-      for(var i in state[payload.categoryId]) {
-        if(state[payload.categoryId][i].key == payload.key) {
-          state[payload.categoryId][i].name = payload.name;
-          state[payload.categoryId][i].price = payload.price;
-          break;
-        }
-      }
-      return state;
+      return {
+        ...state,
+        [payload.categoryId]: state[payload.categoryId].map(expense => expense.key === payload.key ? payload : expense)
+      };
 
     case EXPENSE_REMOVE:
-      return;
+      return {
+        ...state,
+        [payload.categoryId]: state[payload.categoryId].filter(expense => expense.key !== payload.key)
+      };
     default:
       return state;
   }

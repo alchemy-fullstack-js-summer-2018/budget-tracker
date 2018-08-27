@@ -7,17 +7,18 @@ class ExpenseItem extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
-    onEdit: PropTypes.func.isRequired
+    onEdit: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
   };
 
   render() {
-    const { expense, onEdit } = this.props;
+    const { expense, onEdit, remove } = this.props;
     return (
       <div className={styles.expenseItem}>
         <p>{expense.name}</p>
         <p className="price">${expense.price}</p>
         <button name="edit" onClick={onEdit}>✎</button>
-        <button name="delete" onClick={() => remove(expense.key)}>🗑</button>
+        <button name="delete" onClick={() => remove(expense)}>🗑</button>
       </div>
     );
   }
