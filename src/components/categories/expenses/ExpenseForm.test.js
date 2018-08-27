@@ -45,5 +45,21 @@ describe('Expense Form component', () => {
     />);
 
     expect(toJSON(wrapper)).toMatchSnapshot();
+
+    wrapper.find('input[name="price"]').simulate('change', {
+      target: {
+        name: 'price',
+        value: 3
+      }
+    });
+
+    wrapper.find('button[type="submit"]').simulate('submit');
+
+    const calls = handleComplete.mock.calls;
+    expect(calls.length).toBe(1);
+    expect(calls[0][0]).toEqual({
+      ...expense,
+      price: 3
+    });
   });
 });
