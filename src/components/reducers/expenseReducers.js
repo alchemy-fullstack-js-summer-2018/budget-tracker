@@ -8,8 +8,8 @@ export const getExpensesByCategories = state => state.expensesByCategory;
 export const getExpensesByCategoryId = (state, categoryId) => getExpensesByCategories(state)[categoryId];
 
 export function expensesByCategory(state = [], { type, payload }) {
-  console.log('***PAYLOAD***', payload);
-  console.log('***STATE***', state);
+  // console.log('***PAYLOAD***', payload);
+  // console.log('***STATE***', state);
 
   switch(type) {
     case CATEGORY_LOAD:
@@ -22,9 +22,15 @@ export function expensesByCategory(state = [], { type, payload }) {
         ...state,
         [payload.id]: []
       };
-    case CATEGORY_REMOVE: //update?
-      return payload;
+    case CATEGORY_REMOVE: {
+      state[payload];
+      return state;
+    } 
+    // update?
+    //bug: 
     case EXPENSE_ADD:
+      // console.log('***EXP ADD STATE***', state);
+      // console.log('***EXP ADD PAYLOAD***', payload);
       return {
         ...state,
         [payload.categoryId]: [
@@ -37,7 +43,7 @@ export function expensesByCategory(state = [], { type, payload }) {
   }
 }
 
-// TODO: separate concerns
+// TODO: separate concerns?
 // export const getExpenses = state => state.expenses;
 // export function expenses(state = [], { type, payload }) {
 //   switch(type) {
@@ -52,5 +58,22 @@ export function expensesByCategory(state = [], { type, payload }) {
 //       return state.filter(expense => expense.id !== payload);
 //     default:
 //       return state;
+//   }
+// }
+
+// Notes:
+// function updateVeryNestedField(state, action) {
+//   return {
+//       ...state,
+//       first : {
+//           ...state.first,
+//           second : {
+//               ...state.first.second,
+//               [action.someId] : {
+//                   ...state.first.second[action.someId],
+//                   fourth : action.someValue
+//               }
+//           }
+//       }
 //   }
 // }

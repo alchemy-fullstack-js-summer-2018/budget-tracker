@@ -19,7 +19,6 @@ class Expenses extends Component {
     const { addExpense, categoryId } = this.props;
 
     //shortid??
-    // expense.categoryId = this.props.categoryId; 
     addExpense(categoryId, expense);
   };
   
