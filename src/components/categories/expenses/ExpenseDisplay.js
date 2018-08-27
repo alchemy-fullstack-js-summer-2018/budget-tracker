@@ -12,13 +12,13 @@ class ExpenseDisplay extends Component {
   };
 
   render() {
-    const { expense, onEdit } = this.props;
+    const { expense, onEdit, remove } = this.props;
 
     return (
       <p>
         <strong text-transformation="capitalize">Expense:</strong> {expense.name} <strong>Price:</strong> ${expense.price}
         <button name="Edit" onClick={onEdit}>✎</button> 
-        <button name="Delete" onClick={() => remove(expense.key)}>🗑</button>
+        <button name="Delete" onClick={() => remove(expense.id)}>🗑</button>
       </p>
     );
   }
