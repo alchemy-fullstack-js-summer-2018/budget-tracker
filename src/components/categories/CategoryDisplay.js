@@ -20,7 +20,7 @@ class CategoryDisplay extends Component {
         <section className="cf-list">
           <strong>{category.name} Budget</strong>: ${category.budget}
           <button name="Edit" onClick={onEdit}>✎</button> 
-          <button name="Delete" onClick={() => remove(category.key)}>🗑</button>
+          <button name="Delete" onClick={() => remove(category.id)}>🗑</button>
           
         </section>
         <Expenses categoryId={category.id}/>

@@ -8,7 +8,7 @@ export const load = () => ({
 });
 
 export const add = category => {
-  category.key = shortid.generate();
+  category.id = shortid.generate();
   category.timestamp = new Date();
   return {
     type: CATEGORY_ADD,
@@ -21,7 +21,7 @@ export const update = category => ({
   payload: category
 });
 
-export const remove = key => ({
+export const remove = id => ({
   type: CATEGORY_REMOVE,
-  payload: key
+  payload: id
 });
