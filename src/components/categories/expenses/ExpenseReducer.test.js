@@ -1,4 +1,4 @@
-import { expenses, EXPENSE_UPDATE, EXPENSE_REMOVE, expensesByCategory } from './ExpenseReducers';
+import { expensesByCategory } from './ExpenseReducers';
 import { CATEGORY_ADD } from '../reducers';
 
 describe('Expense reducers test', () => {
@@ -16,31 +16,31 @@ describe('Expense reducers test', () => {
   });
 
   
-  it('Updates a expense', () => {
-    const expense1 = { id: '1', name: 'a' };
-    const expense2 = { id: '2', name: 'b' };
-    const expense3 = { id: '3', name: 'c' };
+  // it('Updates a expense', () => {
+  //   const expense1 = { id: '1', name: 'a' };
+  //   const expense2 = { id: '2', name: 'b' };
+  //   const expense3 = { id: '3', name: 'c' };
 
-    const updated = { id: '2', name: 'f' };
+  //   const updated = { id: '2', name: 'f' };
 
-    const state = expenses([expense1, expense2, expense3], {
-      type: EXPENSE_UPDATE,
-      payload: updated
-    });
+  //   const state = expenses([expense1, expense2, expense3], {
+  //     type: EXPENSE_UPDATE,
+  //     payload: updated
+  //   });
 
-    expect(state).toEqual([expense1, updated, expense3]);
-  });
+  //   expect(state).toEqual([expense1, updated, expense3]);
+  // });
 
-  it('Removes an expense', () => {
-    const expense1 = { id: '1', name: 'a' };
-    const expense2 = { id: '2', name: 'b' };
-    const expense3 = { id: '3', name: 'c' };
+  // it('Removes an expense', () => {
+  //   const expense1 = { id: '1', name: 'a' };
+  //   const expense2 = { id: '2', name: 'b' };
+  //   const expense3 = { id: '3', name: 'c' };
 
-    const state = expenses([expense1, expense2, expense3], {
-      type: EXPENSE_REMOVE,
-      payload: '2'
-    });
+  //   const state = expenses([expense1, expense2, expense3], {
+  //     type: EXPENSE_REMOVE,
+  //     payload: '2'
+  //   });
 
-    expect(state).toEqual([expense1, expense3]);
-  });
+  //   expect(state).toEqual([expense1, expense3]);
+  // });
 });

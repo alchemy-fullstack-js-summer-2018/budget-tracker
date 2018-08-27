@@ -24,7 +24,7 @@ export function expensesByCategory(state = [], { type, payload }) {
       delete copy[payload.id];
       return copy;
     }
-    case EXPENSE_ADD: {
+    case EXPENSE_ADD: 
       return {
         ...state,
         [payload.categoryId] : [
@@ -32,19 +32,17 @@ export function expensesByCategory(state = [], { type, payload }) {
           payload.expense
         ]
       };
-    }
     case EXPENSE_UPDATE: {
       const copy = { ...state };
       const update = copy[payload.categoryId].map(expense => expense.id === payload.expense.id ? payload.expense : expense);
       copy[payload.categoryId] = update;
       return copy;
     }
-    case EXPENSE_REMOVE: {
-      const copy = { ...state };
-      const update = copy[payload.categoryId].filter(expense => expense.id !== payload.id);
-      copy[payload.categoryId] = update;
-      return copy;
-    }
+    case EXPENSE_REMOVE: 
+      return {
+        ...state,
+        [payload.categoryId]: state[payload.categoryId].filter(expense => expense.id !== payload.id)
+      };
     default:
       return state;
   }

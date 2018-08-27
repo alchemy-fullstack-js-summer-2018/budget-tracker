@@ -20,7 +20,7 @@ export const update = expense => ({
   payload: expense
 });
 
-export const remove = id => ({
+export const remove = expense => ({
   type: EXPENSE_REMOVE,
-  payload: id
+  payload: expense
 });
