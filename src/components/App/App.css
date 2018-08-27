@@ -1,4 +1,6 @@
 :local(.app) {
+  
+  margin-left: 20px;
 
   h1 {
     color: #2c3e50;

@@ -1,6 +1,6 @@
 import * as actions from './actions';
 import * as reducers from './reducers';
-import data from '../Categories/categories-data';
+import data from '../categories-data';
 
 describe('Actions', () => {
 
