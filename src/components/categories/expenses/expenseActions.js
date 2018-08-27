@@ -1,4 +1,4 @@
-import { EXPENSE_ADD } from './expenseReducer';
+import { EXPENSE_ADD } from './expenseReducers';
 import shortid from 'shortid';
 
 export const addExpense = (categoryId, expense) => {

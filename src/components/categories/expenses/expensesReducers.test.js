@@ -1,7 +1,7 @@
 import {
   expenses,
   CATEGORY_LOAD
-} from './expenseReducer';
+} from './expenseReducers';
 
 describe('Expenses reducers', () => {
   it('initializes to an empty array', () => {

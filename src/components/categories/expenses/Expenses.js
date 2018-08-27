@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getExpensesByCategoryId } from './expenseReducer';
+import { getExpensesByCategoryId } from './expenseReducers';
 import { addExpense } from './expenseActions';
 import Expense from './Expense';
 import ExpenseForm from './ExpenseForm';
