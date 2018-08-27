@@ -10,9 +10,9 @@ export function expenses(state = [], { type, payload }) {
         payload
       ];
     case EXPENSE_UPDATE:
-      return state.map(expense => expense.key === payload.key ? payload : expense);
+      return state.map(expense => expense.name === payload.name ? payload : expense);
     case EXPENSE_REMOVE:
-      return state.filter(expense => expense.key !== payload);
+      return state.filter(expense => expense.name !== payload);
     default:
       return state;
   }

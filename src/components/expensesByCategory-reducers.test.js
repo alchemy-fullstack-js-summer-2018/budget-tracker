@@ -27,7 +27,7 @@ describe('expenses reducers', () => {
     const expense2 = { name: 'Slice of Pizza', amount: '3.75' };
     const expense3 = { name: 'Croissant', amount: '2.50' };
 
-    const updated = { name: 'Sausage Biscuit', amount: '2.25' };
+    const updated = { name: 'Slice of Pizza', amount: '2.25' };
 
     const state = expenses([expense1, expense2, expense3], {
       type: EXPENSE_UPDATE,
@@ -42,14 +42,14 @@ describe('expenses reducers', () => {
 
   });
 
-  it('removes a category', () => {
+  it('removes an expense', () => {
     const expense1 = { name: 'Coffee', amount: '3.00' };
     const expense2 = { name: 'Slice of Pizza', amount: '3.75' };
     const expense3 = { name: 'Croissant', amount: '2.50' };
 
     const state = expenses([expense1, expense2, expense3], {
       type: EXPENSE_REMOVE,
-      payload: '2'
+      payload: 'Slice of Pizza'
     });
 
     expect(state).toEqual([
