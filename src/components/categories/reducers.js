@@ -22,24 +22,3 @@ export function categories(state = [], { type, payload }) {
       return state;  
   }  
 }
-
-export const EXPENSE_ADD = 'EXPENSE_ADD';
-export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
-export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
-
-
-export const getExpenses = state => state.expenses;
-export const getExpensesByCategory = state => state.expensesByCategory;
-
-export function expenses(state = [], { type, payload }) {
-  let expense = {};
-
-  switch(type) {
-    case CATEGORY_LOAD:
-      return state.reduce((acc, val) => {
-        return acc + val;
-      }, {});
-    case EXPENSE_ADD:
-
-  }
-}
