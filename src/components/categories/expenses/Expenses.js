@@ -9,8 +9,8 @@ import { add } from './ExpenseActions';
 class Expenses extends Component {
 
   static propTypes = {
-    categoryId: PropTypes.string.isRequired,
     expenses: PropTypes.array,
+    categoryId: PropTypes.string.isRequired,
     add: PropTypes.func.isRequired
   };
 
@@ -21,14 +21,14 @@ class Expenses extends Component {
   };
 
   render() {
-    const { expenses, categoryId } = this.props;
+    const { expenses } = this.props;
     if(!expenses) return null;
 
     return (
       <div>
         <section>
           <h3>Add an Expense</h3>
-          <ExpenseForm onComplete={this.handleAddExpense} categoryId={categoryId}/>
+          <ExpenseForm onComplete={this.handleAddExpense}/>
         </section>
 
         <section>
@@ -47,10 +47,8 @@ class Expenses extends Component {
  
 
 export default connect(
-  (state, { categoryId }) => {
-    return {
-      expenses: getExpensesByCategory(state, categoryId)
-    };
-  },
+  (state, { categoryId }) => ({
+    expenses: getExpensesByCategory(state, categoryId)
+  }),
   { add }
 )(Expenses);

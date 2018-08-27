@@ -10,7 +10,7 @@ export function expensesByCategory(state = [], { type, payload }) {
   switch(type){
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.id] = category.expenses;
+        map[category.id] = category.expense;
         return map;
       },
       {});
@@ -29,7 +29,7 @@ export function expensesByCategory(state = [], { type, payload }) {
         ...state,
         [payload.categoryId] : [
           ...state[payload.categoryId],
-          payload
+          payload.expense
         ]
       };
     }

@@ -16,16 +16,16 @@ class CategoryDisplay extends Component {
     const { category, onEdit, remove } = this.props;
 
     return (
-      <div>
+      <div className="cf-bullet">
         <section className="cf-list">
-          {category.name} has a budget of ${category.budget}
+          <strong>{category.name} Budget</strong>: ${category.budget}
           <button name="Edit" onClick={onEdit}>✎</button> 
           <button name="Delete" onClick={() => remove(category.key)}>🗑</button>
           
         </section>
         <Expenses categoryId={category.id}/>
         <section>
-          
+
         </section>
       </div>
     );

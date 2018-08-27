@@ -16,7 +16,7 @@ class ExpenseDisplay extends Component {
 
     return (
       <p>
-        {expense.name} ${expense.price}
+        <strong text-transformation="capitalize">Expense:</strong> {expense.name} <strong>Price:</strong> ${expense.price}
         <button name="Edit" onClick={onEdit}>✎</button> 
         <button name="Delete" onClick={() => remove(expense.key)}>🗑</button>
       </p>
