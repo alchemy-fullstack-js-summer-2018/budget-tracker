@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CategoryItem from './CategoryItem';
 import CategoryForm from './CategoryForm';
 import { update } from './categoryActions';
+import styles from './Category.css';
 
 export class Category extends Component {
   state = {
@@ -34,7 +35,7 @@ export class Category extends Component {
     const { category } = this.props;
 
     return (
-      <li>
+      <li className={styles.category}>
         {editing
           ? <CategoryForm
             category={category}

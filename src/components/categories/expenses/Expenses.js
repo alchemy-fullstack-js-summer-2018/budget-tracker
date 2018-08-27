@@ -5,6 +5,7 @@ import { getExpensesByCategoryId } from './expenseReducer';
 import { addExpense } from './expenseActions';
 import Expense from './Expense';
 import ExpenseForm from './ExpenseForm';
+import styles from './Expenses.css';
 
 class Expenses extends Component {
   static propTypes = {
@@ -29,7 +30,7 @@ class Expenses extends Component {
         </section>
 
         {expenses &&
-          <ul>
+          <ul className={styles.expenses}>
             {expenses.map(expense => (
               <Expense
                 key={expense.id}

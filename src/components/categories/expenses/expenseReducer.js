@@ -1,4 +1,4 @@
-import { CATEGORY_LOAD, CATEGORY_ADD } from '../categoryReducers';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from '../categoryReducers';
 
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const getExpenses = state => state.expenses;
@@ -16,6 +16,11 @@ export function expenses(state = [], { type, payload }) {
         ...state,
         [payload.key]: []
       };
+    case CATEGORY_REMOVE: {
+      const copy = { ...state };
+      delete copy[payload.id];
+      return copy;
+    }
     case EXPENSE_ADD:
       return {
         ...state,

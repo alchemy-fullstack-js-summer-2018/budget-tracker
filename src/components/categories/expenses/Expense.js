@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import ExpenseForm from './ExpenseForm';
 import ExpenseItem from './ExpenseItem';
+import styles from './Expense.css';
 
 export class Expense extends Component {
   state = {
@@ -29,7 +30,7 @@ export class Expense extends Component {
     const { expense } = this.props;
 
     return (
-      <li>
+      <li className={styles.expense}>
         {editing
           ? <ExpenseForm
             expense={expense}
