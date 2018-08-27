@@ -23,7 +23,13 @@ export function expensesByCategory(state = [], { type, payload }) {
       return state;
     }
     case EXPENSE_ADD: 
-      return state;
+      return {
+        ...state,
+        [payload.categoryId]: [
+          ...state[payload.categoryId],
+          payload
+        ]
+      };
     case EXPENSE_REMOVE:
       return {
         ...state,
