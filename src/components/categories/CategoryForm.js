@@ -26,13 +26,13 @@ class CategoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { key, name, budget } = this.state;
-    const category = { name, budget }
+    const { key, name, budget, timestamp } = this.state;
+    const category = { name, budget, timestamp }
 ;
     if(key) category.key = key;
 
     this.props.onComplete(category);
-    this.setState({ name: '', budget: '' });
+    this.setState({ name: '', budget: '', timestamp: '' });
   };
 
   handleChange = ({ target }) => {
