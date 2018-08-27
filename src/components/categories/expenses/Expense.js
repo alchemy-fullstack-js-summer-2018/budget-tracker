@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import ExpenseForm from './ExpenseForm';
 import ExpenseItem from './ExpenseItem';
 
-class Expense extends Component {
+export class Expense extends Component {
   state = {
     editing: false
   };
