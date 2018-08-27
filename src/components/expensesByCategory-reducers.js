@@ -8,6 +8,8 @@ export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 export const getExpensesByCategories = state => state.expensesByCategory;
 export const getExpensesByCategoryId = (state, categoryId) => getExpensesByCategories(state)[categoryId];
 
+//Need to add category load
+
 
 export function expenses(state = [], { type, payload }) {
   switch(type) {
