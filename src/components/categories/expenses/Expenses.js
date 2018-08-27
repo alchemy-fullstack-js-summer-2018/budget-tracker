@@ -45,7 +45,6 @@ class Expenses extends Component {
   }
 }
  
-
 export default connect(
   (state, { categoryId }) => ({
     expenses: getExpensesByCategory(state, categoryId)
