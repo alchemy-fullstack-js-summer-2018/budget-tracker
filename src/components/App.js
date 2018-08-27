@@ -15,7 +15,6 @@ class App extends Component {
             <Header/>
           </header>
           <main>
-            <h2>I Am App</h2>
             <Switch>
               <Route exact path="/" component={Home}/>
               <Route exact path="/dashboard" component={Dashboard}/>

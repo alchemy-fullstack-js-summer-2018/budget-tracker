@@ -2,7 +2,7 @@ import {
   CATEGORY_LOAD,
   CATEGORY_ADD,
   CATEGORY_UPDATE
-} from './reducers.js';
+} from './reducers';
 import shortid from 'shortid';
 import data from '../Dashboard/categories-data.js';
 
