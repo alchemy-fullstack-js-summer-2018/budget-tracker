@@ -24,14 +24,6 @@ export default [
     timestamp: new Date(),
     name: 'food',
     budget: 500,
-    expenses: [
-      {
-        id: 'b39',
-        timestamp: new Date(),
-        name: 'mas sabor burrito',
-        price: 8
-      }
-    ]
   },
   {
     key: 'ghi',
@@ -39,12 +31,6 @@ export default [
     name: 'transportation',
     budget: 200,
     expenses: [
-      {
-        id: '789',
-        timestamp: new Date(),
-        name: 'bus fare',
-        price: 5
-      },
       {
         id: '012',
         timestamp: new Date(),

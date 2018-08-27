@@ -8,7 +8,7 @@ import ExpenseForm from './ExpenseForm';
 
 class Expenses extends Component {
   static propTypes = {
-    expenses: PropTypes.array.isRequired,
+    expenses: PropTypes.array,
     categoryId: PropTypes.string.isRequired,
     addExpense: PropTypes.func.isRequired
   };
@@ -27,14 +27,17 @@ class Expenses extends Component {
           <h3>Add an Expense</h3>
           <ExpenseForm onComplete={this.handleAdd}/>
         </section>
-        <ul>
-          {expenses.map(expense => (
-            <Expense
-              key={expense.id}
-              expense={expense}
-            />
-          ))}
-        </ul>
+
+        {expenses &&
+          <ul>
+            {expenses.map(expense => (
+              <Expense
+                key={expense.id}
+                expense={expense}
+              />
+            ))}
+          </ul>
+        }
       </section>
     );
   }
