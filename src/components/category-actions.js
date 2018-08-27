@@ -16,6 +16,7 @@ export const add = category => {
   category.key = shortid.generate();
   category.categoryId = shortid.generate();
   category.timestamp = new Date();
+  category.expenses = [];
   return {
     type: CATEGORY_ADD,
     payload: category
