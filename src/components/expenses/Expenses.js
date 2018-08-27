@@ -13,7 +13,7 @@ class Expenses extends Component {
   };
 
   render() {
-    const { expenses, categoryKey } = this.props;
+    const { expenses } = this.props;
 
     return (
       <div>
@@ -23,7 +23,7 @@ class Expenses extends Component {
           {expenses.map(expense => (
             <Expense
               key={expense.key}
-              expense={expense[categoryKey]}
+              expense={expense}
             />
           ))}
         </ul>
