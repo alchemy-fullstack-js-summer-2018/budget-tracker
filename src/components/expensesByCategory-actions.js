@@ -5,12 +5,16 @@ import {
 } from './expensesByCategory-reducers.js';
 import shortid from 'shortid';
 
-export const add = expense => {
+export const add = (categoryId, expense) => {
   expense.id = shortid.generate();
   expense.timestamp = new Date();
+  expense.categoryId = categoryId;
   return {
     type: EXPENSE_ADD,
-    payload: expense
+    payload: {
+      categoryId,
+      expense
+    }
   };
 };
 
