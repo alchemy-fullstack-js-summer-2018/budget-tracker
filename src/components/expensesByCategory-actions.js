@@ -2,7 +2,7 @@ import {
   EXPENSE_ADD, 
   EXPENSE_UPDATE,
   EXPENSE_REMOVE 
-} from './expenses-reducers.js';
+} from './expensesByCategory-reducers.js';
 import shortid from 'shortid';
 
 export const add = expense => {

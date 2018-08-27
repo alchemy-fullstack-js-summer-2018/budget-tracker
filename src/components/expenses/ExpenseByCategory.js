@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ExpensesDisplay from './ExpensesDisplay';
-import ExpenseForm from './ExpenseForm';
+import ExpensesDisplay from './ExpensesByCategoryDisplay';
+import ExpenseForm from './ExpenseByCategoryForm';
 import { update } from '../expenses-actions';
 
 class Expense extends Component {

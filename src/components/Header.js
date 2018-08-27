@@ -5,10 +5,6 @@ import styles from './Header.css';
 
 class Header extends Component {
 
-  static propTypes = {
-
-  };
-
   handleSpecial = event => {
     event.preventDefault();
     alert('what the heck i=does this do?');
