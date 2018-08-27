@@ -12,8 +12,6 @@ Budget Tracker - Part 3 (Async Actions)
 
 Change your project to use async actions that communicate data changes to the server.
 
-1. On all your `actions.test.js`, change to `it.skip`
-    - We will learn how to test on Monday
 1. Add a service module for making API calls
     - Create firebase.json calls for each need action:
         - `GET /categories.json`
