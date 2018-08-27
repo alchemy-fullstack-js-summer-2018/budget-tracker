@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Expenses from '../Expenses/Expenses';
 import { connect } from 'react-redux';
-import { remove } from '../reducers/actions';
+import { remove } from './reducers/actions';
 
 class CategoryItem extends Component {
   
