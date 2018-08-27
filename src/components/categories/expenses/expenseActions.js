@@ -1,10 +1,10 @@
-import { EXPENSE_ADD } from './expenseReducers';
+import { EXPENSE_ADD, EXPENSE_REMOVE } from './expenseReducers';
 import shortid from 'shortid';
 
 export const addExpense = (categoryId, expense) => {
   expense.id = shortid.generate();
   expense.timestamp = (new Date()).toLocaleString();
-  
+  expense.categoryId = categoryId;
   return {
     type: EXPENSE_ADD,
     payload: {
@@ -13,3 +13,8 @@ export const addExpense = (categoryId, expense) => {
     }
   };
 };
+
+export const remove = expense => ({
+  type: EXPENSE_REMOVE,
+  payload: expense
+});

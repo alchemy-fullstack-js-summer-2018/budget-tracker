@@ -1,6 +1,7 @@
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from '../categoryReducers';
 
 export const EXPENSE_ADD = 'EXPENSE_ADD';
+export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 export const getExpenses = state => state.expenses;
 export const getExpensesByCategoryId = (state, id) => getExpenses(state)[id];
 
@@ -28,6 +29,11 @@ export function expenses(state = [], { type, payload }) {
           ...state[payload.categoryId],
           payload.expense
         ]
+      };
+    case EXPENSE_REMOVE:
+      return {
+        ...state,
+        [payload.categoryId]: state[payload.categoryId].filter(expense => expense.id !== payload.id)
       };
     default:
       return state;

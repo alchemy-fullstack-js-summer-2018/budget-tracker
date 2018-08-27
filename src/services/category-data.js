@@ -9,13 +9,15 @@ export default [
         id: '123',
         timestamp: new Date(),
         name: 'Netflix',
-        price: 11
+        price: 11,
+        categoryId: 'abc'
       },
       {
         id: '456',
         timestamp: new Date(),
         name: 'FX Now',
-        price: 11
+        price: 11,
+        categoryId: 'abc'
       }
     ]
   },
@@ -35,7 +37,8 @@ export default [
         id: '012',
         timestamp: new Date(),
         name: 'streetcare fare',
-        price: 2
+        price: 2,
+        categoryId: 'ghi'
       }
     ]
   }
