@@ -1,4 +1,4 @@
-import React, { Component, Fragment } from 'react';
+import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getExpensesById } from './expenseReducers';
@@ -6,7 +6,7 @@ import Expense from './Expense';
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from './expenseActions';
 
-class Expenses extends Component {
+class Expenses extends PureComponent {
 
   static propTypes = {
     expenses: PropTypes.array.isRequired,
