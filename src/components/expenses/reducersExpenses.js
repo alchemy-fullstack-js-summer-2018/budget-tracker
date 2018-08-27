@@ -13,6 +13,16 @@ export function expenses(state = [], { type, payload }) {
         map[category.key] = category.expenses;
         return map;
       }, {});
+    case EXPENSE_UPDATE:
+      for(var i in state[payload.categoryId]) {
+        if(state[payload.categoryId][i].key == payload.key) {
+          state[payload.categoryId][i].name = payload.name;
+          state[payload.categoryId][i].price = payload.price;
+          break;
+        }
+      }
+      return state;
+      // return state[payload.categoryId].map(expense => expense.key === payload.key ? payload : expense);
     default:
       return state;
   }

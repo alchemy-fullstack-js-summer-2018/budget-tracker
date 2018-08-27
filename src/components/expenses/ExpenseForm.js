@@ -5,13 +5,16 @@ export default class ExpenseForm extends Component {
 
   state = {
     key: '',
+    categoryId: '',
     name: '',
-    price: ''
+    price: '',
+    timestamp: null
   };
 
   static propTypes = {
     expense: PropTypes.object,
-    onCancel: PropTypes.func
+    onCancel: PropTypes.func,
+    onComplete: PropTypes.func
   };
 
   componentDidMount() {
@@ -20,6 +23,16 @@ export default class ExpenseForm extends Component {
 
     this.setState(expense);
   }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { key, categoryId, name, price, timestamp } = this.state;
+    const expense = { key, name, categoryId, price, timestamp };
+    if(key) expense.key = key;
+
+    this.props.onComplete(expense);
+    this.setState({ categoryId: '', name: '', price: '' });
+  };
 
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });

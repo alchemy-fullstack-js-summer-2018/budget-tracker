@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import ExpenseItem from './ExpenseItem';
 import ExpenseForm from './ExpenseForm';
+import { update } from './actions';
 
-export default class Expense extends Component {
+class Expense extends Component {
 
   state = {
     editing: false
@@ -11,24 +13,25 @@ export default class Expense extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
+    update: PropTypes.func.isRequired
   };
 
   handleEdit = () => {
     this.setState({ editing: true });
   };
 
-  // handleComplete = category => {
-  //   const { update } = this.props;
-  //   update(category);
-  //   this.handleEndEdit();
-  // };
+  handleComplete = expense => {
+    const { update } = this.props;
+    update(expense);
+    this.handleEndEdit();
+  };
 
   handleEndEdit = () => {
     this.setState({ editing: false });
   };
 
   render() {
-    const { expense, onEdit } = this.props;
+    const { expense } = this.props;
     const { editing } = this.state;
 
     return (
@@ -41,6 +44,7 @@ export default class Expense extends Component {
             ? <ExpenseForm
               expense={expense}
               onCancel={this.handleEndEdit}
+              onComplete={this.handleComplete}
             />
             : <ExpenseItem
               expense={expense}
@@ -52,3 +56,8 @@ export default class Expense extends Component {
     );
   }
 }
+
+export default connect(
+  null,
+  { update }
+)(Expense);

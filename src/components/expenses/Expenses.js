@@ -14,7 +14,7 @@ class Expenses extends Component {
 
   render() {
     const { expenses } = this.props;
-
+    console.log('EXPENSES', expenses);
     return (
       <div>
         <h6>Hello Expenses!</h6>
