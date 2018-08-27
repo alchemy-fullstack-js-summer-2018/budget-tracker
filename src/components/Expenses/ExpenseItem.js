@@ -17,7 +17,7 @@ class ExpenseItem extends Component {
     return (
       <section className="expense-item">
         <button name="edit" onClick={onEdit}>✏️</button>&nbsp;
-        <button name="delete" onClick={() => removeExpense(expense.id)}>🗑️</button>&nbsp;
+        <button name="delete" onClick={() => removeExpense(expense)}>🗑️</button>&nbsp;
         <strong>{expense.name}</strong><span className="price">Price: {expense.price}</span>
       </section>
     );

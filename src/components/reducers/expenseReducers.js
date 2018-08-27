@@ -8,8 +8,8 @@ export const getExpensesByCategories = state => state.expensesByCategory;
 export const getExpensesByCategoryId = (state, categoryId) => getExpensesByCategories(state)[categoryId];
 
 export function expensesByCategory(state = [], { type, payload }) {
-  // console.log('***PAYLOAD***', payload);
-  // console.log('***STATE***', state);
+  console.log('***PAYLOAD***', payload);
+  console.log('***STATE***', state);
 
   switch(type) {
     case CATEGORY_LOAD:
@@ -35,9 +35,10 @@ export function expensesByCategory(state = [], { type, payload }) {
         ]
       };
     case EXPENSE_REMOVE:
-      // console.log('***EXP REMOVE STATE***', state);
-      // console.log('***EXP REMOVE PAYLOAD***', payload);
-      return payload;
+      return {
+        ...state,
+        [payload.categoryId]: state[payload.categoryId].filter(expense => expense.id !== payload.id)
+      };
     default:
       return state;
   }

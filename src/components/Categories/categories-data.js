@@ -3,7 +3,7 @@ import shortid from 'shortid';
 export default [
   { key: '-LKZT8AlXZOMAM40VKPD', 
     budget: 100, 
-    id: shortid.generate(), 
+    id: 'category1', 
     name: 'food', 
     timestamp: new Date(), 
     expense: [
@@ -32,7 +32,7 @@ export default [
   },
   { key: '-LKZTGF4mchHm10LGZFP', 
     budget: 500, 
-    id: shortid.generate(), 
+    id: 'category2', 
     name: 'gas', 
     timestamp: new Date(), 
     expense: [

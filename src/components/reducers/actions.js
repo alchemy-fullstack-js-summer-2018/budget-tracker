@@ -9,6 +9,7 @@ export const load = () => ({
 
 export const add = category => {
   category.key = shortid.generate();
+  category.id = shortid.generate();
   category.timestamp = new Date();
   category.expense = [];
   return {
