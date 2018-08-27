@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Expense from './Expense';
 import ExpenseForm from './ExpenseForm';
+import { getExpensesByCategoryId } from './ExpenseReducers';
 import { add } from './ExpenseActions';
 
 class Expenses extends Component {
@@ -14,20 +15,20 @@ class Expenses extends Component {
   };
 
   handleAddExpense = expense => {
-    const { add } = this.props;
+    const { add, categoryId } = this.props;
 
-    expense.categoryId = this.props.categoryId;
-    add(expense);
+    add(expense, categoryId);
   };
 
   render() {
-    const { expenses, categoryId } = this.props;
+    const { expenses } = this.props;
+    if(!expenses) return null;
 
     return (
       <div>
         <section>
           <h3>Add a Expense</h3>
-          <ExpenseForm onComplete={this.handleAddExpense} categoryId={categoryId}/>
+          <ExpenseForm onComplete={this.handleAddExpense}/>
         </section>
 
         <section>
@@ -46,10 +47,8 @@ class Expenses extends Component {
  
 
 export default connect(
-  (state, props) => {
-    return {
-      expenses: state.getExpensesByCategoryId[props.categoryId]
-    };
-  },
+  (state, { categoryId }) => ({
+    expenses: getExpensesByCategoryId(state, categoryId)
+  }),
   { add }
 )(Expenses);
