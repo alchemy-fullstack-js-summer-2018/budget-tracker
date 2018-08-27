@@ -3,7 +3,7 @@ import { CATEGORY_ADD, CATEGORY_LOAD, CATEGORY_UPDATE, CATEGORY_REMOVE } from '.
 
 import data from './categories/categories-data';
 
-describe('categories actions', () => {
+describe.skip('categories actions', () => {
   it('adds a category', () => {
     const category = {
       name: 'TV and Video',
