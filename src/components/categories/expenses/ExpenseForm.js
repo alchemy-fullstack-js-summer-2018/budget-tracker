@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class ExpenseForm extends Component {
 
   state = {
-    ediiting: false,
+    editing: false,
     id: null,
     name: '',
     price:'',
@@ -12,7 +12,7 @@ class ExpenseForm extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
-    // categoryId: PropTypes.string.isRequired,
+    categoryId: PropTypes.string.isRequired,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func
   };
