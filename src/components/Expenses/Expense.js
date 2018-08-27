@@ -35,7 +35,6 @@ class Expense extends Component {
   render() { 
     const { editing } = this.state;
     const { expense, categoryId } = this.props;
-    console.log('***cat id****', categoryId);
 
     return (
       <li>

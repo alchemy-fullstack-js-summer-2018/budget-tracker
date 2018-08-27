@@ -8,9 +8,6 @@ export const getExpensesByCategories = state => state.expensesByCategory;
 export const getExpensesByCategoryId = (state, categoryId) => getExpensesByCategories(state)[categoryId];
 
 export function expensesByCategory(state = [], { type, payload }) {
-  // console.log('***PAYLOAD***', payload);
-  // console.log('***STATE***', state);
-
   switch(type) {
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
@@ -23,8 +20,12 @@ export function expensesByCategory(state = [], { type, payload }) {
         [payload.id]: []
       };
     case CATEGORY_REMOVE: {
-      state[payload];
-      return state;
+      // JavaScript Blackbelt tricks:
+      // const { [payload]: ignore, ...rest } = state;
+      // return rest;
+      const copy = { ...state };
+      delete copy[payload];
+      return copy;
     } 
     case EXPENSE_ADD:
       return {
@@ -48,6 +49,16 @@ export function expensesByCategory(state = [], { type, payload }) {
       return state;
   }
 }
+
+
+
+
+
+
+
+
+
+
 
 // TODO: separate concerns?
 // export const getExpenses = state => state.expenses;
