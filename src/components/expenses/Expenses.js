@@ -4,29 +4,35 @@ import ExpenseForm from './ExpenseForm';
 import Expense from './Expense';
 import { connect } from 'react-redux';
 import { getExpensesById } from './reducersExpenses';
+import { add } from './actions';
+import styles from './Expenses.css';
 
 class Expenses extends Component {
 
   static propTypes = {
     expenses: PropTypes.array,
-    categoryKey: PropTypes.string.isRequired
+    categoryKey: PropTypes.string.isRequired,
+    add: PropTypes.func.isRequired
   };
 
   render() {
-    const { expenses } = this.props;
-    console.log('EXPENSES', expenses);
+    const { expenses, categoryKey, add } = this.props;
+
     return (
-      <div>
-        <h6>Hello Expenses!</h6>
-        <ExpenseForm/>
-        <ul>
-          {expenses.map(expense => (
+      <div className={styles.expenses}>
+        <ExpenseForm
+          onComplete={add}
+          categoryKey={categoryKey}
+        />
+        <div className="expenseList">
+          {!!expenses &&
+          expenses.map(expense => (
             <Expense
               key={expense.key}
               expense={expense}
             />
           ))}
-        </ul>
+        </div>
       </div>
     );
   }
@@ -35,5 +41,5 @@ class Expenses extends Component {
 export default connect(
   (state, { categoryKey }) => ({
     expenses: getExpensesById(categoryKey, state)
-  })
+  }), { add }
 )(Expenses);

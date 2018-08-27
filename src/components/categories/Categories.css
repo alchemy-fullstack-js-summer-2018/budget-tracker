@@ -1,0 +1,4 @@
+:local(.categories) {
+  display: flex;
+  flex-flow: column wrap;
+}

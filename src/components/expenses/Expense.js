@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import ExpenseItem from './ExpenseItem';
 import ExpenseForm from './ExpenseForm';
 import { update } from './actions';
+import styles from './Expense.css';
 
 class Expense extends Component {
 
@@ -36,10 +37,7 @@ class Expense extends Component {
 
     return (
       <div>
-        <h6>Hello Expense!</h6>
-
-
-        <li>
+        <div className={styles.expense}>
           {editing
             ? <ExpenseForm
               expense={expense}
@@ -51,7 +49,7 @@ class Expense extends Component {
               onEdit={this.handleEdit}
             />
           }
-        </li>
+        </div>
       </div>
     );
   }

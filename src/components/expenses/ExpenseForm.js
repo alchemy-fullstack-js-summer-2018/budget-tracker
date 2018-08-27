@@ -13,6 +13,7 @@ export default class ExpenseForm extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
+    categoryKey: PropTypes.string,
     onCancel: PropTypes.func,
     onComplete: PropTypes.func
   };
@@ -20,18 +21,20 @@ export default class ExpenseForm extends Component {
   componentDidMount() {
     const { expense } = this.props;
     if(!expense) return;
-
     this.setState(expense);
   }
-
+  
   handleSubmit = (event) => {
     event.preventDefault();
+    const { categoryKey } = this.props;
+    this.setState({ categoryId: categoryKey });
     const { key, categoryId, name, price, timestamp } = this.state;
     const expense = { key, name, categoryId, price, timestamp };
     if(key) expense.key = key;
-
+    if(!key) expense.categoryId = categoryKey;
+    
     this.props.onComplete(expense);
-    this.setState({ categoryId: '', name: '', price: '' });
+    this.setState({ name: '', price: '' });
   };
 
   handleChange = ({ target }) => {
@@ -47,7 +50,7 @@ export default class ExpenseForm extends Component {
       <form onSubmit={this.handleSubmit}>
         <p>
           <label>
-        Expense:&nbsp;
+        Description:&nbsp;
             <input name="name" value={name} onChange={this.handleChange}></input>
           </label>
         </p>

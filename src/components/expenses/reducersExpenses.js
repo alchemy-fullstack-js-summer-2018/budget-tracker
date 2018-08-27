@@ -8,6 +8,11 @@ export const getExpensesById = (categoryKey, state) => getExpenses(state)[catego
 
 export function expenses(state = [], { type, payload }) {
   switch(type) {
+    case EXPENSE_ADD:
+      return [
+        ...state,
+        payload
+      ];
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
         map[category.key] = category.expenses;
@@ -22,7 +27,9 @@ export function expenses(state = [], { type, payload }) {
         }
       }
       return state;
-      // return state[payload.categoryId].map(expense => expense.key === payload.key ? payload : expense);
+
+    case EXPENSE_REMOVE:
+      return;
     default:
       return state;
   }

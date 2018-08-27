@@ -1,6 +1,6 @@
+import shortid from 'shortid';
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './reducers';
 import data from './categories-data';
-import shortid from 'shortid';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
