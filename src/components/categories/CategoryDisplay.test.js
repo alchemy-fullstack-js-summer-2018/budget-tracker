@@ -13,7 +13,7 @@ describe('Category display', () => {
       <CategoryDisplay
         category={{ key: 'PPBqWA9', 'name': 'Rent', 'timeStamp': '2095-12-17T03:24:00', 'budget': 500 }}
         onEdit={handleEdit}
-        onDelete={handleDelete}
+        remove={handleDelete}
       />);
 
     expect(toJSON(wrapper)).toMatchSnapshot();

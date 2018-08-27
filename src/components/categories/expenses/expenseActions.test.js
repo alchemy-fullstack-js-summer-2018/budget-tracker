@@ -1,7 +1,6 @@
 import { addExpense, updateExpense, removeExpense } from './expenseActions';
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './expenseReducers';
-// updateExpense, removeExpense
-// EXPENSE_UPDATE, EXPENSE_REMOVE
+
 describe('actions', () => {
 
   it('should run the add action', () => {
