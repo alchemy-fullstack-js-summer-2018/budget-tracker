@@ -8,6 +8,7 @@ describe('Expense component', () => {
     const wrapper = shallow(<Expense
       key={example.id}
       expense={example}
+      update={jest.fn()}
     />);
 
     const component = wrapper.instance();
