@@ -34,6 +34,10 @@ export function expensesByCategory(state = [], { type, payload }) {
           payload.expense
         ]
       };
+    case EXPENSE_UPDATE:
+      console.log('***EXP UPDATE STATE***', state);
+      console.log('***EXP UPDATE PAYLOAD***', payload);
+      return state[payload.categoryId].map(expense => expense.id === payload.id ? payload : expense);
     case EXPENSE_REMOVE:
       return {
         ...state,
