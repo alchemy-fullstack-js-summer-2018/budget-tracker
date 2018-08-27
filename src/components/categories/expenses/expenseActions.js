@@ -1,4 +1,4 @@
-import { EXPENSE_ADD, EXPENSE_REMOVE } from './expenseReducers';
+import { EXPENSE_ADD, EXPENSE_REMOVE, EXPENSE_UPDATE } from './expenseReducers';
 import shortid from 'shortid';
 
 export const add = (categoryId, expense) => {
@@ -16,5 +16,10 @@ export const add = (categoryId, expense) => {
 
 export const remove = expense => ({
   type: EXPENSE_REMOVE,
+  payload: expense
+});
+
+export const update = expense => ({
+  type: EXPENSE_UPDATE,
   payload: expense
 });

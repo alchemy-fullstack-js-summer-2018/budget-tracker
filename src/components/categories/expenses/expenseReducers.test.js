@@ -1,6 +1,7 @@
 import {
   expenses,
-  CATEGORY_LOAD
+  CATEGORY_LOAD,
+  EXPENSE_ADD
 } from './expenseReducers';
 
 describe('Expenses reducers', () => {
@@ -28,5 +29,20 @@ describe('Expenses reducers', () => {
     });
 
     expect(state).toEqual(result);
+  });
+
+  it('adds an expense', () => {
+    const categories = [
+      { key: '1', expenses: [{ name: 'Netflix' }, { name: 'Hulu' }] },
+      { key: '2' },
+      { key: '3', expenses: [{ name: 'Coffee' }] }
+    ];
+
+    const newExpense = [{ name: 'bus', price: 5 }];
+
+    const state = expenses(categories, {
+      type: EXPENSE_ADD,
+      payload: newExpense
+    });
   });
 });
