@@ -36,7 +36,7 @@ describe('Expense Form component', () => {
     const handleComplete = jest.fn();
     const handleCancel = jest.fn();
 
-    const expense = { name: 'bus', price: 5 };
+    const expense = { name: 'bus', price: 5, categoryId: 'abc' };
 
     const wrapper = mount(<ExpenseForm
       onComplete={handleComplete}
@@ -55,11 +55,11 @@ describe('Expense Form component', () => {
 
     wrapper.find('button[type="submit"]').simulate('submit');
 
-    // const calls = handleComplete.mock.calls;
-    // expect(calls.length).toBe(1);
-    // expect(calls[0][0]).toEqual({
-    //   ...expense,
-    //   price: 3
-    // });
+    const calls = handleComplete.mock.calls;
+    expect(calls.length).toBe(1);
+    expect(calls[0][0]).toEqual({
+      ...expense,
+      price: 3
+    });
   });
 });

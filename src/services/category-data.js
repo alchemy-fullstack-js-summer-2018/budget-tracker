@@ -26,6 +26,29 @@ export default [
     timestamp: new Date(),
     name: 'food',
     budget: 500,
+    expenses: [
+      {
+        id: '798',
+        timestamp: new Date(),
+        name: 'groceries',
+        price: 50,
+        categoryId: 'def'
+      },
+      {
+        id: '465',
+        timestamp: new Date(),
+        name: 'burrito',
+        price: 8,
+        categoryId: 'def'
+      },
+      {
+        id: '092',
+        timestamp: new Date(),
+        name: 'poke bowl',
+        price: 10,
+        categoryId: 'def'
+      }
+    ]
   },
   {
     key: 'ghi',

@@ -71,7 +71,7 @@ exports[`Expense Form component renders edit if there is expense prop 1`] = `
     <InputControl
       name="name"
       onChange={[Function]}
-      value=""
+      value="bus"
     >
       <p>
         <label>
@@ -81,7 +81,7 @@ exports[`Expense Form component renders edit if there is expense prop 1`] = `
             name="name"
             onChange={[Function]}
             required={true}
-            value=""
+            value="bus"
           />
         </label>
       </p>
@@ -89,7 +89,7 @@ exports[`Expense Form component renders edit if there is expense prop 1`] = `
     <InputControl
       name="price"
       onChange={[Function]}
-      value=""
+      value={5}
     >
       <p>
         <label>
@@ -99,7 +99,7 @@ exports[`Expense Form component renders edit if there is expense prop 1`] = `
             name="price"
             onChange={[Function]}
             required={true}
-            value=""
+            value={5}
           />
         </label>
       </p>
