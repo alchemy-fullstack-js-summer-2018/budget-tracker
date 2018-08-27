@@ -30,6 +30,7 @@ export function expensesByCategory(state = [], { type, payload }) {
         [payload.categoryId]: state[payload.categoryId].filter(expense => expense.id !== payload.id)
       };
     case EXPENSE_UPDATE:
+      console.log(payload);
       return {
         ...state,
         [payload.categoryId]: state[payload.categoryId].map(expense => expense.id === payload.id ? payload : expense)

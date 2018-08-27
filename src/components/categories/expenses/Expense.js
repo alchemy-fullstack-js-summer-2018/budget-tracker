@@ -22,6 +22,7 @@ class Expense extends Component {
 
   handleComplete = expense => {
     const { updateExpense } = this.props;
+    console.log('**EXPENSE COMPONENT**', expense);
     updateExpense(expense);
     this.handleEndEdit();
   };

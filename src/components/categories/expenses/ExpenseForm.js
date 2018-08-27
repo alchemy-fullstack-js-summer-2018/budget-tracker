@@ -30,7 +30,8 @@ class ExpenseForm extends Component {
   handleSubmit = (event) => {
     event.preventDefault();
     const { name, amount, id } = this.state;
-    const expense = { name, amount };
+    const { categoryId } = this.props.expense;
+    const expense = { name, amount, categoryId };
     if(id) expense.id = id;
 
     this.props.onComplete(expense);
