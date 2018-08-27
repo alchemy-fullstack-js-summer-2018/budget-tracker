@@ -7,7 +7,7 @@ class CategoryForm extends Component {
     editing: false,
     key: null,
     name: '',
-    budget: null,
+    budget: '',
   };
 
   static propTypes = {
@@ -30,7 +30,7 @@ class CategoryForm extends Component {
     if(key) category.key = key;
 
     this.props.onComplete(category);
-    this.setState({ name: '', budget: null });
+    this.setState({ name: '', budget: '' });
   };
 
   handleChange = ({ target }) => {

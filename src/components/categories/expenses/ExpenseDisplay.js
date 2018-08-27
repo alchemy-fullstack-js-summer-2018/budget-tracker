@@ -16,7 +16,7 @@ class ExpenseDisplay extends Component {
 
     return (
       <p>
-        {expense.name} has a limit of ${expense.price}
+        {expense.name} ${expense.price}
         <button name="Edit" onClick={onEdit}>✎</button> 
         <button name="Delete" onClick={() => remove(expense.key)}>🗑</button>
       </p>

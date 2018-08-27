@@ -27,7 +27,7 @@ class Expenses extends Component {
     return (
       <div>
         <section>
-          <h3>Add a Expense</h3>
+          <h3>Add an Expense</h3>
           <ExpenseForm onComplete={this.handleAddExpense}/>
         </section>
 
