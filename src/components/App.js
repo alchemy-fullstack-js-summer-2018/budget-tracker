@@ -12,18 +12,20 @@ class App extends Component {
     return (
       <Router>
         <Fragment>
-          <header className={styles.app}>
-            <h1>Budget Tracker</h1>
-            <Header/>
-          </header>
+          <div className={styles.app}>
+            <header>
+              <h1>Budget Tracker</h1>
+              <Header/>
+            </header>
 
-          <main>
-            <Switch>
-              <Route exact path="/" component={Home}/>
-              <Route exact path="/dashboard" component={Dashboard}/>
-              <Redirect to="/"/>
-            </Switch>
-          </main>
+            <main>
+              <Switch>
+                <Route exact path="/" component={Home}/>
+                <Route exact path="/dashboard" component={Dashboard}/>
+                <Redirect to="/"/>
+              </Switch>
+            </main>
+          </div>
         </Fragment>
       </Router>
     );
