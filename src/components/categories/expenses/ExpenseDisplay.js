@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { remove } from '../actions';
+import { remove } from './ExpenseActions';
 
 class ExpenseDisplay extends Component {
 
@@ -18,7 +18,7 @@ class ExpenseDisplay extends Component {
       <p>
         <strong text-transformation="capitalize">Expense:</strong> {expense.name} <strong>Price:</strong> ${expense.price}
         <button name="Edit" onClick={onEdit}>✎</button> 
-        <button name="Delete" onClick={() => remove(expense.id)}>🗑</button>
+        <button name="Delete" onClick={() => remove(expense)}>🗑</button>
       </p>
     );
   }

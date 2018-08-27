@@ -21,14 +21,14 @@ class Expenses extends Component {
   };
 
   render() {
-    const { expenses } = this.props;
+    const { expenses, categoryId } = this.props;
     if(!expenses) return null;
 
     return (
       <div>
         <section>
           <h3>Add an Expense</h3>
-          <ExpenseForm onComplete={this.handleAddExpense}/>
+          <ExpenseForm onComplete={this.handleAddExpense} categoryId={categoryId}/>
         </section>
 
         <section>
