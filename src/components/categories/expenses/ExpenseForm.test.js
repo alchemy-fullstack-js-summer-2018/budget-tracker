@@ -31,4 +31,19 @@ describe('Expense Form component', () => {
     expect(calls.length).toBe(1);
     expect(calls[0][0]).toEqual(expense);
   });
+
+  it('renders edit if there is expense prop', () => {
+    const handleComplete = jest.fn();
+    const handleCancel = jest.fn();
+
+    const expense = { name: 'bus', price: 5 };
+
+    const wrapper = mount(<ExpenseForm
+      onComplete={handleComplete}
+      onCancel={handleCancel}
+      expense={expense}
+    />);
+
+    expect(toJSON(wrapper)).toMatchSnapshot();
+  });
 });
