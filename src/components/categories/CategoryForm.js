@@ -44,7 +44,7 @@ class CategoryForm extends Component {
     return (
       <form className="category-form" onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="budget" value={budget} onChange={this.handleChange}/>
+        <InputControl name="budget" value={budget} type="number" onChange={this.handleChange}/>
         <p>
           <button className="add-update-button" type="submit">{ key ? 'Update' : 'Add' }</button>
           {key && <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>}

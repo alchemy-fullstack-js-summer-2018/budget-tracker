@@ -3,8 +3,8 @@ export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 
-export const getExpensesByCategories = state => state.expensesByCategory;
-export const getExpensesByCategoryId = (state, categoryId) => getExpensesByCategories(state)[categoryId];
+export const getExpenses = state => state.expensesByCategory;
+export const getExpensesByCategory = (state, categoryId) => getExpenses(state)[categoryId];
 
 export function expensesByCategory(state = [], { type, payload }) {
   switch(type){
@@ -27,24 +27,24 @@ export function expensesByCategory(state = [], { type, payload }) {
     case EXPENSE_ADD: {
       return {
         ...state,
-        [payload. categoryId] : [
+        [payload.categoryId] : [
           ...state[payload.categoryId],
           payload
         ]
       };
     }
-    // case EXPENSE_UPDATE: {
-    //   const copy = { ...state };
-    //   const update = copy[payload.categoryId].map(expense => expense.id === payload.expense.id ? payload.expense : expense);
-    //   copy[payload.categoryId] = update;
-    //   return copy;
-    // }
-    // case EXPENSE_REMOVE: {
-    //   const copy = { ...state };
-    //   const update = copy[payload.categoryId].filter(expense => expense.id !== payload.id);
-    //   copy[payload.categoryId] = update;
-    //   return copy;
-    // }
+    case EXPENSE_UPDATE: {
+      const copy = { ...state };
+      const update = copy[payload.categoryId].map(expense => expense.id === payload.expense.id ? payload.expense : expense);
+      copy[payload.categoryId] = update;
+      return copy;
+    }
+    case EXPENSE_REMOVE: {
+      const copy = { ...state };
+      const update = copy[payload.categoryId].filter(expense => expense.id !== payload.id);
+      copy[payload.categoryId] = update;
+      return copy;
+    }
     default:
       return state;
   }

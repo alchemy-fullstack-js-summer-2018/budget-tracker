@@ -35,7 +35,15 @@ class ExpenseForm extends Component {
   };
 
   handleChange = ({ target }) => {
-    this.setState({ [target.name]: target.value });
+    this.setState(({ ediiting }) => {
+      return {
+        ediiting: {
+          ...ediiting,
+          [target.name]: target.value,
+          categoryId: this.props.categoryId
+        }
+      };
+    });
   };
 
   render() {

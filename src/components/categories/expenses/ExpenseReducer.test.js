@@ -1,22 +1,18 @@
-import { expenses, EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './ExpenseReducers';
+import { expenses, EXPENSE_UPDATE, EXPENSE_REMOVE, expensesByCategory } from './ExpenseReducers';
+import { CATEGORY_ADD } from '../reducers';
 
 describe('Expense reducers test', () => {
   it('Initializes an empty array', () => {
-    const state = expenses(undefined, {});
+    const state = expensesByCategory(undefined, {});
     expect(state).toEqual([]);
   });
 
-  it('Adds an expense', () => {
-    const expense1 = { name: '1' };
-    const expense2 = { name: '2' };
-    const expense3 = { name: '3' };
+  it('Adds an expense for CATEGORY_ADD', () => {
+    // const expense1 = { id: 123, categoryId: 444, name: 'car', price: 200 };
+    // const expense2 = { id: 555, categoryId: 444, name: 'clothes', price: 100 };
 
-    const state = expenses([expense1, expense2], {
-      type: EXPENSE_ADD,
-      payload: expense3
-    });
-
-    expect(state).toEqual([expense1, expense2, expense3]);
+    const state = expensesByCategory({}, { type: CATEGORY_ADD, payload: { id: 123 } });
+    expect(state).toEqual({ 123: [] });
   });
 
   

@@ -3,14 +3,14 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Expense from './Expense';
 import ExpenseForm from './ExpenseForm';
-import { getExpensesByCategoryId } from './ExpenseReducers';
+import { getExpensesByCategory } from './ExpenseReducers';
 import { add } from './ExpenseActions';
 
 class Expenses extends Component {
 
   static propTypes = {
+    categoryId: PropTypes.string.isRequired,
     expenses: PropTypes.array,
-    categoryId: PropTypes.string,
     add: PropTypes.func.isRequired
   };
 
@@ -21,14 +21,14 @@ class Expenses extends Component {
   };
 
   render() {
-    const { expenses } = this.props;
+    const { expenses, categoryId } = this.props;
     if(!expenses) return null;
 
     return (
       <div>
         <section>
           <h3>Add an Expense</h3>
-          <ExpenseForm onComplete={this.handleAddExpense}/>
+          <ExpenseForm onComplete={this.handleAddExpense} categoryId={categoryId}/>
         </section>
 
         <section>
@@ -47,8 +47,10 @@ class Expenses extends Component {
  
 
 export default connect(
-  (state, { categoryId }) => ({
-    expenses: getExpensesByCategoryId(state, categoryId)
-  }),
+  (state, { categoryId }) => {
+    return {
+      expenses: getExpensesByCategory(state, categoryId)
+    };
+  },
   { add }
 )(Expenses);
