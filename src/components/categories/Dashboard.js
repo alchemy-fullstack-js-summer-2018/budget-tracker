@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import Categories from './Categories';
 import CategoryForm from './CategoryForm';
 import { load, add, update } from './actions';
-//import { getCategories } from './reducers';
+import { getCategories } from './reducers';
 
 class Dashboard extends Component {
 
@@ -19,13 +19,13 @@ class Dashboard extends Component {
   }
 
   render() {
-    const { categories, add } = this.props;
+    const { categories } = this.props;
 
     return (
       <div>
         <section>
           <h2>Dashboard to add category stuffs</h2>
-          <CategoryForm onComplete={add}/>
+          <CategoryForm onComplete={this.handleComplete}/>
         </section>
 
         {categories && 
@@ -44,7 +44,7 @@ class Dashboard extends Component {
 
 export default connect(
   state => ({
-    categories: state
+    categories: getCategories(state)
   }),
   { load, add }
 )(Dashboard);
