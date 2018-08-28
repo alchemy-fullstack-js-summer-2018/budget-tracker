@@ -5,7 +5,7 @@ import toJSON from 'enzyme-to-json';
 
 describe('Category form', () => {
 
-  it.skip('Renders add if no category prop', () => {
+  it('Renders add if no category prop', () => {
     const handleComplete = jest.fn();
     const promise = Promise.resolve();
     handleComplete.mockReturnValueOnce(promise);
@@ -16,7 +16,6 @@ describe('Category form', () => {
     const category = {
       name: 'Car',
       budget: 5000,
-      timestamp: null
     };
 
     wrapper.find('input[name="name"]').simulate('change', {

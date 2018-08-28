@@ -4,15 +4,15 @@ import PropTypes from 'prop-types';
 class ExpenseForm extends Component {
 
   state = {
-    ediiting: false,
-    categoryId: null,
-    timestamp: new Date(),
+    editing: false,
+    id: null,
     name: '',
     price:'',
   };
 
   static propTypes = {
     expense: PropTypes.object,
+    categoryId: PropTypes.string.isRequired,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func
   };
@@ -26,9 +26,10 @@ class ExpenseForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, price, timestamp, key } = this.state;
-    const expense = { name, price, timestamp };
-    if(key) expense.key = key;
+    const { name, price, id } = this.state;
+    const expense = { name, price };
+    if(id) expense.id = id;
+    if(this.props.categoryId) expense.categoryId = this.props.categoryId;
 
     this.props.onComplete(expense);
     this.setState({ name: '', price: '' });
@@ -39,16 +40,16 @@ class ExpenseForm extends Component {
   };
 
   render() {
-    const { key, name, price } = this.state;
+    const { id, name, price } = this.state;
     const { onCancel } = this.props;
 
     return (
       <form className="expense-form" onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="budget" value={price} onChange={this.handleChange}/>
+        <InputControl name="price" value={price} type="number" onChange={this.handleChange}/>
         <p>
-          <button className="add-update-button" type="submit">{ key ? 'Update' : 'Add' }</button>
-          {key && <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>}
+          <button className="add-update-button" type="submit">{ id ? 'Update' : 'Add' }</button>
+          {id && <button className="cancel-button" type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );

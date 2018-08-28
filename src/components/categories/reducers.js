@@ -3,6 +3,8 @@ export const CATEGORY_ADD = 'CATEGORY_ADD';
 export const CATEGORY_UPDATE = 'CATEGORY_UPDATE';
 export const CATEGORY_REMOVE = 'CATEGORY_REMOVE';
 
+export const getCategories = state => state.categories;
+
 export function categories(state = [], { type, payload }) {
   switch(type) {
     case CATEGORY_LOAD:
@@ -13,9 +15,9 @@ export function categories(state = [], { type, payload }) {
         payload
       ];
     case CATEGORY_UPDATE:
-      return state.map(category => category.key === payload.key ? payload : category);
+      return state.map(category => category.id === payload.id ? payload : category);
     case CATEGORY_REMOVE:
-      return state.filter(category => category.key !== payload);
+      return state.filter(category => category.id !== payload);
     default:
       return state;
   }

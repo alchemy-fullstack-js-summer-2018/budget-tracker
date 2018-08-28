@@ -45,8 +45,7 @@ class Category extends Component {
           : <CategoryDisplay
             category={category}
             onEdit={this.handleEdit}
-            onDelete={this.handleDelete}
-          />  
+          />
         }
       </li>
     );

@@ -1,12 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { remove } from '../actions';
+import { remove } from './ExpenseActions';
 
 class ExpenseDisplay extends Component {
 
   static propTypes = {
-    expense: PropTypes.object.isRequired,
+    expense: PropTypes.object,
     onEdit: PropTypes.func.isRequired,
     remove: PropTypes.func.isRequired
   };
@@ -16,9 +16,9 @@ class ExpenseDisplay extends Component {
 
     return (
       <p>
-        {expense.name} has a limit of ${expense.price}
+        <strong text-transformation="capitalize">Expense:</strong> {expense.name} <strong>Price:</strong> ${expense.price}
         <button name="Edit" onClick={onEdit}>✎</button> 
-        <button name="Delete" onClick={() => remove(expense.key)}>🗑</button>
+        <button name="Delete" onClick={() => remove(expense)}>🗑</button>
       </p>
     );
   }

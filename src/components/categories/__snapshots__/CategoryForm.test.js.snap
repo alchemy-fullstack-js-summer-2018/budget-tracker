@@ -5,6 +5,7 @@ exports[`Category form Renders add if no category prop 1`] = `
   onComplete={[MockFunction]}
 >
   <form
+    className="category-form"
     onSubmit={[Function]}
   >
     <InputControl
@@ -12,8 +13,12 @@ exports[`Category form Renders add if no category prop 1`] = `
       onChange={[Function]}
       value=""
     >
-      <p>
-        <label>
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
           name
           :
           <input
@@ -28,16 +33,22 @@ exports[`Category form Renders add if no category prop 1`] = `
     <InputControl
       name="budget"
       onChange={[Function]}
+      type="number"
       value=""
     >
-      <p>
-        <label>
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
           budget
           :
           <input
             name="budget"
             onChange={[Function]}
             required={true}
+            type="number"
             value=""
           />
         </label>
@@ -45,6 +56,7 @@ exports[`Category form Renders add if no category prop 1`] = `
     </InputControl>
     <p>
       <button
+        className="add-update-button"
         type="submit"
       >
         Add
@@ -76,6 +88,7 @@ exports[`Category form Renders add if no category prop 2`] = `
   }
 >
   <form
+    className="category-form"
     onSubmit={[Function]}
   >
     <InputControl
@@ -83,8 +96,12 @@ exports[`Category form Renders add if no category prop 2`] = `
       onChange={[Function]}
       value=""
     >
-      <p>
-        <label>
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
           name
           :
           <input
@@ -99,16 +116,22 @@ exports[`Category form Renders add if no category prop 2`] = `
     <InputControl
       name="budget"
       onChange={[Function]}
+      type="number"
       value=""
     >
-      <p>
-        <label>
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
           budget
           :
           <input
             name="budget"
             onChange={[Function]}
             required={true}
+            type="number"
             value=""
           />
         </label>
@@ -116,6 +139,7 @@ exports[`Category form Renders add if no category prop 2`] = `
     </InputControl>
     <p>
       <button
+        className="add-update-button"
         type="submit"
       >
         Add
@@ -147,6 +171,7 @@ exports[`Category form Renders add if no category prop 3`] = `
   }
 >
   <form
+    className="category-form"
     onSubmit={[Function]}
   >
     <InputControl
@@ -154,8 +179,12 @@ exports[`Category form Renders add if no category prop 3`] = `
       onChange={[Function]}
       value=""
     >
-      <p>
-        <label>
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
           name
           :
           <input
@@ -170,16 +199,22 @@ exports[`Category form Renders add if no category prop 3`] = `
     <InputControl
       name="budget"
       onChange={[Function]}
+      type="number"
       value=""
     >
-      <p>
-        <label>
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
           budget
           :
           <input
             name="budget"
             onChange={[Function]}
             required={true}
+            type="number"
             value=""
           />
         </label>
@@ -187,6 +222,7 @@ exports[`Category form Renders add if no category prop 3`] = `
     </InputControl>
     <p>
       <button
+        className="add-update-button"
         type="submit"
       >
         Add
@@ -237,6 +273,7 @@ exports[`Category form Renders edit if there is category prop 1`] = `
     <InputControl
       name="budget"
       onChange={[Function]}
+      type="number"
       value={5000}
     >
       <p
@@ -251,6 +288,7 @@ exports[`Category form Renders edit if there is category prop 1`] = `
             name="budget"
             onChange={[Function]}
             required={true}
+            type="number"
             value={5000}
           />
         </label>
@@ -261,14 +299,7 @@ exports[`Category form Renders edit if there is category prop 1`] = `
         className="add-update-button"
         type="submit"
       >
-        Update
-      </button>
-      <button
-        className="cancel-button"
-        onClick={[MockFunction]}
-        type="button"
-      >
-        Cancel
+        Add
       </button>
     </p>
   </form>

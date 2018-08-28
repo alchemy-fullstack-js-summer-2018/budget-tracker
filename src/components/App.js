@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
 import Header from './Header';
 import Home from './Home';
-import styles from './App.css';
 import Dashboard from './categories/Dashboard';
+import styles from './App.css';
 
 class App extends Component {
 
