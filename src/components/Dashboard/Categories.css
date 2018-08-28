@@ -1,5 +1,14 @@
-p {
-  color: seagreen;
-  font-weight: bolder;
+:local(.categories) {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+
+
+  li {
+    margin: 10px;
+    background-color: rgb(177, 177, 177);
+    padding: 5px;
+  }
+
 }
 

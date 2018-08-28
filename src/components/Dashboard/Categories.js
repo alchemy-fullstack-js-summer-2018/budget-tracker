@@ -14,7 +14,7 @@ class Categories extends Component {
 
     return (
       <ul>
-        <h3>Categories Component</h3>
+        <h3>Budget Categories: </h3>
         {categories.map(category => (
           <Category 
             key={category.key}

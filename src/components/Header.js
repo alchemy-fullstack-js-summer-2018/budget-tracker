@@ -9,7 +9,7 @@ class Header extends Component {
     return (
       <div className={styles.header}>
         <section className="header-container">
-          <h1>Budget Tracker</h1>
+          <h1>Expense Tracker</h1>
         </section>
         <nav>
           <ul>
