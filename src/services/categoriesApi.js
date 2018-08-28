@@ -40,16 +40,16 @@ export const updateCategory = category => {
 };
 
 export const addExpenseToCategory = (categoryId, expense) => {
-  const url = getCategoriesUrl(categoryId);
+  const url = `${CATEGORIES_URL}/${categoryId}/expenses.json`;
   return post(url, expense)
     .then(res => {
-      categoryId.expense.id = res.name;
+      expense.id = res.name;
       return expense;
     });
 };
 
 export const updateExpenseInCategory = (categoryId, expense) => {
-  const url = `${CATEGORIES_URL}/expenses/${categoryId}/`;
+  const url = `${CATEGORIES_URL}/expenses/${categoryId}.json`;
   return put(url, expense)
     .then(res => {
       categoryId = res.name;
@@ -59,9 +59,5 @@ export const updateExpenseInCategory = (categoryId, expense) => {
 
 export const removeExpenseInCategory = (categoryId, expenseKey) => {
   const url = `${CATEGORIES_URL}/${categoryId}/expenses/${expenseKey}.json`;
-  return del(url, expenseKey)
-    .then(res => {
-      categoryId = res.name;
-      return expenseKey;
-    });
+  return del(url);
 };
