@@ -7,7 +7,7 @@ import {
 import { 
   addExpense, 
   updateExpense, 
-  removeExpense } from '../../services/budgetTrackerApi';
+  removeExpense } from '../services/budgetTrackerApi';
   
 import shortid from 'shortid';
 
