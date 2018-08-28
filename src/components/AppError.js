@@ -10,6 +10,7 @@ export class Error extends Component {
     error: PropTypes.any,
     clearError: PropTypes.func
   };
+
   componentDidUpdate() {
     const { error, clearError } = this.props;
 
@@ -19,6 +20,7 @@ export class Error extends Component {
       }, 6000);
     }
   }
+  
   render() {
     const { error } = this.props;
     if(!error) return null;
