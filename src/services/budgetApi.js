@@ -20,6 +20,10 @@ export const loadCategories = () => {
 };
 
 export const addCategory =  (category) => {
+  if(category.name === 'van') {
+    return Promise.reject('Unreasonable Category');
+  }
+
   const url = `${CATEGORY_URL}.json`;
   return post(url, category)
     .then(res => {

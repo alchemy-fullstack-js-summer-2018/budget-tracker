@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getError } from './AppReducers';
 import { clearError } from './AppActions';
-// import styles from './Error.css';
+import styles from './AppError.css';
 
 export class Error extends Component {
   static propTypes = {
@@ -26,7 +26,7 @@ export class Error extends Component {
     if(!error) return null;
 
     return (
-      <pre>{error}</pre>
+      <pre className={styles.error}>{error}</pre>
     );
   }
 }
