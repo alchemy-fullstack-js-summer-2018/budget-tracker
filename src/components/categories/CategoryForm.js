@@ -7,12 +7,12 @@ class CategoryForm extends Component {
     editing: false,
     key: null,
     name: '',
-    budget: 0
+    budget: ''
   };
 
   static propTypes = {
     category: PropTypes.object,
-    onComplete: PropTypes.func,
+    onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func
   };
 
