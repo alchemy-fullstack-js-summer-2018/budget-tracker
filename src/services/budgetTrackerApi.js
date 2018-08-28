@@ -9,7 +9,7 @@ export const getCategories = () => {
   return get(`${CATEGORY_URL}.json`)
     .then(response => {
       return response
-        ? Object.keys(reponse).map(key => {
+        ? Object.keys(response).map(key => {
           const each = response[key];
           each.key = key;
           return each;
