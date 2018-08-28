@@ -1,17 +1,23 @@
+jest.mock('../../services/categoriesApi', () => ({
+  getCategories: jest.fn(),
+}));
+
 import { load, add, remove, update } from './actions';
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE, CATEGORY_UPDATE } from './reducers';
+import { getCategories } from '../../services/categoriesApi';
 // import data from './categories-data';
 
 
-describe('actions', () => {
+describe('category action creators', () => {
 
-  it('should load data as an array', () => {
-    const payload = [{}, {}];
-    const expectedAction = {
-      type: CATEGORY_LOAD,
-      payload
-    };
-    expect(load(payload).type).toEqual(expectedAction.type);
+  it.only('should load data', () => {
+    const promise = Promise.resolve();
+    getCategories.mockReturnValueOnce(promise);
+
+    const { type } = load();
+    expect(type).toBe(CATEGORY_LOAD);
+    // expect(payload).toBe(promise);
+    expect(getCategories.mock.calls.length).toBe(1);
   });
 
   it('should add a new category to the data', () => {

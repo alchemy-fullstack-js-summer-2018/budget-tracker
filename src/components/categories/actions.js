@@ -1,10 +1,11 @@
 import { CATEGORY_ADD, CATEGORY_LOAD, CATEGORY_REMOVE, CATEGORY_UPDATE } from './reducers';
-import data from './categories-data';
+import { getCategories, addCategory, updateCategory, removeCategory } from '../../services/categoriesApi';
+// import data from './categories-data';
 import shortid from 'shortid';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
-  payload: data
+  payload: getCategories()
 });
 
 export const add = category => {
@@ -12,16 +13,16 @@ export const add = category => {
   category.timeStamp = (new Date()).toLocaleString();
   return {
     type: CATEGORY_ADD,
-    payload: category
+    payload: addCategory(category)
   };
 };
 
 export const update = category => ({
   type: CATEGORY_UPDATE,
-  payload: category
+  payload: updateCategory(category)
 });
 
 export const remove = id => ({
   type: CATEGORY_REMOVE,
-  payload: id
+  payload: removeCategory(id).then(() => id)
 });
