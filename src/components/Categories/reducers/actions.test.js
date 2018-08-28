@@ -1,11 +1,12 @@
 jest.mock('../../../services/budgetApi', () => ({
-  loadCategories: jest.fn()
+  loadCategories: jest.fn(),
+  addCategory: jest.fn()
 }));
 
-import { load } from './actions';
-import { CATEGORY_LOAD } from './reducers';
+import { load, add } from './actions';
+import { CATEGORY_LOAD, CATEGORY_ADD } from './reducers';
 // import data from '../categories-data';
-import { loadCategories/* , addCategory *//* , removeCategory */ } from '../../../services/budgetApi';
+import { loadCategories, addCategory } from '../../../services/budgetApi';
 
 describe('Category Action Creators', () => {
 
@@ -20,19 +21,21 @@ describe('Category Action Creators', () => {
     expect(loadCategories.mock.calls.length).toEqual(1);
   });
 
-  // it.skip('should create an action that adds a category', () => {
-  //   const category = {
-  //     timestamp: '2018-8-23',
-  //     name: 'travel',
-  //     budget: 1000
-  //   };
-  //   const expectedAction = {
-  //     type: reducers.CATEGORY_ADD,
-  //     payload: category
-  //   };
+  it('adds a category', () => {
+    const category = {
+      name: 'travel',
+      budget: 1000
+    };
+    const promise = Promise.resolve();
+    addCategory.mockReturnValueOnce(promise);
 
-  //   expect(actions.add(category)).toEqual(expectedAction);
-  // });
+    const { type, payload } = add(category);
+    expect(type).toBe(CATEGORY_ADD);
+    expect(promise).toBe(payload);
+
+    expect(addCategory.mock.calls.length).toBe(1);
+    expect(addCategory.mock.calls[0][0]).toBe(category);
+  });
 
   // it.skip('should create an action that upates a category', () => {
   //   const category = {
