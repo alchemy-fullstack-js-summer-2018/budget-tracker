@@ -6,7 +6,6 @@ class CategoryForm extends Component {
   state = {
     key: null,
     name: '',
-    timeEntered: new Date(),
     budget: ''
   };
 
@@ -29,11 +28,14 @@ class CategoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, budget, key } = this.state;
-    const category = { name, budget };
-    if(key) category.key = key;
+    // const { key } = this.state;
+    // const category = { name, budget, };
+    // const { category } = this.state;
+    // category.expenses = this.props.category.expenses;
+    // category.timeStamp = this.props.category.timeStamp;
+    // if(key) category.key = key;
 
-    this.props.onComplete(category);
+    this.props.onComplete(this.state);
     this.setState({ name: '', budget: '' });
   };
 

@@ -6,7 +6,6 @@ class ExpenseForm extends Component {
   state = {
     id: null,
     name: '',
-    timeEntered: new Date(),
     amount: ''
   };
 
