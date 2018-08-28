@@ -3,27 +3,30 @@ import {
   EXPENSE_UPDATE,
   EXPENSE_REMOVE 
 } from './expensesByCategory-reducers.js';
+
+import { 
+  addExpense, 
+  updateExpense, 
+  removeExpense } from '../../services/budgetTrackerApi';
+  
 import shortid from 'shortid';
 
-export const add = (categoryId, expense) => {
+export const add = expense => {
+  expense.timestamp = (new Date()).toLocaleString();
   expense.id = shortid.generate();
-  expense.timestamp = new Date();
-  expense.categoryId = categoryId;
   return {
     type: EXPENSE_ADD,
-    payload: {
-      categoryId,
-      expense
-    }
+    payload: addExpense(expense)
   };
 };
 
 export const update = expense => ({
   type: EXPENSE_UPDATE,
-  payload: expense
+  payload: updateExpense(expense)
 });
 
-export const remove = id => ({
+export const remove = expense => ({
   type: EXPENSE_REMOVE,
-  payload: id
+  payload: removeExpense(expense).then(() => expense)
 });
+  

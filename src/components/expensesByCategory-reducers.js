@@ -1,14 +1,11 @@
-import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from './category-reducers';
 
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from './category-reducers';
 
-export const getExpensesByCategories = state => state.expensesByCategory;
-export const getExpensesByCategoryId = (state, categoryId) => getExpensesByCategories(state)[categoryId];
-
-//Need to add category load
+export const getExpensesByCategoryId = (state, id) => state.expensesByCategory[id];
 
 
 export function expenses(state = [], { type, payload }) {
@@ -16,19 +13,18 @@ export function expenses(state = [], { type, payload }) {
 
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.id] = category.expense;
+        map[category.id] = category.expenses;
         return map;
-      }, 
-      {});
+      }, {});
     case CATEGORY_ADD:
       return {
         ...state,
         [payload.id]: []
       };
-
     case CATEGORY_REMOVE: {
-      state[payload];
-      return state;
+      /* eslint-disable-next-line */
+      const { [payload]: ignore, ...rest } = state;
+      return rest;
     }
 
     case EXPENSE_ADD:
@@ -36,13 +32,19 @@ export function expenses(state = [], { type, payload }) {
         ...state,
         [payload.categoryId]: [
           ...state[payload.categoryId],
-          payload.expense
+          payload
         ]
       };
     case EXPENSE_UPDATE:
-      return state.map(expense => expense.name === payload.name ? payload : expense);
+      return {
+        ...state,
+        [payload.categoryId]: state[payload.categoryId].map(expense => expense.id === payload.id ? payload : expense)
+      };
     case EXPENSE_REMOVE:
-      return state.filter(expense => expense.name !== payload);
+      return {
+        ...state,
+        [payload.categoryId]: state[payload.categoryId].filter(expense => expense.id !== payload.id)
+      };
     default:
       return state;
   }

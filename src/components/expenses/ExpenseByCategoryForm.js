@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './ExpenseForm.css';
 
 class ExpenseForm extends Component {
 
@@ -20,51 +21,61 @@ class ExpenseForm extends Component {
     categoryId: PropTypes.string.isRequired
   };
 
-  componentDidMount() {
-    const { expense } = this.props;
-    if(!expense) return;
-
-    this.setState(expense);
-  }
-
-  handleSubmit = (event) => {
+  
+  handleSubmit = event => {
     event.preventDefault();
-    const { name, amount, id } = this.state;
-    const expense = { name, amount };
+    const { id, categoryId, name, amount, timestamp } = this.state;
+    const expense = { name, amount, categoryId };
     if(id) expense.id = id;
-
+    if(timestamp) expense.timestamp = timestamp;
     this.props.onComplete(expense);
-    this.setState({ name: '', amount: '' });
+    if(!id) this.setState({ name: '', budget: 0 });
   };
-
+  
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
 
+  componentDidMount() {
+    const { expense, categoryId } = this.props;
+    this.setState({ categoryId });
+    if(!expense) return;
+    this.setState(expense);
+  }
+
+  onDelete = event => {
+    event.preventDefault();
+    const { onRemove } = this.props;
+    onRemove(this.state);
+  };
+
   render() {
-    const { key, name, amount } = this.state;
+    const { id, name, amount } = this.state;
     const { onCancel } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="amount" value={amount} onChange={this.handleChange}/>
-        <p>
-          <button type="submit">{ key ? 'Update' : 'Add' }</button>
-          {key && <button type="button" onClick={onCancel}>Cancel</button>}
-        </p>
+      <form className={styles.expenseForm} onSubmit={this.handleSubmit}>
+        <label>
+          Name: &nbsp;
+          <input name="name" value={name} onChange={this.handleChange}/>
+        </label>
+        <label>
+          Amount: &nbsp;
+          <input name="amount" value={amount} onChange={this.handleChange}/>
+        </label>
+        <section>
+          {id &&
+          <span>
+            <button type="button" onClick={onCancel}>Cancel</button>
+            <button type="remove" onClick={this.onDelete}>Delete</button>
+          </span>
+          }
+          <button type="submit">{ id ? 'Save' : 'Add' }</button>
+
+        </section>
       </form>
     );
   }
 }
-
-const InputControl = (props) => (
-  <p>
-    <label>
-      {props.name}:
-      <input {...props} required/>
-    </label>
-  </p>
-);
 
 export default ExpenseForm;
