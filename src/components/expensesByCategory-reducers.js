@@ -8,9 +8,8 @@ import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from './category-reducer
 export const getExpensesByCategoryId = (state, id) => state.expensesByCategory[id];
 
 
-export function expenses(state = [], { type, payload }) {
+export function expensesByCategory(state = {}, { type, payload }) {
   switch(type) {
-
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
         map[category.id] = category.expenses;

@@ -4,6 +4,7 @@ const URL = 'https://budget-tracker-61ea8.firebaseio.com';
 const CATEGORY_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
+const getExpenseUrl = key => `${CATEGORY_URL}/${key}/expenses`;
 
 const makeArray = obj => {
   return obj
@@ -42,3 +43,28 @@ export const removeCategory = id => {
   return del(url);
 };
         
+
+export const addExpense = expense => {
+  const url = `${getExpenseUrl(expense.categoryId)}.json`;
+  return post(url, expense)
+    .then(res => {
+      expense.id = res.name;
+      return expense;
+    });
+};
+
+export const updateExpense = expense => {
+  const { id, ...copy } = expense;
+  const url = `${getExpenseUrl(copy.categoryId)}/${id}.json`;
+  return put(url, copy)
+    .then(res => {
+      res.id = id;
+      return res;
+    });
+};
+
+export const removeExpense = expense => {
+  const { categoryId, id } = expense;
+  const url = `${getExpenseUrl(categoryId)}/${id}.json`;
+  return del(url);
+};
