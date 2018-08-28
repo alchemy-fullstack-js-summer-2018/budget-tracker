@@ -39,3 +39,11 @@ export const updateCategory = category => {
   return put(url, copy);
 };
 
+export const addExpenseToCategory = (categoryId, expense) => {
+  const url = getCategoriesUrl(categoryId);
+  return post(url, expense)
+    .then(res => {
+      categoryId.expense.id = res.name;
+      return expense;
+    });
+};

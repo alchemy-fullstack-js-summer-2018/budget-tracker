@@ -19,5 +19,6 @@ describe('Expense actions', () => {
     expect(payload).toBe(promise);
     expect(addExpenseToCategory.mock.calls.length).toBe(1);
     expect(addExpenseToCategory.mock.calls[0][0]).toBe(categoryId);
+    expect(addExpenseToCategory.mock.calls[0][1]).toBe(expense);
   });
 });
