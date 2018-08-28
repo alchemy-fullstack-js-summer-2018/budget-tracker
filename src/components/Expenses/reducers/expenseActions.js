@@ -3,6 +3,10 @@ import { addExpense, updateExpense, removeExpense } from '../../../services/budg
 // import shortid from 'shortid';
 
 export const add = (categoryId, expense) => {
+  console.log('***expense actions: EXPENSE*****', expense);
+  console.log('***expense actions: CAT ID*****', categoryId);
+  expense.timestamp = new Date();
+  expense.categoryId = categoryId;
   return {
     type: EXPENSE_ADD,
     payload: addExpense(categoryId, expense)
