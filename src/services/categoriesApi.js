@@ -1,7 +1,7 @@
 import { put, post, get, del } from './request';
 
 const URL = 'https://rbt-budget.firebaseio.com/';
-const CATEGORIES_URL = `${URL}/categories`;
+const CATEGORIES_URL = `${URL}categories`;
 // const EXPENSES_URL = `${CATEGORIES}/expenses`;
 
 const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
@@ -34,8 +34,8 @@ export const updateCategory = category => {
   return put(url, category);
 };
 
-export const removeCategory = id => {
-  const url = getCategoryUrl(id);
+export const removeCategory = Key => {
+  const url = getCategoryUrl(Key);
   return del(url);
 };
 
@@ -44,13 +44,13 @@ export const addExpenseToCategory = (categoryKey, expense) => {
   return post(url, expense)
     .then(res => {
       console.log('***RES***', res);
-      categoryKey = res.name;
+      expense.id = res.name;
       return expense;
     });
 };
 
 export const updateExpenseInCategory = (categoryKey, expense) => {
-  const url = `${CATEGORIES_URL}/${categoryKey}/expenses/${expense.id}`;
+  const url = `${CATEGORIES_URL}/${categoryKey}/expenses/${expense.key}.json`;
   return put(url, expense)
     .then(res => {
       categoryKey = res.name;
@@ -58,11 +58,12 @@ export const updateExpenseInCategory = (categoryKey, expense) => {
     });
 };
 
-export const removeExpenseFromCategory = (categoryKey, expenseId) => {
-  const url = `${CATEGORIES_URL}/${categoryKey}/expenses/${expenseId}`;
-  return del(url, id)
+export const removeExpenseFromCategory = (categoryKey, expenseKey) => {
+  const url = `${CATEGORIES_URL}/${categoryKey}/expenses/${expenseKey}.json`;
+  return del(url, expenseKey)
     .then(res => {
+      console.log('**API**', res);
       categoryKey = res.name;
-      return id;
+      return expenseKey;
     });
 };

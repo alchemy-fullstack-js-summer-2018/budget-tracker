@@ -11,7 +11,7 @@ export const load = () => ({
 export const add = category => {
   category.key = shortid.generate();
   category.timeStamp = (new Date()).toLocaleString();
-  category.expenses = ['something needs to be here'];
+  category.expenses = [];
   // console.log('**CATEGORY ADD**', category);
   return {
     type: CATEGORY_ADD,
