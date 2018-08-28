@@ -32,7 +32,7 @@ class CategoryForm extends Component {
     if(key) category.key = key;
 
     this.props.onComplete(category);
-    this.setState({ name: '', budget: '', timestamp: '' });
+    this.setState({ name: '', budget: '', timestamp });
   };
 
   handleChange = ({ target }) => {
