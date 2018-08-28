@@ -1,6 +1,6 @@
 import shortid from 'shortid';
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './reducersExpenses';
-import { addExpense, updateExpense } from '../../services/categoriesApi';
+import { addExpense, updateExpense, removeExpense } from '../../services/categoriesApi';
 
 export const add = expense => {
   expense.key = shortid.generate();
@@ -16,7 +16,7 @@ export const update = expense => ({
   payload: updateExpense(expense)
 });
 
-export const remove = key => ({
+export const remove = expense => ({
   type: EXPENSE_REMOVE,
-  payload: key
+  payload: removeExpense(expense).then(() => expense)
 });
