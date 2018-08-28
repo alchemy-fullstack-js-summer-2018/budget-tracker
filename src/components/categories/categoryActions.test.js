@@ -51,12 +51,11 @@ describe('Categories actions', () => {
     const category = { name: 'splurges' };
     const promise = Promise.resolve();
     updateCategory.mockReturnValueOnce(promise);
-    const updated = { name: 'utilities' };
 
     const { type, payload } = update(category);
     expect(type).toBe(CATEGORY_UPDATE);
     expect(payload).toBe(promise);
     expect(updateCategory.mock.calls.length).toBe(1);
-    expect(updateCategory.mock.calls[0][0]).toBe(updated);
+    expect(updateCategory.mock.calls[0][0]).toBe(category);
   });
 });

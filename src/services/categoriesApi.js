@@ -1,4 +1,4 @@
-import { get, post, del } from './request';
+import { get, post, del, put } from './request';
 
 const URL = 'https://react-search-e534c.firebaseio.com';
 const CATEGORIES_URL = `${URL}/categories`;
@@ -30,4 +30,11 @@ export const addCategory = category => {
 export const removeCategory = id => {
   const url = getCategoriesUrl(id);
   return del(url);
+};
+
+export const updateCategory = category => {
+  // eslint-disable-next-line
+  const { key, ...copy } = category;
+  const url = getCategoriesUrl(category.key);
+  return put(url, copy);
 };
