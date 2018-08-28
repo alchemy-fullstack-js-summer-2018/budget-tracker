@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getError } from './reducers';
-import { clearError } from './actions';
+import { clearError } from './app-actions';
 import styles from './Error.css';
 
 export class Error extends Component {
@@ -21,7 +21,7 @@ export class Error extends Component {
     }
   }
 
-  render () {
+  render() {
     const { error } = this.props;
     if(!error) return null;
 
@@ -35,4 +35,5 @@ export default connect(
   state => ({
     error: getError(state)
   }),
+  { clearError }
 )(Error);
