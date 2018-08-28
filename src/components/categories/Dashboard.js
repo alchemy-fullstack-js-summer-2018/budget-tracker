@@ -25,8 +25,7 @@ class Dashboard extends Component {
     return ( 
       <div>
         <section>
-          <h3>Add a new category</h3>
-          <CategoryForm onComplete={add}/>
+          <CategoryForm id="category-form" onComplete={add}/>
         </section>
 
         {categories && 
