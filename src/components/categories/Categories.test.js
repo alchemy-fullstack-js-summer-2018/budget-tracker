@@ -4,7 +4,7 @@ import Categories from './Categories';
 import toJSON from 'enzyme-to-json';
 
 describe('Categories', () => {
-  it('renders add if no category prop', () => {
+  it('renders categories', () => {
     const categories = [
       { key: '123', timestamp: 'new Date()', name: 'transportation', budget: 400 },
       { key: '456', timestamp: 'new Date()', name: 'other', budget: 200 },

@@ -1,7 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`Categories renders add if no category prop 1`] = `
-<ul>
+exports[`Categories renders categories 1`] = `
+<ul
+  className="categories"
+>
   <Connect(Category)
     category={
       Object {

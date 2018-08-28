@@ -1,18 +1,18 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import CategoryItem from './CategoryItem';
-import CategoryForm from './CategoryForm';
-import { update } from './categoryActions';
-import styles from './Category.css';
+import PropTypes from 'prop-types';
+import ExpenseForm from './ExpenseForm';
+import ExpenseItem from './ExpenseItem';
+import { update } from './expenseActions';
+import styles from './Expense.css';
 
-export class Category extends Component {
+export class Expense extends Component {
   state = {
     editing: false
   };
 
   static propTypes = {
-    category: PropTypes.object.isRequired,
+    expense: PropTypes.object.isRequired,
     update: PropTypes.func.isRequired
   };
 
@@ -20,9 +20,9 @@ export class Category extends Component {
     this.setState({ editing: true });
   };
 
-  handleComplete = category => {
+  handleComplete = expense => {
     const { update } = this.props;
-    update(category);
+    update(expense);
     this.handleEndEdit();
   };
 
@@ -32,18 +32,18 @@ export class Category extends Component {
 
   render() {
     const { editing } = this.state;
-    const { category } = this.props;
+    const { expense } = this.props;
 
     return (
-      <li className={styles.category}>
+      <li className={styles.expense}>
         {editing
-          ? <CategoryForm
-            category={category}
+          ? <ExpenseForm
+            expense={expense}
             onComplete={this.handleComplete}
             onCancel={this.handleEndEdit}
           />
-          : <CategoryItem
-            category={category}
+          : <ExpenseItem
+            expense={expense}
             onEdit={this.handleEdit}
           />
         }
@@ -55,4 +55,4 @@ export class Category extends Component {
 export default connect(
   null,
   { update }
-)(Category);
+)(Expense);

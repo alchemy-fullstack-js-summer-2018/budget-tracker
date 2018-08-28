@@ -1,34 +1,34 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class CategoryForm extends Component {
+class ExpenseForm extends Component {
   state = {
-    editing: false,
-    key: null,
+    id: null,
     name: '',
-    budget: ''
+    price: ''
   };
 
   static propTypes = {
-    category: PropTypes.object,
+    expense: PropTypes.object,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func
   };
 
   componentDidMount() {
-    const { category } = this.props;
-    if(!category) return;
-    this.setState(category);
+    const { expense } = this.props;
+    if(!expense) return;
+    this.setState(expense);
   }
 
   handleSubmit = event => {
     event.preventDefault();
-    const { key, name, budget } = this.state;
-    const category = { name, budget };
-    if(key) category.key = key;
+    const { id, name, price } = this.state;
+    const expense = { name, price };
+    if(id) expense.id = id;
+    if(this.props.expense.categoryId) expense.categoryId = this.props.expense.categoryId;
 
-    this.props.onComplete(category);
-    this.setState({ name: '', budget: '' });
+    this.props.onComplete(expense);
+    this.setState({ name: '', price: '' });
   };
 
   handleChange = ({ target }) => {
@@ -36,16 +36,16 @@ class CategoryForm extends Component {
   };
 
   render() {
-    const { key, name, budget } = this.state;
+    const { id, name, price } = this.state;
     const { onCancel } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="budget" value={budget} onChange={this.handleChange}/>
+        <InputControl name="price" value={price} onChange={this.handleChange}/>
         <p>
-          <button type="submit">{ key ? 'Update' : 'Add' }</button>
-          {key && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button type="submit">{ id ? 'Update' : 'Add' }</button>
+          {id && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );
@@ -60,5 +60,5 @@ const InputControl = props => (
     </label>
   </p>
 );
-
-export default CategoryForm;
+ 
+export default ExpenseForm;

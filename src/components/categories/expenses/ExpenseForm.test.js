@@ -1,27 +1,27 @@
 import React from 'react';
 import { mount } from 'enzyme';
 import toJSON from 'enzyme-to-json';
-import CategoryForm from './CategoryForm';
+import ExpenseForm from './ExpenseForm';
 
-describe('Category form', () => {
-  it('renders add if no category prop', () => {
+describe.skip('Expense Form component', () => {
+  it('renders add if no expense prop', () => {
     const handleComplete = jest.fn();
-    const wrapper = mount(<CategoryForm onComplete={handleComplete}/>);
+    const wrapper = mount(<ExpenseForm onComplete={handleComplete}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
 
-    const category = { name: 'clothes', budget: 500 };
+    const expense = { name: 'bus', price: 5 };
 
     wrapper.find('input[name="name"]').simulate('change', {
       target: {
         name: 'name',
-        value: category.name
+        value: expense.name
       }
     });
 
-    wrapper.find('input[name="budget"]').simulate('change', {
+    wrapper.find('input[name="price"]').simulate('change', {
       target: {
-        name: 'budget',
-        value: category.budget
+        name: 'price',
+        value: expense.price
       }
     });
 
@@ -29,27 +29,27 @@ describe('Category form', () => {
 
     const calls = handleComplete.mock.calls;
     expect(calls.length).toBe(1);
-    expect(calls[0][0]).toEqual(category);
+    expect(calls[0][0]).toEqual(expense);
   });
 
-  it('renders edit if there is category prop', () => {
+  it('renders edit if there is expense prop', () => {
     const handleComplete = jest.fn();
     const handleCancel = jest.fn();
 
-    const category = { name: 'clothes', budget: 500 };
+    const expense = { name: 'bus', price: 5, categoryId: 'abc' };
 
-    const wrapper = mount(<CategoryForm
+    const wrapper = mount(<ExpenseForm
       onComplete={handleComplete}
       onCancel={handleCancel}
-      category={category}
+      expense={expense}
     />);
 
     expect(toJSON(wrapper)).toMatchSnapshot();
 
-    wrapper.find('input[name="budget"]').simulate('change', {
+    wrapper.find('input[name="price"]').simulate('change', {
       target: {
-        name: 'budget',
-        value: 200
+        name: 'price',
+        value: 3
       }
     });
 
@@ -58,8 +58,8 @@ describe('Category form', () => {
     const calls = handleComplete.mock.calls;
     expect(calls.length).toBe(1);
     expect(calls[0][0]).toEqual({
-      ...category,
-      budget: 200
+      ...expense,
+      price: 3
     });
   });
 });

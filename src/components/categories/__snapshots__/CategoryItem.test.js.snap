@@ -20,5 +20,6 @@ exports[`Category item display renders item display, then edit 1`] = `
   >
     Delete
   </button>
+  <Connect(Expenses) />
 </section>
 `;

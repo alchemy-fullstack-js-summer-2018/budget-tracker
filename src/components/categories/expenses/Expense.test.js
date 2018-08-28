@@ -1,15 +1,14 @@
 import React from 'react';
-import { Category } from './Category';
+import { Expense } from './Expense';
 import { shallow } from 'enzyme';
 
-describe('Category', () => {
+describe('Expense component', () => {
   it('renders display or edit', () => {
-    const update = jest.fn();
-
-    const category = { name: 'clothes', budget: 500 };
-    const wrapper = shallow(<Category
-      category={category}
-      update={update}
+    const example = { id: '5uio1d', name: 'bus', price: 5 };
+    const wrapper = shallow(<Expense
+      key={example.id}
+      expense={example}
+      update={jest.fn()}
     />);
 
     const component = wrapper.instance();

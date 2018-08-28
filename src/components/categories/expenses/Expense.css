@@ -1,0 +1,26 @@
+:local(.expense) {
+  padding: 5px 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin: 10px;
+  text-align: center;
+  background: #eee;
+  width: 85px;
+  height: 75px;
+  border-radius: 5px;
+
+  img {
+    width: 70%;
+    height: auto;
+  }
+
+  h3 {
+    margin: 5px;
+  }
+
+  p {
+    margin: 5px;
+  }
+}

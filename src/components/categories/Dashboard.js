@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Categories from './Categories';
 import CategoryForm from './CategoryForm';
-import { load, add, update } from './actions';
+import { load, add, update } from './categoryActions';
+import { getCategories } from './categoryReducers';
 
 class CategoriesContainer extends Component {
 
@@ -43,7 +44,7 @@ class CategoriesContainer extends Component {
  
 export default connect(
   state => ({
-    categories: state
+    categories: getCategories(state)
   }),
   { load, add }
 )(CategoriesContainer);
