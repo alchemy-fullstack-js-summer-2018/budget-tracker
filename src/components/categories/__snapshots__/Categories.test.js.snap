@@ -5,7 +5,7 @@ exports[`Categories renders categories 1`] = `
   <Connect(Category)
     category={
       Object {
-        "key": "1",
+        "id": "1",
         "name": "a",
       }
     }
@@ -14,7 +14,7 @@ exports[`Categories renders categories 1`] = `
   <Connect(Category)
     category={
       Object {
-        "key": "2",
+        "id": "2",
         "name": "b",
       }
     }
@@ -23,7 +23,7 @@ exports[`Categories renders categories 1`] = `
   <Connect(Category)
     category={
       Object {
-        "key": "3",
+        "id": "3",
         "name": "c",
       }
     }

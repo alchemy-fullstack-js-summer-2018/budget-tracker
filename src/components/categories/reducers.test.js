@@ -38,11 +38,11 @@ describe('categories reducers', () => {
   });
 
   it('updates a category', () => {
-    const a = { key: '1', name: 'a' };
-    const b = { key: '2', name: 'b' };
-    const c = { key: '3', name: 'c' };
+    const a = { id: '1', name: 'a' };
+    const b = { id: '2', name: 'b' };
+    const c = { id: '3', name: 'c' };
 
-    const updated = { key: '2', name: 'd' };
+    const updated = { id: '2', name: 'd' };
 
     const state = categories([a, b, c], {
       type: CATEGORY_UPDATE,
@@ -53,9 +53,9 @@ describe('categories reducers', () => {
   });
 
   it('removes a category', () => {
-    const a = { key: '1', name: 'a' };
-    const b = { key: '2', name: 'b' };
-    const c = { key: '3', name: 'c' };
+    const a = { id: '1', name: 'a' };
+    const b = { id: '2', name: 'b' };
+    const c = { id: '3', name: 'c' };
 
     const state = categories([a, b, c], {
       type: CATEGORY_REMOVE,
