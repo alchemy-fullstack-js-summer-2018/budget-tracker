@@ -4,16 +4,12 @@ import styles from './Header.css';
 
 class Header extends Component {
 
-  static propTypes = {
-
-  };
-
   render() {
 
     return (
       <div className={styles.header}>
         <section className="header-container">
-          <h1>Budget Tracker</h1>
+          <h1>Expense Tracker</h1>
         </section>
         <nav>
           <ul>
@@ -21,7 +17,7 @@ class Header extends Component {
               <NavLink exact activeClassName="active" to="/">Home</NavLink>
             </li>
             <li>
-              <NavLink exact activeClassName="active" to="/categories">Categories</NavLink>
+              <NavLink exact activeClassName="active" to="/dashboard">Dashboard</NavLink>
             </li>
           </ul>
         </nav>

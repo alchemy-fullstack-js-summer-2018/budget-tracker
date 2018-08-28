@@ -1,13 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-
 class CategoryForm extends Component {
 
   state = {
     editing: false,
     key: null,
-    name: ''
+    timestamp: new Date(),
+    name: '',
+    budget: 0
   };
 
   static propTypes = {
@@ -25,12 +26,13 @@ class CategoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, key } = this.state;
-    const category = { name };
+    const { key, name, budget, timestamp } = this.state;
+    const category = { name, budget, timestamp }
+;
     if(key) category.key = key;
 
     this.props.onComplete(category);
-    this.setState({ name: '' });
+    this.setState({ name: '', budget: '', timestamp: '' });
   };
 
   handleChange = ({ target }) => {
@@ -38,13 +40,16 @@ class CategoryForm extends Component {
   };
 
   render() {
-    const { key, name } = this.state;
+    const { key, name, budget } = this.state;
+    const { onCancel } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
+        <InputControl name="budget" value={budget} onChange={this.handleChange}/>
         <p>
           <button type="submit">{ key ? 'Update' : 'Add' }</button>
+          {key && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );
@@ -59,6 +64,5 @@ const InputControl = (props) => (
     </label>
   </p>
 );
-
 
 export default CategoryForm;

@@ -1,3 +1,30 @@
-body {
-  background-color: lightcyan;
+:local(.header) {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: left;
+  background-color: #FFF;
+  margin: 0;
+  padding: 0;
+
+  ul {
+    list-style-type: none;
+    padding: 30px;
+    display: flex;
+    align-items: end;
+  }
+
+  li a {
+    text-decoration: none;
+    padding: 20px;
+    background-color: rebeccapurple;
+    color: #FFF;
+    font-family: Helvetica, sans-serif
+  }
+
+  li a:active {
+    background-color: rgb(54, 26, 82);
+    color: #FFF;
+    font-family: Helvetica, sans-serif
+  }
+
 }

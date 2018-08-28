@@ -1,5 +1,5 @@
 import { createStore } from 'redux';
-import { categories } from './components/dashboard/reducers';
+import { categories } from './components/Redux/reducers';
 
 const store = createStore(
   categories,

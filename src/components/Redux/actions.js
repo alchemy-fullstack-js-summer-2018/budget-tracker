@@ -1,9 +1,11 @@
 import {
   CATEGORY_LOAD,
   CATEGORY_ADD,
-} from './reducers.js';
+  CATEGORY_UPDATE,
+  CATEGORY_REMOVE
+} from './reducers';
 import shortid from 'shortid';
-import data from './categories-data';
+import data from '../Dashboard/categories-data.js';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
@@ -19,5 +21,17 @@ export const add = category => {
     payload: category
   };
 };
+
+export const remove = key => ({
+  type: CATEGORY_REMOVE,
+  payload: key
+});
+
+export const update = category => ({
+  type: CATEGORY_UPDATE,
+  payload: category
+});
+
+
 
 
