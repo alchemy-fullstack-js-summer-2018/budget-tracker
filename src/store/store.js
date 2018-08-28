@@ -1,6 +1,6 @@
 import { createStore, combineReducers } from 'redux';
-import { categories } from './components/categories/reducers';
-import { expenses } from './components/expenses/reducersExpenses';
+import { categories } from '../components/categories/reducers';
+import { expenses } from '../components/expenses/reducersExpenses';
 
 const combined = combineReducers({
   categories,
