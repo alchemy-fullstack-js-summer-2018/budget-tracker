@@ -11,7 +11,7 @@ export function expenses(state = [], { type, payload }) {
   switch(type) {
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.key] = category.expenses;
+        map[category.key] = Object.values(category.expenses);
         return map;
       }, {});
     case CATEGORY_ADD:

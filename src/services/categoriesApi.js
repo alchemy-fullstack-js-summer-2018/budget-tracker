@@ -47,3 +47,12 @@ export const addExpenseToCategory = (categoryId, expense) => {
       return expense;
     });
 };
+
+export const updateExpenseInCategory = (categoryId, expense) => {
+  const url = `${CATEGORIES_URL}/expenses/${categoryId}/`;
+  return put(url, expense)
+    .then(res => {
+      categoryId = res.name;
+      return expense;
+    });
+};

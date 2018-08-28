@@ -19,5 +19,5 @@ export const remove = expense => ({
 
 export const update = expense => ({
   type: EXPENSE_UPDATE,
-  payload: updateExpenseInCategory(expense)
+  payload: updateExpenseInCategory(expense.categoryId, expense)
 });
