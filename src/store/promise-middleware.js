@@ -1,0 +1,26 @@
+import { LOAD_END, LOAD_START, ERROR } from '../components/app/reducers';
+
+const isPromise = val => val && typeof val.then === 'function';
+
+export default ({ dispatch }) => next => action => {
+  const { type, payload } = action;
+  if(!isPromise(payload)) return next(action);
+  dispatch({ type: LOAD_START });
+
+  return payload
+    .then(
+      result => {
+        dispatch({ type: LOAD_END });
+
+        return dispatch({
+          type,
+          payload: result
+        });
+      },
+      err => {
+        dispatch({ type: LOAD_END });
+        dispatch({ type: ERROR, payload: err });
+        throw err;
+      }
+    );
+};
