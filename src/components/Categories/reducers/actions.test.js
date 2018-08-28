@@ -1,58 +1,69 @@
-import * as actions from './actions';
-import * as reducers from './reducers';
-import data from '../categories-data';
+jest.mock('../../../services/budgetApi', () => ({
+  loadCategories: jest.fn(),
+  addCategory: jest.fn(),
+  removeCategory: jest.fn()
+}));
 
-describe('Actions', () => {
+import { load, add, remove } from './actions';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from './reducers';
+import { loadCategories, addCategory, removeCategory } from '../../../services/budgetApi';
 
-  it('should create an action that loads categories', () => {
-    const expectedAction = {
-      type: reducers.CATEGORY_LOAD,
-      payload: data
-    };
+describe('Category Action Creators', () => {
 
-    expect(actions.load()).toEqual(expectedAction);
+  it('loads categories', () => {
+    const promise = Promise.resolve();
+    loadCategories.mockReturnValueOnce(promise);
+
+    const { type, payload } = load();
+    expect(type).toBe(CATEGORY_LOAD);
+    expect(payload).toBe(promise);
+
+    expect(loadCategories.mock.calls.length).toEqual(1);
   });
 
-  it('should create an action that adds a category', () => {
+  it('adds a category', () => {
     const category = {
-      timestamp: '2018-8-23',
       name: 'travel',
       budget: 1000
     };
-    const expectedAction = {
-      type: reducers.CATEGORY_ADD,
-      payload: category
-    };
+    const promise = Promise.resolve();
+    addCategory.mockReturnValueOnce(promise);
 
-    expect(actions.add(category)).toEqual(expectedAction);
+    const { type, payload } = add(category);
+    expect(type).toBe(CATEGORY_ADD);
+    expect(promise).toBe(payload);
+
+    expect(addCategory.mock.calls.length).toBe(1);
+    expect(addCategory.mock.calls[0][0]).toBe(category);
   });
 
-  it('should create an action that upates a category', () => {
-    const category = {
-      timestamp: '2018-8-24',
-      name: 'travel',
-      budget: 2000
-    };
-    const expectedAction = {
-      type: reducers.CATEGORY_UPDATE,
-      payload: category
-    };
+  // it.skip('should create an action that upates a category', () => {
+  //   const category = {
+  //     timestamp: '2018-8-24',
+  //     name: 'travel',
+  //     budget: 2000
+  //   };
+  //   const expectedAction = {
+  //     type: reducers.CATEGORY_UPDATE,
+  //     payload: category
+  //   };
 
-    expect(actions.update(category)).toEqual(expectedAction);
-  });
+  //   expect(actions.update(category)).toEqual(expectedAction);
+  // });
 
-  it('should create an action that removes a category', () => {
-    const category = {
-      timestamp: '2018-8-24',
-      name: 'travel',
-      budget: 2000
-    };
-    const key = actions.add(category).payload.key;
-    const expectedAction = {
-      type: reducers.CATEGORY_REMOVE,
-      payload: key
-    };
+  it.skip('should create an action that removes a category', () => {
+    const promise = Promise.resolve();
+    removeCategory.mockReturnValueOnce(promise);
+    const id = 123;
 
-    expect(actions.remove(key)).toEqual(expectedAction);
+    const { type, payload } = remove(id);
+    expect(type).toBe(CATEGORY_REMOVE);
+
+    expect(removeCategory.mock.calls.length).toBe(1);
+    expect(removeCategory.mock.calls[0][0]).toBe(id);
+
+    return payload.then(idToDelete => {
+      expect(idToDelete).toBe(id);
+    });
   });
 });
