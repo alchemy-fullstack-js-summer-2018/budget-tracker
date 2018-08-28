@@ -13,7 +13,7 @@ class CategoryDisplay extends Component {
 
   render() {
     const { category, onEdit, remove } = this.props;
-    const { name, budget, id } = category;
+    const { name, budget } = category;
 
     return (
       <p>

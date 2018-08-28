@@ -5,15 +5,19 @@ class ExpenseForm extends Component {
 
   state = {
     editing: false,
+    categoryId: null,
     id: null,
     name: '',
-    amount: ''
+    amount: 0,
+    timestamp: null
   };
 
   static propTypes = {
     expense: PropTypes.object,
     onComplete: PropTypes.func.isRequired,
-    onCancel: PropTypes.func
+    onCancel: PropTypes.func,
+    onRemove: PropTypes.func,
+    categoryId: PropTypes.string.isRequired
   };
 
   componentDidMount() {

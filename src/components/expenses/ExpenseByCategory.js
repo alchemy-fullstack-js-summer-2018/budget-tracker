@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import ExpensesDisplay from './ExpensesByCategoryDisplay';
 import ExpenseForm from './ExpenseByCategoryForm';
-import { update } from '../expensesByCategory-actions';
+import { update, remove  } from '../expensesByCategory-actions';
 
 class Expense extends Component {
 
@@ -13,7 +13,8 @@ class Expense extends Component {
 
   static propTypes = {
     expense: PropTypes.object.isRequired,
-    update: PropTypes.func.isRequired
+    update: PropTypes.func.isRequired,
+    remove: PropTypes.func.isRequired
   };
 
   handleEdit = () => {
@@ -38,14 +39,15 @@ class Expense extends Component {
       <li>
         {editing
           ? <ExpenseForm
+            categoryID={expense.categoryId}
             expense={expense}
             onComplete={this.handleComplete}
+            onRemove={this.handleRemove}
             onCancel={this.handleEndEdit}
           />
           : <ExpensesDisplay
             expense={expense}
             onEdit={this.handleEdit}
-            onDelete={this.handleDelete}
           />
         }
       </li>
@@ -55,5 +57,5 @@ class Expense extends Component {
 
 export default connect(
   null,
-  { update }
+  { update, remove }
 )(Expense);
