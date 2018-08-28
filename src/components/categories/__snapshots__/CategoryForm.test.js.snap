@@ -299,7 +299,14 @@ exports[`Category form Renders edit if there is category prop 1`] = `
         className="add-update-button"
         type="submit"
       >
-        Add
+        Update
+      </button>
+      <button
+        className="cancel-button"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Cancel
       </button>
     </p>
   </form>
