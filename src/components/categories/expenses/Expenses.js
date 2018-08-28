@@ -16,7 +16,6 @@ class Expenses extends Component {
 
   handleAddExpense = expense => {
     const { add, categoryId } = this.props;
-
     add(categoryId, expense);
   };
 
@@ -27,24 +26,21 @@ class Expenses extends Component {
     return (
       <div>
         <section>
-          <h3>Add an Expense</h3>
+          <h2>Expenses:</h2>
           <ExpenseForm onComplete={this.handleAddExpense} categoryId={categoryId}/>
         </section>
-
+        
         <section>
-          {expenses.map(expense => {
-            return <Expense
-              key={expense.id}
-              expense={expense}
-            />;
-          }) 
-          }  
-        </section>
+          {expenses.map(expense => <Expense
+            key={expense.id}
+            expense={expense}
+          />)}
+        </section>     
       </div>
     );
   }
 }
- 
+
 export default connect(
   (state, { categoryId }) => ({
     expenses: getExpensesByCategory(state, categoryId)
