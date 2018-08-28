@@ -1,6 +1,6 @@
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
-// export const EXPENSE_DELETE = 'EXPENSE_DELETE';
+export const EXPENSE_DELETE = 'EXPENSE_DELETE';
 export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CATEGORY_ADD = 'CATEGORY_ADD';
 export const CATEGORY_REMOVE = 'CATEGORY_REMOVE';
@@ -34,8 +34,8 @@ export function expensesByCategory(state = [], { type, payload }) {
         ...state,
         [payload.categoryId]: [
           ...state[payload.categoryId],
-          payload
-          // payload.expense
+          // payload
+          payload.expense
         ]
       };
     }
@@ -47,12 +47,12 @@ export function expensesByCategory(state = [], { type, payload }) {
       return copy;
     }
     
-    // case EXPENSE_DELETE: {
-    //   const copy = { ...state };
-    //   const update = copy[payload.categoryId].filter(expense => expense.id !== payload.id);
-    //   copy[payload.categoryId] = update;
-    //   return copy;
-    // }
+    case EXPENSE_DELETE: {
+      const copy = { ...state };
+      const update = copy[payload.categoryId].filter(expense => expense.id !== payload.id);
+      copy[payload.categoryId] = update;
+      return copy;
+    }
     default: 
       return state;
   }

@@ -17,7 +17,7 @@ class CategoryDisplay extends Component {
     return ( 
       <div>
         <section>
-          {category.name} budget is ${category.budget}
+          <strong>{category.name}</strong> budget is <strong>${category.budget}</strong>
           <button name="edit" onClick={onEdit}>✎</button>
           <button name="delete" onClick={() => remove(category.key)}>🗑</button>
         </section>
