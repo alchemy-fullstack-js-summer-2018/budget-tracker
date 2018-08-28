@@ -40,7 +40,7 @@ describe('categories reducers', () => {
       type: CATEGORY_UPDATE,
       payload: updated
     });
-    expect(state).toEqual([ updated ]);
+    expect(state).toEqual([updated]);
   });
 
   it('deletes category', () => {
