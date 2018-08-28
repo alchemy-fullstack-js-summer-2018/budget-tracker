@@ -16,12 +16,20 @@ describe('Category actions', () => {
 
     const { type, payload } = load();
     expect(type).toBe(CATEGORY_LOAD);
-    expect(payload).toBe(promise);
+    expect(promise).toBe(payload);
     expect(getCategories.mock.calls.length).toBe(1);
   });
 
-  it.skip('Adds a category', () => {
+  it('Adds a category', () => {
+    const category = { name: 'Pets', price: '100' };
+    const promise = Promise.resolve();
+    addCategory.mockReturnValueOnce(promise);
 
+    const { type, payload } = add(category);
+    expect(type).toBe(CATEGORY_ADD);
+    expect(promise).toBe(payload);
+    expect(addCategory.mock.calls.length).toBe(1);
+    expect(addCategory.mock.calls[0][0]).toBe(category);
   });
 
   it.skip('Updates a category', () => {

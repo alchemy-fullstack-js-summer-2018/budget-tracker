@@ -12,7 +12,7 @@ export const add = category => {
   category.timestamp = new Date().toLocaleString();
   return {
     type: CATEGORY_ADD,
-    payload: category
+    payload: addCategory(category)
   };
 };
 
