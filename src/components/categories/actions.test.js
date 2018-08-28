@@ -8,7 +8,6 @@ jest.mock('../../services/categoriesApi', () => ({
 import { load, add, remove, update } from './actions';
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE, CATEGORY_UPDATE } from './reducers';
 import { getCategories, addCategory, removeCategory, updateCategory } from '../../services/categoriesApi';
-// import data from './categories-data';
 
 
 describe('category action creators', () => {
