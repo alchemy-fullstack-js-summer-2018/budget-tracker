@@ -56,3 +56,12 @@ export const updateExpenseInCategory = (categoryId, expense) => {
       return expense;
     });
 };
+
+export const removeExpenseInCategory = (categoryId, expenseKey) => {
+  const url = `${CATEGORIES_URL}/${categoryId}/expenses/${expenseKey}.json`;
+  return del(url, expenseKey)
+    .then(res => {
+      categoryId = res.name;
+      return expenseKey;
+    });
+};
