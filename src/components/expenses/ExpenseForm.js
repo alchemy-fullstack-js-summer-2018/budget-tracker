@@ -1,37 +1,36 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styles from './CategoryForm.css';
 
-class CategoryForm extends Component {
+class ExpenseForm extends Component {
 
   state = {
     id: null,
-    timestamp: '',
     name: '',
-    budget: ''
+    price: ''
   };
 
   static propTypes = {
-    category: PropTypes.object,
+    expense: PropTypes.object,
+    categoryId: PropTypes.string,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func
   };
 
   componentDidMount() {
-    const { category } = this.props;
-    if(!category) return;
-
-    this.setState(category);
+    const { expense } = this.props;
+    if(!expense) return;
+    this.setState(expense); 
   }
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, budget, timestamp, id } = this.state;
-    const category = { name, budget, timestamp };
-    if(id) category.id = id;
+    const { id, name, price } = this.state;
+    const expense = { name, price };
+    if(id) expense.id = id;
+    if(this.props.categoryId) expense.categoryId = this.props.categoryId;
 
-    this.props.onComplete(category);
-    this.setState({ name: '', budget: '', timestamp: '' });
+    this.props.onComplete(expense);
+    this.setState({ name: '', price: '' });
   };
 
   handleChange = ({ target }) => {
@@ -39,18 +38,20 @@ class CategoryForm extends Component {
   };
 
   render() {
-    const { id, name, budget } = this.state;
+    const { name, price, id } = this.state;
     const { onCancel } = this.props;
 
+
     return (
-      <form className={styles.categoryForm} onSubmit={this.handleSubmit}>
+      <form onSubmit={this.handleSubmit}>
         <label>
-          Category:&nbsp;<br/>
+        Expense Name:&nbsp;<br/>
           <input required name="name" value={name} onChange={this.handleChange}/>
         </label>
+        <br/>
         <label>
-          Budget:&nbsp;<br/>
-          <input required name="budget" value={budget} onChange={this.handleChange}/>
+        Price:&nbsp;<br/>
+          <input required name="price" value={price} onChange={this.handleChange}/>
         </label>
         <p>
           <button type="submit">{id ? 'Update' : 'Add' }</button>
@@ -61,4 +62,4 @@ class CategoryForm extends Component {
   }
 }
 
-export default CategoryForm;
+export default ExpenseForm;
