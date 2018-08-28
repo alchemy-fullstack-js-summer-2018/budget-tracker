@@ -36,8 +36,19 @@ describe('Category actions', () => {
 
   });
 
-  it.skip('Removes a category', () => {
+  it('Removes a category', () => {
+    const promise = Promise.resolve();
+    removeCategory.mockReturnValueOnce(promise);
+    const key = 123;
 
+    const { type, payload } = remove(key);
+    expect(type).toBe(CATEGORY_REMOVE);
+    expect(removeCategory.mock.calls.length).toBe(1);
+    expect(removeCategory.mock.calls[0][0]).toBe(key);
+
+    return payload.then(keyToDelete => {
+      expect(keyToDelete).toBe(key);
+    });
   });
 
 });

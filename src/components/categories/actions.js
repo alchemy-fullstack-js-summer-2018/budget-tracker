@@ -23,5 +23,5 @@ export const update = category => ({
 
 export const remove = key => ({
   type: CATEGORY_REMOVE,
-  payload: key
+  payload: removeCategory(key).then(() => key)
 });
