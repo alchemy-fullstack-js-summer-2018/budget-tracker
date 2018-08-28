@@ -23,7 +23,7 @@ class CategoryForm extends Component {
     const { name, budget, id, timestamp } = this.state;
     let category = { name, budget };
     if(id) category = { ...category, id, timestamp };
-    
+
     this.props.onComplete(category)
       .then(() => {
         if(!this.props.category) this.setState({ name: '', budget: '' });
@@ -40,8 +40,15 @@ class CategoryForm extends Component {
     this.setState(category);
   }
 
+  onDelete = event => {
+    event.preventDefault();
+    const { onRemove } = this.props;
+    const { id } = this.state;
+    onRemove(id);
+  };
+
   render() {
-    const { key, name, budget } = this.state;
+    const { id, name, budget } = this.state;
     const { onCancel } = this.props;
 
     return (
@@ -49,8 +56,8 @@ class CategoryForm extends Component {
         <InputControl name="name" value={name} onChange={this.handleChange}/>
         <InputControl name="budget" value={budget} onChange={this.handleChange}/>
         <p>
-          <button type="submit">{ key ? 'Update' : 'Add' }</button>
-          {key && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button type="submit">{ id ? 'Update' : 'Add' }</button>
+          {id && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );
