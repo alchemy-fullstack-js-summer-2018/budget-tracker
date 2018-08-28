@@ -1,12 +1,13 @@
 jest.mock('../../services/categoriesApi', () => ({
   loadCategories: jest.fn(),
   addCategory: jest.fn(),
-  removeCategory: jest.fn()
+  removeCategory: jest.fn(),
+  updateCategory: jest.fn()
 }));
 
-import { load, add, remove } from './categoryActions';
-import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from './categoryReducers';
-import { loadCategories, addCategory, removeCategory } from '../../services/categoriesApi';
+import { load, add, remove, update } from './categoryActions';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE, CATEGORY_UPDATE } from './categoryReducers';
+import { loadCategories, addCategory, removeCategory, updateCategory } from '../../services/categoriesApi';
 
 describe('Categories actions', () => {
   it('loads the categories', () => {
@@ -44,5 +45,18 @@ describe('Categories actions', () => {
     return payload.then(idToDelete => {
       expect(idToDelete).toBe(id);
     });
+  });
+
+  it('updates a category', () => {
+    const category = { name: 'splurges' };
+    const promise = Promise.resolve();
+    updateCategory.mockReturnValueOnce(promise);
+    const updated = { name: 'utilities' };
+
+    const { type, payload } = update(category);
+    expect(type).toBe(CATEGORY_UPDATE);
+    expect(payload).toBe(promise);
+    expect(updateCategory.mock.calls.length).toBe(1);
+    expect(updateCategory.mock.calls[0][0]).toBe(updated);
   });
 });
