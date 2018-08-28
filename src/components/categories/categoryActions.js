@@ -1,5 +1,5 @@
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './categoryReducers';
-import { loadCategories, addCategory } from '../../services/categoriesApi';
+import { loadCategories, addCategory, removeCategory } from '../../services/categoriesApi';
 import shortid from 'shortid';
 
 export const load = () => ({
@@ -23,5 +23,5 @@ export const update = category => ({
 
 export const remove = id => ({
   type: CATEGORY_REMOVE,
-  payload: id
+  payload: removeCategory(id).then(() => id)
 });

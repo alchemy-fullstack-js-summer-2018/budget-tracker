@@ -1,9 +1,9 @@
-import { get, post } from './request';
+import { get, post, del } from './request';
 
 const URL = 'https://react-search-e534c.firebaseio.com';
 const CATEGORIES_URL = `${URL}/categories`;
 
-// const getCategoriesUrl = key => `${CATEGORIES_URL}/${key}.json`;
+const getCategoriesUrl = key => `${CATEGORIES_URL}/${key}.json`;
 
 export const loadCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
@@ -25,4 +25,9 @@ export const addCategory = category => {
       category.key = res.name;
       return category;
     });
+};
+
+export const removeCategory = id => {
+  const url = getCategoriesUrl(id);
+  return del(url);
 };
