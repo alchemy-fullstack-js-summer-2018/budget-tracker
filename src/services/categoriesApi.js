@@ -48,3 +48,12 @@ export const addExpenseToCategory = (categoryKey, expense) => {
       return expense;
     });
 };
+
+export const updateExpenseInCategory = (categoryKey, expense) => {
+  const url = `${CATEGORIES_URL}/${categoryKey}/expenses/${expense.id}`;
+  return put(url, expense)
+    .then(res => {
+      categoryKey = res.name;
+      return expense;
+    });
+};
