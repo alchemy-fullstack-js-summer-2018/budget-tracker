@@ -3,7 +3,7 @@ import {
   CATEGORY_LOAD,
   CATEGORY_ADD,
   CATEGORY_UPDATE,
-  // CATEGORY_REMOVE
+  CATEGORY_REMOVE
 } from './reducers';
 
 describe('categories reducers', () => {
@@ -43,6 +43,12 @@ describe('categories reducers', () => {
     expect(state).toEqual([ updated ]);
   });
 
-
-
+  it('deletes category', () => {
+    const category1 = { key: '1', name: 'shoes' };
+    const state = categories([category1], {
+      type: CATEGORY_REMOVE,
+      payload: '1'
+    });
+    expect(state).toEqual([]);
+  });
 });
