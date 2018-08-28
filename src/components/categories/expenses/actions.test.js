@@ -62,9 +62,7 @@ describe('actions', () => {
 
     const { type, payload } = removeExpense(expense);
     expect(type).toBe(EXPENSE_REMOVE);
-    expect(payload).toBe(promise);
+    expect(payload).toEqual(promise);
     expect(removeExpenseFromCategory.mock.calls.length).toBe(1);
-    expect(removeExpenseFromCategory.mock.calls[0][0]).toBe(expense.categoryId);
-    expect(removeExpenseFromCategory.mock.calls[0][1]).toBe(expense.id);
   });
 });
