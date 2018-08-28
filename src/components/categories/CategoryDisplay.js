@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { remove } from './actions';
 import Expenses from './expenses/Expenses';
+import styles from './CategoryDisplay.css';
+
 
 export class CategoryDisplay extends Component {
 
@@ -16,8 +18,8 @@ export class CategoryDisplay extends Component {
     const { category, onEdit, remove } = this.props;
 
     return (
-      <div className="cf-bullet">
-        <section className="cf-list">
+      <div>
+        <section className={styles.categoryDisplay}>
           <strong>{category.name} Budget</strong>: ${category.budget}
           <button name="Edit" onClick={onEdit}>✎</button> 
           <button name="Delete" onClick={() => remove(category.key)}>🗑</button>
