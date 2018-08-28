@@ -1,4 +1,4 @@
-import { CATEGORY_LOAD, CATEGORY_REMOVE } from './reducers';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from './reducers';
 
 export const EXPENSE_ADD = 'EXPENSE_ADD';
 export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
@@ -26,7 +26,6 @@ export function expensesByCategory(state = [], { type, payload }) {
 export function expenses(state = [], { type, payload }) {
   switch(type) {
 
-    //from mariah class demo
     case EXPENSE_ADD:
       return {
         ...state,
@@ -34,19 +33,22 @@ export function expenses(state = [], { type, payload }) {
           ...state[payload.categoryId],
           payload.expense
         ]
-
-        //payload: payload 
       };
 
-      //from mariah class demo. problems.
-    case CATEGORY_REMOVE: {
-      // const { [payload]: ignore, ...rest } = state;
-      // return rest;
-      const copy = { ...state };
-      delete copy[payload];
-      return copy;
-    }
-      // case EXPENSE_UPDATE:
-      //   return state.map(expense => expense.id === payload.id ? payload : expense);
+    case EXPENSE_UPDATE:
+      return { 
+        ...state,
+        [payload.categoryId]: state[payload.categoryId].map(expense => expense.id === payload.id ? payload : expense)
+      };
+
+    case EXPENSE_REMOVE:
+      return { 
+        ...state,
+        [payload.categoryId]: state[payload.categoryId].filter(expense => expense.id !== payload.id)
+      };  
+    default:
+      return state;
   }
 }
+
+     
