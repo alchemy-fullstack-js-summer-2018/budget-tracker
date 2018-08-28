@@ -1,6 +1,7 @@
 import {
   expensesByCategory,
-  EXPENSE_ADD
+  EXPENSE_ADD,
+  EXPENSE_REMOVE
 } from './reducers';
 
 import {
@@ -43,7 +44,37 @@ describe('expense reducers', () => {
       type: EXPENSE_ADD,
       payload
     });
-    console.log('***STATE***', newState);
     expect(newState[payload.categoryId]).toEqual([...state[payload.categoryId], payload]);
   });
+  
+  it('removes an expense', () => {
+    const state = {
+      'PPBqWA9': [
+        { id: 'GQ45', 
+          categoryId: 'PPBqWA9', 
+          timestamp: '2018-11-10T03:24:00', 
+          name: 'Rent Payment', 
+          amount: '$500' },
+        { id: 'BNx2', 
+          categoryId: 'PPBqWA9', 
+          timestamp: '2018-11-10T03:24:00', 
+          name: 'Reapir', 
+          amount: '$20' }] 
+    };
+    const payload = { 
+      id: 'BNx2', 
+      categoryId: 'PPBqWA9', 
+      timestamp: '2018-11-10T03:24:00', 
+      name: 'Reapir', 
+      amount: '$20' 
+    };
+      
+    const newState = expensesByCategory(state, {
+      type: EXPENSE_REMOVE,
+      payload
+    });
+      
+    expect(newState[payload.categoryId].length).toBe(1);
+  });
+
 });
