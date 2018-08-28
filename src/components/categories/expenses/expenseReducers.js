@@ -19,6 +19,8 @@ export function expenses(state = [], { type, payload }) {
         [payload.key]: []
       };
     case CATEGORY_REMOVE: {
+      // const { [payload]: ignore, ...rest } = state;
+      // return rest;
       const copy = { ...state };
       delete copy[payload.id];
       return copy;
