@@ -36,3 +36,22 @@ export const removeCategory = id => {
   const url = getCategoryUrl(id);
   return del(url);
 };
+
+export const addExpense = (expense) => {
+  const url = `${CATEGORY_URL}/${expense.categoryId}/expenses.json`;
+  return post(url, expense)
+    .then(res => {
+      expense.key = res.name;
+      return expense;
+    });
+};
+
+export const updateExpense = expense => {
+  const url = `${CATEGORY_URL}/${expense.categoryId}/expenses/${expense.id}.json`;
+  return put(url, expense);
+};
+
+export const removeExpense = expense => {
+  const url = `${CATEGORY_URL}/${expense.categoryId}/expenses/${expense.id}.json`;
+  return del(url);
+};
