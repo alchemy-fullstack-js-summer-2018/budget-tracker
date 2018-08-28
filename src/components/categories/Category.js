@@ -29,8 +29,7 @@ class Category extends Component {
 
   handleRemove =  id => {
     const { remove } = this.props;
-    return remove(id)
-      .then (() => this.handleEndEdit());
+    return remove(id);
   };
 
   handleEndEdit = () => {

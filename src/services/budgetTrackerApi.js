@@ -9,6 +9,8 @@ export const getCategories = () => {
   return get(`${CATEGORY_URL}.json`);
 };
 
+
+
 export const addCategory = (category) => {
   const url = `${CATEGORY_URL}.json`;
   return post(url, category)
