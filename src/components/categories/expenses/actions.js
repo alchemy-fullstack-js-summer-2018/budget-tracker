@@ -23,6 +23,6 @@ export const removeExpense = (expense) => {
   console.log('**ACTIONS REMOVE**', expense);
   return {
     type: EXPENSE_REMOVE,
-    payload: removeExpenseFromCategory(expense.categoryId, expense.key)
+    payload: removeExpenseFromCategory(expense.categoryId, expense.key).then(() => expense)
   };
 };

@@ -60,10 +60,5 @@ export const updateExpenseInCategory = (categoryKey, expense) => {
 
 export const removeExpenseFromCategory = (categoryKey, expenseKey) => {
   const url = `${CATEGORIES_URL}/${categoryKey}/expenses/${expenseKey}.json`;
-  return del(url, expenseKey)
-    .then(res => {
-      console.log('**API**', res);
-      categoryKey = res.name;
-      return expenseKey;
-    });
+  return del(url);
 };

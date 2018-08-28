@@ -9,7 +9,7 @@ export const load = () => ({
 });
 
 export const add = category => {
-  category.key = shortid.generate();
+  // category.key = shortid.generate();
   category.timeStamp = (new Date()).toLocaleString();
   category.expenses = [];
   // console.log('**CATEGORY ADD**', category);
