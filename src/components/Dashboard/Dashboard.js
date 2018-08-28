@@ -22,7 +22,7 @@ class Dashboard extends Component {
     return (
       <div>
         <section>
-          <h2> Add Budget Items: </h2>
+          <h2> Add A Budget Category: </h2>
           <CategoryForm onComplete={add}/>
         </section>
 
