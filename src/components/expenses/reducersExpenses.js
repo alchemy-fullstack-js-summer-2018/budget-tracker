@@ -6,11 +6,21 @@ export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 export const getExpenses = state => state.expenses;
 export const getExpensesById = (categoryKey, state) => getExpenses(state)[categoryKey];
 
+const makeArray = obj => {
+  return obj
+    ? Object.keys(obj).map((key => {
+      const item = obj[key];
+      item.key = key;
+      return item;
+    }))
+    : [];
+};
+
 export function expenses(state = [], { type, payload }) {
   switch(type) {
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.key] = category.expenses;
+        map[category.key] = makeArray(category.expenses);
         return map;
       }, {});
     case CATEGORY_ADD: {
@@ -20,9 +30,6 @@ export function expenses(state = [], { type, payload }) {
       };
     }
     case EXPENSE_ADD:
-      console.log('PAYLOAD', payload);
-      console.log('STATE', state);
-
       return {
         ...state,
         [payload.categoryId]: [

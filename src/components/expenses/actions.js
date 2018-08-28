@@ -1,12 +1,13 @@
 import shortid from 'shortid';
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './reducersExpenses';
+import { addExpense } from '../../services/categoriesApi';
 
 export const add = expense => {
   expense.key = shortid.generate();
   expense.timestamp = new Date().toLocaleString();
   return ({
     type: EXPENSE_ADD,
-    payload: expense
+    payload: addExpense(expense)
   });
 };
 

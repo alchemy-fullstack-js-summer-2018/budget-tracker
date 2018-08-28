@@ -4,7 +4,7 @@ const URL = 'https://alchemy-lab-965b5.firebaseio.com';
 const CATEGORIES_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
-const getExpensesUrl = key => `${CATEGORIES_URL}/${key}`;
+const getExpensesUrl = key => `${CATEGORIES_URL}/${key}/expenses`;
 
 export const getCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
@@ -29,7 +29,8 @@ export const addCategory = category => {
 };
 
 export const addExpense = expense => {
-  const url = `${getExpensesUrl(expense.categoryId)}/expenses.json`;
+  const expenseUrl = getExpensesUrl(expense.categoryId);
+  const url = `${expenseUrl}.json`;
   return post(url, expense)
     .then(res => {
       expense.key = res.name;
