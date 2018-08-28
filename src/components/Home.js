@@ -5,7 +5,7 @@ class Home extends Component {
     return (
       <div>
         <h2>Home Page</h2>
-        <p>View Lists of Budget Categories</p>
+        <p>Budget Categories and Expenses</p>
       </div>
     );
   }

@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { remove } from './actions';
+import { remove } from '../category-actions';
 
 class CategoryDisplay extends Component {
   static propTypes = {
@@ -16,8 +16,9 @@ class CategoryDisplay extends Component {
     return (
       <p>
         {category.name}: ${category.budget}
-        <button name="edit" onClick={onEdit}>Edit</button>
-        <button name="delete" onClick={() => remove(category.key)}>Delete</button>
+        <button name="edit" onClick={onEdit}><i className="fas fa-pen"></i></button>
+        <button name="delete" onClick={() => remove(category.key)}><i className="fas fa-ban"></i>
+        </button>
       </p>
     );
   }

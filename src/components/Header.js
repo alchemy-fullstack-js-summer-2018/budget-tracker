@@ -5,10 +5,6 @@ import styles from './Header.css';
 
 class Header extends Component {
 
-  static propTypes = {
-
-  };
-
   handleSpecial = event => {
     event.preventDefault();
     alert('what the heck i=does this do?');
@@ -21,7 +17,7 @@ class Header extends Component {
         <section className="header-container">
           <div className="logo">
             <img src={logo}/>
-            <h1>Categories</h1>
+            <h1>Expenses by Budget Category</h1>
           </div>
           <nav>
             <ul>

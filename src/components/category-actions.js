@@ -3,8 +3,8 @@ import {
   CATEGORY_ADD, 
   CATEGORY_UPDATE,
   CATEGORY_REMOVE 
-} from './reducers.js';
-import data from './categories-data';
+} from './category-reducers.js';
+import data from './categories/categories-data.js';
 import shortid from 'shortid';
 
 export const load = () => ({
@@ -14,7 +14,9 @@ export const load = () => ({
 
 export const add = category => {
   category.key = shortid.generate();
+  category.categoryId = shortid.generate();
   category.timestamp = new Date();
+  category.expenses = [];
   return {
     type: CATEGORY_ADD,
     payload: category
