@@ -4,8 +4,8 @@ jest.mock('../../services/categoriesApi', () => ({
   removeCategory: jest.fn()
 }));
 
-import { load, add, update, remove } from './actions';
-import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './reducers';
+import { load, add, /* update */ remove } from './actions';
+import { CATEGORY_LOAD, CATEGORY_ADD, /* CATEGORY_UPDATE */ CATEGORY_REMOVE } from './reducers';
 import { getCategories, addCategory, removeCategory } from '../../services/categoriesApi';
 
 describe('Category actions', () => {
