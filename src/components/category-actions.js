@@ -28,9 +28,9 @@ export const add = category => {
   };
 };
 
-export const update = id => ({
+export const update = categoryId => ({
   type: CATEGORY_UPDATE,
-  payload: updateCategory(id)
+  payload: updateCategory(categoryId)
 });
 
 export const remove = id => ({

@@ -19,7 +19,7 @@ export const addCategory = (category) => {
 };
 
 export const updateCategory = category => {
-  const url = getCategoryUrl(category.key);
+  const url = getCategoryUrl(category.id);
   return put(url, category);
 };
 export const removeCategory = id => {
