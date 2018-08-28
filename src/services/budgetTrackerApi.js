@@ -6,16 +6,7 @@ const CATEGORY_URL = `${URL}/categories`;
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
 
 export const getCategories = () => {
-  return get(`${CATEGORY_URL}.json`)
-    .then(response => {
-      return response
-        ? Object.keys(response).map(key => {
-          const each = response[key];
-          each.key = key;
-          return each;
-        })
-        : [];
-    });
+  return get(`${CATEGORY_URL}.json`);
 };
 
 export const addCategory = (category) => {

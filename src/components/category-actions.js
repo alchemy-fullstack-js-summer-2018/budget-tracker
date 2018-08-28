@@ -6,7 +6,12 @@ import {
 } from './category-reducers.js';
 // import data from './categories/categories-data.js';
 import shortid from 'shortid';
-import { getCategories } from '../services/budgetTrackerApi';
+import { 
+  getCategories,
+  addCategory,
+  updateCategory,
+  removeCategory
+} from '../services/budgetTrackerApi';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
@@ -14,22 +19,20 @@ export const load = () => ({
 });
 
 export const add = category => {
-  category.key = shortid.generate();
   category.categoryId = shortid.generate();
-  category.timestamp = new Date();
-  category.expenses = [];
+  category.timestamp = (new Date()).toLocaleString();
   return {
     type: CATEGORY_ADD,
-    payload: category
+    payload: addCategory(category)
   };
 };
 
 export const update = category => ({
   type: CATEGORY_UPDATE,
-  payload: category
+  payload: updateCategory(category)
 });
 
 export const remove = id => ({
   type: CATEGORY_REMOVE,
-  payload: id
+  payload: removeCategory(id).then(() => id)
 });
