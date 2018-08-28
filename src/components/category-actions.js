@@ -20,7 +20,7 @@ export const load = () => ({
 });
 
 export const add = category => {
-  category.categoryId = shortid.generate();
+  category.id = shortid.generate();
   category.timestamp = (new Date()).toLocaleString();
   return {
     type: CATEGORY_ADD,
@@ -28,9 +28,9 @@ export const add = category => {
   };
 };
 
-export const update = categoryId => ({
+export const update = id => ({
   type: CATEGORY_UPDATE,
-  payload: updateCategory(categoryId)
+  payload: updateCategory(id)
 });
 
 export const remove = id => ({

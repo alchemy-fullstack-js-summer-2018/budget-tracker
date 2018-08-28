@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
-import Expenses from '../expenses/ExpensesByCategory';
 import { remove } from '../category-actions';
 
 
@@ -20,9 +19,9 @@ class CategoryDisplay extends Component {
       <p>
         {name}: ${budget}
         <button name="edit" onClick={onEdit}><i className="fas fa-pen"></i></button>
-        <button name="delete" onClick={() => remove(category.key)}><i className="fas fa-ban"></i>
+        <button name="delete" onClick={() => remove(category.id)}><i className="fas fa-ban"></i>
         </button>
-        <Expenses categoryID={id}/>
+        
       </p>
     );
   }

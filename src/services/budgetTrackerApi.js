@@ -5,11 +5,24 @@ const CATEGORY_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
 
-export const getCategories = () => {
-  return get(`${CATEGORY_URL}.json`);
+const makeArray = obj => {
+  return obj
+    ? Object.keys(obj).map((key => {
+      const each = obj[key];
+      each.id = key;
+      return each;
+    }))
+    : [];
 };
 
-
+export const getCategories = () => {
+  return get(`${CATEGORY_URL}.json`)
+    .then(response => {
+      const categories = makeArray(response);
+      categories.forEach(category => category.expenses = makeArray(category.expenses));
+      return categories;
+    });
+};
 
 export const addCategory = (category) => {
   const url = `${CATEGORY_URL}.json`;
