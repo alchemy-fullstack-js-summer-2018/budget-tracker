@@ -21,11 +21,7 @@ export class CategoryDisplay extends Component {
           <strong>{category.name} Budget</strong>: ${category.budget}
           <button name="Edit" onClick={onEdit}>✎</button> 
           <button name="Delete" onClick={() => remove(category.key)}>🗑</button>
-          
-        </section>
-        <Expenses categoryId={category.key}/>
-        <section>
-
+          <Expenses categoryId={category.key}/>
         </section>
       </div>
     );
