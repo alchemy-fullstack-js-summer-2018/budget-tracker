@@ -1,11 +1,12 @@
 jest.mock('../../../services/categoriesApi', () => ({
   addExpenseToCategory: jest.fn(),
-  updateExpenseInCategory: jest.fn()
+  updateExpenseInCategory: jest.fn(),
+  removeExpenseFromCategory: jest.fn()
 }));
 
 import { updateExpense, removeExpense, addExpense } from './actions';
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './reducers';
-import { addExpenseToCategory, updateExpenseInCategory } from '../../../services/categoriesApi';
+import { addExpenseToCategory, updateExpenseInCategory, removeExpenseFromCategory } from '../../../services/categoriesApi';
 
 describe('actions', () => {
   const category =   
@@ -22,10 +23,10 @@ describe('actions', () => {
         amount: '$500',
       }
     ] };
+  const expense = { 'id': 'TT8c', 'name': 'repair', 'categoryId': category.key, 'timeEntered': '1995-12-17T03:24:00', 'amount': '$50' };
 
   it('should run the add action', () => {
     const promise = Promise.resolve();
-    const expense = { 'id': 'TT8c', 'name': 'repair', 'categoryId': category.key, 'timeEntered': '1995-12-17T03:24:00', 'amount': '$50' };
     addExpenseToCategory.mockReturnValueOnce(promise);
 
     const { type, payload } = addExpense(category.key, expense);
@@ -56,11 +57,14 @@ describe('actions', () => {
   });
 
   it('should run the remove action', () => {
-    const payload = { 'id': 'TT8c', 'categoryId': 'GH5C3', 'name': 'repair', 'timeEntered': '1995-12-17T03:24:00', 'amount': '$50' };
-    const expectedAction = {
-      type: EXPENSE_REMOVE,
-      payload
-    };
-    expect(removeExpense(payload).type).toEqual(expectedAction.type);
+    const promise = Promise.resolve();
+    removeExpenseFromCategory.mockReturnValueOnce(promise);
+
+    const { type, payload } = removeExpense(expense);
+    expect(type).toBe(EXPENSE_REMOVE);
+    expect(payload).toBe(promise);
+    expect(removeExpenseFromCategory.mock.calls.length).toBe(1);
+    expect(removeExpenseFromCategory.mock.calls[0][0]).toBe(expense.categoryId);
+    expect(removeExpenseFromCategory.mock.calls[0][1]).toBe(expense.id);
   });
 });
