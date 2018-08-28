@@ -4,8 +4,9 @@ import {
   CATEGORY_UPDATE,
   CATEGORY_REMOVE 
 } from './category-reducers.js';
-// import data from './categories/categories-data.js';
+
 import shortid from 'shortid';
+
 import { 
   getCategories,
   addCategory,
@@ -27,9 +28,9 @@ export const add = category => {
   };
 };
 
-export const update = category => ({
+export const update = id => ({
   type: CATEGORY_UPDATE,
-  payload: updateCategory(category)
+  payload: updateCategory(id)
 });
 
 export const remove = id => ({
