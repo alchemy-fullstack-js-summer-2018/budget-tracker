@@ -1,4 +1,4 @@
-import { get } from './request';
+import { get, post } from './request';
 
 const URL = 'https://react-search-e534c.firebaseio.com';
 const CATEGORIES_URL = `${URL}/categories`;
@@ -7,13 +7,22 @@ const CATEGORIES_URL = `${URL}/categories`;
 
 export const loadCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
-    .then(response => {
-      return response
-        ? Object.keys(response).map(key => {
-          const each = response[key];
+    .then(res => {
+      return res
+        ? Object.keys(res).map(key => {
+          const each = res[key];
           each.key = key;
           return each;
         })
         : [];
+    });
+};
+
+export const addCategory = category => {
+  const url = `${CATEGORIES_URL}.json`;
+  return post(url, category)
+    .then(res => {
+      category.key = res.name;
+      return category;
     });
 };
