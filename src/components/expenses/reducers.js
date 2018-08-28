@@ -6,9 +6,9 @@ export const CATEGORY_ADD = 'CATEGORY_ADD';
 export const CATEGORY_REMOVE = 'CATEGORY_REMOVE';
 
 export const getExpenses = state => state.expensesByCategory;
-export const getExpensesByCategory = (state, categoryId) => getExpenses(state)[categoryId];
+export const getExpensesByCategoryId = (state, categoryId) => getExpenses(state)[categoryId];
 
-export function expensesByCategory(state = {}, { type, payload }) {
+export function expensesByCategory(state = [], { type, payload }) {
   switch(type) {
     case CATEGORIES_LOAD:
       return payload.reduce((map, category) => {

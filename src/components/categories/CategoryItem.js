@@ -22,9 +22,9 @@ class CategoryDisplay extends Component {
           <button name="delete" onClick={() => remove(category.key)}>🗑</button>
         </section>
 
-        {/* <section>
+        <section>
           <Expenses categoryId={category.id}/> 
-        </section> */}
+        </section>
       </div>
       
     );
