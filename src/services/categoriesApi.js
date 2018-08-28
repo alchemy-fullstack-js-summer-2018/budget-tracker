@@ -38,3 +38,4 @@ export const updateCategory = category => {
   const url = getCategoriesUrl(category.key);
   return put(url, copy);
 };
+

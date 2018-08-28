@@ -1,4 +1,5 @@
 import { EXPENSE_ADD, EXPENSE_REMOVE, EXPENSE_UPDATE } from './expenseReducers';
+import { addExpense } from '../../../services/categoriesApi';
 import shortid from 'shortid';
 
 export const add = (categoryId, expense) => {
@@ -7,10 +8,7 @@ export const add = (categoryId, expense) => {
   expense.categoryId = categoryId;
   return {
     type: EXPENSE_ADD,
-    payload: {
-      categoryId,
-      expense
-    }
+    payload: addExpense(categoryId, expense)
   };
 };
 

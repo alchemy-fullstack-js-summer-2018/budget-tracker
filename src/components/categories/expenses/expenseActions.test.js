@@ -1,35 +1,23 @@
-import { add, remove, update } from './expenseActions';
-import { EXPENSE_ADD, EXPENSE_REMOVE, EXPENSE_UPDATE } from './expenseReducers';
+jest.mock('../../../services/categoriesApi', () => ({
+  addExpenseToCategory: jest.fn(),
+}));
 
-describe('Expenses actions', () => {
+import { add } from './expenseActions';
+import { EXPENSE_ADD } from './expenseReducers';
+import { addExpenseToCategory } from '../../../services/categoriesApi';
+
+describe('Expense actions', () => {
   it('adds an expense', () => {
     const expense = { timestamp: new Date(), name: 'bus', price: 5 };
     const categoryId = 'jkl';
-    const action = add(categoryId, expense);
-    expect(action).toEqual({
-      type: EXPENSE_ADD,
-      payload: {
-        categoryId,
-        expense
-      }
-    });
-  });
+    const promise = Promise.resolve();
+    addExpenseToCategory.mockReturnValueOnce(promise);
+    // const result = { categoryId: 'jkl', timestamp: new Date(), name: 'bus', price: 5 }
 
-  it('removes an expense', () => {
-    const expense = { timestamp: new Date(), name: 'bus', price: 5 };
-    const action = remove(expense);
-    expect(action).toEqual({
-      type: EXPENSE_REMOVE,
-      payload: expense
-    });
-  });
-
-  it('updates an expense', () => {
-    const newExpense = { timestamp: new Date(), name: 'bus', price: 5 };
-    const action = update(newExpense);
-    expect(action).toEqual({
-      type: EXPENSE_UPDATE,
-      payload: newExpense
-    });
+    const { type, payload } = add(categoryId, expense);
+    expect(type).toBe(EXPENSE_ADD);
+    expect(payload).toBe(promise);
+    expect(addExpenseToCategory.mock.calls.length).toBe(1);
+    expect(addExpenseToCategory.mock.calls[0][0]).toBe(categoryId);
   });
 });
