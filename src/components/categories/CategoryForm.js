@@ -8,12 +8,12 @@ class CategoryForm extends Component {
     key: null,
     timestamp: new Date(), 
     name: '',
-    budget: 0
+    budget: ''
   };
 
   static propTypes = {
     category: PropTypes.object,
-    onComplete: PropTypes.func,
+    onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func
   };
 

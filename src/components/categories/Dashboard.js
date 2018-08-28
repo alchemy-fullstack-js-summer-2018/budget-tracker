@@ -10,8 +10,8 @@ class CategoriesContainer extends Component {
   
   static propTypes = { 
     categories: PropTypes.array,
-    load: PropTypes.func,
-    add: PropTypes.func
+    load: PropTypes.func.isRequired,
+    add: PropTypes.func.isRequired
   };
 
   componentDidMount() {
