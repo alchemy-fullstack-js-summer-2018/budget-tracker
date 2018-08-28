@@ -32,10 +32,9 @@ class ExpensesForm extends Component {
     e.preventDefault();
     const { categoryId, onComplete } = this.props;
     const { id, name, price } = this.state;
-    const expense = { name, price };
+    const expense = { name, price, categoryId };
     
     if(id) expense.id = id;
-    if(categoryId) expense.categoryId = categoryId;
 
     onComplete(expense);
     this.setState({ name: '', price: 0 });

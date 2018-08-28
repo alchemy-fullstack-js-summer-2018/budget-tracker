@@ -1,15 +1,11 @@
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './expenseReducers';
 import { addExpense, updateExpense, removeExpense } from '../../../services/budgetApi';
-// import shortid from 'shortid';
 
-export const add = (categoryId, expense) => {
-  console.log('***expense actions: EXPENSE*****', expense);
-  console.log('***expense actions: CAT ID*****', categoryId);
+export const add = (expense) => {
   expense.timestamp = new Date();
-  expense.categoryId = categoryId;
   return {
     type: EXPENSE_ADD,
-    payload: addExpense(categoryId, expense)
+    payload: addExpense(expense)
   };
 };
 
