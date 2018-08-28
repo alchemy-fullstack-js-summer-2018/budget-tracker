@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-dom';
-import Header from './Header';
-import Home from './Home';
-import Dashboard from './Dashboard/Dashboard';
+import Header from '../home/Header';
+import Home from '../home/Home';
+import Dashboard from '../categories/Dashboard';
 import styles from './App.css';
 
 class App extends Component {
