@@ -18,7 +18,7 @@ export const add = category => {
 
 export const update = category => ({
   type: CATEGORY_UPDATE,
-  payload: category
+  payload: updateCategory(category)
 });
 
 export const remove = key => ({
