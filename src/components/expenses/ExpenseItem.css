@@ -1,0 +1,8 @@
+:local(.expenseItem) {
+  border: 2px solid black;
+  max-width: 175px;
+
+  .price {
+    font-size: 20px;
+  }
+}

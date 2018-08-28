@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import CategoryForm from './CategoryForm';
 import CategoryItem from './CategoryItem';
 import { update } from './actions';
+import styles from './Category.css';
 
 class Category extends Component {
 
@@ -35,7 +36,7 @@ class Category extends Component {
     const { category } = this.props;
 
     return (
-      <li>
+      <li className={styles.category}>
         {editing
           ? <CategoryForm
             category={category}
@@ -45,7 +46,6 @@ class Category extends Component {
           : <CategoryItem
             category={category}
             onEdit={this.handleEdit}
-            onDelete={this.handleDelete}
           />
         }
       </li>

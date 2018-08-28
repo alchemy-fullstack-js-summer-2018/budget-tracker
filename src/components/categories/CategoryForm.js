@@ -5,9 +5,9 @@ class CategoryForm extends Component {
   state = {
     key: null,
     name: '',
-    budget: '',
-    timestamp: new Date().toLocaleString(),
-    editing: false
+    budget: 0,
+    expenses: [],
+    timestamp: null,
   };
 
   static propTypes = {
@@ -25,12 +25,12 @@ class CategoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { key, name, budget, timestamp } = this.state;
-    const category = { name, budget, timestamp };
+    const { key, name, budget, expenses } = this.state;
+    const category = { name, budget, expenses };
     if(key) category.key = key;
 
     this.props.onComplete(category);
-    this.setState({ name: '', budget: '' });
+    this.setState({ name: '', budget: 0 });
   };
 
   handleChange = ({ target }) => {
