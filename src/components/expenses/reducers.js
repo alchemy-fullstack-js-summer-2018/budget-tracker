@@ -5,7 +5,6 @@ export const CATEGORIES_LOAD = 'CATEGORIES_LOAD';
 export const CATEGORY_ADD = 'CATEGORY_ADD';
 export const CATEGORY_REMOVE = 'CATEGORY_REMOVE';
 
-export const getCategories = state => state.categories;
 export const getExpenses = state => state.expensesByCategory;
 export const getExpensesByCategory = (state, categoryId) => getExpenses(state)[categoryId];
 
@@ -25,7 +24,8 @@ export function expensesByCategory(state = {}, { type, payload }) {
 
     case CATEGORY_REMOVE: {
       const copy = { ...state };
-      delete copy[payload.id];
+      // delete copy[payload.id];
+      delete copy[payload];
       return copy;
     }
 
@@ -35,6 +35,7 @@ export function expensesByCategory(state = {}, { type, payload }) {
         [payload.categoryId]: [
           ...state[payload.categoryId],
           payload
+          // payload.expense
         ]
       };
     }
