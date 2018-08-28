@@ -10,8 +10,8 @@ class Expenses extends Component {
 
   static propTypes = {
     expenses: PropTypes.array,
-    categoryId: PropTypes.string.isRequired,
-    add: PropTypes.func.isRequired
+    categoryId: PropTypes.string,
+    add: PropTypes.func
   };
 
   handleAddExpense = expense => {

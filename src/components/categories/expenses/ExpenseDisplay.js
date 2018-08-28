@@ -7,8 +7,8 @@ class ExpenseDisplay extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
-    onEdit: PropTypes.func.isRequired,
-    remove: PropTypes.func.isRequired
+    onEdit: PropTypes.func,
+    remove: PropTypes.func
   };
 
   render() {
