@@ -5,6 +5,7 @@ import Categories from './Categories';
 import CategoryForm from './CategoryForm';
 import { load, add } from './actions';
 import { getCategories } from './reducers';
+// import styles from './Dashboard.css';
 
 class Dashboard extends Component {
 

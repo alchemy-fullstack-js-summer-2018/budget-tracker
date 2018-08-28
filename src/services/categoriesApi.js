@@ -9,6 +9,7 @@ const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
 
 const convertToArray = obj => {
   return Object.keys(obj).map(key => {
+    if(!obj) return [];
     const each = obj[key];
     each.key = key;
     return each;
