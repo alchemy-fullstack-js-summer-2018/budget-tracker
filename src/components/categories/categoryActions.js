@@ -1,4 +1,10 @@
-import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE, CATEGORY_UPDATE, } from './reducers';
+import { 
+  CATEGORY_LOAD, 
+  CATEGORY_ADD, 
+  CATEGORY_REMOVE, 
+  CATEGORY_UPDATE
+} from './categoriesReducers';
+
 import data from './category-data';
 import shortid from 'shortid';
 
@@ -9,7 +15,7 @@ export const load = () => ({
 
 export const add = category => {
   category.key = shortid.generate();
-  category.timestamp = new Date();
+  category.timestamp = (new Date()).toLocaleString();
   return {
     type: CATEGORY_ADD,
     payload: category

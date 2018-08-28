@@ -1,10 +1,9 @@
-import {
-  categories,
-  CATEGORY_LOAD,
-  CATEGORY_ADD,
-  CATEGORY_UPDATE,
-  CATEGORY_REMOVE
-} from './reducers';
+import { categories, 
+  CATEGORY_LOAD, 
+  CATEGORY_ADD, 
+  CATEGORY_UPDATE, 
+  CATEGORY_REMOVE 
+} from './categoriesReducers';
 
 describe('categories reducers', () => {
 
