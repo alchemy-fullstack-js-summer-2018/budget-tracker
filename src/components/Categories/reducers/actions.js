@@ -1,6 +1,6 @@
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './reducers';
 // import data from '../categories-data';
-import { loadCategories, addCategory } from '../../../services/budgetApi';
+import { loadCategories, addCategory, removeCategory } from '../../../services/budgetApi';
 // import shortid from 'shortid';
 
 export const load = () => ({
@@ -20,7 +20,7 @@ export const update = category => ({
   payload: category
 });
 
-export const remove = key => ({
+export const remove = id => ({
   type: CATEGORY_REMOVE,
-  payload: key
+  payload: removeCategory(id).then(() => id)
 });

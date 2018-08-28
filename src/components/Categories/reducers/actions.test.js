@@ -1,12 +1,13 @@
 jest.mock('../../../services/budgetApi', () => ({
   loadCategories: jest.fn(),
-  addCategory: jest.fn()
+  addCategory: jest.fn(),
+  removeCategory: jest.fn()
 }));
 
-import { load, add } from './actions';
-import { CATEGORY_LOAD, CATEGORY_ADD } from './reducers';
+import { load, add, remove } from './actions';
+import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from './reducers';
 // import data from '../categories-data';
-import { loadCategories, addCategory } from '../../../services/budgetApi';
+import { loadCategories, addCategory, removeCategory } from '../../../services/budgetApi';
 
 describe('Category Action Creators', () => {
 
@@ -51,18 +52,19 @@ describe('Category Action Creators', () => {
   //   expect(actions.update(category)).toEqual(expectedAction);
   // });
 
-  // it.skip('should create an action that removes a category', () => {
-  //   const category = {
-  //     timestamp: '2018-8-24',
-  //     name: 'travel',
-  //     budget: 2000
-  //   };
-  //   const key = actions.add(category).payload.key;
-  //   const expectedAction = {
-  //     type: reducers.CATEGORY_REMOVE,
-  //     payload: key
-  //   };
+  it.skip('should create an action that removes a category', () => {
+    const promise = Promise.resolve();
+    removeCategory.mockReturnValueOnce(promise);
+    const id = 123;
 
-  //   expect(actions.remove(key)).toEqual(expectedAction);
-  // });
+    const { type, payload } = remove(id);
+    expect(type).toBe(CATEGORY_REMOVE);
+
+    expect(removeCategory.mock.calls.length).toBe(1);
+    expect(removeCategory.mock.calls[0][0]).toBe(id);
+
+    return payload.then(idToDelete => {
+      expect(idToDelete).toBe(id);
+    });
+  });
 });
