@@ -1,4 +1,4 @@
-import { LOAD_START, LOAD_END, ERROR } from '../components/categories/reducers';
+import { LOAD_START, LOAD_END, ERROR } from '../components/AppReducers';
 
 const isPromise = val => val && typeof val.then === 'function';
 export default ({ dispatch }) => next => action => {

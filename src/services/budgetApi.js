@@ -6,7 +6,7 @@ const CATEGORY_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
 
-export const getCategories = () => {
+export const loadCategories = () => {
   return get(`${CATEGORY_URL}.json`)
     .then(response => {
       return response
