@@ -6,7 +6,7 @@ export const CATEGORY_UPDATE = 'CATEGORY_UPDATE';
 export const getCategories = state => state.categories;
 
 export function categories(state = [], { type, payload }) {
-
+  console.log(payload);
   switch(type) {
     case CATEGORY_LOAD:
       return payload;
