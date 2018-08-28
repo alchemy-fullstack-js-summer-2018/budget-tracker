@@ -42,7 +42,6 @@ class Dashboard extends Component {
   }
 }
  
-
 export default connect(
   state => ({
     categories: getCategories(state)

@@ -1,7 +1,6 @@
-
 import { put, post, get, del } from './request';
 
-const URL = 'https://notes-5f0ae.firebaseio.com/';
+const URL = 'https://notes-5f0ae.firebaseio.com';
 const CATEGORY_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
@@ -36,7 +35,7 @@ export const updateCategory = category => {
   //eslint-disable-next-line
   const { key, ...copy } = category;
   const url = getCategoryUrl(category.key);
-  return put(url, category);
+  return put(url, copy);
 };
 
 export const removeCategory = id => {
