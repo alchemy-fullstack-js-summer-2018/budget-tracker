@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Expense from './Expense';
+import Expense from './ExpenseByCategory';
 
 class Expenses extends Component {
 

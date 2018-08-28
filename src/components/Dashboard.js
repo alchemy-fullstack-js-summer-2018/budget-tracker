@@ -4,14 +4,14 @@ import { connect } from 'react-redux';
 import Categories from './categories/Categories';
 import CategoryForm from './categories/CategoryForm';
 import { load, add } from './category-actions';
-import Expenses from './expenses/Expenses';
-import ExpenseForm from './expenses/ExpenseForm';
-import { add as addExpense } from './expenses-actions';
+import Expenses from './expenses/ExpensesByCategory';
+import ExpenseForm from './expenses/ExpenseByCategoryForm';
+import { add as addExpense } from './expensesByCategory-actions';
 
 class Dashboard extends Component {
 
     static propTypes = {
-      categories: PropTypes.array,
+      categories: PropTypes.object,
       expenses: PropTypes.array,
       load: PropTypes.func.isRequired,
       add: PropTypes.func.isRequired
@@ -35,7 +35,7 @@ class Dashboard extends Component {
             <section>
               <h3>Categories</h3>
               <Categories
-                categories={categories}
+                categories={categories.categories}
               />
             </section>  
           }

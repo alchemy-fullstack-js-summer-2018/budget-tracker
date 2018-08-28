@@ -4,12 +4,13 @@ import {
   CATEGORY_UPDATE,
   CATEGORY_REMOVE 
 } from './category-reducers.js';
-import data from './categories/categories-data.js';
+// import data from './categories/categories-data.js';
 import shortid from 'shortid';
+import { getCategories } from '../services/budgetTrackerApi';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
-  payload: data
+  payload: getCategories()
 });
 
 export const add = category => {

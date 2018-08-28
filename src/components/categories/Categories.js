@@ -13,7 +13,7 @@ class Categories extends Component {
 
     return (
       <ul>
-        {categories.map(category => (
+        {categories.categories.map(category => (
           <Category
             key={category.key}
             category={category}
