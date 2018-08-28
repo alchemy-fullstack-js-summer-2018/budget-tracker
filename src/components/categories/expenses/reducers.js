@@ -6,23 +6,11 @@ export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const getExpenses = state => state.expensesByCategory;
 export const getExpensesById = (state, id) => getExpenses(state)[id];
 
-const convertObjectToArray = obj => {
-  return obj
-    ? Object.keys(obj).map(key => {
-      const each = obj[key];
-      each.key = key;
-      return each;
-    })
-    : [];
-};
-
 export function expensesByCategory(state = [], { type, payload }) {
-  console.log('**STATE**', state);
-  console.log('**PAYLOAD**', payload);
   switch(type) {
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.key] = convertObjectToArray(category.expenses);
+        map[category.key] = category.expenses;
         return map;
       }, {});
     case CATEGORY_ADD:

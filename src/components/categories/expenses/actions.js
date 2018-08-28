@@ -1,9 +1,7 @@
 import { EXPENSE_ADD, EXPENSE_REMOVE, EXPENSE_UPDATE } from './reducers';
 import { addExpenseToCategory, updateExpenseInCategory, removeExpenseFromCategory } from '../../../services/categoriesApi';
-import shortid from 'shortid';
 
 export const addExpense = (categoryId, expense) => {
-  expense.id = shortid.generate();
   expense.timestamp = (new Date()).toLocaleString();
   expense.categoryId = categoryId;
   return {

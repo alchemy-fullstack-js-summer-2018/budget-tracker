@@ -7,16 +7,20 @@ const CATEGORIES_URL = `${URL}categories`;
 const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
 // const getExpenseUrl = key => `${EXPENSES_URL}/${key}.json`;
 
+const convertToArray = obj => {
+  return Object.keys(obj).map(key => {
+    const each = obj[key];
+    each.key = key;
+    return each;
+  });
+};
+
 export const getCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
     .then(response => {
-      return response
-        ? Object.keys(response).map(key => {
-          const each = response[key];
-          each.key = key;
-          return each;
-        })
-        : [];
+      const categories = convertToArray(response);
+      categories.forEach(category => category.expenses = convertToArray(category.expenses));
+      return categories;
     });
 };
 
@@ -43,7 +47,6 @@ export const addExpenseToCategory = (categoryKey, expense) => {
   const url = `${CATEGORIES_URL}/${categoryKey}/expenses.json`;
   return post(url, expense)
     .then(res => {
-      console.log('***RES***', res);
       expense.id = res.name;
       return expense;
     });
