@@ -26,7 +26,6 @@ export function expensesByCategory(state = [], { type, payload }) {
 export function expenses(state = [], { type, payload }) {
   switch(type) {
 
-    //from mariah class demo
     case EXPENSE_ADD:
       return {
         ...state,
@@ -34,19 +33,14 @@ export function expenses(state = [], { type, payload }) {
           ...state[payload.categoryId],
           payload.expense
         ]
-
-        //payload: payload 
       };
 
-      //from mariah class demo. problems.
     case CATEGORY_REMOVE: {
-      // const { [payload]: ignore, ...rest } = state;
-      // return rest;
       const copy = { ...state };
       delete copy[payload];
       return copy;
     }
-      // case EXPENSE_UPDATE:
-      //   return state.map(expense => expense.id === payload.id ? payload : expense);
+    case EXPENSE_UPDATE:
+      return state.map(expense => expense.id === payload.id ? payload : expense);
   }
 }

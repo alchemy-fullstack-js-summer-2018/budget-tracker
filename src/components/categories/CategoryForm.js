@@ -31,8 +31,18 @@ class CategoryForm extends Component {
 ;
     if(key) category.key = key;
 
-    this.props.onComplete(category);
-    this.setState({ name: '', budget: '', timestamp: '' });
+    const { onComplete, category: originalCategory } = this.props;
+
+    onComplete(category)
+      .then(() => {
+        if(!originalCategory) {
+          this.setState({ name: '', budget: null });
+          document.activeElement.blur();
+        }
+      })
+      .catch(err => {
+        this.setState({ error: err });
+      });
   };
 
   handleChange = ({ target }) => {
