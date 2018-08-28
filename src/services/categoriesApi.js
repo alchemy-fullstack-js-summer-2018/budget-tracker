@@ -18,18 +18,18 @@ export const getCategories = () => {
     });
 };
 
-export const addCategory = Category => {
+export const addCategory = category => {
   const url = `${CATEGORIES_URL}.json`;
-  return post(url, Category)
+  return post(url, category)
     .then(res => {
-      Category.key = res.name;
-      return Category;
+      category.key = res.name;
+      return category;
     });
 };
 
-export const updateCategory = Category => {
-  const url = getCategoryUrl(Category.key);
-  return put(url, Category);
+export const updateCategory = category => {
+  const url = getCategoryUrl(category.key);
+  return put(url, category);
 };
 
 export const removeCategory = key => {

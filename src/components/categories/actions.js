@@ -1,10 +1,10 @@
 import shortid from 'shortid';
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './reducers';
-import data from './categories-data';
+import { getCategories, addCategory, updateCategory, removeCategory } from '../../services/categoriesApi';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
-  payload: data
+  payload: getCategories()
 });
 
 export const add = category => {
