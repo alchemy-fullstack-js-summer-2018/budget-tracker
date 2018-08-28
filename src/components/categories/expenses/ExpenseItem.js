@@ -1,7 +1,7 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { removeExpense } from './expenseActions';
+import { removeExpense } from './actions';
 
 class ExpenseItem extends PureComponent {
 

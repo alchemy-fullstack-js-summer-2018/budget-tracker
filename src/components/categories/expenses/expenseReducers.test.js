@@ -1,7 +1,7 @@
 import {
   expensesByCategory,
   // EXPENSE_ADD
-} from './expenseReducers';
+} from './reducers';
 
 import {
   CATEGORY_LOAD,

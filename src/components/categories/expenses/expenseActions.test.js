@@ -1,5 +1,5 @@
-import { addExpense, updateExpense, removeExpense } from './expenseActions';
-import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './expenseReducers';
+import { addExpense, updateExpense, removeExpense } from './actions';
+import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './reducers';
 
 describe('actions', () => {
 

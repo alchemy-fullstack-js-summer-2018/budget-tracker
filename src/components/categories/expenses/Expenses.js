@@ -1,10 +1,10 @@
 import React, { PureComponent, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { getExpensesById } from './expenseReducers';
+import { getExpensesById } from './reducers';
 import Expense from './Expense';
 import ExpenseForm from './ExpenseForm';
-import { addExpense } from './expenseActions';
+import { addExpense } from './actions';
 
 class Expenses extends PureComponent {
 
