@@ -1,5 +1,4 @@
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_UPDATE, CATEGORY_REMOVE } from './reducers';
-// import data from '../categories-data';
 import { loadCategories, addCategory, removeCategory } from '../../../services/budgetApi';
 // import shortid from 'shortid';
 
