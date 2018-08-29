@@ -5,7 +5,7 @@ jest.mock('../../services/categoriesApi', () => ({
 }));
 
 import { load, add, /* update */ remove } from './actions';
-import { getCategories /* addCategory, removeCategory */ } from '../../services/categoriesApi';
+import { getCategories, /* addCategory*/ removeCategory } from '../../services/categoriesApi';
 import { CATEGORY_LOAD, CATEGORY_ADD, /* CATEGORY_UPDATE */ CATEGORY_REMOVE } from './reducers';
 
 describe.only('Category actions tests', () => {
@@ -33,9 +33,19 @@ describe.only('Category actions tests', () => {
   //   });
   // });  
 
-  it.skip('Removes a category', () => {
-    const action = remove('-LKTi4U-7iQyGe9m1Zy5');      
-    expect(action).toEqual({ type: CATEGORY_REMOVE, payload: '-LKTi4U-7iQyGe9m1Zy5' });
+  it('Removes a category', () => {
+    const promise = Promise.resolve();
+    removeCategory.mockReturnValueOnce(promise);
+    const key = 123;
+
+    const { type, payload } = remove(key);
+    expect(type).toBe(CATEGORY_REMOVE);
+    expect(removeCategory.mock.calls.length).toBe(1);
+    expect(removeCategory.mock.calls[0][0]).toBe(key);
+
+    return payload.then(keyToDelete => {
+      expect(keyToDelete).toBe(key);
+    });
   });
 
 });  
