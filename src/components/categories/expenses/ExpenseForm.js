@@ -38,7 +38,7 @@ class ExpenseForm extends Component {
     return (
       <form onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="price" value={price} onChange={this.handleChange}/>
+        <InputControl name="price" value={price} type="number" onChange={this.handleChange}/>
         <p>
           <button type="submit">{ expense ? 'Update' : 'Add' }</button>
           {expense && <button type="button" onClick={onCancel}>Cancel</button>}
