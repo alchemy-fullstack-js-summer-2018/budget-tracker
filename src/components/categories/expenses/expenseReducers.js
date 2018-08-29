@@ -33,7 +33,7 @@ export function expenses(state = [], { type, payload }) {
       // const { [payload]: ignore, ...rest } = state;
       // return rest;
       const copy = { ...state };
-      delete copy[payload.id];
+      delete copy[payload.key];
       return copy;
     }
     case EXPENSE_ADD:
@@ -52,7 +52,7 @@ export function expenses(state = [], { type, payload }) {
     case EXPENSE_UPDATE:
       return {
         ...state,
-        [payload.categoryId]: state[payload.categoryId].map(expense => expense.id === payload.id ? payload : expense)
+        [payload.categoryId]: state[payload.categoryId].map(expense => expense.key === payload.key ? payload : expense)
       };
     default:
       return state;

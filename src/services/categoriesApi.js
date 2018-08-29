@@ -5,16 +5,25 @@ const CATEGORIES_URL = `${URL}/categories`;
 
 const getCategoriesUrl = key => `${CATEGORIES_URL}/${key}.json`;
 
+const convertToArray = obj => {
+  return Object.keys(obj).map(key => {
+    if(!obj) return [];
+    const each = obj[key];
+    each.key = key;
+    return each;
+  });
+};
+
 export const loadCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
     .then(res => {
-      return res
-        ? Object.keys(res).map(key => {
-          const each = res[key];
-          each.key = key;
-          return each;
-        })
-        : [];
+      if(!res) return [];
+      const categories = convertToArray(res);
+      categories.forEach(category => {
+        if(!category.expenses) category.expenses = [];
+        category.expenses = convertToArray(category.expenses);
+      });
+      return categories;
     });
 };
 
@@ -33,26 +42,24 @@ export const removeCategory = id => {
 };
 
 export const updateCategory = category => {
-  // eslint-disable-next-line
-  const { key, ...copy } = category;
   const url = getCategoriesUrl(category.key);
-  return put(url, copy);
+  return put(url, category);
 };
 
 export const addExpenseToCategory = (categoryId, expense) => {
   const url = `${CATEGORIES_URL}/${categoryId}/expenses.json`;
   return post(url, expense)
     .then(res => {
-      expense.id = res.name;
+      expense.key = res.name;
       return expense;
     });
 };
-
+// TODO: FIX
 export const updateExpenseInCategory = (categoryId, expense) => {
-  const url = `${CATEGORIES_URL}/expenses/${categoryId}.json`;
+  const url = `${CATEGORIES_URL}/${categoryId}/expenses/${expense.key}.json`;
   return put(url, expense)
     .then(res => {
-      categoryId = res.name;
+      expense.key = res.name;
       return expense;
     });
 };
