@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Switch, Route, Redirect } from 'react-router-d
 import Header from './Header';
 import Home from './Home';
 import Dashboard from './categories/Dashboard';
-import styles from './App.css';
 
 class App extends Component {
 
@@ -13,7 +12,7 @@ class App extends Component {
       <Router>
 
         <Fragment>
-          <div className={styles.app}>
+          <div>
             <header>
               <Header/>
             </header>

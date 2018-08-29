@@ -1,4 +1,5 @@
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './ExpenseReducers';
+import { addExpenseToCategory } from '../../../services/budgetApi';
 import shortid from 'shortid';
 
 
@@ -8,10 +9,7 @@ export const add = (categoryId, expense) => {
   expense.categoryId = categoryId;
   return {
     type: EXPENSE_ADD,
-    payload: {
-      categoryId,
-      expense
-    }
+    payload: addExpenseToCategory(categoryId, expense)
   };
 };
 

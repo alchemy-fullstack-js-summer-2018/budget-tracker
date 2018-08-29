@@ -42,3 +42,12 @@ export const removeCategory = id => {
   const url = getCategoryUrl(id);
   return del(url);
 };
+
+export const addExpenseToCategory = (categoryId, expense) => {
+  const url = `${CATEGORY_URL}/${categoryId}/expenses.json`;
+  return post(url, expense)
+    .then(res => {
+      expense.id = res.name;
+      return expense;
+    });
+};

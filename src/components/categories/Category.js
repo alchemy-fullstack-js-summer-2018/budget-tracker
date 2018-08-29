@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import CategoryDisplay from './CategoryDisplay';
 import CategoryForm from './CategoryForm';
-import styles from './Category.css';
 import { update } from './actions';
 
 export class Category extends Component {
@@ -36,7 +35,7 @@ export class Category extends Component {
     const { category } = this.props;
 
     return (
-      <li className={styles.category}>
+      <li>
         {editing
           ? <CategoryForm
             category={category}
