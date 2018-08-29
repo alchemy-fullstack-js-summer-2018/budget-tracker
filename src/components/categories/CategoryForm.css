@@ -7,25 +7,11 @@
   text-align: center; 
   text-transform: capitalize;
 }
-.add-update-button {
-  width: 30%;
-  margin-left: 35%;
-  margin-right: 35%
-}
-
-.cancel-button {
-  width: 30%;
-  margin-left: 35%;
-  margin-right: 35%
-}
 
 button{
   background-color: white;
   border-radius: 5px;
   border: 1px solid silver;
-  width: 20%;
-  margin-left: 35%;
-  margin-right: 35%
 }
 
 button:hover {
@@ -39,3 +25,6 @@ body {
   color: black;
 }
 
+input {
+  width: 80%;
+}
