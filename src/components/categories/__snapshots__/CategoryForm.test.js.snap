@@ -5,7 +5,7 @@ exports[`Category form Renders add if no category prop 1`] = `
   onComplete={[MockFunction]}
 >
   <form
-    className="category-form"
+    className="categoryForm"
     onSubmit={[Function]}
   >
     <InputControl
@@ -88,7 +88,7 @@ exports[`Category form Renders add if no category prop 2`] = `
   }
 >
   <form
-    className="category-form"
+    className="categoryForm"
     onSubmit={[Function]}
   >
     <InputControl
@@ -171,7 +171,7 @@ exports[`Category form Renders add if no category prop 3`] = `
   }
 >
   <form
-    className="category-form"
+    className="categoryForm"
     onSubmit={[Function]}
   >
     <InputControl
@@ -245,7 +245,7 @@ exports[`Category form Renders edit if there is category prop 1`] = `
   onComplete={[MockFunction]}
 >
   <form
-    className="category-form"
+    className="categoryForm"
     onSubmit={[Function]}
   >
     <InputControl
