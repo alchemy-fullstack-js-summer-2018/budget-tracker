@@ -52,11 +52,18 @@ export function totalExpensesByCategory(state = [], { type, payload }) {
   switch(type) {
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.key] = category.expenses.map(expense => expense.amount).reduce((acc, cur) => parseInt(acc) + parseInt(cur));
+        map[category.key] = parseInt(category.expenses.map(expense => expense.amount).reduce((acc, cur) => parseInt(acc) + parseInt(cur)));
         return map;
       }, {});
     case EXPENSE_ADD: 
-      return payload;
+      // return state;
+      // console.log('**STATE**', state);
+      // console.log('**PAYLOAD**', payload);
+      return {
+        ...state,
+        [payload.categoryId] : state[payload.categoryId] + parseInt(payload.amount),
+
+      };
     default:
       return state;
   }
