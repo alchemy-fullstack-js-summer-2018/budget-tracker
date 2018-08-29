@@ -11,7 +11,7 @@ describe('Expense reducers test', () => {
     // const expense1 = { id: 123, categoryId: 444, name: 'car', price: 200 };
     // const expense2 = { id: 555, categoryId: 444, name: 'clothes', price: 100 };
 
-    const state = expensesByCategory({}, { type: CATEGORY_ADD, payload: { id: 123 } });
+    const state = expensesByCategory({}, { type: CATEGORY_ADD, payload: { key: 123 } });
     expect(state).toEqual({ 123: [] });
   });
 
