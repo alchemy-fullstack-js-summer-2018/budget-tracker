@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Categories from './Categories';
 import CategoryForm from './CategoryForm';
-import { load, add, update } from './actions';
+import { load, add, /* update */ } from './actions';
 import { getCategories } from './reducers';
 
 class CategoriesContainer extends Component {
