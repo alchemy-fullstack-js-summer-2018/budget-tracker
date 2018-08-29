@@ -4,7 +4,7 @@ import shortid from 'shortid';
 
 export const addExpense = (categoryId, expense) => {
 
-  expense.id = shortid.generate();
+  expense.key = shortid.generate();
   expense.timestamp = new Date();
   expense.categoryId = categoryId;
   return {

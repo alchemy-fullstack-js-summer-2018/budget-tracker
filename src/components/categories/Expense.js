@@ -24,7 +24,7 @@ class Expense extends Component {
   handleComplete = expense => {
     const { updateExpense } = this.props;
     updateExpense(expense);
-    this.handleEdit();
+    this.handleEndEdit();
   };
 
   handleEndEdit = () => {
@@ -34,7 +34,7 @@ class Expense extends Component {
   render() {
     const { editing } = this.state;
     const { expense, categoryId } = this.props;
-  
+    
     return (
       <li>
         {editing

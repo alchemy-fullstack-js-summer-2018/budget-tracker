@@ -1,12 +1,21 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
+
 
 class ExpenseItem extends Component {
 
-  render() {
-    return (
-      <p>Expense Item</p>
-    );
-  }
+static propTypes = {
+  expense: PropTypes.object,
+  onEdit: PropTypes.func
+};
+
+render() {
+  const { expense } = this.props;
+
+  return (
+    <p>{expense.name}</p>
+  );
+}
 }
 
 export default ExpenseItem;

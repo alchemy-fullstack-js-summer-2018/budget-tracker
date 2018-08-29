@@ -5,7 +5,7 @@ const CATEGORY_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
 
-export const getCategories = () => {
+export const getCategory = () => {
   return get(`${CATEGORY_URL}.json`)
     .then(response => {
       return response
@@ -29,12 +29,13 @@ export const addCategory = category => {
 
 export const updateCategory = category => {
   // eslint-disable-next-line
-  //const { key, ...copy } = category;
+  const { key, ...copy } = category;
   const url = getCategoryUrl(category.key);
   return put(url, category);
 };
 
-export const removeCategory = id => {
-  const url = getCategoryUrl(id);
+// leave id here??
+export const removeCategory = key => {
+  const url = getCategoryUrl(key);
   return del(url);
 };

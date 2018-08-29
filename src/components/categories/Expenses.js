@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
 import ExpensesForm from './ExpensesForm';
 import Expense from './Expense';
 import { addExpense } from './actionsExpenses';
@@ -21,12 +21,13 @@ class Expenses extends Component {
 
   render() {
     const { expenses, categoryId } = this.props;
+    console.log('expenses', expenses);
     if(!expenses) return null;
 
     return (
       <ul>
         <section>
-          <h3>Add as expense:</h3>
+          <h3>Add an expense:</h3>
           <ExpensesForm
             onComplete={this.handleAddExpense}
           />
@@ -34,7 +35,7 @@ class Expenses extends Component {
         <section>
           {expenses.map(expense => {
             return <Expense
-              key={expense.id}
+              key={expense.key}
               expense={expense}
               categoryId={categoryId}
             />;
