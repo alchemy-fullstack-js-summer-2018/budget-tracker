@@ -1,22 +1,37 @@
 :local(.expenseItem) {
   border: 1px solid black;
-  background-color: rgb(220, 73, 73);
-  border-radius: 10px;
+  background-color: rgb(190, 222, 250);
   font-size: 14px;
-  min-height: 75px;
+  width: 100%;
+  height: 35px;
+  display: flex;
+  flex-flow: row nowrap;
 
-  p {
+  .content {
+    display: flex;
+    flex-flow: row nowrap;
     position: relative;
-    top: 25px;
     left: 5px;
+
+      .name {
+        width: 80%;
+        position: relative;
+        top: 23%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+      .price {
+        position: relative;
+        top: 23%
+      }
   }
 
   .buttons {
     position: absolute;
-    left: 95px;
-    bottom: 50px;
+    left: 80%;
+    bottom: 25%;
     margin: 0px;
     padding: 0px;
-    background-color: blue;
   }
 }

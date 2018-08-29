@@ -1,9 +1,8 @@
 :local(.expenses) {
-  border: 4px solid green;
   
   .expenseList {
     display: flex;
-    flex-flow: row wrap;
+    flex-flow: column nowrap;
     width: auto;
   }
 }

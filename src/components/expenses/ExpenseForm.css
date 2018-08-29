@@ -1,14 +1,18 @@
 :local(.expenseForm) {
-  border: 2px solid black;
   font-size: 14px;
-  padding: 5px;
+  padding: 3px;
 
   input {
     margin: 2px;
   }
 
+  p {
+    position: relative;
+    left: 5%;
+  }
+
   button {
     position: relative;
-    left: 30px;
+    left: 2%
   }
 }

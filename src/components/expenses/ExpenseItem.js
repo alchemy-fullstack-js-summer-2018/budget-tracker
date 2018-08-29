@@ -15,7 +15,14 @@ class ExpenseItem extends Component {
     const { expense, onEdit, remove } = this.props;
     return (
       <div className={styles.expenseItem}>
-        <p>{expense.name}: ${expense.price}</p>
+        <div className="content">
+          <div className="name">
+            {expense.name}:
+          </div>
+          <div className="price">
+            ${expense.price}
+          </div>
+        </div>
         <div className="buttons">
           <button name="edit" onClick={onEdit}>✏️</button>
           <button name="delete" onClick={() => remove(expense)}>❌</button>

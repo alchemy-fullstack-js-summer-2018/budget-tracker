@@ -49,7 +49,7 @@ export default class ExpenseForm extends Component {
 
     return (
       <form className={styles.expenseForm} onSubmit={this.handleSubmit}>
-        <p>{ key ? 'Update expense' : 'Create a new expense' }:</p>
+        <p>{ key ? 'Update expense:' : 'Create a new expense:' }</p>
         <label>
           <input name="name" value={name} placeholder="Expense name..." onChange={this.handleChange} required></input>
         </label>

@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Categories from './categories/Categories';
 import CategoryForm from './categories/CategoryForm';
+import Loading from './Loading';
 import { load, add } from './categories/actions';
 import { getCategories } from './categories/reducers';
 import styles from './Dashboard.css';
@@ -48,14 +49,13 @@ class Dashboard extends Component {
 
         {(loading || error) &&
           <section className={styles.loading}>
-            {loading && <div>Loading...</div>}
+            {loading && <Loading/>}
             {error && <div>{error}</div>}
           </section>
         }
 
         {categories &&
           <section>
-            <h3>Categories:</h3>
             <Categories
               categories={categories}
             />
