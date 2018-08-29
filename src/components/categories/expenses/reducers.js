@@ -56,14 +56,16 @@ export function totalExpensesByCategory(state = [], { type, payload }) {
         return map;
       }, {});
     case EXPENSE_ADD: 
-      // return state;
-      // console.log('**STATE**', state);
-      // console.log('**PAYLOAD**', payload);
       return {
         ...state,
         [payload.categoryId] : state[payload.categoryId] + parseInt(payload.amount),
-
+        
       };
+    case EXPENSE_REMOVE:
+      return {
+        ...state,
+        [payload.categoryId] : state[payload.categoryId] - parseInt(payload.amount),
+      }
     default:
       return state;
   }
