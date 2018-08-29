@@ -6,7 +6,7 @@ export const addExpense = (categoryId, expense) => {
   expense.categoryId = categoryId;
   return {
     type: EXPENSE_ADD,
-    payload: addExpenseToCategory(categoryId, expense)
+    payload: addExpenseToCategory(expense)
   };
 };
 

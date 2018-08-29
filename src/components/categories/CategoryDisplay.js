@@ -17,7 +17,7 @@ export class CategoryDisplay extends Component {
         <p>
           Category: {category.name}
         </p>
-        <p>Budget: {category.budget}</p>
+        <p>Budget: ${category.budget}</p>
         <p>Created: {category.timeStamp}</p>
         <button name="edit" onClick={onEdit}>✎</button>
         <button name="delete" onClick={() => remove(category.key)}>❌</button>

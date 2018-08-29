@@ -44,8 +44,8 @@ export const removeCategory = Key => {
   return del(url);
 };
 
-export const addExpenseToCategory = (categoryKey, expense) => {
-  const url = `${CATEGORIES_URL}/${categoryKey}/expenses.json`;
+export const addExpenseToCategory = (expense) => {
+  const url = `${CATEGORIES_URL}/${expense.categoryId}/expenses.json`;
   return post(url, expense)
     .then(res => {
       expense.key = res.name;

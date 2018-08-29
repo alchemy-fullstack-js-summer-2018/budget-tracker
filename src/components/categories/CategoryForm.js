@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 class CategoryForm extends Component {
 
   state = {
-    key: null,
     name: '',
     budget: ''
   };

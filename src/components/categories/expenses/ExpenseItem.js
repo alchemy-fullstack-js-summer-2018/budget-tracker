@@ -16,7 +16,7 @@ class ExpenseItem extends PureComponent {
     return (
       <Fragment>
         <h4>Expense: {expense.name}</h4>
-        <p>Value: {expense.amount}</p>
+        <p>Value: ${expense.amount}</p>
         <button name="edit" onClick={onEdit}>✎</button>
         <button name="delete" onClick={() => removeExpense(expense)}>❌</button>
       </Fragment>
