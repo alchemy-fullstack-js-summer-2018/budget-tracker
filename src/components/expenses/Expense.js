@@ -44,10 +44,12 @@ class Expense extends Component {
               onCancel={this.handleEndEdit}
               onComplete={this.handleComplete}
             />
-            : <ExpenseItem
-              expense={expense}
-              onEdit={this.handleEdit}
-            />
+            : <div>
+              <ExpenseItem
+                expense={expense}
+                onEdit={this.handleEdit}
+              />
+            </div>
           }
         </div>
       </div>

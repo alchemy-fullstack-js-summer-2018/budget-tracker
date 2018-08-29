@@ -1,0 +1,14 @@
+:local(.expenseForm) {
+  border: 2px solid black;
+  font-size: 14px;
+  padding: 5px;
+
+  input {
+    margin: 2px;
+  }
+
+  button {
+    position: relative;
+    left: 30px;
+  }
+}

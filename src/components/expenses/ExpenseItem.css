@@ -1,8 +1,22 @@
 :local(.expenseItem) {
-  border: 2px solid black;
-  max-width: 175px;
+  border: 1px solid black;
+  background-color: rgb(220, 73, 73);
+  border-radius: 10px;
+  font-size: 14px;
+  min-height: 75px;
 
-  .price {
-    font-size: 20px;
+  p {
+    position: relative;
+    top: 25px;
+    left: 5px;
+  }
+
+  .buttons {
+    position: absolute;
+    left: 95px;
+    bottom: 50px;
+    margin: 0px;
+    padding: 0px;
+    background-color: blue;
   }
 }
