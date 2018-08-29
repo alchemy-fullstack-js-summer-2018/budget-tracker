@@ -6,7 +6,7 @@ class CategoryForm extends Component {
   state = {
     key: null,
     name: '',
-    budget: 0,
+    budget: '',
     expenses: [],
     timestamp: null,
   };
@@ -44,18 +44,16 @@ class CategoryForm extends Component {
 
 
     return (
-      <div>
-        <form className={styles.categoryForm} onSubmit={this.handleSubmit}>
+      <div className={styles.categoryForm} >
+        <form onSubmit={this.handleSubmit}>
           <label>
-            Category Name:&nbsp;
+            Category:&nbsp;
             <input name="name" value={name} onChange={this.handleChange}></input>
           </label>
-          <br/>
           <label>
-            Budgeted Amount:&nbsp;
-            <input name="budget" value={budget} type="number" onChange={this.handleChange}></input>
+            Amount:&nbsp;
+            <input name="budget" value={budget} onChange={this.handleChange}></input>
           </label>
-
           <button type="submit">{ key ? 'Update' : 'Add' }</button>
           {key && <button type="button" onClick={onCancel}>Cancel</button>}
         </form>

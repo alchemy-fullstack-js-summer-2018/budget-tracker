@@ -1,6 +1,4 @@
 :local(.categories) {
-  border: 2px solid black;
-  background-color: rgb(249, 195, 130);
   display: flex;
   flex-flow: column wrap;
 }
