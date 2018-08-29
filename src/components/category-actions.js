@@ -5,7 +5,7 @@ import {
   CATEGORY_REMOVE 
 } from './category-reducers.js';
 
-import shortid from 'shortid';
+// import shortid from 'shortid';
 
 import { 
   getCategories,
@@ -20,21 +20,20 @@ export const load = () => ({
 });
 
 export const add = category => {
-  category.id = shortid.generate();
+  // category.key = shortid.generate();
   category.timestamp = (new Date()).toLocaleString();
-  category.expenses = [];
   return {
     type: CATEGORY_ADD,
     payload: addCategory(category)
   };
 };
 
-export const update = id => ({
+export const update = category => ({
   type: CATEGORY_UPDATE,
-  payload: updateCategory(id)
+  payload: updateCategory(category)
 });
 
-export const remove = id => ({
+export const remove = key => ({
   type: CATEGORY_REMOVE,
-  payload: removeCategory(id).then(() => id)
+  payload: removeCategory(key).then(() => key)
 });

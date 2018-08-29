@@ -10,7 +10,7 @@ const makeArray = obj => {
   return obj
     ? Object.keys(obj).map((key => {
       const each = obj[key];
-      each.id = key;
+      each.key = key;
       return each;
     }))
     : [];
@@ -29,24 +29,19 @@ export const addCategory = (category) => {
   const url = `${CATEGORY_URL}.json`;
   return post(url, category)
     .then(res => {
-      category.id = res.name;
+      category.key = res.name;
       return category;
     });
 };
 
 export const updateCategory = category => {
-  const { id, ...copy } = category;
-  const url = getCategoryUrl(id);
-  return put(url, copy)
-    .then(res => {
-      res.id = id;
-      return res;
-    });
+  const url = getCategoryUrl(category.key);
+  return put(url, category);
 };
 
 
-export const removeCategory = id => {
-  const url = getCategoryUrl(id);
+export const removeCategory = key => {
+  const url = getCategoryUrl(key);
   return del(url);
 };
         
@@ -55,23 +50,19 @@ export const addExpense = expense => {
   const url = `${getExpenseUrl(expense.categoryId)}.json`;
   return post(url, expense)
     .then(res => {
-      expense.id = res.name;
+      expense.key = res.name;
       return expense;
     });
 };
 
 export const updateExpense = expense => {
-  const { id, ...copy } = expense;
-  const url = `${getExpenseUrl(copy.categoryId)}/${id}.json`;
-  return put(url, copy)
-    .then(res => {
-      res.id = id;
-      return res;
-    });
+  const expenseUrl = getExpenseUrl(expense.categoryId);
+  const url = `${expenseUrl}.json`;
+  return put(url, expense);
 };
 
 export const removeExpense = expense => {
-  const { categoryId, id } = expense;
-  const url = `${getExpenseUrl(categoryId)}/${id}.json`;
+  const { categoryId, key } = expense;
+  const url = `${getExpenseUrl(categoryId)}/${key}.json`;
   return del(url);
 };

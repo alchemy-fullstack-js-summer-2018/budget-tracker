@@ -40,7 +40,6 @@ class Expense extends Component {
       <li>
         {editing
           ? <ExpenseForm
-            categoryID={expense.categoryId}
             expense={expense}
             onComplete={this.handleComplete}
             onRemove={this.handleRemove}

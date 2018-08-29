@@ -5,25 +5,25 @@ export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 
 import { CATEGORY_LOAD, CATEGORY_ADD, CATEGORY_REMOVE } from './category-reducers';
 
+export const getExpenses = state => state.expensesByCategory;
 export const getExpensesByCategoryId = (state, id) => state.expensesByCategory[id];
 
 
-export function expensesByCategory(state = {}, { type, payload }) {
+export function expensesByCategory(state = [], { type, payload }) {
   switch(type) {
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.id] = category.expenses;
+        map[category.key] = category.expenses;
         return map;
       }, {});
     case CATEGORY_ADD:
       return {
         ...state,
-        [payload.id]: []
+        [payload.key]: []
       };
     case CATEGORY_REMOVE: {
-      /* eslint-disable-next-line */
-      const { [payload]: ignore, ...rest } = state;
-      return rest;
+      delete state[payload];
+      return state;
     }
 
     case EXPENSE_ADD:

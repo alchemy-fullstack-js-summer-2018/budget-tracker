@@ -14,7 +14,7 @@ class CategoryDisplay extends Component {
 
   render() {
     const { category, onEdit, remove } = this.props;
-    const { name, budget, id } = category;
+    const { name, budget, key } = category;
 
     return (
       <div>
@@ -22,12 +22,12 @@ class CategoryDisplay extends Component {
           <p>
             {name}: ${budget}
             <button name="edit" onClick={onEdit}><i className="fas fa-pen"></i></button>
-            <button name="delete" onClick={() => remove(category.id)}><i className="fas fa-ban"></i>
+            <button name="delete" onClick={() => remove(category.key)}><i className="fas fa-ban"></i>
             </button>
             
           </p>
         </section>
-        <Expenses categoryId={id}/>
+        <Expenses categoryId={key}/>
       </div>
     );
   }

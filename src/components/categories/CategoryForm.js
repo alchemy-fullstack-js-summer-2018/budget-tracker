@@ -5,9 +5,10 @@ class CategoryForm extends Component {
 
   state = {
     editing: false,
-    id: null,
+    key: null,
     name: '',
     budget: '',
+    expenses: [],
     timestamp: null
   };
 
@@ -20,13 +21,13 @@ class CategoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, budget, id, timestamp } = this.state;
-    let category = { name, budget };
-    if(id) category = { ...category, id, timestamp };
+    const { name, budget, key, expenses } = this.state;
+    let category = { name, budget, expenses };
+    if(key) category.key = key;
 
     this.props.onComplete(category)
       .then(() => {
-        if(!this.props.category) this.setState({ name: '', budget: '' });
+        if(!this.props.category) this.setState({ name: '', budget: 0 });
       });
   };
   
@@ -43,21 +44,21 @@ class CategoryForm extends Component {
   onDelete = event => {
     event.preventDefault();
     const { onRemove } = this.props;
-    const { id } = this.state;
-    onRemove(id);
+    const { key } = this.state;
+    onRemove(key);
   };
 
   render() {
-    const { id, name, budget } = this.state;
+    const { key, name, budget } = this.state;
     const { onCancel } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="budget" value={budget} onChange={this.handleChange}/>
+        <InputControl name="budget" value={budget} type="number" onChange={this.handleChange}/>
         <p>
-          <button type="submit">{ id ? 'Update' : 'Add' }</button>
-          {id && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button type="submit">{ key ? 'Update' : 'Add' }</button>
+          {key && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );

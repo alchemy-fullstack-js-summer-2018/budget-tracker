@@ -8,22 +8,16 @@ export const getCategories = state => state.categories;
 export function categories(state = [], { type, payload }) {
   switch(type) {
     case CATEGORY_LOAD:
-      return payload
-        ? Object.keys(payload).map(key => {
-          const each = payload[key];
-          each.id = key;
-          return each;
-        })
-        : [];
+      return payload;   
     case CATEGORY_ADD:
       return [
         ...state,
         payload
       ];
     case CATEGORY_UPDATE:
-      return state.map(category => category.id === payload.id ? payload : category);
+      return state.map(category => category.key === payload.key ? payload : category);
     case CATEGORY_REMOVE:
-      return state.filter(category => category.id !== payload);
+      return state.filter(category => category.key !== payload);
     default:
       return state;
   }

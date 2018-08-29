@@ -29,7 +29,7 @@ class Dashboard extends Component {
           </section>
 
           <section>
-            <h3>Categories</h3>
+            <h3>Available Categories</h3>
             <Categories />
           </section>      
         
