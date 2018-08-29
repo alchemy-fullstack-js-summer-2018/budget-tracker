@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
-import styles from './CategoryForm.css';
+// import styles from './CategoryForm.css';
 
 class CategoryForm extends Component {
 
@@ -29,13 +29,6 @@ class CategoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    // const { key } = this.state;
-    // const category = { name, budget, };
-    // const { category } = this.state;
-    // category.expenses = this.props.category.expenses;
-    // category.timeStamp = this.props.category.timeStamp;
-    // if(key) category.key = key;
-
     this.props.onComplete(this.state);
     this.setState({ name: '', budget: '' });
   };
@@ -46,10 +39,10 @@ class CategoryForm extends Component {
 
     return ( 
       <Fragment>
-        <form onSubmit={this.handleSubmit}  className={styles.categoryForm}>
+        <form onSubmit={this.handleSubmit}>
           <h3>Add a new category</h3>
           <InputControl name="name" value={name} onChange={this.handleChange}/>
-          <InputControl name="budget" value={budget} onChange={this.handleChange}/>
+          <InputControl name="budget" value={budget} onChange={this.handleChange} type="number"/>
           <p>
             <button type="submit">{key ? 'Update' : 'Add' }</button>
             {key && <button type="button" onClick={onCancel}>Cancel</button>}

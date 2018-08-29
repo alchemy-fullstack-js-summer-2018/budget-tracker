@@ -4,7 +4,6 @@ import PropTypes from 'prop-types';
 class ExpenseForm extends Component {
 
   state = {
-    id: null,
     name: '',
     amount: ''
   };
@@ -34,16 +33,16 @@ class ExpenseForm extends Component {
   };
 
   render() { 
-    const { id, name, amount } = this.state;
-    const { onCancel } = this.props;
+    const { name, amount } = this.state;
+    const { onCancel, expense } = this.props;
 
     return ( 
       <form onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="amount" value={amount} onChange={this.handleChange}/>
+        <InputControl name="amount" value={amount} onChange={this.handleChange} type="number"/>
         <p>
-          <button type="submit">{id ? 'Update' : 'Add' }</button>
-          {id && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button type="submit">{expense ? 'Update' : 'Add' }</button>
+          {expense && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );
