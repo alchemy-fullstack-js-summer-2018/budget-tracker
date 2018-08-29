@@ -17,7 +17,9 @@ export const remove = expense => ({
   payload: removeExpenseInCategory(expense.categoryId, expense.key).then(() => expense)
 });
 
-export const update = expense => ({
-  type: EXPENSE_UPDATE,
-  payload: updateExpenseInCategory(expense.categoryId, expense)
-});
+export const update = expense => {
+  return {
+    type: EXPENSE_UPDATE,
+    payload: updateExpenseInCategory(expense.categoryId, expense)
+  };
+};

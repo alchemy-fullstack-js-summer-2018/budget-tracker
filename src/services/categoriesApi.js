@@ -6,8 +6,8 @@ const CATEGORIES_URL = `${URL}/categories`;
 const getCategoriesUrl = key => `${CATEGORIES_URL}/${key}.json`;
 
 const convertToArray = obj => {
+  if(!obj) return [];
   return Object.keys(obj).map(key => {
-    if(!obj) return [];
     const each = obj[key];
     each.key = key;
     return each;
@@ -17,10 +17,10 @@ const convertToArray = obj => {
 export const loadCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
     .then(res => {
-      if(!res) return [];
+      // if(!res) return [];
       const categories = convertToArray(res);
       categories.forEach(category => {
-        if(!category.expenses) category.expenses = [];
+        // if(!category.expenses) category.expenses = [];
         category.expenses = convertToArray(category.expenses);
       });
       return categories;
@@ -59,12 +59,13 @@ export const updateExpenseInCategory = (categoryId, expense) => {
   const url = `${CATEGORIES_URL}/${categoryId}/expenses/${expense.key}.json`;
   return put(url, expense)
     .then(res => {
-      expense.key = res.name;
+      categoryId = res.name;
       return expense;
     });
 };
 
 export const removeExpenseInCategory = (categoryId, expenseKey) => {
   const url = `${CATEGORIES_URL}/${categoryId}/expenses/${expenseKey}.json`;
+  console.log(url);
   return del(url);
 };
