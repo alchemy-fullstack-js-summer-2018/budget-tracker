@@ -20,11 +20,11 @@ export const addExpense = (categoryId, expense) => {
 
 export const update = expense => ({
   type: EXPENSE_UPDATE,
-  payload: updateExpenseInCategory(expense)
+  payload: updateExpenseInCategory(expense.categoryId, expense)
 });
 
 export const remove = expense => ({
   type: EXPENSE_REMOVE,
-  payload: removeExpenseFromCategory(expense).then(() => expense)
+  payload: removeExpenseFromCategory(expense.categoryId, expense.key).then(() => expense)
 });
   
