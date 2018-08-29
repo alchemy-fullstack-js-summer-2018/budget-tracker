@@ -7,6 +7,7 @@ import Loading from './Loading';
 import { load, add } from './categories/actions';
 import { getCategories } from './categories/reducers';
 import styles from './Dashboard.css';
+import logo from '../logo.png';
 
 class Dashboard extends Component {
 
@@ -40,7 +41,10 @@ class Dashboard extends Component {
     const { loading, error } = this.state;
 
     return (
-      <div>
+      <div className={styles.dashboard}>
+        <span className="logo">
+          <img src={logo}/>
+        </span>
         <h2>Budget Dashboard</h2>
         <section>
           <h3>Add a category:</h3>

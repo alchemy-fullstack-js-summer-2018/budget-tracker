@@ -1,5 +1,4 @@
 :local(.expenseItem) {
-  border: 1px solid black;
   background-color: rgb(190, 222, 250);
   font-size: 14px;
   width: 100%;
