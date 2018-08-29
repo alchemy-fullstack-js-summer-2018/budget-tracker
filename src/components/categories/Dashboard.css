@@ -1,5 +1,6 @@
 :local(.dashboard) {
-  h2 {
-    text-align: center;
-  }
+  main {
+    display: flex;
+    justify-content: center;
+    }
 }

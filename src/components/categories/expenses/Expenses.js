@@ -26,16 +26,16 @@ class Expenses extends Component {
     return (
       <div>
         <section>
-          <h2>Expenses:</h2>
-          <ExpenseForm onComplete={this.handleAddExpense} categoryId={categoryId}/>
-        </section>
-        
-        <section>
           {expenses.map(expense => <Expense
             key={expense.id}
             expense={expense}
           />)}
-        </section>     
+        </section>  
+        
+        <section>
+          <h2>Add an Expense:</h2>
+          <ExpenseForm onComplete={this.handleAddExpense} categoryId={categoryId}/>
+        </section>   
       </div>
     );
   }

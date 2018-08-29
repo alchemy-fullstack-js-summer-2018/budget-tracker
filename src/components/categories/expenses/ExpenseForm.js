@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './ExpenseForm.css';
 
 class ExpenseForm extends Component {
 
@@ -44,7 +45,7 @@ class ExpenseForm extends Component {
     const { onCancel } = this.props;
 
     return (
-      <form className="expense-form" onSubmit={this.handleSubmit}>
+      <form className={styles.expenseForm} onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
         <InputControl name="price" value={price} type="number" onChange={this.handleChange}/>
         <p>
