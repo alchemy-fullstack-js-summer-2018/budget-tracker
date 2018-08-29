@@ -26,9 +26,9 @@ describe('Categories reducers', () => {
   });
 
   it('adds category', () => {
-    const category1 = { name: '1' };
-    const category2 = { name: '2' };
-    const category3 = { name: '3' };
+    const category1 = { name: 'Food', budget: 300 };
+    const category2 = { name: 'Car', budget: 250 };
+    const category3 = { name: 'House', budget: 1200 };
 
     const state = categories([category1, category2], { 
       type: CATEGORY_ADD,
@@ -39,11 +39,11 @@ describe('Categories reducers', () => {
   });
 
   it('Updates a category', () => {
-    const category1 = { key: '1', name: 'a' };
-    const category2 = { key: '2', name: 'b' };
-    const category3 = { key: '3', name: 'c' };
+    const category1 = { key: 'Food', budget: 300 };
+    const category2 = { key: 'Car', budget: 250 };
+    const category3 = { key: 'House', budget: 1200 };
 
-    const updated = { key: '2', name: 'f' };
+    const updated = { key: 'Car', budget: '350' };
 
     const state = categories([category1, category2, category3], {
       type: CATEGORY_UPDATE,
@@ -54,13 +54,13 @@ describe('Categories reducers', () => {
   });
 
   it('Removes a category', () => {
-    const category1 = { key: '1', name: 'a' };
-    const category2 = { key: '2', name: 'b' };
-    const category3 = { key: '3', name: 'c' };
+    const category1 = { key: 'Food', budget: 300 };
+    const category2 = { key: 'Car', budget: 250 };
+    const category3 = { key: 'House', budget: 1200 };
 
     const state = categories([category1, category2, category3], {
       type: CATEGORY_REMOVE,
-      payload: '2'
+      payload: 'Car'
     });
 
     expect(state).toEqual([category1, category3]);
