@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 
-class ExpensesForm extends Component {
+class ExpenseForm extends Component {
 
   state = {
     id: null,
@@ -57,4 +57,4 @@ class ExpensesForm extends Component {
   }
 }
  
-export default ExpensesForm;
+export default ExpenseForm;

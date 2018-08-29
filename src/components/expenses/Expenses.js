@@ -22,7 +22,6 @@ class Expenses extends Component {
   
   render() { 
     const { expenses, categoryId } = this.props;
-    if(!expenses) return null;
     
 
     return (
@@ -31,19 +30,21 @@ class Expenses extends Component {
           <h3>Add an Expense:</h3>
           <ExpenseForm 
             onComplete={this.handleAddExpense}
+            categoryId={categoryId}
           />
         </section>
-
+        {expenses &&
         <section>
-          {expenses.map(expense => {
+          { expenses.map(expense => {
             return <Expense 
               key={expense.id}
               expense={expense}
-              categoryId={categoryId}
+              // categoryId={categoryId}
             />;
           })
           }
         </section>
+        }
       </ul>
     );
   }

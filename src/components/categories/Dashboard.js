@@ -33,7 +33,7 @@ class CategoriesContainer extends Component {
             <h3>Categories</h3>
             <Categories 
               categories={categories}
-              onUpdate={update}
+              // onUpdate={update}
             />
           </section>
         }
