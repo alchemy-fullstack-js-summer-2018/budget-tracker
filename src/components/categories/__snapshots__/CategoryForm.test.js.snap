@@ -28,6 +28,7 @@ exports[`Category form renders add if no category prop 1`] = `
     <InputControl
       name="budget"
       onChange={[Function]}
+      type="number"
       value=""
     >
       <p>
@@ -38,6 +39,7 @@ exports[`Category form renders add if no category prop 1`] = `
             name="budget"
             onChange={[Function]}
             required={true}
+            type="number"
             value=""
           />
         </label>
@@ -59,6 +61,7 @@ exports[`Category form renders edit if there is category prop 1`] = `
   category={
     Object {
       "budget": 500,
+      "key": null,
       "name": "clothes",
     }
   }
@@ -89,6 +92,7 @@ exports[`Category form renders edit if there is category prop 1`] = `
     <InputControl
       name="budget"
       onChange={[Function]}
+      type="number"
       value={500}
     >
       <p>
@@ -99,6 +103,7 @@ exports[`Category form renders edit if there is category prop 1`] = `
             name="budget"
             onChange={[Function]}
             required={true}
+            type="number"
             value={500}
           />
         </label>

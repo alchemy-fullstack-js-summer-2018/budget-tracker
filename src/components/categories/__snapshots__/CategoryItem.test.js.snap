@@ -3,9 +3,11 @@
 exports[`Category item display renders item display, then edit 1`] = `
 <section>
   <p>
+    Category: 
     name
   </p>
   <p>
+    Budget: $
     250
   </p>
   <button

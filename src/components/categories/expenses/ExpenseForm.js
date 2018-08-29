@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class ExpenseForm extends Component {
   state = {
-    id: null,
     name: '',
     price: ''
   };
