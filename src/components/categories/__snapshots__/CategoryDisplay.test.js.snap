@@ -7,8 +7,11 @@ exports[`Category display renders display, then edit 1`] = `
     Rent
   </p>
   <p>
-    Budget: 
+    Budget: $
     500
+  </p>
+  <p>
+    You have spent: $
   </p>
   <p>
     Created: 

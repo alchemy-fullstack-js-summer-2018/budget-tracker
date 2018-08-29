@@ -51,19 +51,19 @@ describe('expense reducers', () => {
   it('removes an expense', () => {
     const state = {
       'PPBqWA9': [
-        { id: 'GQ45', 
+        { key: 'GQ45', 
           categoryId: 'PPBqWA9', 
           timestamp: '2018-11-10T03:24:00', 
           name: 'Rent Payment', 
           amount: '$500' },
-        { id: 'BNx2', 
+        { key: 'BNx2', 
           categoryId: 'PPBqWA9', 
           timestamp: '2018-11-10T03:24:00', 
           name: 'Reapir', 
           amount: '$20' }] 
     };
     const payload = { 
-      id: 'BNx2', 
+      key: 'BNx2', 
       categoryId: 'PPBqWA9', 
       timestamp: '2018-11-10T03:24:00', 
       name: 'Reapir', 
@@ -74,26 +74,25 @@ describe('expense reducers', () => {
       type: EXPENSE_REMOVE,
       payload
     });
-      
     expect(newState[payload.categoryId].length).toBe(1);
   });
 
   it('updates an expense', () => {
     const state = {
       'PPBqWA9': [
-        { id: 'GQ45', 
+        { key: 'GQ45', 
           categoryId: 'PPBqWA9', 
           timestamp: '2018-11-10T03:24:00', 
           name: 'Rent Payment', 
           amount: '$500' },
-        { id: 'BNx2', 
+        { key: 'BNx2', 
           categoryId: 'PPBqWA9', 
           timestamp: '2018-11-10T03:24:00', 
           name: 'Reapir', 
           amount: '$20' }] 
     };
     const payload = { 
-      id: 'BNx2', 
+      key: 'BNx2', 
       categoryId: 'PPBqWA9', 
       timestamp: '2018-11-10T03:24:00', 
       name: 'Fixed Shower', 

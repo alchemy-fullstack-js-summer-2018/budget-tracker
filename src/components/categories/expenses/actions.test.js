@@ -33,8 +33,7 @@ describe('actions', () => {
     expect(type).toBe(EXPENSE_ADD);
     expect(payload).toBe(promise);
     expect(addExpenseToCategory.mock.calls.length).toBe(1);
-    expect(addExpenseToCategory.mock.calls[0][0]).toBe(category.key);
-    expect(addExpenseToCategory.mock.calls[0][1]).toBe(expense);
+    expect(addExpenseToCategory.mock.calls[0][0]).toBe(expense);
   });
 
   it('should run the update action', () => {
