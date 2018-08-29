@@ -1,70 +1,31 @@
-// body {
-//   font-family: Arial, Helvetica, sans-serif;
-//   color: black;
-// }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  color: black;
+  text-align: center;
+}
 
-// .category-form {
-//   border-radius: 10px;
-//   border: 2px solid orange;
-//   width: 80%;
-//   margin-left: 10%;
-//   margin-right: 10%
-//   }
+.category-display, button {
+  margin: 5px;
+}
 
-// .category-display, button {
-//   margin: 5px;
-// }
+button{
+  background-color: white;
+  border-radius: 5px;
+  border: 1px solid silver;
+}
 
-// .category-p {
-//   text-align: center; 
-//   text-transform: capitalize;
-//   margin: 20px;
-// }
+button:hover {
+  border-top-color: navy;
+  background: navy;
+  color: white;
+  }
 
-// .cf-list{
-//   text-transform: capitalize;
-// }
+input {
+  width: 60%;
+  margin-left: 20%;
+  margin-right: 20%
+}
 
-// .expense-form {
-//   border-radius: 10px;
-//   border: 2px solid red;
-//   width: 80%;
-//   margin-left: 10%;
-//   margin-right: 10%
-//   }
 
-// button{
-//   background-color: white;
-//   border-radius: 5px;
-//   border: 1px solid silver;
-// }
 
-// button:hover {
-//   border-top-color: navy;
-//   background: navy;
-//   color: white;
-//   }
-
-// input {
-//   width: 60%;
-//   margin-left: 20%;
-//   margin-right: 20%
-// }
-
-// .add-update-button {
-//   width: 30%;
-//   margin-left: 35%;
-//   margin-right: 35%
-// }
-
-// .cancel-button {
-//   width: 30%;
-//   margin-left: 35%;
-//   margin-right: 35%
-// }
-
-// main {
-// display: flex;
-// justify-content: center;
-// }
 
