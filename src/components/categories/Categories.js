@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Category from './Category';
+import styles from './Categories.css';
 
 class Categories extends Component {
 
@@ -13,10 +14,10 @@ class Categories extends Component {
     if(!categories) return null;
 
     return (
-      <ul>
+      <ul className={styles.categories}>
         {categories.map(category => (
           <Category
-            key={category.id}
+            key={category.key}
             category={category}
           />
         ))}

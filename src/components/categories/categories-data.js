@@ -1,8 +1,41 @@
 export default [
   // eslint-disable-next-line
-  { id: "123", timestamp: new Date(), name: "car", budget: 5000 }, 
+  { 'key': '-LKTQHx7y2E_ZNFUEf-b', 
+    'timestamp': new Date(), 
+    'name': 'Datsun Truck', 
+    'budget': '3000',
+    'expenses': [
+      {
+        'id': '123',
+        'categoryId': '-LKTQHx7y2E_ZNFUEf-b',
+        'timestamp': new Date(), 
+        'name': 'engine',
+        'price': '1200' 
+
+      },
+      {
+        'id': '456',
+        'categoryId': '-LKTQHx7y2E_ZNFUEf-b',
+        'timestamp': new Date(), 
+        'name': 'Paint job',
+        'price': '1000' 
+      }
+    ]
+  }, 
   // eslint-disable-next-line
-  { id: "456", timestamp: new Date(), name: "bike", budget: 100 },
-  // eslint-disable-next-line
-  { id: "789", timestamp: new Date(), name: "pc", budget: 800 }
+  { 
+    'key': '-LKTi4U-7iQyGe9m1Zy5', 
+    'timestamp': new Date(),
+    'name': 'Laptop',
+    'budget': '250', 
+    'expenses': [
+      {
+        'id': '789',
+        'categoryId': '-LKTi4U-7iQyGe9m1Zy5',
+        'timestamp': new Date(), 
+        'name': 'Dell xp5',
+        'price': '900' 
+      },
+    ]
+  }
 ];
