@@ -30,7 +30,7 @@ class ExpenseForm extends Component {
     const { name, price, id } = this.state;
     const expense = { name, price };
     if(id) expense.id = id;
-    if(this.props.categoryId) expense.categoryId = this.props.categoryId;
+    if(this.props.expense) expense.categoryId = this.props.expense.categoryId;
 
     this.props.onComplete(expense);
     this.setState({ name: '', price: '' });
