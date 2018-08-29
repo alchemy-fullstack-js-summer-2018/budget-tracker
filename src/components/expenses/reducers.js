@@ -22,7 +22,6 @@ export function expensesByCategory(state = [], { type, payload }) {
 
     case CATEGORY_REMOVE: {
       const copy = { ...state };
-      // delete copy[payload.id];
       delete copy[payload];
       return copy;
     }
@@ -32,7 +31,6 @@ export function expensesByCategory(state = [], { type, payload }) {
         ...state,
         [payload.categoryId]: [
           ...state[payload.categoryId],
-          // payload
           payload.expense
         ]
       };
@@ -45,11 +43,7 @@ export function expensesByCategory(state = [], { type, payload }) {
       return copy;
     }
 
-    // case EXPENSE_UPDATE:
-    //   return {
-    //     ...state,
-    //     [payload.categoryId]: state[payload.categoryId].map(expense => expense.key === payload.key ? payload : expense)
-    //   };
+
     
     case EXPENSE_DELETE: {
       const copy = { ...state };
