@@ -1,9 +1,23 @@
 :local(.app) {
   
-  margin-left: 20px;
-
   h1 {
     color: #2c3e50;
+  }
+  
+  header {
+    padding: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: #8AAE92;
+  }
+
+  nav-ul {
+    align-content: center;
+  }
+
+  main {
+    margin-left: 4%;
   }
 
 }
