@@ -51,3 +51,16 @@ export const addExpenseToCategory = (categoryId, expense) => {
       return expense;
     });
 };
+export const updateExpenseCategory = (categoryId, expense) => {
+  const url = `${CATEGORY_URL}/expenses/${categoryId}.json`;
+  return put(url, expense)
+    .then(res => {
+      categoryId = res.name;
+      return expense;
+    });
+};
+export const removeExpenseCategory = (categoryId, expenseKey) => {
+  const url = `${CATEGORY_URL}/${categoryId}/expenses/${expenseKey}.json`;
+  return del(url);
+};
+

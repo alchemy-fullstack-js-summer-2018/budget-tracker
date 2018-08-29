@@ -1,6 +1,6 @@
 export default [
   // eslint-disable-next-line
-  { 'id': '-LKTQHx7y2E_ZNFUEf-b', 
+  { 'key': '-LKTQHx7y2E_ZNFUEf-b', 
     'timestamp': new Date(), 
     'name': 'Truck', 
     'budget': '5000',
@@ -24,7 +24,7 @@ export default [
   }, 
   // eslint-disable-next-line
   { 
-    'id': '-LKTi4U-7iQyGe9m1Zy5', 
+    'key': '-LKTi4U-7iQyGe9m1Zy5', 
     'timestamp': new Date(),
     'name': 'Clothes',
     'budget': '250', 
