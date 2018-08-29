@@ -53,6 +53,7 @@ export const addExpense = (expense) => {
 };
 
 export const updateExpense = expense => {
+  console.log('***exp on update***', expense);
   const url = `${CATEGORY_URL}/${expense.categoryId}/expenses/${expense.key}.json`;
   return put(url, expense);
 };

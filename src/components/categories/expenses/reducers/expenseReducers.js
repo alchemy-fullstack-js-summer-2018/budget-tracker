@@ -18,7 +18,7 @@ export function expensesByCategory(state = [], { type, payload }) {
     case CATEGORY_ADD:
       return {
         ...state,
-        [payload.id]: []
+        [payload.key]: []
       };
     case CATEGORY_REMOVE: {
       // JavaScript Blackbelt tricks:
