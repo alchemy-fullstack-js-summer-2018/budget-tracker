@@ -3,28 +3,34 @@ import PropTypes from 'prop-types';
 import Expense from './ExpenseByCategory';
 import ExpenseForm from './ExpenseByCategoryForm.js';
 import { connect } from 'react-redux';
-import { getExpensesByCategoryId } from '../expensesByCategory-reducers';
-import { add } from '../expensesByCategory-actions';
+import { getExpensesById } from '../expensesByCategory-reducers';
+import { addExpense } from '../expensesByCategory-actions';
 
 
 class Expenses extends Component {
 
+  
   static propTypes = {
     expenses: PropTypes.array.isRequired,
     categoryId: PropTypes.string.isRequired,
-    add: PropTypes.func.isRequired
+    addExpense: PropTypes.func.isRequired
+  };
+
+  handleAddExpense = expense => {
+    const { categoryId, addExpense } = this.props;
+    addExpense(categoryId, { ...expense });
   };
 
   render() { 
-    const { expenses, add, categoryId } = this.props;
+    const { expenses } = this.props;
     return (
       <div>
-        <ExpenseForm categoryId={categoryId} onComplete={add}/>
+        <ExpenseForm onComplete={this.handleAddExpense}/>
         <ul>
           {!!expenses &&
           expenses.map(expense => (
             <Expense
-              key={expense.categoryId}
+              key={expense.key}
               expense={expense}
             />
           ))}
@@ -35,6 +41,6 @@ class Expenses extends Component {
 }
  
 export default connect(
-  (state, { categoryId }) => ({ expenses: getExpensesByCategoryId(state, categoryId) }),
-  { add }
+  (state, { categoryId }) => ({ expenses: getExpensesById(state, categoryId) }),
+  { addExpense }
 )(Expenses);

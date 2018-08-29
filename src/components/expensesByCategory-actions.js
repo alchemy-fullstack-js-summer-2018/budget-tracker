@@ -5,25 +5,26 @@ import {
 } from './expensesByCategory-reducers.js';
 
 import { 
-  addExpense, 
-  updateExpense, 
-  removeExpense } from '../services/budgetTrackerApi';
+  addExpenseToCategory, 
+  updateExpenseInCategory, 
+  removeExpenseFromCategory } from '../services/budgetTrackerApi';
   
-export const add = expense => {
+export const addExpense = (categoryId, expense) => {
   expense.timestamp = (new Date()).toLocaleString();
+  expense.categoryId = categoryId;
   return {
     type: EXPENSE_ADD,
-    payload: addExpense(expense)
+    payload: addExpenseToCategory(expense)
   };
 };
 
 export const update = expense => ({
   type: EXPENSE_UPDATE,
-  payload: updateExpense(expense)
+  payload: updateExpenseInCategory(expense)
 });
 
 export const remove = expense => ({
   type: EXPENSE_REMOVE,
-  payload: removeExpense(expense).then(() => expense)
+  payload: removeExpenseFromCategory(expense).then(() => expense)
 });
   
