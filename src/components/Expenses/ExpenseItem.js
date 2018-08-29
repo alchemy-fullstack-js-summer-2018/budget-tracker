@@ -13,8 +13,6 @@ class ExpenseItem extends Component {
   
   render() { 
     const { expense, onEdit, remove } = this.props;
-    console.log('***expense***', expense);
-    console.log('****remove***', remove);
 
     return (
       <section className="expense-item">

@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class CategoryForm extends Component {
 
-  //TODO: flesh out state 
   state = {
     key: null,
     name: '',

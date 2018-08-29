@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class ExpensesForm extends Component {
 
-  //TODO: flesh out state 
   state = {
     id: null,
     name: '',

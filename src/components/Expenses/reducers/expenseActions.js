@@ -1,7 +1,9 @@
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './expenseReducers';
 import { addExpense, updateExpense, removeExpense } from '../../../services/budgetApi';
+import shortid from 'shortid';
 
 export const add = (expense) => {
+  expense.id = shortid.generate();
   expense.timestamp = new Date();
   return {
     type: EXPENSE_ADD,
@@ -14,11 +16,7 @@ export const update = expense => ({
   payload: updateExpense(expense)
 });
 
-//TODO: payload: removeCategory(id).then(() => id) ?
-export const remove = (expense) => {
-  console.log('***IN EXP REMOVE***');
-  return {
-    type: EXPENSE_REMOVE,
-    payload: removeExpense(expense).then(() => expense)
-  }
-};
+export const remove = (expense) => ({
+  type: EXPENSE_REMOVE,
+  payload: removeExpense(expense).then(() => expense)
+});

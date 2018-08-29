@@ -33,7 +33,6 @@ export const addCategory = (category) => {
     });
 };
 
-//TODO: check copy logic
 export const updateCategory = category => {
   // eslint-disable-next-line
   // const { key, ...copy } = category;
@@ -57,11 +56,10 @@ export const addExpense = (expense) => {
     });
 };
 
-// export const updateExpense = expense => {
-//   const url = `${expense.categoryId}/expenses/${expense.id}.json`;
-//   getExpenseUrl(url);
-//   return put(url, expense);
-// };
+export const updateExpense = expense => {
+  const url = `${CATEGORY_URL}/${expense.categoryId}/expenses/${expense.key}.json`;
+  return put(url, expense);
+};
 
 export const removeExpense = (expense) => {
   const url = `${CATEGORY_URL}/${expense.categoryId}/expenses/${expense.key}.json`;
