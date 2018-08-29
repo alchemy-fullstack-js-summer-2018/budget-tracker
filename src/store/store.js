@@ -1,7 +1,7 @@
 import { createStore, combineReducers, applyMiddleware, compose } from 'redux';
 import promiseMiddleware from './promise-middleware';
-import { categories } from '../components/Categories/reducers/reducers';
-import { expensesByCategory } from '../components/Expenses/reducers/expenseReducers';
+import { categories } from '../components/categories/reducers/reducers';
+import { expensesByCategory } from '../components/categories/expenses/reducers/expenseReducers';
 import { error, loading } from '../components/app/reducers';
 
 const combined = combineReducers({

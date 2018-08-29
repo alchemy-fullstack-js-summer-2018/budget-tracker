@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class ExpensesForm extends Component {
 
-  //TODO: flesh out state 
   state = {
     id: null,
     name: '',
@@ -30,14 +29,9 @@ class ExpensesForm extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    const { categoryId, onComplete } = this.props;
-    const { id, name, price } = this.state;
-    const expense = { name, price };
-    
-    if(id) expense.id = id;
-    if(categoryId) expense.categoryId = categoryId;
+    const { onComplete } = this.props;
 
-    onComplete(expense);
+    onComplete(this.state);
     this.setState({ name: '', price: 0 });
   };
   
@@ -47,12 +41,10 @@ class ExpensesForm extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Expense name:<input type="text" name="name" value={name} onChange={this.handleChange}></input></label>
-        <label>Price:<input type="number" name="price" value={price} onChange={this.handleChange}></input></label>
-        <p>
-          <button type="submit">{ id ? 'Update' : 'Add' }</button>
-          {id && <button type="button" onClick={onCancel}>Cancel</button>}
-        </p>
+        <label>Expense name:<input type="text" name="name" value={name} placeholder="Name of expense..." onChange={this.handleChange}></input></label>
+        <label>Price:<input type="number" name="price" value={price} placeholder="price" onChange={this.handleChange}></input></label>
+        <button type="submit" className="form-button">{ id ? 'Update' : 'Add' }</button>
+        {id && <button type="button" className="form-button" onClick={onCancel}>Cancel</button>}
       </form>
     );
   }
