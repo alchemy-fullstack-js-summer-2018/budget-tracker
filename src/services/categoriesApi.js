@@ -54,7 +54,6 @@ export const addExpenseToCategory = (expense) => {
 };
 
 export const updateExpenseInCategory = (categoryKey, expense) => {
-  console.log(expense);
   const url = `${CATEGORIES_URL}/${categoryKey}/expenses/${expense.key}.json`;
   return put(url, expense)
     .then(res => {
