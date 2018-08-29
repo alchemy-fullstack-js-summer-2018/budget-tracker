@@ -55,8 +55,8 @@ export const addExpense = expense => {
 };
 
 export const updateExpense = expense => {
-  const expenseUrl = getExpensesUrl(expense.categoryId);
-  const url = `${expenseUrl}.json`;
+  const { categoryId, key } = expense;
+  const url = `${getExpensesUrl(categoryId)}/${key}.json`;
   return put(url, expense);
 };
 
