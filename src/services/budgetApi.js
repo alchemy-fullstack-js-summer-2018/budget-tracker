@@ -63,8 +63,7 @@ export const addExpense = (expense) => {
 //   return put(url, expense);
 // };
 
-// export const removeExpense = expense => {
-//   const url = `${expense.categoryId}/expenses/${expense.id}.json`;
-//   getExpenseUrl(url);
-//   return del(url);
-// };
+export const removeExpense = (expense) => {
+  const url = `${CATEGORY_URL}/${expense.categoryId}/expenses/${expense.key}.json`;
+  return del(url);
+};

@@ -42,9 +42,11 @@ export function expensesByCategory(state = [], { type, payload }) {
         [payload.categoryId]: state[payload.categoryId].map(expense => expense.id === payload.id ? payload : expense)
       };
     case EXPENSE_REMOVE:
+      console.log('***state***', state);
+      console.log('***payload***', payload);
       return {
         ...state,
-        [payload.categoryId]: state[payload.categoryId].filter(expense => expense.id !== payload.id)
+        [payload.categoryId]: state[payload.categoryId].filter(expense => expense.key !== payload.key)
       };
     default:
       return state;

@@ -15,7 +15,10 @@ export const update = expense => ({
 });
 
 //TODO: payload: removeCategory(id).then(() => id) ?
-export const remove = expense => ({
-  type: EXPENSE_REMOVE,
-  payload: removeExpense(expense)
-});
+export const remove = (expense) => {
+  console.log('***IN EXP REMOVE***');
+  return {
+    type: EXPENSE_REMOVE,
+    payload: removeExpense(expense).then(() => expense)
+  }
+};
