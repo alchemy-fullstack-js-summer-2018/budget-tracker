@@ -8,7 +8,7 @@ export const load = () => ({
 });
 
 export const add = category => {
-  category.id = shortid.generate();
+  category.key = shortid.generate();
   category.timestamp = new Date();
   return {
     type: CATEGORY_ADD,

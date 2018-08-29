@@ -12,9 +12,9 @@ class ExpenseForm extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
-    categoryId: PropTypes.string.isRequired,
     onComplete: PropTypes.func.isRequired,
-    onCancel: PropTypes.func
+    onCancel: PropTypes.func,
+    categoryId: PropTypes.string
   };
 
   componentDidMount() {
