@@ -1,20 +1,27 @@
 import { put, post, get, del } from './request';
 
 const URL = 'https://rbt-budget.firebaseio.com/';
-const CATEGORIES_URL = `${URL}/categories`;
+const CATEGORIES_URL = `${URL}categories`;
+// const EXPENSES_URL = `${CATEGORIES}/expenses`;
 
 const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
+// const getExpenseUrl = key => `${EXPENSES_URL}/${key}.json`;
+
+const convertToArray = obj => {
+  return Object.keys(obj).map(key => {
+    if(!obj) return [];
+    const each = obj[key];
+    each.key = key;
+    return each;
+  });
+};
 
 export const getCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
     .then(response => {
-      return response
-        ? Object.keys(response).map(key => {
-          const each = response[key];
-          each.key = key;
-          return each;
-        })
-        : [];
+      const categories = convertToArray(response);
+      categories.forEach(category => category.expenses = convertToArray(category.expenses));
+      return categories;
     });
 };
 
@@ -32,7 +39,30 @@ export const updateCategory = category => {
   return put(url, category);
 };
 
-export const removeCategory = id => {
-  const url = getCategoryUrl(id);
+export const removeCategory = Key => {
+  const url = getCategoryUrl(Key);
+  return del(url);
+};
+
+export const addExpenseToCategory = (expense) => {
+  const url = `${CATEGORIES_URL}/${expense.categoryId}/expenses.json`;
+  return post(url, expense)
+    .then(res => {
+      expense.key = res.name;
+      return expense;
+    });
+};
+
+export const updateExpenseInCategory = (categoryKey, expense) => {
+  const url = `${CATEGORIES_URL}/${categoryKey}/expenses/${expense.key}.json`;
+  return put(url, expense)
+    .then(res => {
+      categoryKey = res.name;
+      return expense;
+    });
+};
+
+export const removeExpenseFromCategory = (categoryKey, expenseKey) => {
+  const url = `${CATEGORIES_URL}/${categoryKey}/expenses/${expenseKey}.json`;
   return del(url);
 };

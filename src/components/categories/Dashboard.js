@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Categories from './Categories';
 import CategoryForm from './CategoryForm';
 import { load, add } from './actions';
+import { getCategories } from './reducers';
+// import styles from './Dashboard.css';
 
 class Dashboard extends Component {
 
@@ -23,8 +25,7 @@ class Dashboard extends Component {
     return ( 
       <div>
         <section>
-          <h3>Add a new category</h3>
-          <CategoryForm onComplete={add}/>
+          <CategoryForm id="category-form" onComplete={add}/>
         </section>
 
         {categories && 
@@ -40,8 +41,6 @@ class Dashboard extends Component {
 }
  
 export default connect(
-  state => ({
-    categories: state
-  }),
+  state => ({ categories: getCategories(state) }),
   { load, add }
 )(Dashboard);
