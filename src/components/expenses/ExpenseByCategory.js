@@ -32,8 +32,9 @@ class Expense extends Component {
   };
 
   render() {
-    const { editing } = this.state;
     const { expense } = this.props;
+    const { editing } = this.state;
+    
 
     return (
       <li>

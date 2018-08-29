@@ -9,11 +9,8 @@ import {
   updateExpense, 
   removeExpense } from '../services/budgetTrackerApi';
   
-import shortid from 'shortid';
-
 export const add = expense => {
   expense.timestamp = (new Date()).toLocaleString();
-  expense.id = shortid.generate();
   return {
     type: EXPENSE_ADD,
     payload: addExpense(expense)
