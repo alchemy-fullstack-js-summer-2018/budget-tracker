@@ -48,7 +48,7 @@ export const addExpenseToCategory = (categoryKey, expense) => {
   const url = `${CATEGORIES_URL}/${categoryKey}/expenses.json`;
   return post(url, expense)
     .then(res => {
-      expense.id = res.name;
+      expense.key = res.name;
       return expense;
     });
 };

@@ -31,7 +31,7 @@ class Expenses extends PureComponent {
         <ul>
           {expenses.map(expense => (
             <Expense
-              key={expense.id}
+              key={expense.key}
               expense={expense}
             />
           ))}
