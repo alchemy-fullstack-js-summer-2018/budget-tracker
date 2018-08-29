@@ -52,7 +52,7 @@ export const addExpenseToCategory = (categoryId, expense) => {
     });
 };
 export const updateExpenseCategory = (categoryId, expense) => {
-  const url = `${CATEGORY_URL}/expenses/${categoryId}.json`;
+  const url = `${CATEGORY_URL}/${categoryId}/expenses/${expense.id}.json`;
   return put(url, expense)
     .then(res => {
       categoryId = res.name;
