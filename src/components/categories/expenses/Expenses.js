@@ -5,6 +5,7 @@ import { getExpensesById } from './reducers';
 import Expense from './Expense';
 import ExpenseForm from './ExpenseForm';
 import { addExpense } from './actions';
+import styles from './Expenses.css';
 
 class Expenses extends PureComponent {
 
@@ -28,7 +29,7 @@ class Expenses extends PureComponent {
         <ExpenseForm
           onComplete={this.handleExpenseAdd}
         />
-        <ul>
+        <ul className={styles.expenses}>
           {expenses.map(expense => (
             <Expense
               key={expense.key}

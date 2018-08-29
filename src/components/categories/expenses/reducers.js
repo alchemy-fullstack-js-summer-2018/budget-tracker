@@ -5,7 +5,7 @@ export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 
 export const getExpenses = state => state.expensesByCategory;
 export const getExpensesById = (state, id) => getExpenses(state)[id];
-export const getTotalExpensesByCategoryId = (state, id) => getExpenses(state)[id].map(expenses => expenses.amount).reduce((acc, cur) => parseInt(acc) + parseInt(cur));
+export const getTotalExpensesByCategoryId = (state, id) => getExpensesById(state, id).map(expenses => expenses.amount).reduce((acc, cur) => parseInt(acc) + parseInt(cur));
 
 
 export function expensesByCategory(state = [], { type, payload }) {
