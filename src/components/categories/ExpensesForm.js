@@ -24,6 +24,17 @@ class ExpensesForm extends Component {
     this.setState(expense);
   }
 
+  handleSubmit = (event) => {
+    event.preventDefault();
+    const { key, categoryId, name, price } = this.state;
+    const expense = { categoryId, name, price }
+;
+    if(key) expense.key = key;
+
+    this.props.onComplete(expense);
+    this.setState({ categoryId: '', name: '', price });
+  };
+
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value });
   };
