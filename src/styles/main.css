@@ -19,6 +19,7 @@ body {
   text-align: center; 
   text-transform: capitalize;
   margin: 20px;
+  list-style: none;
 }
 
 .cf-list{
