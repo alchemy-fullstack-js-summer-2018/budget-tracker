@@ -32,16 +32,16 @@ class ExpenseForm extends Component {
   };
 
   render() {
-    const { id, name, price } = this.state;
-    const { onCancel } = this.props;
+    const { name, price } = this.state;
+    const { onCancel, expense } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
         <InputControl name="price" value={price} onChange={this.handleChange}/>
         <p>
-          <button type="submit">{ id ? 'Update' : 'Add' }</button>
-          {id && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button type="submit">{ expense ? 'Update' : 'Add' }</button>
+          {expense && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );

@@ -17,10 +17,8 @@ const convertToArray = obj => {
 export const loadCategories = () => {
   return get(`${CATEGORIES_URL}.json`)
     .then(res => {
-      // if(!res) return [];
       const categories = convertToArray(res);
       categories.forEach(category => {
-        // if(!category.expenses) category.expenses = [];
         category.expenses = convertToArray(category.expenses);
       });
       return categories;
@@ -66,6 +64,5 @@ export const updateExpenseInCategory = (categoryId, expense) => {
 
 export const removeExpenseInCategory = (categoryId, expenseKey) => {
   const url = `${CATEGORIES_URL}/${categoryId}/expenses/${expenseKey}.json`;
-  console.log(url);
   return del(url);
 };
