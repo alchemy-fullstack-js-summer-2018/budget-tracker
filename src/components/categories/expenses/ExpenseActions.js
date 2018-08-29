@@ -1,5 +1,5 @@
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './ExpenseReducers';
-import { addExpenseToCategory } from '../../../services/budgetApi';
+import { addExpenseToCategory, updateExpenseCategory, removeExpenseCategory } from '../../../services/budgetApi';
 import shortid from 'shortid';
 
 
@@ -15,10 +15,10 @@ export const add = (categoryId, expense) => {
 
 export const update = expense => ({
   type: EXPENSE_UPDATE,
-  payload: expense
+  payload: updateExpenseCategory(expense.categoryId, expense)
 });
 
 export const remove = expense => ({
   type: EXPENSE_REMOVE,
-  payload: expense
+  payload: removeExpenseCategory(expense.categoryId, expense.key).then(() => expense)
 });
