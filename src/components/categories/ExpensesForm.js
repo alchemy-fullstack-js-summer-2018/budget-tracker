@@ -32,7 +32,7 @@ class ExpensesForm extends Component {
     if(key) expense.key = key;
 
     this.props.onComplete(expense);
-    this.setState({ categoryId: '', name: '', price });
+    this.setState({ name: '', price: '' });
   };
 
   handleChange = ({ target }) => {
@@ -45,8 +45,10 @@ class ExpensesForm extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        <label>Expense name:<input type="text" name="name" value={name} onChange={this.handleChange}></input></label>
-        <label>Price:<input type="number" name="price" value={price} onChange={this.handleChange}></input></label>
+        {/* <label>Expense name:<input type="text" name="name" value={name} onChange={this.handleChange}></input></label>
+        <label>Price:<input type="number" name="price" value={price} onChange={this.handleChange}></input></label> */}
+        <InputControl name="name" value={name} onChange={this.handleChange}/>
+        <InputControl name="price" value={price} onChange={this.handleChange}/>
         <p>
           <button type="submit">{ key ? 'Update' : 'Add' }</button>
           {key && <button type="button" onClick={onCancel}>Cancel</button>}
@@ -55,5 +57,14 @@ class ExpensesForm extends Component {
     );
   }
 }
+
+const InputControl = (props) => (
+  <p>
+    <label>
+      {props.name}:
+      <input {...props} required/>
+    </label>
+  </p>
+);
 
 export default ExpensesForm;

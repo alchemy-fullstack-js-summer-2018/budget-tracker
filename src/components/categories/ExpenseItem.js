@@ -13,7 +13,9 @@ render() {
   const { expense } = this.props;
 
   return (
-    <p>{expense.name}</p>
+    <div>
+      {expense.name} - {expense.price}
+    </div>
   );
 }
 }
