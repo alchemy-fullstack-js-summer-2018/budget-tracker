@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { update } from './actions';
+import { connect } from 'react-redux';
 import ExpenseForm from './ExpenseForm';
 import ExpenseItem from './ExpenseItem';
 
@@ -11,7 +11,7 @@ class Expense extends Component {
       editing: false
     };
 
-    static PropTypes = {
+    static propTypes = {
       expense: PropTypes.object,
       update: PropTypes.func,
       categoryId: PropTypes.string
@@ -25,7 +25,7 @@ class Expense extends Component {
       const { update } = this.props;
 
       update(expense);
-      this.handleEdit();
+      this.handleEndEdit();
     };
 
     handleEndEdit = () => {
