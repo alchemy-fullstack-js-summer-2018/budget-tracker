@@ -3,10 +3,6 @@ import { NavLink } from 'react-router-dom';
 import styles from './Header.css';
 
 class Header extends Component {
-
-  static propTypes = {
-
-  };
   
   handleSpecial = event => {
     event.preventDefault();
