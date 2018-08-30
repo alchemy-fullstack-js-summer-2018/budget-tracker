@@ -16,11 +16,12 @@ class Dashboard extends Component {
   };
 
   componentDidMount(){
+
     this.props.load();
   }
   render() { 
     const { categories, add } = this.props;
-
+    console.log('dashboard', categories);
     return (
       <div>
         <section>

@@ -5,29 +5,29 @@ import {
   CATEGORY_UPDATE
 } from './categoriesReducers';
 
-import data from './category-data';
-import shortid from 'shortid';
+import { getCategories, addCategory, updateCategory, removeCategory } from '../../services/budgetApi';
+// import shortid from 'shortid';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
-  payload: data
+  payload: getCategories()
 });
 
 export const add = category => {
-  category.key = shortid.generate();
+  // category.key = shortid.generate();
   category.timestamp = (new Date()).toLocaleString();
   return {
     type: CATEGORY_ADD,
-    payload: category
+    payload: addCategory(category)
   };
 };
 
 export const update = category => ({
   type: CATEGORY_UPDATE,
-  payload: category
+  payload: updateCategory(category)
 });
 
 export const remove = key => ({
   type: CATEGORY_REMOVE,
-  payload: key
+  payload: removeCategory(key).then(() => key)
 });
