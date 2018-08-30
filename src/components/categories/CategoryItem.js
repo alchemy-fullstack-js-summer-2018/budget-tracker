@@ -16,8 +16,8 @@ export class CategoryItem extends Component {
     
     return (
       <section>
-        <p>{category.name}</p>
-        <p>{category.budget}</p>
+        <p>Category: {category.name}</p>
+        <p>Budget: ${category.budget}</p>
         <button name="edit" onClick={onEdit}>Edit</button>
         <button name="delete" onClick={() => remove(category.key)}>Delete</button>
         <Expenses

@@ -28,6 +28,7 @@ exports[`Expense Form component renders add if no expense prop 1`] = `
     <InputControl
       name="price"
       onChange={[Function]}
+      type="number"
       value=""
     >
       <p>
@@ -38,6 +39,7 @@ exports[`Expense Form component renders add if no expense prop 1`] = `
             name="price"
             onChange={[Function]}
             required={true}
+            type="number"
             value=""
           />
         </label>
@@ -58,6 +60,7 @@ exports[`Expense Form component renders edit if there is expense prop 1`] = `
 <ExpenseForm
   expense={
     Object {
+      "categoryId": "abc",
       "name": "bus",
       "price": 5,
     }
@@ -89,6 +92,7 @@ exports[`Expense Form component renders edit if there is expense prop 1`] = `
     <InputControl
       name="price"
       onChange={[Function]}
+      type="number"
       value={5}
     >
       <p>
@@ -99,6 +103,7 @@ exports[`Expense Form component renders edit if there is expense prop 1`] = `
             name="price"
             onChange={[Function]}
             required={true}
+            type="number"
             value={5}
           />
         </label>
@@ -108,7 +113,13 @@ exports[`Expense Form component renders edit if there is expense prop 1`] = `
       <button
         type="submit"
       >
-        Add
+        Update
+      </button>
+      <button
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Cancel
       </button>
     </p>
   </form>

@@ -1,6 +1,9 @@
 import {
   expenses,
   CATEGORY_LOAD,
+  EXPENSE_ADD,
+  EXPENSE_REMOVE,
+  EXPENSE_UPDATE,
 } from './expenseReducers';
 
 describe('Expenses reducers', () => {
@@ -28,5 +31,55 @@ describe('Expenses reducers', () => {
     });
 
     expect(state).toEqual(result);
+  });
+
+  it('adds an expense to a category', () => {
+    const payload = { categoryId: '1', name: 'Showtime' };
+    const state = { '1': [{ name: 'Netflix' }, { name: 'Hulu'  }] };
+
+    const result = expenses(state, {
+      type: EXPENSE_ADD,
+      payload
+    });
+
+    expect(result[payload.categoryId]).toEqual([...state[payload.categoryId], payload]);
+  });
+
+  it('removes an expense from a category', () => {
+    const state = { 
+      '1': [
+        { name: 'Netflix', key: 'abv' },
+        { name: 'Hulu', key: 'jkl' },
+        { name: 'Showtime', key: 'iup' }
+      ]
+    };
+    const payload = { categoryId: '1', name: 'Showtime', key: 'iup' };
+
+    const result = expenses(state, {
+      type: EXPENSE_REMOVE,
+      payload
+    });
+
+    expect(result[payload.categoryId].length).toBe(2);
+  });
+
+  it('updates an expense', () => {
+    const state = {
+      '1': [
+        { name: 'Netflix', key: 'abv' },
+        { name: 'Hulu', key: 'jkl' },
+        { name: 'Showtime', key: 'iup' }
+      ]
+    };
+
+    const payload = { categoryId: '1', name: 'FX Now', key: 'iup' };
+
+    const result = expenses(state, {
+      type: EXPENSE_UPDATE,
+      payload
+    });
+
+    expect(result[payload.categoryId].length).toBe(3);
+    expect(result[payload.categoryId][2]).toBe(payload);
   });
 });

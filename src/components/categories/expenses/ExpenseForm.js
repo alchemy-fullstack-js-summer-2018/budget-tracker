@@ -3,7 +3,6 @@ import PropTypes from 'prop-types';
 
 class ExpenseForm extends Component {
   state = {
-    id: null,
     name: '',
     price: ''
   };
@@ -22,12 +21,8 @@ class ExpenseForm extends Component {
 
   handleSubmit = event => {
     event.preventDefault();
-    const { id, name, price } = this.state;
-    const expense = { name, price };
-    if(id) expense.id = id;
-    if(this.props.expense) expense.categoryId = this.props.expense.categoryId;
-
-    this.props.onComplete(expense);
+    
+    this.props.onComplete(this.state);
     this.setState({ name: '', price: '' });
   };
 
@@ -36,16 +31,16 @@ class ExpenseForm extends Component {
   };
 
   render() {
-    const { id, name, price } = this.state;
-    const { onCancel } = this.props;
+    const { name, price } = this.state;
+    const { onCancel, expense } = this.props;
 
     return (
       <form onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
-        <InputControl name="price" value={price} onChange={this.handleChange}/>
+        <InputControl name="price" value={price} type="number" onChange={this.handleChange}/>
         <p>
-          <button type="submit">{ id ? 'Update' : 'Add' }</button>
-          {id && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button type="submit">{ expense ? 'Update' : 'Add' }</button>
+          {expense && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );

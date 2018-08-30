@@ -15,8 +15,8 @@ class ExpenseItem extends Component {
 
     return (
       <section>
-        <p>{expense.name}</p>
-        <p>{expense.price}</p>
+        <p>Name: {expense.name}</p>
+        <p>Price: ${expense.price}</p>
         <button name="edit" onClick={onEdit}>Edit</button>
         <button name="delete" onClick={() => remove(expense)}>Delete</button>
       </section>

@@ -9,7 +9,7 @@ describe('Category form', () => {
     const wrapper = mount(<CategoryForm onComplete={handleComplete}/>);
     expect(toJSON(wrapper)).toMatchSnapshot();
 
-    const category = { name: 'clothes', budget: 500 };
+    const category = { name: 'clothes', key: null, budget: 500 };
 
     wrapper.find('input[name="name"]').simulate('change', {
       target: {
@@ -36,7 +36,7 @@ describe('Category form', () => {
     const handleComplete = jest.fn();
     const handleCancel = jest.fn();
 
-    const category = { name: 'clothes', budget: 500 };
+    const category = { name: 'clothes', key: null, budget: 500 };
 
     const wrapper = mount(<CategoryForm
       onComplete={handleComplete}
