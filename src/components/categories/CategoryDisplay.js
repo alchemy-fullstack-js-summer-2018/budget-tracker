@@ -16,10 +16,11 @@ class CategoryDisplay extends Component {
 
     return (
       <div>
-        {category.name} allowed {category.budget}
-        <Expenses categoryId = {category.key}/>   
+        <h2>{category.name} allowed {category.budget}</h2>
+        <p>edit or delete a category</p>
         <button name="edit" onClick={onEdit}>✎</button>
         <button id="delbtn" name="delete" onClick={() => remove(category.key)}>🗑</button>  
+        <Expenses categoryId = {category.key}/>   
       </div>
     );
   }

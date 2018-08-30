@@ -47,6 +47,7 @@ class Expense extends Component {
           : <ExpenseItem
             expense={expense}  
             onEdit={this.handleEdit}
+            onDelete={this.handleDelete}
           />
         }
       </li>

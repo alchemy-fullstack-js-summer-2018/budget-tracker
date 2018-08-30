@@ -21,7 +21,6 @@ class Expenses extends Component {
 
   render() {
     const { expenses, categoryId } = this.props;
-    console.log('expenses', expenses);
     if(!expenses) return null;
 
     return (
@@ -32,6 +31,7 @@ class Expenses extends Component {
             onComplete={this.handleAddExpense}
           />
         </section>
+        
         <section>
           {expenses.map(expense => {
             return <Expense

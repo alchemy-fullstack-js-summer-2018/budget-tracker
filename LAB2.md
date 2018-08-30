@@ -143,5 +143,5 @@ Write a description of the project in your README.md
 * Expense Components (Expenses, Expense, ExpenseItem, ExpenseForm) **4pts**
 * Tested Expense reducers and actions **4pts**
 * Tested Expense selectors **3pts**
-* Project and code consistency, cleanliness, and orgaganization **2pts**
+* Project and code consistency, cleanliness, and organization **2pts**
 

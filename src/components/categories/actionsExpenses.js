@@ -1,5 +1,6 @@
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './reducersExpenses';
 //import data from './categories-data';
+import { removeExpense } from '../../services/budgetAPI';
 import shortid from 'shortid';
 
 export const addExpense = (categoryId, expense) => {
@@ -21,7 +22,7 @@ export const updateExpense = expense => ({
   payload: expense
 });
 
-export const removeExpense = expense => ({
+export const remove = expense => ({
   type: EXPENSE_REMOVE,
-  payload: expense
+  payload: removeExpense(expense).then(() => expense)
 });
