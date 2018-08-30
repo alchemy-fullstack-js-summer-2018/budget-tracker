@@ -22,15 +22,16 @@ export const add = category => {
   };
 };
 
+export const update = category => ({
+  type: CATEGORY_UPDATE,
+  payload: category
+});
+
 export const remove = key => ({
   type: CATEGORY_REMOVE,
   payload: key
 });
 
-export const update = category => ({
-  type: CATEGORY_UPDATE,
-  payload: category
-});
 
 
 

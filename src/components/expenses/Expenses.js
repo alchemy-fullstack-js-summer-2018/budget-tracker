@@ -32,7 +32,7 @@ class Expenses extends Component {
             />
           </section>
 
-          {expenses &&
+          {expenses.length &&
             <section>
               {expenses.map(expense => {
                 return <Expense

@@ -5,7 +5,7 @@ export const EXPENSE_UPDATE = 'EXPENSE_UPDATE';
 export const EXPENSE_REMOVE = 'EXPENSE_REMOVE';
 
 export const getExpenses = state => state.expensesByCategory;
-export const getExpensesById = (state, id) => getExpenses(state)[id];
+export const getExpensesById = (state, categoryId) => getExpenses(state)[categoryId];
 
 export function expensesByCategory(state = [], { type, payload }) {
   switch(type) {
@@ -15,10 +15,10 @@ export function expensesByCategory(state = [], { type, payload }) {
         return map;
       }, []);
     case CATEGORY_ADD:
-      return {
-        ...state,
-        [payload.key]: []
-      };
+      return [
+        // ...state,
+        // payload.key
+      ];
     case CATEGORY_REMOVE: {
       delete state[payload];
       return state;
