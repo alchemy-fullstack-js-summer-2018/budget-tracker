@@ -15,7 +15,8 @@ class ExpenseForm extends Component {
     expense: PropTypes.object,
     categoryId: PropTypes.string,
     onComplete: PropTypes.func.isRequired,
-    onCancel: PropTypes.func
+    onCancel: PropTypes.func,
+    categoryId: PropTypes.string
   };
 
   componentDidMount() {

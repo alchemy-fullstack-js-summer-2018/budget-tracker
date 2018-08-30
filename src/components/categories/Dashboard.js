@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Categories from './Categories';
 import CategoryForm from './CategoryForm';
 import styles from './Dashboard.css';
+
 import { load, add } from './actions';
 import { getCategories } from './reducers';
 

@@ -13,7 +13,7 @@ class Expense extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
-    update: PropTypes.func
+    update: PropTypes.func,
   };
 
   handleEdit = () => {

@@ -11,7 +11,6 @@ export default [
         'timestamp': new Date(), 
         'name': 'tires',
         'price': '400' 
-
       },
       {
         'id': '456',
