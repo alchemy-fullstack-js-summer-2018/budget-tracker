@@ -1,0 +1,17 @@
+:local(.categoryForm) {
+  position: relative;
+  left: 5px;
+  display: flex;
+  flex-flow: column nowrap;
+  width: 90%;
+  align-content: center;
+
+  label {
+    margin: 20px;
+    padding: 10px;
+  }
+
+  button {
+    background-color: white;
+  }
+}

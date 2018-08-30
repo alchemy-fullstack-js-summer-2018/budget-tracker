@@ -1,11 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './CategoryForm.css';
 class CategoryForm extends Component {
 
   state = {
     key: null,
     name: '',
-    budget: 0,
+    budget: '',
     expenses: [],
     timestamp: null,
   };
@@ -43,24 +44,18 @@ class CategoryForm extends Component {
 
 
     return (
-      <div>
+      <div className={styles.categoryForm} >
         <form onSubmit={this.handleSubmit}>
-          <p>
-            <label>
-            Category Name:&nbsp;
-              <input name="name" value={name} onChange={this.handleChange}></input>
-            </label>
-          </p>
-          <p>
-            <label>
-            Budgeted Amount:&nbsp;
-              <input name="budget" value={budget} type="number" onChange={this.handleChange}></input>
-            </label>
-          </p>
-          <p>
-            <button type="submit">{ key ? 'Update' : 'Add' }</button>
-            {key && <button type="button" onClick={onCancel}>Cancel</button>}
-          </p>
+          <label>
+            Category:&nbsp;
+            <input name="name" value={name} onChange={this.handleChange}></input>
+          </label>
+          <label>
+            Amount:&nbsp;
+            <input name="budget" value={budget} onChange={this.handleChange}></input>
+          </label>
+          <button type="submit">{ key ? 'Update' : 'Add' }</button>
+          {key && <button type="button" onClick={onCancel}>Cancel</button>}
         </form>
       </div>
     );

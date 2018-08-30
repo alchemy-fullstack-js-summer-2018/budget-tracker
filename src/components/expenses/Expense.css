@@ -1,4 +1,4 @@
 :local(.expense) {
-  border: 2px solid red;
-  min-width: 170px;
+  width: auto;
+  position: relative;
 }

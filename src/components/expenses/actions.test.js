@@ -1,7 +1,7 @@
 import { add, update, remove } from './actions';
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './reducersExpenses';
 
-describe('Category actions', () => {
+describe.skip('Category actions', () => {
 
   it('Adds', () => {
     const expense = { name: 'Dog food', price: 50 };

@@ -19,12 +19,12 @@ class CategoryItem extends Component {
     return (
       <div className={styles.categoryItem}>
         <section>
-          <span>
+          <span className="category">
             {category.name}  Budget: ${category.budget}
           </span>
           <span className="buttons">
-            <button name="edit" onClick={onEdit}>✎</button>
-            <button name="delete" onClick={() => remove(category.key)}>🗑</button>
+            <button name="edit" onClick={onEdit}>✏️</button>
+            <button name="delete" onClick={() => remove(category.key)}>❌</button>
           </span>
         </section>
 

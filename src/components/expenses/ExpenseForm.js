@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './ExpenseForm.css';
 
 export default class ExpenseForm extends Component {
 
@@ -47,23 +48,16 @@ export default class ExpenseForm extends Component {
     const { onCancel } = this.props;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <p>
-          <label>
-        Description:&nbsp;
-            <input name="name" value={name} onChange={this.handleChange}></input>
-          </label>
-        </p>
-        <p>
-          <label>
-        Amount:&nbsp;
-            <input name="price" value={price} type="number" onChange={this.handleChange}></input>
-          </label>
-        </p>
-        <p>
-          <button type="submit">{ key ? 'Update' : 'Add' }</button>
-          {key && <button type="button" onClick={onCancel}>Cancel</button>}
-        </p>
+      <form className={styles.expenseForm} onSubmit={this.handleSubmit}>
+        <p>{ key ? 'Update expense:' : 'Create a new expense:' }</p>
+        <label>
+          <input name="name" value={name} placeholder="Expense name..." onChange={this.handleChange} required></input>
+        </label>
+        <label>
+          <input name="price" value={price} placeholder="Expense amount..." type="number" onChange={this.handleChange} required></input>
+        </label>
+        <button type="submit">{ key ? 'Update' : 'Add' }</button>
+        {key && <button type="button" onClick={onCancel}>Cancel</button>}
       </form>
     );
   }

@@ -5,6 +5,11 @@ import styles from './Categories.css';
 
 class Categories extends Component {
 
+  state = {
+    loading: false,
+    error: null
+  };
+
   static propTypes = {
     categories: PropTypes.array
   };

@@ -2,5 +2,14 @@
   display: flex;
   flex-flow: column wrap;
   justify-content: space-between;
-  border: 2px solid blue;
+  width: 90vw;
+  position: relative;
+  right: 30px;
+
+  .category {
+    font-size: 16px;
+    position: relative;
+    top: 5px;
+    left: 3px;
+  }
 }
