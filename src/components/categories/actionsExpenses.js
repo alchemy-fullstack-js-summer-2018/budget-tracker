@@ -1,5 +1,4 @@
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_REMOVE } from './reducersExpenses';
-//import data from './categories-data';
 import { removeExpense } from '../../services/budgetAPI';
 import shortid from 'shortid';
 

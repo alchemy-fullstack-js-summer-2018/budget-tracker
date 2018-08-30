@@ -45,8 +45,6 @@ class ExpensesForm extends Component {
 
     return (
       <form onSubmit={this.handleSubmit}>
-        {/* <label>Expense name:<input type="text" name="name" value={name} onChange={this.handleChange}></input></label>
-        <label>Price:<input type="number" name="price" value={price} onChange={this.handleChange}></input></label> */}
         <InputControl name="name" placeholder="Expense Name" value={name} onChange={this.handleChange}/>
         <InputControl name="price" value={price} onChange={this.handleChange}/>
         <p>
