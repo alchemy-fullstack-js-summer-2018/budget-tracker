@@ -9,16 +9,16 @@ export const add = (categoryId, expense) => {
   return ({
     type: EXPENSE_ADD,
     payload: 
-      addExpense(expense)
+      addExpense(categoryId, expense)
   });
 };
 
 export const update = expense => ({
   type: EXPENSE_UPDATE,
-  payload: updateExpense(expense)
+  payload: updateExpense(expense.categoryId, expense)
 });
 
 export const remove = expense => ({
   type: EXPENSE_DELETE,
-  payload: removeExpense(expense).then(() => expense)
+  payload: removeExpense(expense.categoryId, expense.id).then(() => expense)
 });

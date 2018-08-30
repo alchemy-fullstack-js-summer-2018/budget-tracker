@@ -31,7 +31,8 @@ export function expensesByCategory(state = [], { type, payload }) {
         ...state,
         [payload.categoryId]: [
           ...state[payload.categoryId],
-          payload.expense
+          // payload.expense
+          payload
         ]
       };
     }

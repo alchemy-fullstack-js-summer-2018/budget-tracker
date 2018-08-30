@@ -53,3 +53,15 @@ export const addExpense = expense => {
       return expense;
     });
 };
+
+export const updateExpense = expense => {
+  const { categoryId, key } = expense;
+  const url = `${getExpensesUrl(categoryId)}/${key}.json`;
+  return put(url, expense);
+};
+
+export const removeExpense = expense => {
+  const { categoryId, key } = expense;
+  const url = `${getExpensesUrl(categoryId)}/${key}.json`;
+  return del(url);
+};
