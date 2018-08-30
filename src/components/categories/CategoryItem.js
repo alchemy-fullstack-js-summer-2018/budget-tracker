@@ -5,8 +5,8 @@ import { connect } from 'react-redux';
 export class CategoryItem extends Component {
 
   static propTypes = {
-    category: PropTypes.object.isRequired,
-    onEdit: PropTypes.func.isRequired,
+    category: PropTypes.object,
+    onEdit: PropTypes.func.isRequired
   };
 
   render() {
