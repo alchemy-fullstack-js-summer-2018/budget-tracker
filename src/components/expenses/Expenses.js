@@ -14,22 +14,16 @@ class Expenses extends Component {
     add: PropTypes.func.isRequired
   };
 
-  handleAddExpense = expense => {
-    const { add, categoryId } = this.props;
-
-    add(categoryId, expense);
-  };
   
   render() { 
-    const { expenses, categoryId } = this.props;
-    
+    const { expenses, categoryId, add } = this.props;
 
     return (
       <ul>
         <section className="expenses-form">
           <h3>Add an Expense:</h3>
           <ExpenseForm 
-            onComplete={this.handleAddExpense}
+            onComplete={add}
             categoryId={categoryId}
           />
         </section>

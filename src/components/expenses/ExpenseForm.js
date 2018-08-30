@@ -5,7 +5,7 @@ class ExpenseForm extends Component {
 
   state = {
     id: null,
-    categoryId: '',
+    categoryKey: '',
     name: '',
     price: '',
     timestamp: null
@@ -15,7 +15,7 @@ class ExpenseForm extends Component {
     expense: PropTypes.object,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func,
-    categoryKey: PropTypes.string,
+    categoryId: PropTypes.string,
     
   };
 
@@ -32,15 +32,14 @@ class ExpenseForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { categoryKey } = this.props;
-    this.setState({ categoryId: categoryKey });
-  
-    const { id, categoryId, name, price, timestamp } = this.state;
+    const { categoryId } = this.props;
+    // this.setState({ categoryKey: categoryId });
+    const { id, name, price, timestamp } = this.state;
     const expense = { id, name, categoryId, price, timestamp };
     
     if(id) expense.id = id;
-    if(!id) expense.categoryId = categoryKey;
-
+    if(!id) expense.categoryId = categoryId;
+    
     this.props.onComplete(expense);
     this.setState({ name: '', price: '' });
   };
