@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types'; 
 
 class ExpenseForm extends Component {
@@ -9,7 +9,7 @@ class ExpenseForm extends Component {
       amount: 0
     };
 
-    static PropTypes = {
+    static propTypes = {
       expense: PropTypes.object,
       onComplete: PropTypes.func.isRequired,
       onCancel: PropTypes.func,
@@ -40,12 +40,14 @@ class ExpenseForm extends Component {
       const { onCancel } = this.props;
 
       return (
-        <form onSubmit={this.handleSubmit}>
-          <label>Expense:<input type="text" name="name" value= {name} onChange={this.handleChange}></input></label>
-          <label>Amount:<input type="number" name="amount" value= {amount} onChange={this.handleChange}></input></label>
-          <button type="submit">{ id ? 'Update' : 'Add' }</button>
-          {id && <button type="button" onClick={onCancel}>X</button>}
-        </form>
+        <Fragment>
+          <form onSubmit={this.handleSubmit}>
+            <label>Expense:<input type="text" name="name" value= {name} onChange={this.handleChange}></input></label>
+            <label>Amount:<input type="number" name="amount" value= {amount} onChange={this.handleChange}></input></label>
+            <button type="submit">{ id ? 'Update' : 'Add' }</button>
+            {id && <button type="button" onClick={onCancel}>X</button>}
+          </form>
+        </Fragment>
       );
     }
 }

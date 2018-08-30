@@ -5,7 +5,7 @@ import { remove } from './actions';
 
 class ExpenseItem extends Component {
 
-  static PropTypes = {
+  static propTypes = {
     expense: PropTypes.object.isRequired,
     onEdit: PropTypes.func.isRequired,
     remove: PropTypes.func.isRequired

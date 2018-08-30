@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { add } from './actions';
@@ -8,7 +8,7 @@ import { getExpenses } from './reducers';
 
 class Expenses extends Component {
   
-  static PropTypes = {
+  static propTypes = {
     expenses: PropTypes.array,
     categoryId: PropTypes.string,
     add: PropTypes.func.isRequired
@@ -24,27 +24,28 @@ class Expenses extends Component {
     const { expenses, categoryId } = this.props;
 
     return (
-      <ul>
-        <section>
-          <h2>Add An Expense: </h2>
-          <ExpenseForm
-            onComplete={this.handleAddExpense}
-          />
-        </section>
-
-        {expenses &&
+      <Fragment>
+        <ul>
           <section>
-            {expenses.map(expense => {
-              return <Expense
-                key={expense.key}
-                expense={expense}
-                categoryId={categoryId}
-              />;
-            })
-            }
+            <ExpenseForm
+              onComplete={this.handleAddExpense}
+            />
           </section>
-        }
-      </ul>
+
+          {expenses &&
+            <section>
+              {expenses.map(expense => {
+                return <Expense
+                  key={expense.key}
+                  expense={expense}
+                  categoryId={categoryId}
+                />;
+              })
+              }
+            </section>
+          }
+        </ul>
+      </Fragment>
     );
   }
 }

@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { remove } from './actions';
@@ -16,12 +16,14 @@ class CategoryDisplay extends Component {
     const { category, onEdit, remove } = this.props;
 
     return (
-      <p>
-        {category.name}: {category.budget}
-        <button name="edit" onClick={onEdit}>✎</button>
-        <button name="delete" onClick={() => remove(category.key)}>🗑</button>
-        <Expenses categoryId = {category.key}/>
-      </p>
+      <Fragment>
+        <section>
+          {category.name}: {category.budget}
+          <button name="edit" onClick={onEdit}>✎</button>
+          <button name="delete" onClick={() => remove(category.key)}>🗑</button>
+          <Expenses categoryId = {category.key}/>
+        </section>
+      </Fragment>
     );
   }
 }

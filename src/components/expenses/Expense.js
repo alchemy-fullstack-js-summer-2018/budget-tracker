@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import PropTypes from 'prop-types';
 import { update } from './actions';
 import { connect } from 'react-redux';
@@ -37,20 +37,22 @@ class Expense extends Component {
       const { expense, categoryId } = this.props;
 
       return (
-        <li>
-          {editing
-            ? <ExpenseForm
-              expense={expense}
-              onComplete={this.handleComplete}
-              onCancel={this.handleEndEdit}
-              categoryId={categoryId}
-            />
-            : <ExpenseItem
-              expense={expense}
-              onEdit={this.handleEdit}
-            />
-          }
-        </li>
+        <Fragment>
+          <li>
+            {editing
+              ? <ExpenseForm
+                expense={expense}
+                onComplete={this.handleComplete}
+                onCancel={this.handleEndEdit}
+                categoryId={categoryId}
+              />
+              : <ExpenseItem
+                expense={expense}
+                onEdit={this.handleEdit}
+              />
+            }
+          </li>
+        </Fragment>
       );
     }
 }
