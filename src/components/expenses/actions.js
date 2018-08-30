@@ -1,25 +1,24 @@
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_DELETE } from './reducers';
 import shortid from 'shortid';
+import { addExpense, updateExpense, removeExpense } from '../../services/categoriesApi';
 
-export const addExpense = (categoryId, expense) => {
+export const add = (categoryId, expense) => {
   expense.id = shortid.generate();
   expense.timestamp = new Date();
   expense.categoryId = categoryId;
-  return {
+  return ({
     type: EXPENSE_ADD,
-    payload: {
-      categoryId,
-      expense
-    }
-  };
+    payload: 
+      addExpense(expense)
+  });
 };
 
-export const updateExpense = expense => ({
+export const update = expense => ({
   type: EXPENSE_UPDATE,
-  payload: expense
+  payload: updateExpense(expense)
 });
 
-export const removeExpense = expense => ({
+export const remove = expense => ({
   type: EXPENSE_DELETE,
-  payload: expense
+  payload: removeExpense(expense).then(() => expense)
 });

@@ -4,6 +4,7 @@ const URL = 'https://cr-budget.firebaseio.com/';
 const CATEGORIES_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORIES_URL}/${key}.json`;
+const getExpensesUrl = key => `${CATEGORIES_URL}/${key}/expenses`;
 
 const pivot = obj => {
   if(!obj) return [];
@@ -43,3 +44,12 @@ export const removeCategory = key => {
   return del(url);
 };
 
+export const addExpense = expense => {
+  const expenseUrl = getExpensesUrl(expense.categoryId);
+  const url = `${expenseUrl}.json`;
+  return post(url, expense)
+    .then(res => {
+      expense.key = res.name;
+      return expense;
+    });
+};
