@@ -1,6 +1,6 @@
 import { put, post, get, del } from './request';
 
-const URL = 'https://cc-budget-tracker.firebaseio.com/';
+const URL = 'https://cc-budget-tracker.firebaseio.com';
 const CATEGORY_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
