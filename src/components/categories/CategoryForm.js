@@ -6,7 +6,7 @@ class CategoryForm extends Component {
     editing: false,
     key: null,
     name: '',
-    budget: 0,
+    budget: '',
   };
 
   static propTypes = {
@@ -14,7 +14,7 @@ class CategoryForm extends Component {
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func
   };
-
+  
   componentDidMount() {
     const { category } = this.props;
     if(!category) return;
@@ -24,9 +24,9 @@ class CategoryForm extends Component {
   
   handleSubmit = (event) => {
     event.preventDefault();
-    const { name, budget, id } = this.state;
+    const { name, budget, key } = this.state;
     const category = { name, budget };
-    if(id) category.id = id;
+    if(key) category.key = key;
 
     this.props.onComplete(category);
     this.setState({ name: '', budget: '' });
@@ -37,7 +37,7 @@ class CategoryForm extends Component {
   };
 
   render() { 
-    const { id, name, budget } = this.state;
+    const { key, name, budget } = this.state;
     const { onCancel } = this.props;
 
     return (
@@ -45,8 +45,8 @@ class CategoryForm extends Component {
         <InputControl name="name" value={name} onChange={this.handleChange}/>
         <InputControl name="budget" value={budget} onChange={this.handleChange}/>
         <p>
-          <button type="submit">{ id ? 'Update' : 'Add' }</button>
-          {id && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button type="submit">{ key ? 'Update' : 'Add' }</button>
+          {key && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );

@@ -1,10 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import Expenses from '../Expenses/Expenses';
 import { connect } from 'react-redux';
 import { remove } from './actions';
+import Expenses from '../expenses/Expenses';
+import styles from './CategoryDisplay.css';
 
-class CategoryDisplay extends Component {
+
+export class CategoryDisplay extends Component {
+
 
   static propTypes = {
     category: PropTypes.object.isRequired,
@@ -12,21 +15,20 @@ class CategoryDisplay extends Component {
     remove: PropTypes.func.isRequired
   };
 
+
   render() {
     const { category, onEdit, remove } = this.props;
 
     return (
       <div>
-        <section>
-          {/* {category.name} allows you {category.budget} */}
-          <button name="edit" onClick={onEdit}>✎</button>&nbsdiv;
-          <button name="delete" onClick={() => remove(category.id)}>🗑</button>&nbsp;
-          <strong>{category.name}</strong><span>Budget: {category.budget}</span>
-        </section>
+        <section className={styles.categoryDisplay}></section>
 
-        <section>
-          <Expenses categoryId={category.id}/>
-        </section>
+        <strong>{category.name} Budget = ${category.budget}</strong>
+        <br></br>
+        <button name="Edit" onClick={onEdit}>✎</button>
+        <button name="Remove" onClick={() => remove(category.key)}>🗑</button>
+        <hr></hr>
+        <Expenses categoryId={category.key}/>
       </div>
     );
   }

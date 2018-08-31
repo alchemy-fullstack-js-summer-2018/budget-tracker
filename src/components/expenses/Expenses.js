@@ -1,17 +1,20 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import ExpensesForm from './ExpensesForm';
+import { addExpense } from './expenseActions';
+import { getExpensesByCategory } from './expenseReducers';
 import Expense from './Expense';
-import { getExpensesByCategory } from '../categories/reducers';
-import { addExpense } from '../categories/actions';
+import ExpenseForm from './ExpenseForm';
+// import styles from './Expenses.css';
+
 
 class Expenses extends Component {
 
-  static propTypes ={
+  static propTypes = {
     expenses: PropTypes.array,
     categoryId: PropTypes.string,
-    addExpense: PropTypes.func.isRequired
+    addExpense: PropTypes.func,
+    // removeExpense: PropTypes.func.isRequired,
   };
 
   handleAddExpense = expense => {
@@ -19,34 +22,39 @@ class Expenses extends Component {
     addExpense(categoryId, expense);
   };
 
+  // handleRemoveExpense = expense => {
+  //   this.props.removeExpense(expense);
+  // };
+
   render() {
-    const { expenses } = this.props;
+    const { expenses, categoryId } = this.props;
+    console.log('*** expenses disp', expenses);
     if(!expenses) return null;
-
+    
     return (
-      <ul>
+      <div>
         <section>
-          <h3>Add an Expense:</h3>
-          <ExpensesForm onComplete={this.handleAddExpense}/>
+          {expenses.map(expense => <Expense
+            key={expense.id}
+            expense={expense}
+            // onRemove={this.handleRemoveExpense}
+          />)}        
         </section>
 
         <section>
-          {expenses.map(expense => {
-            return <Expense
-              key={expense.id}
-              expense={expense}
-            />;
-          })
-          }
+          <h3>Add Expense</h3>
+          <ExpenseForm onComplete={this.handleAddExpense} categoryId={categoryId}/>
         </section>
-      </ul>
+      </div>
     );
   }
 }
 
 export default connect(
-  (state, { categoryId }) => ({
-    expenses: getExpensesByCategory(state, categoryId)
-  }),
+  (state, { categoryId }) => {
+    return {
+      expenses: getExpensesByCategory(state, categoryId)
+    };
+  },
   { addExpense }
 )(Expenses);

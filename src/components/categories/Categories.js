@@ -2,7 +2,8 @@ import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import Category from './Category';
 
-class Categories extends Component {
+
+export class Categories extends Component {
 
   static propTypes ={
     categories: PropTypes.array
@@ -16,7 +17,7 @@ class Categories extends Component {
       <ul>
         {categories.map(category => (
           <Category
-            key={category.id}
+            key={category.key}
             category={category}
           />
         ))}
