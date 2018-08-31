@@ -1,10 +1,13 @@
 import { createStore, combineReducers } from 'redux';
 import { categories } from '../components/categories/reducers';
 import { getExpenses } from '../components/expenses/reducers';
+import { error, loading } from '../../src/components/app/reducers';
 
 const combined = combineReducers({
   categories,
-  getExpenses
+  getExpenses,
+  error,
+  loading
 });
 
 const store = createStore(
