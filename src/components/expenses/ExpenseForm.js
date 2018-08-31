@@ -4,7 +4,7 @@ import PropTypes from 'prop-types';
 class ExpenseForm extends Component {
 
   state = {
-    id: null,
+    key: null,
     categoryId: '',
     name: '',
     price: '',
@@ -15,7 +15,7 @@ class ExpenseForm extends Component {
     expense: PropTypes.object,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func,
-    categoryKey: PropTypes.string,
+    categoryId: PropTypes.string,
     
   };
 
@@ -32,21 +32,20 @@ class ExpenseForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { categoryKey } = this.props;
-    this.setState({ categoryId: categoryKey });
-  
-    const { id, categoryId, name, price, timestamp } = this.state;
-    const expense = { id, name, categoryId, price, timestamp };
+    const { categoryId } = this.props;
+    // this.setState({ categoryKey: categoryId });
+    const { key, name, price, timestamp } = this.state;
+    const expense = { key, name, categoryId, price, timestamp };
     
-    if(id) expense.id = id;
-    if(!id) expense.categoryId = categoryKey;
-
+    if(key) expense.key = key;
+    if(!key) expense.categoryId = categoryId;
+    
     this.props.onComplete(expense);
     this.setState({ name: '', price: '' });
   };
   
   render() { 
-    const { id, name, price } = this.state;
+    const { key, name, price } = this.state;
     const { onCancel } = this.props;
 
     return (
@@ -54,8 +53,8 @@ class ExpenseForm extends Component {
         <label>Expense name:<input type="text" name="name" value={name} onChange={this.handleChange}></input></label>
         <label>Price:<input type="number" name="price" value={price} onChange={this.handleChange}></input></label>
         <p>
-          <button type="submit">{ id ? 'Update' : 'Add' }</button>
-          {id && <button type="button" onClick={onCancel}>Cancel</button>}
+          <button type="submit">{ key ? 'Update' : 'Add' }</button>
+          {key && <button type="button" onClick={onCancel}>Cancel</button>}
         </p>
       </form>
     );

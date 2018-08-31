@@ -1,25 +1,25 @@
-import { addExpense, updateExpense, removeExpense } from './actions';
+import { add, update, remove } from './actions';
 import { EXPENSE_ADD, EXPENSE_UPDATE, EXPENSE_DELETE } from './reducers';
 
-describe('Expense actions', () => {
+describe.skip('Expense actions', () => {
 
-  it.skip('Adds an expense', () => {
+  it('Adds an expense', () => {
     const expense = { name: 'Snacks', price: 50 };
-    const action = addExpense(expense);
+    const action = add('123', expense);
 
     expect(action).toEqual({ payload: expense, type: EXPENSE_ADD });
   });
 
   it('Updates an expense', () => {
     const expense = { name: 'Snacks & Nuts', price: 70 };
-    const action = updateExpense(expense);
+    const action = update(expense);
 
     expect(action).toEqual({ payload: expense, type: EXPENSE_UPDATE });
   });
 
   it('Removes an expense', () => {
     const expense = { name: 'Snacks', price: 70 };
-    const action = removeExpense(expense);
+    const action = remove(expense);
 
     expect(action).toEqual({ payload: expense, type: EXPENSE_DELETE });
   });
