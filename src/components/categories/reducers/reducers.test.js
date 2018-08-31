@@ -7,12 +7,12 @@ import {
 
 describe('Reducers', () => {
 
-  it('initializes to empty array', () => {
+  it.skip('initializes to empty array', () => {
     const state = categories(undefined, {});
     expect(state).toEqual([]);
   });
 
-  it('loads a category', () => {
+  it.skip('loads a category', () => {
     const payload = [{}, {}, {}];
 
     const state = categories([], {
@@ -23,7 +23,7 @@ describe('Reducers', () => {
     expect(state).toBe(payload);
   });
 
-  it('adds categories', () => {
+  it.skip('adds categories', () => {
     const category1 = { name: 'gas' };
     const category2 = { name: 'rent' };
     const category3 = { name: 'food' };
@@ -36,7 +36,7 @@ describe('Reducers', () => {
     expect(state).toEqual([category1, category2, category3]);
   });
 
-  it('updates a category', () => {
+  it.skip('updates a category', () => {
     const category1 = { key: 'abc123', name: 'gas' };
     const category2 = { key: 'def456', name: 'rent' };
     const category3 = { key: 'ghi789', name: 'food' };
@@ -51,7 +51,7 @@ describe('Reducers', () => {
     expect(state).toEqual([updated, category2, category3]);
   });
 
-  it('removes a category', () => {
+  it.skip('removes a category', () => {
     const category1 = { key: 'abc123', name: 'gas' };
     const category2 = { key: 'def456', name: 'rent' };
     const category3 = { key: 'ghi789', name: 'food' };

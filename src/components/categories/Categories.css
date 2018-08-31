@@ -1,6 +1,5 @@
 :local(.categories) {
 
-  
   h1 {
     color: #2c3e50;
   }
@@ -13,7 +12,16 @@
   
   form {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
+    border: 2px solid red;
+  }
+
+  label {
+    margin: 6px;
+  }
+
+  .form-button {
+    margin: 6px;
   }
   
   .categories {

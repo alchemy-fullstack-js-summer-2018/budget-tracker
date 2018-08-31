@@ -1,23 +1,23 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { removeExpense } from './reducers/expenseActions';
+import PropTypes from 'prop-types';
+import { remove } from './reducers/expenseActions';
 
 class ExpenseItem extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
     onEdit: PropTypes.func,
-    removeExpense: PropTypes.func
+    remove: PropTypes.func
   };
   
   render() { 
-    const { expense, onEdit, removeExpense } = this.props;
+    const { expense, onEdit, remove } = this.props;
 
     return (
       <section className="expense-item">
         <button name="edit" onClick={onEdit}>✏️</button>&nbsp;
-        <button name="delete" onClick={() => removeExpense(expense)}>🗑️</button>&nbsp;
+        <button name="delete" onClick={() => remove(expense)}>🗑️</button>&nbsp;
         <strong>{expense.name}</strong><span className="price">Price: {expense.price}</span>
       </section>
     );
@@ -26,5 +26,5 @@ class ExpenseItem extends Component {
  
 export default connect(
   null,
-  { removeExpense }
+  { remove }
 )(ExpenseItem);

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
 import { load, add, update } from './reducers/actions';
 import CategoryForm from './CategoryForm';
 import Categories from './Categories';

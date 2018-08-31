@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import ExpensesForm from './ExpensesForm';
 import ExpenseItem from './ExpenseItem';
-import { updateExpense } from './reducers/expenseActions';
+import { update } from './reducers/expenseActions';
 
 class Expense extends Component {
 
@@ -13,7 +13,7 @@ class Expense extends Component {
   
   static propTypes = {
     expense: PropTypes.object,
-    updateExpense: PropTypes.func,
+    update: PropTypes.func,
     categoryId: PropTypes.string
   };
 
@@ -22,8 +22,9 @@ class Expense extends Component {
   };
   
   handleComplete = expense => {
-    const { updateExpense } = this.props;
-    updateExpense(expense);
+    const { update } = this.props;
+    
+    update(expense);
     this.handleEndEdit();
   };
   
@@ -57,5 +58,5 @@ class Expense extends Component {
  
 export default connect(
   null,
-  { updateExpense }
+  { update }
 )(Expense);
