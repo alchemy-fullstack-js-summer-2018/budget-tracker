@@ -39,11 +39,11 @@ describe('Categories reducers', () => {
   });
 
   it('Updates a category', () => {
-    const category1 = { key: 'Food', budget: 300 };
-    const category2 = { key: 'Car', budget: 250 };
-    const category3 = { key: 'House', budget: 1200 };
+    const category1 = { id: 'Food', budget: 300 };
+    const category2 = { id: 'Car', budget: 250 };
+    const category3 = { id: 'House', budget: 1200 };
 
-    const updated = { key: 'Car', budget: 350 };
+    const updated = { id: 'Car', budget: 350 };
 
     const state = categories([category1, category2, category3], {
       type: CATEGORY_UPDATE,
