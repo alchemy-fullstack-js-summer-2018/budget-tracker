@@ -6,7 +6,7 @@ class CategoryForm extends PureComponent {
   
   state = {
     name: '',
-    budget: 0,
+    budget: '',
     timestamp: null,
     id: null
   };
@@ -22,11 +22,9 @@ class CategoryForm extends PureComponent {
     event.preventDefault();
     const { name, budget, id, timestamp } = this.state;
     if(!name || !budget) return;
-    const category = { name, budget };
-    if(id) category.id = id;
-    if(timestamp) category.timestamp = timestamp;
+    let category = { name, budget };
+    if(id) category = { ...category, id, timestamp };
     this.props.onComplete(category);
-    if(!id) this.setState({ name: '', budget: 0 });
   };
 
   handleChange = ({ target }) => {
@@ -53,27 +51,30 @@ class CategoryForm extends PureComponent {
 
     return (
       <form className={styles.categoryForm} onSubmit={this.handleSubmit}>
-        <label>
-          Name: &nbsp;
-          <input name="name" value={name} onChange={this.handleChange}/>
-        </label>
-        <label>
-          Amount: &nbsp;
-          <input name="budget" value={budget} onChange={this.handleChange}/>
-        </label>
-        <section>
-          {id &&
-          <span>
-            <button type="button" onClick={onCancel}>Cancel</button>
-            <button type="remove" onClick={this.onDelete}>Delete</button>
-          </span>
-          }
-          <button type="submit">{ id ? 'Save' : 'Add' }</button>
-
+        
+        <section className="inputs">
+          <label>
+            <input name="name" placeholder="Category" value={name} onChange={this.handleChange}/>
+          </label>
+          <label>
+            <input name="budget" type="number" placeholder="Maximum $$$" value={budget} onChange={this.handleChange}/>
+          </label>
         </section>
+        {id &&
+          <button type="remove" onClick={this.onDelete}><i className="far fa-trash-alt" ></i></button>
+        }
+        <button type="button" onClick={onCancel}><i className="fas fa-ban"></i></button>
+        <button type="submit">
+          {id 
+            ? <i className="fas fa-check"></i>
+            : <i className="fas fa-plus"></i>
+          }
+        </button>
       </form>
     );
   }
 }
+
+
  
 export default CategoryForm;

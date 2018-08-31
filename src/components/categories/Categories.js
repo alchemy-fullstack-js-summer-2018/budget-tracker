@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Category from './Category';
 import { load } from './actions';
 import { getCategories } from './reducers';
+import styles from './Categories.css';
 
 export class Categories extends PureComponent {
 
@@ -18,9 +19,10 @@ export class Categories extends PureComponent {
 
   render() { 
     const { categories } = this.props;
-
+    if(!categories) return;
+    
     return ( 
-      <ul>
+      <ul className={styles.categories}>
         {categories.map(category => (
           <Category
             key={category.id}

@@ -19,35 +19,30 @@ class Category extends PureComponent {
   };
 
   toggleEdit = () => {
-    console.log('toggling');
     this.setState(({ editing }) => ({ editing: !editing }));
   };
 
   handleComplete = category => {
-    this.props.update(category);
-    this.toggleEdit();
-  };
-
-  handleRemove = id => {
-    this.props.remove(id);
-    this.toggleEdit();
+    const { update } = this.props;
+    return update(category)
+      .then(() => this.toggleEdit());
   };
 
   render() { 
-    const { category } = this.props;
+    const { category, remove } = this.props;
     const { editing } = this.state;
 
     return (
       <li className={styles.category}>
-        {editing
-          ? <CategoryForm
+        {editing &&
+          <CategoryForm
             category={category}
             onComplete={this.handleComplete}
-            onRemove={this.handleRemove}
+            onRemove={remove}
             onCancel={this.toggleEdit}
           />
-          : <CategoryItem category={category} onEdit={this.toggleEdit}/>
         }
+        <CategoryItem category={category} onEdit={this.toggleEdit}/>
       </li>
     );
   }

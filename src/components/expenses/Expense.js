@@ -19,18 +19,16 @@ class Expense extends PureComponent {
   };
 
   toggleEdit = () => {
-    console.log('toggling');
     this.setState(({ editing }) => ({ editing: !editing }));
   };
 
   handleComplete = expense => {
-    this.props.update(expense);
-    this.toggleEdit();
+    return this.props.update(expense)
+      .then(() => this.toggleEdit());
   };
 
-  handleRemove = id => {
-    this.props.remove(id);
-    this.toggleEdit();
+  handleRemove = expense => {
+    this.props.remove(expense);
   };
 
   render() { 
