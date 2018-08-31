@@ -6,8 +6,6 @@ export const add = (expense, categoryId) => {
   expense.id = shortid.generate();
   expense.timestamp = new Date();
   expense.categoryId = categoryId;
-  console.log('HEYEYEYEYYE', categoryId);
-  console.log('yoyoyoyooyoy', expense);
   return {
     type: EXPENSE_ADD,
     payload: addExpense(expense)

@@ -5,11 +5,12 @@ import {
   CATEGORY_REMOVE
 } from './reducers';
 import shortid from 'shortid';
+import { loadCategories } from '../../services/budgetApi';
 // import data from '../categories/categories-data.js';
 
 export const load = () => ({
   type: CATEGORY_LOAD,
-  payload: data
+  payload: loadCategories()
 
 });
 
