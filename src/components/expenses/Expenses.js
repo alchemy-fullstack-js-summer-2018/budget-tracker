@@ -31,7 +31,7 @@ class Expenses extends Component {
         <section>
           { expenses.map(expense => {
             return <Expense 
-              key={expense.id}
+              key={expense.key}
               expense={expense}
               // categoryId={categoryId}
             />;

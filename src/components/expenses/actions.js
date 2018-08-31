@@ -21,5 +21,5 @@ export const update = expense => {
 
 export const remove = expense => ({
   type: EXPENSE_DELETE,
-  payload: removeExpense(expense.categoryId, expense.id).then(() => expense)
+  payload: removeExpense(expense.categoryId, expense.key).then(() => expense)
 });

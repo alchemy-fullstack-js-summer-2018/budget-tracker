@@ -19,7 +19,7 @@ class CategoryDisplay extends Component {
         <section>
           <strong>{category.name}</strong> budget is <strong>${category.budget}</strong>
           <button name="edit" onClick={onEdit}>✎</button>
-          <button name="delete" onClick={() => remove(category.id)}>🗑</button>
+          <button name="delete" onClick={() => remove(category.key)}>🗑</button>
         </section>
 
         <section>
