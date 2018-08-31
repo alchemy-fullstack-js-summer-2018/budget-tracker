@@ -37,7 +37,7 @@ class ExpenseForm extends Component {
 
     render() {
       const { id, name, amount } = this.state;
-      const { onCancel } = this.props;
+      const { onCancel, categoryId } = this.props;
 
       return (
         <Fragment>
@@ -45,7 +45,7 @@ class ExpenseForm extends Component {
             <label>Expense:<input type="text" name="name" value= {name} onChange={this.handleChange}></input></label>
             <label>Amount:<input type="number" name="amount" value= {amount} onChange={this.handleChange}></input></label>
             <button type="submit">{ id ? 'Update' : 'Add' }</button>
-            {id && <button type="button" onClick={onCancel}>X</button>}
+            {categoryId && <button type="button" onClick={onCancel}>X</button>}
           </form>
         </Fragment>
       );

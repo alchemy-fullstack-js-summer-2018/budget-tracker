@@ -15,9 +15,9 @@ class Expenses extends Component {
   };
 
   handleAddExpense = (expense) => {
-    const { add, categoryId } = this.props;
+    const { add } = this.props;
 
-    add({ ...expense }, categoryId);
+    add({ ...expense });
   };
 
   render() {

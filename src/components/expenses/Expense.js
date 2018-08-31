@@ -23,7 +23,7 @@ class Expense extends Component {
 
     handleComplete = expense => {
       const { update } = this.props;
-
+      
       update(expense);
       this.handleEndEdit();
     };

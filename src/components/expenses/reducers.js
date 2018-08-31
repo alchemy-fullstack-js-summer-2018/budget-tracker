@@ -15,10 +15,7 @@ export function expensesByCategory(state = [], { type, payload }) {
         return map;
       }, []);
     case CATEGORY_ADD:
-      return [
-        // ...state,
-        // payload.key
-      ];
+      return [];
     case CATEGORY_REMOVE: {
       delete state[payload];
       return state;

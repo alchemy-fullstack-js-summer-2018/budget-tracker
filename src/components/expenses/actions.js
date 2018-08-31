@@ -3,7 +3,7 @@ import { addExpense, updateExpense, removeExpense } from '../../services/budgetA
 import shortid from 'shortid';
 
 export const add = (categoryId, expense) => {
-  expense.key = shortid.generate();
+  expense.id = shortid.generate();
   expense.timestamp = new Date();
   expense.categoryId = categoryId;
   return {
