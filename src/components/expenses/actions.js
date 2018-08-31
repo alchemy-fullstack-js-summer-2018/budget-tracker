@@ -15,7 +15,7 @@ export const add = expense => {
 export const update = expense => {
   return ({
     type: EXPENSE_UPDATE,
-    payload: updateExpense(expense.categoryId, expense)
+    payload: updateExpense(expense)
   });
 };
 
