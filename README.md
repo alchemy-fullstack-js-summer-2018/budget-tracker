@@ -18,3 +18,5 @@ Forked from [alchemy-fullstack-js-summer-2018/budget-tracker](https://github.com
 
 ----------------
 React, Redux, Firebase 
+
+Lab 1, 2, and 3

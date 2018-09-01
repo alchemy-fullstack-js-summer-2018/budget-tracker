@@ -11,17 +11,18 @@ export function expensesByCategory(state = [], { type, payload }) {
   switch(type) {
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.id] = category.expense;
+        map[category.key] = category.expenses;
         return map;
-      }, []);
+      }, {});
     case CATEGORY_ADD:
       return  {
         ...state,
         [payload.key]: []
       };
     case CATEGORY_REMOVE: {
-      delete state[payload];
-      return state;
+      const copy = { ...state };
+      delete copy[payload];
+      return copy;
     }
     case EXPENSE_ADD:
       return {
@@ -34,7 +35,7 @@ export function expensesByCategory(state = [], { type, payload }) {
     case EXPENSE_UPDATE:
       return {
         ...state,
-        [payload.categoryId]: state[payload.CategoryId].map(expense => expense.key === payload.key ? payload : expense)
+        [payload.categoryId]: state[payload.categoryId].map(expense => expense.id === payload.id ? payload : expense)
       };
     case EXPENSE_REMOVE:
       return {
