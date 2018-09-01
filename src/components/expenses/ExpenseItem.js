@@ -6,9 +6,9 @@ import { remove } from './actions';
 class ExpenseItem extends Component {
 
   static propTypes = {
-    expense: PropTypes.object.isRequired,
-    onEdit: PropTypes.func.isRequired,
-    remove: PropTypes.func.isRequired
+    expense: PropTypes.object,
+    onEdit: PropTypes.func,
+    remove: PropTypes.func
   };
 
   render() {
