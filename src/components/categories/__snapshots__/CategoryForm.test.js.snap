@@ -1,0 +1,314 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Category form Renders add if no category prop 1`] = `
+<CategoryForm
+  onComplete={[MockFunction]}
+>
+  <form
+    className="categoryForm"
+    onSubmit={[Function]}
+  >
+    <InputControl
+      name="name"
+      onChange={[Function]}
+      value=""
+    >
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
+          name
+          :
+          <input
+            name="name"
+            onChange={[Function]}
+            required={true}
+            value=""
+          />
+        </label>
+      </p>
+    </InputControl>
+    <InputControl
+      name="budget"
+      onChange={[Function]}
+      type="number"
+      value=""
+    >
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
+          budget
+          :
+          <input
+            name="budget"
+            onChange={[Function]}
+            required={true}
+            type="number"
+            value=""
+          />
+        </label>
+      </p>
+    </InputControl>
+    <p>
+      <button
+        className="add-update-button"
+        type="submit"
+      >
+        Add
+      </button>
+    </p>
+  </form>
+</CategoryForm>
+`;
+
+exports[`Category form Renders add if no category prop 2`] = `
+<CategoryForm
+  onComplete={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "budget": 5000,
+            "name": "Car",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": Promise {},
+        },
+      ],
+    }
+  }
+>
+  <form
+    className="categoryForm"
+    onSubmit={[Function]}
+  >
+    <InputControl
+      name="name"
+      onChange={[Function]}
+      value="Car"
+    >
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
+          name
+          :
+          <input
+            name="name"
+            onChange={[Function]}
+            required={true}
+            value="Car"
+          />
+        </label>
+      </p>
+    </InputControl>
+    <InputControl
+      name="budget"
+      onChange={[Function]}
+      type="number"
+      value={5000}
+    >
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
+          budget
+          :
+          <input
+            name="budget"
+            onChange={[Function]}
+            required={true}
+            type="number"
+            value={5000}
+          />
+        </label>
+      </p>
+    </InputControl>
+    <p>
+      <button
+        className="add-update-button"
+        type="submit"
+      >
+        Add
+      </button>
+    </p>
+  </form>
+</CategoryForm>
+`;
+
+exports[`Category form Renders add if no category prop 3`] = `
+<CategoryForm
+  onComplete={
+    [MockFunction] {
+      "calls": Array [
+        Array [
+          Object {
+            "budget": 5000,
+            "name": "Car",
+          },
+        ],
+      ],
+      "results": Array [
+        Object {
+          "isThrow": false,
+          "value": Promise {},
+        },
+      ],
+    }
+  }
+>
+  <form
+    className="categoryForm"
+    onSubmit={[Function]}
+  >
+    <InputControl
+      name="name"
+      onChange={[Function]}
+      value=""
+    >
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
+          name
+          :
+          <input
+            name="name"
+            onChange={[Function]}
+            required={true}
+            value=""
+          />
+        </label>
+      </p>
+    </InputControl>
+    <InputControl
+      name="budget"
+      onChange={[Function]}
+      type="number"
+      value=""
+    >
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
+          budget
+          :
+          <input
+            name="budget"
+            onChange={[Function]}
+            required={true}
+            type="number"
+            value=""
+          />
+        </label>
+      </p>
+    </InputControl>
+    <p>
+      <button
+        className="add-update-button"
+        type="submit"
+      >
+        Add
+      </button>
+    </p>
+  </form>
+</CategoryForm>
+`;
+
+exports[`Category form Renders edit if there is category prop 1`] = `
+<CategoryForm
+  category={
+    Object {
+      "budget": 5000,
+      "key": "abc",
+      "name": "car",
+    }
+  }
+  onCancel={[MockFunction]}
+  onComplete={[MockFunction]}
+>
+  <form
+    className="categoryForm"
+    onSubmit={[Function]}
+  >
+    <InputControl
+      name="name"
+      onChange={[Function]}
+      value="car"
+    >
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
+          name
+          :
+          <input
+            name="name"
+            onChange={[Function]}
+            required={true}
+            value="car"
+          />
+        </label>
+      </p>
+    </InputControl>
+    <InputControl
+      name="budget"
+      onChange={[Function]}
+      type="number"
+      value={5000}
+    >
+      <p
+        className="category-p"
+      >
+        <label
+          className="category-l"
+        >
+          budget
+          :
+          <input
+            name="budget"
+            onChange={[Function]}
+            required={true}
+            type="number"
+            value={5000}
+          />
+        </label>
+      </p>
+    </InputControl>
+    <p>
+      <button
+        className="add-update-button"
+        type="submit"
+      >
+        Update
+      </button>
+      <button
+        className="cancel-button"
+        onClick={[MockFunction]}
+        type="button"
+      >
+        Cancel
+      </button>
+    </p>
+  </form>
+</CategoryForm>
+`;
