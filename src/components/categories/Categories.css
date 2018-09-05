@@ -1,4 +1,5 @@
 :local(.categories) {
-  align-content: center;
+  display: flex;
+  justify-content: center;
   list-style: none;
 }

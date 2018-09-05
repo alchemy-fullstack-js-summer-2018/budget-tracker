@@ -3,7 +3,8 @@ import PropTypes from 'prop-types';
 import Category from './Category';
 import styles from './Categories.css';
 
-class Categories extends Component {
+
+export class Categories extends Component {
 
   static propTypes = {
     categories: PropTypes.array

@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import Expense from './Expense';
 import ExpenseForm from './ExpenseForm';
 import { getExpensesByCategory } from './ExpenseReducers';
+import styles from './Expenses.css';
 import { add } from './ExpenseActions';
 
 class Expenses extends Component {
@@ -11,7 +12,7 @@ class Expenses extends Component {
   static propTypes = {
     expenses: PropTypes.array,
     categoryId: PropTypes.string,
-    add: PropTypes.func.isRequired
+    add: PropTypes.func
   };
 
   handleAddExpense = expense => {
@@ -31,8 +32,9 @@ class Expenses extends Component {
             expense={expense}
           />)}
         </section>  
+        
         <section>
-          <h2>Add an Expense</h2>
+          <h2 className={styles.Expenses}>Add an Expense</h2>
           <ExpenseForm onComplete={this.handleAddExpense} categoryId={categoryId}/>
         </section>   
       </div>

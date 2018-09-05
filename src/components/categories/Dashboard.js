@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import Categories from './Categories';
 import CategoryForm from './CategoryForm';
+import styles from './Dashboard.css';
+
 import { load, add } from './actions';
 import { getCategories } from './reducers';
 
@@ -22,7 +24,7 @@ class Dashboard extends Component {
     const { categories, add } = this.props;
 
     return (
-      <div>
+      <div className={styles.dashboard}>
         <section>
           <h3>Add a Category</h3>
           <CategoryForm onComplete={add}/>
@@ -41,7 +43,6 @@ class Dashboard extends Component {
   }
 }
  
-
 export default connect(
   state => ({
     categories: getCategories(state)

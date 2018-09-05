@@ -5,7 +5,8 @@ import { remove } from './actions';
 import Expenses from './expenses/Expenses';
 import styles from './CategoryDisplay.css';
 
-class CategoryDisplay extends Component {
+
+export class CategoryDisplay extends Component {
 
   static propTypes = {
     category: PropTypes.object.isRequired,
@@ -17,16 +18,12 @@ class CategoryDisplay extends Component {
     const { category, onEdit, remove } = this.props;
 
     return (
-      <div className="cf-bullet">
+      <div>
         <section className={styles.categoryDisplay}>
           <strong>{category.name} Budget</strong>: ${category.budget}
           <button name="Edit" onClick={onEdit}>✎</button> 
           <button name="Delete" onClick={() => remove(category.key)}>🗑</button>
-          
-        </section>
-        <Expenses categoryId={category.key}/>
-        <section>
-
+          <Expenses categoryId={category.key}/>
         </section>
       </div>
     );

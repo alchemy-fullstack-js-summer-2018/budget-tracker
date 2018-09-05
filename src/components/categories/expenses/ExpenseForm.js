@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './ExpenseForm.css';
 
 class ExpenseForm extends Component {
 
@@ -12,9 +13,9 @@ class ExpenseForm extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
+    categoryId: PropTypes.string,
     onComplete: PropTypes.func.isRequired,
     onCancel: PropTypes.func,
-    categoryId: PropTypes.string
   };
 
   componentDidMount() {
@@ -29,7 +30,7 @@ class ExpenseForm extends Component {
     const { name, price, id } = this.state;
     const expense = { name, price };
     if(id) expense.id = id;
-    if(this.props.categoryId) expense.categoryId = this.props.categoryId;
+    if(this.props.expense) expense.categoryId = this.props.expense.categoryId;
 
     this.props.onComplete(expense);
     this.setState({ name: '', price: '' });
@@ -44,7 +45,7 @@ class ExpenseForm extends Component {
     const { onCancel } = this.props;
 
     return (
-      <form className="expense-form" onSubmit={this.handleSubmit}>
+      <form className={styles.expenseForm} onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
         <InputControl name="price" value={price} type="number" onChange={this.handleChange}/>
         <p>

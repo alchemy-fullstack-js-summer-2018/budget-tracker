@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import styles from './CategoryForm.css';
+
 
 class CategoryForm extends Component {
 
   state = {
     editing: false,
-    id: null,
+    key: null,
     name: '',
     budget: '',
   };
@@ -29,8 +31,18 @@ class CategoryForm extends Component {
     const category = { name, budget };
     if(key) category.key = key;
 
-    this.props.onComplete(category);
-    this.setState({ name: '', budget: '' });
+    const { onComplete, category: originalCategory } = this.props;
+
+    onComplete(category)
+      .then(() => {
+        if(!originalCategory) {
+          this.setState({ name: '', budget: '' });
+          document.activeElement.blur();
+        }
+      })
+      .catch(err => {
+        this.setState({ error: err });
+      });
   };
 
   handleChange = ({ target }) => {
@@ -42,7 +54,7 @@ class CategoryForm extends Component {
     const { onCancel } = this.props;
 
     return (
-      <form className="category-form" onSubmit={this.handleSubmit}>
+      <form className={styles.categoryForm} onSubmit={this.handleSubmit}>
         <InputControl name="name" value={name} onChange={this.handleChange}/>
         <InputControl name="budget" value={budget} type="number" onChange={this.handleChange}/>
         <p>

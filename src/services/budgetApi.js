@@ -1,12 +1,11 @@
-
 import { put, post, get, del } from './request';
 
-const URL = 'https://notes-5f0ae.firebaseio.com/';
+const URL = 'https://notes-5f0ae.firebaseio.com';
 const CATEGORY_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
 
-export const getCategories = () => {
+export const loadCategories = () => {
   return get(`${CATEGORY_URL}.json`)
     .then(response => {
       return response
@@ -20,6 +19,10 @@ export const getCategories = () => {
 };
 
 export const addCategory =  (category) => {
+  if(category.name === 'van') {
+    return Promise.reject('Unreasonable Category');
+  }
+
   const url = `${CATEGORY_URL}.json`;
   return post(url, category)
     .then(res => {
@@ -29,11 +32,36 @@ export const addCategory =  (category) => {
 };
 
 export const updateCategory = category => {
+  //eslint-disable-next-line
+  const { key, ...copy } = category;
   const url = getCategoryUrl(category.key);
-  return put(url, category);
+  return put(url, copy);
 };
 
 export const removeCategory = id => {
   const url = getCategoryUrl(id);
   return del(url);
 };
+
+export const addExpenseToCategory = (categoryId, expense) => {
+  const url = `${CATEGORY_URL}/${categoryId}/expenses.json`;
+  return post(url, expense)
+    .then(res => {
+      expense.id = res.name;
+      return expense;
+    });
+};
+export const updateExpenseCategory = (categoryId, expense) => {
+  const url = `${CATEGORY_URL}/${categoryId}/expenses/${expense.id}.json`;
+  return put(url, expense)
+    .then(res => {
+      categoryId = res.name;
+      return expense;
+    });
+};
+
+export const removeExpenseCategory = (categoryId, expenseKey) => {
+  const url = `${CATEGORY_URL}/${categoryId}/expenses/${expenseKey}.json`;
+  return del(url, expenseKey);
+};
+
