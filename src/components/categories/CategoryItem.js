@@ -23,7 +23,7 @@ class CategoryDisplay extends Component {
         </section>
 
         <section>
-          <Expenses categoryId={category.id}/> 
+          <Expenses categoryId={category.key}/> 
         </section>
       </div>
       

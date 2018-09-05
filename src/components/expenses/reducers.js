@@ -10,14 +10,14 @@ export function expensesByCategory(state = [], { type, payload }) {
   switch(type) {
     case CATEGORY_LOAD:
       return payload.reduce((map, category) => {
-        map[category.id] = category.expenses;
+        map[category.key] = category.expenses;
         return map;
       }, {});
 
     case CATEGORY_ADD:
       return {
         ...state,
-        [payload.id]: []
+        [payload.key]: []
       };
 
     case CATEGORY_REMOVE: {
@@ -31,14 +31,14 @@ export function expensesByCategory(state = [], { type, payload }) {
         ...state,
         [payload.categoryId]: [
           ...state[payload.categoryId],
-          payload.expense
+          payload
         ]
       };
     }
 
     case EXPENSE_UPDATE: {
       const copy = { ...state };
-      const update = copy[payload.categoryId].map(expense => expense.id === payload.id ? payload : expense);
+      const update = copy[payload.categoryId].map(expense => expense.key === payload.key ? payload : expense);
       copy[payload.categoryId] = update;
       return copy;
     }
@@ -47,7 +47,7 @@ export function expensesByCategory(state = [], { type, payload }) {
     
     case EXPENSE_DELETE: {
       const copy = { ...state };
-      const update = copy[payload.categoryId].filter(expense => expense.id !== payload.id);
+      const update = copy[payload.categoryId].filter(expense => expense.key !== payload.key);
       copy[payload.categoryId] = update;
       return copy;
     }
