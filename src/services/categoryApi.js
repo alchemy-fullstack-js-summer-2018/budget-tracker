@@ -5,16 +5,6 @@ const CATEGORY_URL = `${URL}/categories`;
 
 const getCategoryUrl = key => `${CATEGORY_URL}/${key}.json`;
 
-// const pivot = obj => {
-//   if(!obj) return [];
-
-//   return Object.keys(obj).map(key => {
-//     const each = obj[key];
-//     each.key = key;
-//     return each;
-//   });
-// };
-
 export const loadCategories = () => {
   return get(`${CATEGORY_URL}.json`)
     .then(response => {
@@ -42,10 +32,8 @@ export const addCategory =  (category) => {
 };
 
 export const updateCategory = category => {
-  //eslint-disable-next-line
-  const { key, ...copy } = category;
   const url = getCategoryUrl(category.key);
-  return put(url, copy);
+  return put(url, category);
 };
 
 export const removeCategory = id => {
