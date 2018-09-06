@@ -20,7 +20,8 @@ class ExpenseForm extends Component {
   };
 
   componentDidMount() {
-    const { expense } = this.props;
+    const { expense, categoryId } = this.props;
+    this.setState({ categoryId });
     if(!expense) return;
     this.setState(expense);
   }
@@ -32,16 +33,10 @@ class ExpenseForm extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
 
-    const { categoryId } = this.props;
-    // this.setState({ categoryKey: categoryId });
-    const { key, name, price, timestamp } = this.state;
-    const expense = { key, name, categoryId, price, timestamp };
-    
-    if(key) expense.key = key;
-    if(!key) expense.categoryId = categoryId;
-    
-    this.props.onComplete(expense);
-    this.setState({ name: '', price: '' });
+    const { onComplete } = this.props;
+
+    onComplete(this.state);
+    this.setState({ name: '', price: 0 });
   };
   
   render() { 

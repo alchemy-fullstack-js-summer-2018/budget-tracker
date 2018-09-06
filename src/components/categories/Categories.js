@@ -10,7 +10,6 @@ class Categories extends Component {
 
   render() { 
     const { categories } = this.props;
-    console.log('Cat', categories);
     if(!categories) return null;
     
     return (
