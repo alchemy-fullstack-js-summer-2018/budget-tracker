@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import { update } from './actions';
+import { update, remove } from './actions';
 import ExpenseDisplay from './ExpenseDisplay';
 import ExpenseForm from './ExpenseForm';
+import styles from './Expense.css';
 
 class Expense extends Component {
 
@@ -13,7 +14,8 @@ class Expense extends Component {
 
   static propTypes = {
     expense: PropTypes.object,
-    update: PropTypes.func
+    update: PropTypes.func,
+    remove: PropTypes.func
   };
 
   handleEdit = () => {
@@ -24,30 +26,34 @@ class Expense extends Component {
     this.setState({ editing: false });
   };
 
+  handleToggle = () => {
+    this.setState(({ editing }) => ({ editing: !editing }));
+  };
+
   handleComplete = (expense) => {
     const { update } = this.props;
     update(expense);
-    this.handleEndEdit();
+    this.handleToggle();
   };
 
   render() {
-    const { expense } = this.props;
+    const { expense, remove } = this.props;
     const { editing } = this.state;
 
     return (
-      <li>
+      <li className={styles.expense}>
         {editing
           ? <ExpenseForm
             expense={expense}
             onComplete={this.handleComplete}
-            onCancel={this.handleEndEdit}
+            onCancel={this.handleToggle}
+            remove={remove}
           />
           : <ExpenseDisplay
             expense={expense}
-            onEdit={this.handleEdit}
+            onEdit={this.handleToggle}
           />
-        }
-       
+        } 
       </li>
     );
   }
@@ -55,5 +61,5 @@ class Expense extends Component {
 
 export default connect(
   null,
-  { update }
+  { update, remove }
 )(Expense);
