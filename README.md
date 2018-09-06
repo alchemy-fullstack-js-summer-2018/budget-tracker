@@ -12,6 +12,11 @@ Requires Node v10 or later.
 * To test, run `npm test`. 
 
 
-## Acknowledgment 
+## Acknowledgment
 This is a project completed for the Alchemy Code Lab Career Track.
-Forked from[alchemy-fullstack-js-summer-2018/budget-tracker](https://github.com/alchemy-fullstack-js-summer-2018/budget-tracker)
+Forked from [alchemy-fullstack-js-summer-2018/budget-tracker](https://github.com/alchemy-fullstack-js-summer-2018/budget-tracker)
+
+----------------
+React, Redux, Firebase
+
+Lab 1, 2, and 3

@@ -4,9 +4,7 @@ import PropTypes from 'prop-types';
 class CategoryForm extends Component {
 
   state = {
-    editing: false,
     key: null,
-    timestamp: new Date(),
     name: '',
     budget: 0
   };
@@ -26,13 +24,13 @@ class CategoryForm extends Component {
 
   handleSubmit = (event) => {
     event.preventDefault();
-    const { key, name, budget, timestamp } = this.state;
-    const category = { name, budget, timestamp }
+    const { key, name, budget } = this.state;
+    const category = { name, budget }
 ;
     if(key) category.key = key;
 
     this.props.onComplete(category);
-    this.setState({ name: '', budget: '', timestamp: '' });
+    this.setState({ name: '', budget: 0 });
   };
 
   handleChange = ({ target }) => {
